@@ -70,7 +70,7 @@ public class PanelRound extends JPanel {
         repaint();
     }
 
-    private int radius = 30;
+    private int radius = 20;
     private int roundTopLeft = 0;
     private int roundTopRight = 0;
     private int roundBottomLeft = 0;
