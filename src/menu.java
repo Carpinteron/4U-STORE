@@ -1,4 +1,6 @@
 
+import AdminFrames.PrincipalAD;
+import ClienteFrames.PrincipalCL;
 import java.awt.Color;
 
 
@@ -31,6 +33,11 @@ public class menu extends javax.swing.JFrame {
         panelRound1.setBackground(new java.awt.Color(204, 204, 255));
 
         panelRound2.setBackground(new java.awt.Color(162, 162, 249));
+        panelRound2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                panelRound2MouseClicked(evt);
+            }
+        });
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICons/cliente190.png"))); // NOI18N
 
@@ -62,6 +69,11 @@ public class menu extends javax.swing.JFrame {
         );
 
         panelRound3.setBackground(new java.awt.Color(162, 162, 249));
+        panelRound3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                panelRound3MouseClicked(evt);
+            }
+        });
 
         jLabel4.setFont(new java.awt.Font("Showcard Gothic", 0, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
@@ -78,7 +90,7 @@ public class menu extends javax.swing.JFrame {
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(22, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRound3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
                 .addComponent(jLabel4)
                 .addGap(51, 51, 51))
         );
@@ -146,6 +158,18 @@ public class menu extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         System.exit(0);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void panelRound3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelRound3MouseClicked
+        PrincipalAD AD = new PrincipalAD();
+        this.dispose();
+        AD.setVisible(true);
+    }//GEN-LAST:event_panelRound3MouseClicked
+
+    private void panelRound2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelRound2MouseClicked
+        PrincipalCL CL = new PrincipalCL();
+        this.dispose();
+        CL.setVisible(true);
+    }//GEN-LAST:event_panelRound2MouseClicked
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
