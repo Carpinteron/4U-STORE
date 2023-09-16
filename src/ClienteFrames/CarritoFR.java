@@ -6,9 +6,8 @@ import java.awt.Color;
 public class CarritoFR extends javax.swing.JFrame {
 
     public CarritoFR() {
-         setUndecorated(true);
+        setUndecorated(true);
         setBackground(new Color(0,0,0,0));
-        setLocationRelativeTo(null);
         initComponents();
     }
 

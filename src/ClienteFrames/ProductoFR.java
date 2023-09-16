@@ -11,6 +11,8 @@ public class ProductoFR extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         initComponents();
     }
+    
+   
 
 
     @SuppressWarnings("unchecked")
@@ -52,17 +54,17 @@ public class ProductoFR extends javax.swing.JFrame {
             panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRound1Layout.createSequentialGroup()
                 .addComponent(panelRound2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 1063, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 1075, Short.MAX_VALUE)
                 .addComponent(BtnExit)
-                .addGap(27, 27, 27))
+                .addGap(15, 15, 15))
         );
         panelRound1Layout.setVerticalGroup(
             panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelRound1Layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addComponent(BtnExit)
-                .addContainerGap(647, Short.MAX_VALUE))
             .addComponent(panelRound2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(panelRound1Layout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addComponent(BtnExit)
+                .addContainerGap(661, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
