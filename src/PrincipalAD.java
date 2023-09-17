@@ -355,11 +355,11 @@ public class PrincipalAD extends javax.swing.JFrame {
                 {"Vinilo Taylor Swift", "17", "Vinilo", "Taylor Swift", ""},
                 {"Gorra Taylor Swift", "17", "Gorra", "Taylor Swift", ""},
                 //SECCION LOUIS
-                {"Camiseta Louis", "13", "Camiseta", "Louis Tomilson", ""},
-                {"CD Louis", "8", "CD", "Louis Tomilson", ""},
-                {"Gorra Louis", "8", "Gorra", "Louis Tomilson", ""},
-                {"Llavero Louis", "8", "Llavero", "Louis Tomilson", ""},
-                {"Vinilo Louis", "8", "Vinilo", "Louis Tomilson", ""},
+                {"Camiseta Louis", "13", "Camiseta", "Louis Tomlinson", ""},
+                {"CD Louis", "8", "CD", "Louis Tomlinson", ""},
+                {"Gorra Louis", "8", "Gorra", "Louis Tomlinson", ""},
+                {"Llavero Louis", "8", "Llavero", "Louis Tomlinson", ""},
+                {"Vinilo Louis", "8", "Vinilo", "Louis Tomlinson", ""},
                 //SECCION IMEGINE DRAGONS
                 {"Camiseta Imagine D", "24", "Camiseta", "Imagine Dragons", ""},
                 {"CD Imagine", "5", "CD", "Imagine Dragons", ""},
