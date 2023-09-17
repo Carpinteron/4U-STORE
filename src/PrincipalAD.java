@@ -554,8 +554,8 @@ public class PrincipalAD extends javax.swing.JFrame {
    
     private void BtnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSalirActionPerformed
         perfilesFR menu=new perfilesFR();
-        this.dispose();
         menu.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_BtnSalirActionPerformed
 
     private void BtnGraficsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnGraficsActionPerformed

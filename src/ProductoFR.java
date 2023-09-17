@@ -95,8 +95,8 @@ public class ProductoFR extends javax.swing.JFrame {
 
     private void BtnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSalirActionPerformed
         perfilesFR menu = new perfilesFR();
-        this.dispose();
         menu.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_BtnSalirActionPerformed
 
     public static void main(String args[]) {

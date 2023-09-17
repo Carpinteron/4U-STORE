@@ -48,6 +48,11 @@ public class CarritoFR extends javax.swing.JFrame {
         });
 
         jButton1.setText("Explore");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         BtnCarrito.setText("Carrito");
 
@@ -132,9 +137,15 @@ public class CarritoFR extends javax.swing.JFrame {
 
     private void BtnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSalirActionPerformed
         perfilesFR menu=new perfilesFR();
-        this.dispose();
         menu.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_BtnSalirActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        PrincipalCL cl=new PrincipalCL();
+        cl.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
