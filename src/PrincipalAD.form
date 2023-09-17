@@ -302,12 +302,13 @@
             <Component class="javax.swing.JComboBox" name="jcCategoria">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="5">
+                  <StringArray count="6">
                     <StringItem index="0" value="Seleccionar categoria"/>
                     <StringItem index="1" value="Camiseta"/>
-                    <StringItem index="2" value="CD"/>
-                    <StringItem index="3" value="Vinilo"/>
-                    <StringItem index="4" value="Llavero"/>
+                    <StringItem index="2" value="Gorra"/>
+                    <StringItem index="3" value="CD"/>
+                    <StringItem index="4" value="Vinilo"/>
+                    <StringItem index="5" value="Llavero"/>
                   </StringArray>
                 </Property>
               </Properties>

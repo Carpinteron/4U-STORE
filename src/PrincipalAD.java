@@ -152,7 +152,7 @@ public class PrincipalAD extends javax.swing.JFrame {
         });
         panelRound1.add(BTNAgregar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 65, -1, -1));
 
-        jcCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar categoria", "Camiseta", "CD", "Vinilo", "Llavero" }));
+        jcCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar categoria", "Camiseta", "Gorra", "CD", "Vinilo", "Llavero" }));
         jcCategoria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jcCategoriaActionPerformed(evt);
@@ -465,14 +465,6 @@ public class PrincipalAD extends javax.swing.JFrame {
             fieldPrecio.setEnabled(true);
 
             switch (categoria) {
-                case "CD":
-                    labelD.setText("Álbum");
-                    DefaultComboBoxModel<String> comboBoxModel2 = new DefaultComboBoxModel<>();
-                    comboBoxModel2.addElement("Seleccionar álbum");
-                    ALBUMES_ARTISTAS.get(artista).forEach(comboBoxModel2::addElement);
-                    jcSubcategoria.setModel(comboBoxModel2);
-                    break;
-
                 case "Camiseta":
                     labelD.setText("Talla");
                     DefaultComboBoxModel<String> comboBoxModel = new DefaultComboBoxModel<>();
@@ -484,7 +476,13 @@ public class PrincipalAD extends javax.swing.JFrame {
                     comboBoxModel.addElement("XL");
                     jcSubcategoria.setModel(comboBoxModel);
                     break;
-
+                case "CD":
+                    labelD.setText("Álbum");
+                    DefaultComboBoxModel<String> comboBoxModel2 = new DefaultComboBoxModel<>();
+                    comboBoxModel2.addElement("Seleccionar álbum");
+                    ALBUMES_ARTISTAS.get(artista).forEach(comboBoxModel2::addElement);
+                    jcSubcategoria.setModel(comboBoxModel2);
+                    break;
                 case "Vinilo":
                     labelD.setText("Álbum");
                     DefaultComboBoxModel<String> comboBoxModel3 = new DefaultComboBoxModel<>();
@@ -492,8 +490,24 @@ public class PrincipalAD extends javax.swing.JFrame {
                     ALBUMES_ARTISTAS.get(artista).forEach(comboBoxModel3::addElement);
                     jcSubcategoria.setModel(comboBoxModel3);
                     break;
+                 case "Gorra":
+                    labelD.setText("Tipo");
+                    DefaultComboBoxModel<String> comboBoxModel4 = new DefaultComboBoxModel<>();
+                    comboBoxModel4.addElement("Seleccionar tipo");
+                    comboBoxModel4.addElement("1");
+                    comboBoxModel4.addElement("2");
+                    comboBoxModel4.addElement("3");
+                    jcSubcategoria.setModel(comboBoxModel4);
+                    break;
 
                 case "Llavero":
+                    labelD.setText("Tipo");
+                    DefaultComboBoxModel<String> comboBoxModel5 = new DefaultComboBoxModel<>();
+                    comboBoxModel5.addElement("Seleccionar tipo");
+                    comboBoxModel5.addElement("1");
+                    comboBoxModel5.addElement("2");
+                    comboBoxModel5.addElement("3");
+                    jcSubcategoria.setModel(comboBoxModel5);
                     break;
 
             }
