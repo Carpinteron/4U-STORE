@@ -9,7 +9,8 @@ public class perfilesFR extends javax.swing.JFrame {
         setBackground(new Color(0,0,0,0));
         initComponents();
         setLocationRelativeTo(null);
-        
+        jLabel2.setFont(new java.awt.Font("Sitka Text",java.awt.Font.BOLD, 18));
+        jLabel4.setFont(new java.awt.Font("Sitka Text", java.awt.Font.BOLD, 18));
     }
 
     @SuppressWarnings("unchecked")
