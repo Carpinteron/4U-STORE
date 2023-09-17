@@ -1,19 +1,37 @@
 package AdminFrames;
 
 import java.awt.Color;
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Scanner;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 public class PrincipalAD extends javax.swing.JFrame {
 
     public PrincipalAD() {
-          setUndecorated(true);
-        setBackground(new Color(0,0,0,0));
+        setUndecorated(true);
+        setBackground(new Color(0, 0, 0, 0));
         initComponents();
         setLocationRelativeTo(null);
         this.setVisible(false);
+        //Para mostrar archivo inventario 01
+        ArchivoInventario("Inventario");// se puede reiniciar
+        Scanner sc = new Scanner(System.in);
+        LeerNormal(sc, "Inventario", TablaINVENTARIO);
+        sc.close();
+        //No visible
+        PanelAgregar.setVisible(false);
     }
 
     @SuppressWarnings("unchecked")
@@ -23,9 +41,28 @@ public class PrincipalAD extends javax.swing.JFrame {
         panelRound1 = new custom.PanelRound();
         jButton1 = new javax.swing.JButton();
         panelRound2 = new custom.PanelRound();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        TablaINVENTARIO = new javax.swing.JTable();
+        BTNAgregar1 = new javax.swing.JButton();
+        PanelAgregar = new javax.swing.JPanel();
+        jcCategoria = new javax.swing.JComboBox<>();
+        jcArtista = new javax.swing.JComboBox<>();
+        jcSubcategoria = new javax.swing.JComboBox<>();
+        fieldNombre = new javax.swing.JTextField();
+        fieldPrecio = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        labelD = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        BTNcerrarAgregar = new javax.swing.JButton();
+        BTNAgregar2 = new javax.swing.JButton();
+        BTNLimpiar1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
+
+        panelRound1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICons/cerrrar35.png"))); // NOI18N
         jButton1.setBorderPainted(false);
@@ -35,6 +72,7 @@ public class PrincipalAD extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
+        panelRound1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1163, 0, -1, 53));
 
         panelRound2.setBackground(new java.awt.Color(153, 153, 255));
 
@@ -49,25 +87,154 @@ public class PrincipalAD extends javax.swing.JFrame {
             .addGap(0, 724, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout panelRound1Layout = new javax.swing.GroupLayout(panelRound1);
-        panelRound1.setLayout(panelRound1Layout);
-        panelRound1Layout.setHorizontalGroup(
-            panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRound1Layout.createSequentialGroup()
-                .addComponent(panelRound2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 1078, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addContainerGap())
+        panelRound1.add(panelRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        TablaINVENTARIO.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                " Nombre del producto", "Cantidad en stock", "Categoría", "Artista", "Precio unitario de venta"
+            }
+        ));
+        jScrollPane1.setViewportView(TablaINVENTARIO);
+
+        panelRound1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(177, 146, 877, 412));
+
+        BTNAgregar1.setText("Agregar Producto");
+        BTNAgregar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BTNAgregar1ActionPerformed(evt);
+            }
+        });
+        panelRound1.add(BTNAgregar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 65, -1, -1));
+
+        jcCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar categoria", "Camiseta", "CD", "Vinilo", "Llavero" }));
+        jcCategoria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcCategoriaActionPerformed(evt);
+            }
+        });
+
+        jcArtista.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar artista", "Conan Gray", "Harry Styles", "Sabrina Carpenter", "Taylor Swift", "Billie Eilish", "Louis Tomlinson", "5SOS", "Stray Kids", "Big Time Rush", "TXT", "Imagine Dragons" }));
+        jcArtista.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcArtistaActionPerformed(evt);
+            }
+        });
+
+        jcSubcategoria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcSubcategoriaActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("Categoría");
+
+        jLabel2.setText("Artista");
+
+        labelD.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        labelD.setText("Talla/Album/Color (todo depende de lo anterior)");
+
+        jLabel4.setText("Nombre/Descripción");
+
+        jLabel5.setText("Precio unitario (COP)");
+
+        BTNcerrarAgregar.setText("Cerrar");
+        BTNcerrarAgregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BTNcerrarAgregarActionPerformed(evt);
+            }
+        });
+
+        BTNAgregar2.setText("Agregar");
+        BTNAgregar2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BTNAgregar2ActionPerformed(evt);
+            }
+        });
+
+        BTNLimpiar1.setText("Limpiar");
+        BTNLimpiar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BTNLimpiar1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout PanelAgregarLayout = new javax.swing.GroupLayout(PanelAgregar);
+        PanelAgregar.setLayout(PanelAgregarLayout);
+        PanelAgregarLayout.setHorizontalGroup(
+            PanelAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelAgregarLayout.createSequentialGroup()
+                .addContainerGap(205, Short.MAX_VALUE)
+                .addGroup(PanelAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelAgregarLayout.createSequentialGroup()
+                        .addComponent(BTNcerrarAgregar)
+                        .addGap(79, 79, 79))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelAgregarLayout.createSequentialGroup()
+                        .addComponent(BTNAgregar2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(BTNLimpiar1)
+                        .addGap(78, 78, 78))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelAgregarLayout.createSequentialGroup()
+                        .addGroup(PanelAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelAgregarLayout.createSequentialGroup()
+                                .addGroup(PanelAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel1))
+                                .addGap(171, 171, 171))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelAgregarLayout.createSequentialGroup()
+                                .addGroup(PanelAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(75, 75, 75))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelAgregarLayout.createSequentialGroup()
+                                .addComponent(labelD, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
+                                .addGap(18, 18, 18)))
+                        .addGroup(PanelAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(fieldPrecio)
+                            .addComponent(fieldNombre)
+                            .addComponent(jcSubcategoria, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jcArtista, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jcCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(248, 248, 248))))
         );
-        panelRound1Layout.setVerticalGroup(
-            panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelRound1Layout.createSequentialGroup()
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRound1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(panelRound2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        PanelAgregarLayout.setVerticalGroup(
+            PanelAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelAgregarLayout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addComponent(BTNcerrarAgregar)
+                .addGap(28, 28, 28)
+                .addGroup(PanelAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jcCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addGap(28, 28, 28)
+                .addGroup(PanelAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jcArtista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
+                .addGap(38, 38, 38)
+                .addGroup(PanelAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jcSubcategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelD))
+                .addGap(37, 37, 37)
+                .addGroup(PanelAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(fieldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
+                .addGap(40, 40, 40)
+                .addGroup(PanelAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(fieldPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5))
+                .addGap(29, 29, 29)
+                .addGroup(PanelAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(BTNAgregar2)
+                    .addComponent(BTNLimpiar1))
+                .addContainerGap(42, Short.MAX_VALUE))
         );
+
+        panelRound1.add(PanelAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, 950, 430));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -82,7 +249,9 @@ public class PrincipalAD extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-   
+
+    //Subrutinas
+    //01 Subrutina para crear inventario inicial
     public static void ArchivoInventario(String file_name) {
         try {
             FileWriter outFile = new FileWriter(file_name + ".txt", false);
@@ -91,72 +260,71 @@ public class PrincipalAD extends javax.swing.JFrame {
             //Matriz para crear Archivo Existente 
             String[][] inventario = {
                 //Seccion CONAN
-                {"Camiseta CG", "20", "Conan Gray", "30000"},
-                {"CD CG", "23", "Conan Gray", "30000"},
-                {"Vinilo CG", "23", "ConanGray", "30000"},
-                {"Gorra CG", "20", "Conan Gray", "30000"},
-                {"Llavero CG", "20", "Conan Gray", "30000"},
+                {"Camiseta CG", "20", "Camiseta", "Conan Gray", "30000"},
+                {"CD CG", "23", "CD", "Conan Gray", "30000"},
+                {"Vinilo CG", "23", "Vinilo", "ConanGray", "30000"},
+                {"Gorra CG", "20", "Gorra", "Conan Gray", "30000"},
+                {"Llavero CG", "20", "Llavero", "Conan Gray", "30000"},
                 //SECCION BILLIE
-                {"Camiseta BE", "34", "Billie Eilish", "30000"},
-                {"CD BE", "24", "Billie Eilish","30000"},
-                {"Vinilo BE", "30", "Billie Eilish","30000"},
-                {"Gorra BE", "25", "Billie Eilish","30000"},
-                {"Llavero BE", "28", "Billie Eilish","30000"},
+                {"Camiseta BE", "34", "Camiseta", "Billie Eilish", "30000"},
+                {"CD BE", "24", "CD", "Billie Eilish", "30000"},
+                {"Vinilo BE", "30", "Vinilo", "Billie Eilish", "30000"},
+                {"Gorra BE", "25", "Gorra", "Billie Eilish", "30000"},
+                {"Llavero BE", "28", "Llavero", "Billie Eilish", "30000"},
                 //SECCION HARRY
-                {"CD HS", "6", "Harry Styles", ""},
-                {"Camiseta HS", "6", "Harry Styles", "30000"},
-                {"Gorra HS", "6", "Harry Styles", ""},
-                {"Vinilo HS", "6", "Harry Styles", ""},
-                {"Llavero HS", "6", "Harry Styles", ""},
+                {"CD HS", "6", "CD", "Harry Styles", ""},
+                {"Camiseta HS", "6", "Camiseta", "Harry Styles", "30000"},
+                {"Gorra HS", "6", "Gorra", "Harry Styles", ""},
+                {"Vinilo HS", "6", "Vinilo", "Harry Styles", ""},
+                {"Llavero HS", "6", "Llavero", "Harry Styles", ""},
                 //SECCION SABRINA
-                {"CD Sabrina", "7", "Sabrina Carpenter", ""},
-                {"Camiseta Sabrina", "8","Sabrina Carpenter", ""},
-                {"Vinilo Sabrina", "7", "Sabrina Carpenter", ""},
-                {"Llavero Sabrina", "7", "Sabrina Carpenter", ""},
-                {"Gorra Sabrina", "7", "Sabrina Carpenter", ""},
+                {"CD Sabrina", "7", "CD", "Sabrina Carpenter", ""},
+                {"Camiseta Sabrina", "8", "Camiseta", "Sabrina Carpenter", ""},
+                {"Vinilo Sabrina", "7", "Vinilo", "Sabrina Carpenter", ""},
+                {"Llavero Sabrina", "7", "Llavero", "Sabrina Carpenter", ""},
+                {"Gorra Sabrina", "7", "Gorra", "Sabrina Carpenter", ""},
                 //SECCION 5SOS
-                {"CD 5SOS", "9", "5SOS", ""},
-                {"Gorra 5SOS", "9", "5SOS", ""},
-                {"Vinilo 5SOS", "9", "5SOS", ""},
-                {"Llavero 5SOS", "9", "5SOS", ""},
-                {"Camiseta 5SOS", "12", "5SOS", ""},
+                {"CD 5SOS", "9", "CD", "5SOS", ""},
+                {"Gorra 5SOS", "9", "Gorra", "5SOS", ""},
+                {"Vinilo 5SOS", "9", "Vinilo", "5SOS", ""},
+                {"Llavero 5SOS", "9", "Llavero", "5SOS", ""},
+                {"Camiseta 5SOS", "12", "Camiseta", "5SOS", ""},
                 //SECCION BTR
-                {"Camiseta BTRush", "12", "Big Time Rush", ""},
-                {"CD BTR", "12", "Big Time Rush", ""},
-                {"Gorra BTR", "12", "Big Time Rush", ""},
-                {"Vinilo BTR", "12", "Big Time Rush", ""},
-                {"Llavero BTR", "12", "Big Time Rush", ""},
+                {"Camiseta BTRush", "12", "Camiseta", "Big Time Rush", ""},
+                {"CD BTR", "12", "CD", "Big Time Rush", ""},
+                {"Gorra BTR", "12", "Gorra", "Big Time Rush", ""},
+                {"Vinilo BTR", "12", "Vinilo", "Big Time Rush", ""},
+                {"Llavero BTR", "12", "Llavero", "Big Time Rush", ""},
                 //SECCION STRAY KIDS
-                {"Camiseta SKZ", "23", "Stray Kids", ""},
-                {"CD SKZ", "14", "Stray Kids", ""},
-                {"Vinilo SKZ", "14", "Stray Kids", ""},
-                {"Gorra SKZ", "14", "Stray Kids", ""},
-                {"Llavero SKZ", "14", "Stray Kids", ""},
+                {"Camiseta SKZ", "23", "Camiseta", "Stray Kids", ""},
+                {"CD SKZ", "14", "CD", "Stray Kids", ""},
+                {"Vinilo SKZ", "14", "Vinilo", "Stray Kids", ""},
+                {"Gorra SKZ", "14", "Gorra", "Stray Kids", ""},
+                {"Llavero SKZ", "14", "Llavero", "Stray Kids", ""},
                 //SECCION TXT
-                {"CD TXT", "14", "TXT", ""},
-                {"Camiseta TXT", "14", "TXT", ""},
-                {"Vinilo TXT", "14", "TXT", ""},
-                {"Gorra TXT", "14", "TXT", ""},
-                {"Llavero TXT", "14", "TXT", ""},
+                {"CD TXT", "14", "CD", "TXT", ""},
+                {"Camiseta TXT", "14", "Camiseta", "TXT", ""},
+                {"Vinilo TXT", "14", "Vinilo", "TXT", ""},
+                {"Gorra TXT", "14", "Gorra", "TXT", ""},
+                {"Llavero TXT", "14", "Llavero", "TXT", ""},
                 //SECCION TAYLOR
-                {"Camiseta Taylor Swift", "15", "Taylor Swift", ""},
-                {"CD Taylor Swift", "17", "Taylor Swift", ""},
-                {"Llavero Taylor Swift", "17", "Taylor Swift", ""},
-                {"Vinilo Taylor Swift", "17", "Taylor Swift", ""},
-                {"Gorra Taylor Swift", "17", "Taylor Swift", ""},
+                {"Camiseta Taylor Swift", "15", "Camiseta", "Taylor Swift", ""},
+                {"CD Taylor Swift", "17", "CD", "Taylor Swift", ""},
+                {"Llavero Taylor Swift", "17", "Llavero", "Taylor Swift", ""},
+                {"Vinilo Taylor Swift", "17", "Vinilo", "Taylor Swift", ""},
+                {"Gorra Taylor Swift", "17", "Gorra", "Taylor Swift", ""},
                 //SECCION LOUIS
-                {"Camiseta Louis", "13", "Louis Tomilson", ""},
-                {"CD Louis", "8", "Louis Tomilson", ""},
-                {"Gorra Louis", "8", "Louis Tomilson", ""},
-                {"Llavero Louis", "8", "Louis Tomilson", ""},
-                {"Vinilo Louis", "8", "Louis Tomilson", ""},
+                {"Camiseta Louis", "13", "Camiseta", "Louis Tomilson", ""},
+                {"CD Louis", "8", "CD", "Louis Tomilson", ""},
+                {"Gorra Louis", "8", "Gorra", "Louis Tomilson", ""},
+                {"Llavero Louis", "8", "Llavero", "Louis Tomilson", ""},
+                {"Vinilo Louis", "8", "Vinilo", "Louis Tomilson", ""},
                 //SECCION IMEGINE DRAGONS
-                {"Camiseta Imagine D", "24", "Imagine Dragons", ""},
-                {"CD Imagine", "5", "Imagine Dragons", ""},
-                {"Gorra Imagine", "5", "Imagine Dragons", ""},
-                {"Llavero Imagine", "5", "Imagine Dragons", ""},
-                {"Vinilo Imagine", "5", "Imagine Dragons", ""}
-                
+                {"Camiseta Imagine D", "24", "Camiseta", "Imagine Dragons", ""},
+                {"CD Imagine", "5", "CD", "Imagine Dragons", ""},
+                {"Gorra Imagine", "5", "Gorra", "Imagine Dragons", ""},
+                {"Llavero Imagine", "5", "Llavero", "Imagine Dragons", ""},
+                {"Vinilo Imagine", "5", "Vinilo", "Imagine Dragons", ""}
 
             };
 
@@ -164,16 +332,17 @@ public class PrincipalAD extends javax.swing.JFrame {
             for (String[] fila : inventario) {
                 String NombreProducto = fila[0];
                 String Cantidad = fila[1];
-                String Categoria = fila[2]; //Por artista
-                String Precio = fila[3];
-               
+                String Categoria = fila[2];
+                String Artista = fila[3];
+                String Precio = fila[4];
+
                 // Agregar los datos al archivo
-                registro.println(NombreProducto + ";" + Cantidad + ";" + Categoria + ";" + Precio);
+                registro.println(NombreProducto + ";" + Cantidad + ";" + Categoria + ";" + Artista + ";" + Precio);
 
             }
 
             registro.close();
-            System.out.println("Datos agregados exitosamente al archivo"+file_name);
+            System.out.println("Datos agregados exitosamente al archivo" + file_name);
 
         } catch (IOException ex) {
             System.out.println("Error al agregar datos al archivo");
@@ -181,9 +350,165 @@ public class PrincipalAD extends javax.swing.JFrame {
         }
     }
 
+    //02 Subrutina para mostrar datos en la tabla
+    public static void LeerNormal(Scanner sc, String file_name, JTable tabla) {
+        boolean hay = false;
+        while (hay == false) {
+            try {
+                BufferedReader br = new BufferedReader(new FileReader(file_name + ".txt"));
+                String line = null;
+                DefaultTableModel model = (DefaultTableModel) tabla.getModel();
+                model.setRowCount(0);
+
+                while ((line = br.readLine()) != null) {
+                    String temp[] = line.split(";");
+                    model.addRow(temp); //Agregar datos del archivo a la tabla
+                }
+                br.close();
+                hay = true;
+
+            } catch (IOException ex) {
+                System.out.println("No se encontro archivo");
+                hay = false;
+                file_name = sc.nextLine(); // Archivo
+            }
+        }
+    }
+    
+    
+
+    private static final Map<String, List<String>> ALBUMES_ARTISTAS = new HashMap<>();
+
+    static {
+        //HACE FALTA ALBUMES
+        
+        ALBUMES_ARTISTAS.put("Conan Gray", new ArrayList<>(List.of("Sunset Season", "Kid Krow", "Superache")));
+        ALBUMES_ARTISTAS.put("Harry Styles", new ArrayList<>(List.of("Harry Styles", "Fine Line", "Harry's House")));
+        ALBUMES_ARTISTAS.put("Sabrina Carpenter", new ArrayList<>(List.of("Eyes WidALBUMES_ARTISTAS.put(\"Billie Eilish\", new ArrayList<>(List.of(\"When We All Fall Asleep, Where Do We Go?\", \"Happier Than Ever\")));e Open", "Evolution", "Emails I Can't Send")));
+        ALBUMES_ARTISTAS.put("Taylor Swift", new ArrayList<>(List.of("Fearless (Taylor's version)", "Speak Now (Taylor's version)", "Red (Taylor's version)", "Lover", "folklore", "evermore")));
+        ALBUMES_ARTISTAS.put("Billie Eilish", new ArrayList<>(List.of("When We All Fall Asleep, Where Do We Go?", "Happier Than Ever", "Don't Smile at Me", "Live at Third Man Records")));
+        ALBUMES_ARTISTAS.put("Louis Tomlinson", new ArrayList<>(List.of("Walls")));
+        ALBUMES_ARTISTAS.put("5SOS", new ArrayList<>(List.of("5 Seconds of Summer", "Sounds Good Feels Good", "Youngblood")));
+        ALBUMES_ARTISTAS.put("Stray Kids", new ArrayList<>(List.of("Go Live", "No Easy")));
+        ALBUMES_ARTISTAS.put("Big Time Rush", new ArrayList<>(List.of("BTR", "Elevate")));
+        ALBUMES_ARTISTAS.put("TXT", new ArrayList<>(List.of("The Dream Chapter: STAR", "The Chaos Chapter: FREEZE")));
+        ALBUMES_ARTISTAS.put("Imagine Dragons", new ArrayList<>(List.of("Night Visions", "Smoke + Mirrors", "Evolve")));
+    }
+    
+    
+    //Subrutina para cargar datos de las subcategorias
+    public void CargarDatosJcombo(){
+         String categoria = jcCategoria.getSelectedItem().toString();
+        String artista = jcArtista.getSelectedItem().toString();
+        List<String> albumes = ALBUMES_ARTISTAS.get(artista);
+        
+        if (categoria.equalsIgnoreCase("Seleccionar categoria")) {
+            jcSubcategoria.setEnabled(false);
+            fieldNombre.setEnabled(false);
+            fieldPrecio.setEnabled(false);
+            System.out.println("Entre aqui en false");
+
+        }else if ((artista.equalsIgnoreCase("Seleccionar artista"))) {
+            jcSubcategoria.setEnabled(false);
+            fieldNombre.setEnabled(false);
+            fieldPrecio.setEnabled(false);
+            System.out.println("Entre aqui en false");
+
+        }if (albumes == null || artista.equalsIgnoreCase("Seleccionar artista")) {
+        // El artista no existe en el mapa.
+        // Maneja este caso aquí.
+        return;
+    } else {
+            jcSubcategoria.setEnabled(true);
+            fieldNombre.setEnabled(true);
+            fieldPrecio.setEnabled(true);
+
+            switch (categoria) {
+                case "CD":
+                    labelD.setText("Álbum");
+                    DefaultComboBoxModel<String> comboBoxModel2 = new DefaultComboBoxModel<>();
+                    comboBoxModel2.addElement("Seleccionar álbum");
+                    ALBUMES_ARTISTAS.get(artista).forEach(comboBoxModel2::addElement);
+                    jcSubcategoria.setModel(comboBoxModel2);
+                    break;
+
+                case "Camiseta":
+                    labelD.setText("Talla");
+                    DefaultComboBoxModel<String> comboBoxModel = new DefaultComboBoxModel<>();
+                    comboBoxModel.addElement("Seleccionar talla");
+                    comboBoxModel.addElement("XS");
+                    comboBoxModel.addElement("S");
+                    comboBoxModel.addElement("M");
+                    comboBoxModel.addElement("L");
+                    comboBoxModel.addElement("XL");
+                    jcSubcategoria.setModel(comboBoxModel);
+                    break;
+
+                case "Vinilo":
+                    labelD.setText("Álbum");
+                    DefaultComboBoxModel<String> comboBoxModel3 = new DefaultComboBoxModel<>();
+                    comboBoxModel3.addElement("Seleccionar álbum");
+                    ALBUMES_ARTISTAS.get(artista).forEach(comboBoxModel3::addElement);
+                    jcSubcategoria.setModel(comboBoxModel3);
+                    break;
+
+                case "Llavero":
+                    break;
+
+            }
+        }
+    
+    }
+
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         System.exit(0);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void BTNAgregar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNAgregar1ActionPerformed
+        PanelAgregar.setVisible(true);
+        jScrollPane1.setVisible(false);
+        TablaINVENTARIO.setVisible(false);
+        BTNAgregar1.setVisible(false);
+        CargarDatosJcombo();
+    }//GEN-LAST:event_BTNAgregar1ActionPerformed
+
+    private void BTNcerrarAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNcerrarAgregarActionPerformed
+        PanelAgregar.setVisible(false);
+        jScrollPane1.setVisible(true);
+        TablaINVENTARIO.setVisible(true);
+        BTNAgregar1.setVisible(true);
+    }//GEN-LAST:event_BTNcerrarAgregarActionPerformed
+
+    private void BTNAgregar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNAgregar2ActionPerformed
+        String Categoria = jcCategoria.getSelectedItem().toString();
+        String Artista = jcArtista.getSelectedItem().toString();
+        if (Categoria.equalsIgnoreCase("Seleccionar categoria")) {
+            JOptionPane.showMessageDialog(null, "Debe seleccionar un empleado.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        if (Artista.equalsIgnoreCase("Seleccionar artista")) {
+            JOptionPane.showMessageDialog(null, "Debe seleccionar un artista.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        String seleccionarc = "Seleccionar categoria";
+        String seleccionara = "Seleccionar artista";
+        jcCategoria.setSelectedItem(seleccionarc);
+        jcArtista.setSelectedItem(seleccionara);
+    }//GEN-LAST:event_BTNAgregar2ActionPerformed
+
+    private void BTNLimpiar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNLimpiar1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BTNLimpiar1ActionPerformed
+
+    private void jcSubcategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcSubcategoriaActionPerformed
+        
+    }//GEN-LAST:event_jcSubcategoriaActionPerformed
+
+    private void jcArtistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcArtistaActionPerformed
+       CargarDatosJcombo();
+    }//GEN-LAST:event_jcArtistaActionPerformed
+
+    private void jcCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcCategoriaActionPerformed
+        CargarDatosJcombo();
+    }//GEN-LAST:event_jcCategoriaActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -213,14 +538,33 @@ public class PrincipalAD extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new PrincipalAD().setVisible(true);
-                
+
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BTNAgregar1;
+    private javax.swing.JButton BTNAgregar2;
+    private javax.swing.JButton BTNLimpiar1;
+    private javax.swing.JButton BTNcerrarAgregar;
+    private javax.swing.JPanel PanelAgregar;
+    private javax.swing.JTable TablaINVENTARIO;
+    private javax.swing.JTextField fieldNombre;
+    private javax.swing.JTextField fieldPrecio;
     private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JComboBox<String> jcArtista;
+    private javax.swing.JComboBox<String> jcCategoria;
+    private javax.swing.JComboBox<String> jcSubcategoria;
+    private javax.swing.JLabel labelD;
     private custom.PanelRound panelRound1;
     private custom.PanelRound panelRound2;
     // End of variables declaration//GEN-END:variables
-}
+    }
+
+
