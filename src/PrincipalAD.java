@@ -580,7 +580,7 @@ public class PrincipalAD extends javax.swing.JFrame {
             }
 
             registro.close();
-            System.out.println("Datos agregados exitosamente al archivo" + file_name);
+            System.out.println("Datos agregados exitosamente al archivo " + file_name);
 
         } catch (IOException ex) {
             System.out.println("Error al agregar datos al archivo");
@@ -610,10 +610,10 @@ public class PrincipalAD extends javax.swing.JFrame {
             }
 
             registro.close();
-            System.out.println("Datos agregados exitosamente al archivo" + file_name);
+            System.out.println("Datos agregados exitosamente al archivo " + file_name);
 
         } catch (IOException ex) {
-            System.out.println("Error al agregar datos al archivo" + file_name);
+            System.out.println("Error al agregar datos al archivo " + file_name);
             ex.printStackTrace();
         }
     }
