@@ -863,10 +863,12 @@ public class PrincipalAD extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void PassFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PassFieldMouseClicked
+     
         PassField.setText(null);
     }//GEN-LAST:event_PassFieldMouseClicked
 
     private void userfieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userfieldMouseClicked
+       
         userfield.setText(null);
     }//GEN-LAST:event_userfieldMouseClicked
 
