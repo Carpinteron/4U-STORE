@@ -158,14 +158,14 @@ public class perfilesFR extends javax.swing.JFrame {
 
     private void panelRound3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelRound3MouseClicked
         PrincipalAD AD = new PrincipalAD();
-        this.dispose();
         AD.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_panelRound3MouseClicked
 
     private void panelRound2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelRound2MouseClicked
         PrincipalCL CL = new PrincipalCL();
-        this.dispose();
         CL.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_panelRound2MouseClicked
 
     public static void main(String args[]) {

@@ -142,20 +142,20 @@ public class PrincipalCL extends javax.swing.JFrame {
 
     private void CarritoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CarritoActionPerformed
          CarritoFR carrito = new CarritoFR();
-        this.dispose();
         carrito.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_CarritoActionPerformed
 
     private void BtnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSalirActionPerformed
         perfilesFR menu=new perfilesFR();
-        this.dispose();
         menu.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_BtnSalirActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         CarritoFR carrito=new CarritoFR();
-        this.dispose();
         carrito.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     public static void main(String args[]) {
