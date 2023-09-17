@@ -1,5 +1,4 @@
 
-
 import java.awt.Color;
 import java.io.BufferedReader;
 import java.io.File;
@@ -17,7 +16,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-
 public class PrincipalAD extends javax.swing.JFrame {
 
     public PrincipalAD() {
@@ -28,20 +26,32 @@ public class PrincipalAD extends javax.swing.JFrame {
         this.setVisible(false);
         //Para mostrar archivo inventario 01
         ArchivoInventario("Inventario");// se puede reiniciar
+        //Usuarios("Usuarios");
         Scanner sc = new Scanner(System.in);
         LeerNormal(sc, "Inventario", TablaINVENTARIO);
         sc.close();
         //No visible
+        Constraseña.setVisible(true);
+        Pantalla.setVisible(false);
         PanelAgregar.setVisible(false);
-        
+
     }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        panelRound1 = new custom.PanelRound();
         jButton1 = new javax.swing.JButton();
+        Constraseña = new custom.PanelRound();
+        userfield = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        BtnVerifyUser = new javax.swing.JButton();
+        PassField = new javax.swing.JPasswordField();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        AvisoLabel = new javax.swing.JLabel();
+        Pantalla = new custom.PanelRound();
         panelRound2 = new custom.PanelRound();
         IconADMI = new javax.swing.JLabel();
         BtnGrafics = new javax.swing.JButton();
@@ -67,8 +77,8 @@ public class PrincipalAD extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
-
-        panelRound1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        setSize(new java.awt.Dimension(1200, 700));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICons/cerrrar35.png"))); // NOI18N
         jButton1.setBorderPainted(false);
@@ -78,7 +88,105 @@ public class PrincipalAD extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        panelRound1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1163, 0, -1, 53));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1163, 0, -1, 53));
+
+        Constraseña.setBackground(new java.awt.Color(153, 153, 255));
+
+        userfield.setText("User...");
+        userfield.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                userfieldMouseClicked(evt);
+            }
+        });
+        userfield.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                userfieldActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setText("Usuario");
+
+        jLabel6.setText("Contraseña");
+
+        BtnVerifyUser.setText("SIGN IN");
+        BtnVerifyUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnVerifyUserActionPerformed(evt);
+            }
+        });
+
+        PassField.setText("jPasswordField1");
+        PassField.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                PassFieldMouseClicked(evt);
+            }
+        });
+
+        jButton2.setText("Mostrar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jButton3.setText("Registrarse");
+
+        javax.swing.GroupLayout ConstraseñaLayout = new javax.swing.GroupLayout(Constraseña);
+        Constraseña.setLayout(ConstraseñaLayout);
+        ConstraseñaLayout.setHorizontalGroup(
+            ConstraseñaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ConstraseñaLayout.createSequentialGroup()
+                .addGap(318, 318, 318)
+                .addComponent(BtnVerifyUser)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(ConstraseñaLayout.createSequentialGroup()
+                .addGap(229, 229, 229)
+                .addGroup(ConstraseñaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel3)
+                    .addComponent(userfield)
+                    .addComponent(PassField, javax.swing.GroupLayout.DEFAULT_SIZE, 277, Short.MAX_VALUE))
+                .addGroup(ConstraseñaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ConstraseñaLayout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addComponent(jButton2))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ConstraseñaLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton3)
+                        .addGap(260, 260, 260))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ConstraseñaLayout.createSequentialGroup()
+                .addContainerGap(436, Short.MAX_VALUE)
+                .addComponent(AvisoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 443, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(321, 321, 321))
+        );
+        ConstraseñaLayout.setVerticalGroup(
+            ConstraseñaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ConstraseñaLayout.createSequentialGroup()
+                .addGap(237, 237, 237)
+                .addComponent(jLabel3)
+                .addGroup(ConstraseñaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ConstraseñaLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(userfield, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(ConstraseñaLayout.createSequentialGroup()
+                        .addGap(56, 56, 56)
+                        .addComponent(jButton3)))
+                .addGap(46, 46, 46)
+                .addComponent(jLabel6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(ConstraseñaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(PassField, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton2))
+                .addGap(50, 50, 50)
+                .addComponent(BtnVerifyUser)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(AvisoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(150, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(Constraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1200, 700));
+
+        Pantalla.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panelRound2.setBackground(new java.awt.Color(153, 153, 255));
 
@@ -127,7 +235,7 @@ public class PrincipalAD extends javax.swing.JFrame {
                 .addGap(23, 23, 23))
         );
 
-        panelRound1.add(panelRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 65, 700));
+        Pantalla.add(panelRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 65, 700));
 
         TablaINVENTARIO.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -142,7 +250,7 @@ public class PrincipalAD extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(TablaINVENTARIO);
 
-        panelRound1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(177, 146, 877, 412));
+        Pantalla.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(177, 146, 877, 412));
 
         BTNAgregar1.setText("Agregar Producto");
         BTNAgregar1.addActionListener(new java.awt.event.ActionListener() {
@@ -150,7 +258,7 @@ public class PrincipalAD extends javax.swing.JFrame {
                 BTNAgregar1ActionPerformed(evt);
             }
         });
-        panelRound1.add(BTNAgregar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 65, -1, -1));
+        Pantalla.add(BTNAgregar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 65, -1, -1));
 
         jcCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar categoria", "Camiseta", "Gorra", "CD", "Vinilo", "Llavero" }));
         jcCategoria.addActionListener(new java.awt.event.ActionListener() {
@@ -274,18 +382,9 @@ public class PrincipalAD extends javax.swing.JFrame {
                 .addContainerGap(42, Short.MAX_VALUE))
         );
 
-        panelRound1.add(PanelAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, 950, 430));
+        Pantalla.add(PanelAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, 950, 430));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelRound1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelRound1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        getContentPane().add(Pantalla, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1200, 700));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -391,6 +490,36 @@ public class PrincipalAD extends javax.swing.JFrame {
         }
     }
 
+    public static void Usuarios(String file_name) {
+        try {
+            FileWriter outFile = new FileWriter(file_name + ".txt", false);
+            PrintWriter registro = new PrintWriter(outFile);
+
+            //Matriz para crear Archivo Existente 
+            String[][] usuariosADMIN = {
+                //Seccion CONAN
+                {"Nacale", "12345"},
+                {"Pauly", "888"},
+                {"IsaBella", "111"},};
+
+            //Agregar datos de la matriz al registro
+            for (String[] fila : usuariosADMIN) {
+                String NombreProducto = fila[0];
+                String Contraseña = fila[1];
+
+                // Agregar los datos al archivo
+                registro.println(NombreProducto + ";" + Contraseña);
+            }
+
+            registro.close();
+            System.out.println("Datos agregados exitosamente al archivo" + file_name);
+
+        } catch (IOException ex) {
+            System.out.println("Error al agregar datos al archivo" + file_name);
+            ex.printStackTrace();
+        }
+    }
+
     //02 Subrutina para mostrar datos en la tabla
     public static void LeerNormal(Scanner sc, String file_name, JTable tabla) {
         boolean hay = false;
@@ -415,14 +544,12 @@ public class PrincipalAD extends javax.swing.JFrame {
             }
         }
     }
-    
-    
 
     private static final Map<String, List<String>> ALBUMES_ARTISTAS = new HashMap<>();
 
     static {
         //HACE FALTA ALBUMES
-        
+
         ALBUMES_ARTISTAS.put("Conan Gray", new ArrayList<>(List.of("Sunset Season", "Kid Krow", "Superache")));
         ALBUMES_ARTISTAS.put("Harry Styles", new ArrayList<>(List.of("Harry Styles", "Fine Line", "Harry's House")));
         ALBUMES_ARTISTAS.put("Sabrina Carpenter", new ArrayList<>(List.of("Eyes WidALBUMES_ARTISTAS.put(\"Billie Eilish\", new ArrayList<>(List.of(\"When We All Fall Asleep, Where Do We Go?\", \"Happier Than Ever\")));e Open", "Evolution", "Emails I Can't Send")));
@@ -430,36 +557,36 @@ public class PrincipalAD extends javax.swing.JFrame {
         ALBUMES_ARTISTAS.put("Billie Eilish", new ArrayList<>(List.of("When We All Fall Asleep, Where Do We Go?", "Happier Than Ever", "Don't Smile at Me", "Live at Third Man Records")));
         ALBUMES_ARTISTAS.put("Louis Tomlinson", new ArrayList<>(List.of("Walls")));
         ALBUMES_ARTISTAS.put("5SOS", new ArrayList<>(List.of("5 Seconds of Summer", "Sounds Good Feels Good", "Youngblood")));
-        ALBUMES_ARTISTAS.put("Stray Kids", new ArrayList<>(List.of("Go Live", "No Easy","5Stars","ODDINARY","Maxident")));
+        ALBUMES_ARTISTAS.put("Stray Kids", new ArrayList<>(List.of("Go Live", "No Easy", "5Stars", "ODDINARY", "Maxident")));
         ALBUMES_ARTISTAS.put("Big Time Rush", new ArrayList<>(List.of("BTR", "Elevate")));
         ALBUMES_ARTISTAS.put("TXT", new ArrayList<>(List.of("The Dream Chapter: STAR", "The Chaos Chapter: FREEZE")));
-        ALBUMES_ARTISTAS.put("Imagine Dragons", new ArrayList<>(List.of("Night Visions", "Smoke + Mirrors", "Evolve","Origins")));
+        ALBUMES_ARTISTAS.put("Imagine Dragons", new ArrayList<>(List.of("Night Visions", "Smoke + Mirrors", "Evolve", "Origins")));
     }
-    
-    
+
     //Subrutina para cargar datos de las subcategorias
-    public void CargarDatosJcombo(){
+    public void CargarDatosJcombo() {
         String categoria = jcCategoria.getSelectedItem().toString();
         String artista = jcArtista.getSelectedItem().toString();
         List<String> albumes = ALBUMES_ARTISTAS.get(artista);
-        
+
         if (categoria.equalsIgnoreCase("Seleccionar categoria")) {
             jcSubcategoria.setEnabled(false);
             fieldNombre.setEnabled(false);
             fieldPrecio.setEnabled(false);
             System.out.println("Entre aqui en false");
 
-        }else if ((artista.equalsIgnoreCase("Seleccionar artista"))) {
+        } else if ((artista.equalsIgnoreCase("Seleccionar artista"))) {
             jcSubcategoria.setEnabled(false);
             fieldNombre.setEnabled(false);
             fieldPrecio.setEnabled(false);
             System.out.println("Entre aqui en false");
 
-        }if (albumes == null || artista.equalsIgnoreCase("Seleccionar artista")) {
-        // El artista no existe en el mapa.
-        // Maneja este caso aquí.
-        return;
-    } else {
+        }
+        if (albumes == null || artista.equalsIgnoreCase("Seleccionar artista")) {
+            // El artista no existe en el mapa.
+            // Maneja este caso aquí.
+            return;
+        } else {
             jcSubcategoria.setEnabled(true);
             fieldNombre.setEnabled(true);
             fieldPrecio.setEnabled(true);
@@ -490,7 +617,7 @@ public class PrincipalAD extends javax.swing.JFrame {
                     ALBUMES_ARTISTAS.get(artista).forEach(comboBoxModel3::addElement);
                     jcSubcategoria.setModel(comboBoxModel3);
                     break;
-                 case "Gorra":
+                case "Gorra":
                     labelD.setText("Tipo");
                     DefaultComboBoxModel<String> comboBoxModel4 = new DefaultComboBoxModel<>();
                     comboBoxModel4.addElement("Seleccionar tipo");
@@ -512,7 +639,7 @@ public class PrincipalAD extends javax.swing.JFrame {
 
             }
         }
-    
+
     }
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -554,27 +681,98 @@ public class PrincipalAD extends javax.swing.JFrame {
     }//GEN-LAST:event_BTNLimpiar1ActionPerformed
 
     private void jcSubcategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcSubcategoriaActionPerformed
-        
+
     }//GEN-LAST:event_jcSubcategoriaActionPerformed
 
     private void jcArtistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcArtistaActionPerformed
-       CargarDatosJcombo();
+        CargarDatosJcombo();
     }//GEN-LAST:event_jcArtistaActionPerformed
 
     private void jcCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcCategoriaActionPerformed
         CargarDatosJcombo();
     }//GEN-LAST:event_jcCategoriaActionPerformed
 
-   
+
     private void BtnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSalirActionPerformed
-        perfilesFR menu=new perfilesFR();
+        perfilesFR menu = new perfilesFR();
         menu.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_BtnSalirActionPerformed
 
     private void BtnGraficsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnGraficsActionPerformed
-      //SE VISUALIZA PANEL ENCIMA NO QUIERO HACER OTRO FRAME
+        //SE VISUALIZA PANEL ENCIMA NO QUIERO HACER OTRO FRAME
     }//GEN-LAST:event_BtnGraficsActionPerformed
+
+    private void userfieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userfieldActionPerformed
+
+    }//GEN-LAST:event_userfieldActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        char echoChar = PassField.getEchoChar(); // Obtener el carácter de eco actual
+        if (echoChar != 0) {
+            PassField.setEchoChar((char) 0); // Establecer el carácter de eco a 0 (sin ocultar)
+        } else {
+            PassField.setEchoChar('\u2022'); // Establecer el carácter de eco a • (ocultar)
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void PassFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PassFieldMouseClicked
+        PassField.setText(null);
+    }//GEN-LAST:event_PassFieldMouseClicked
+
+    private void userfieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userfieldMouseClicked
+        userfield.setText(null);
+    }//GEN-LAST:event_userfieldMouseClicked
+
+    private void BtnVerifyUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVerifyUserActionPerformed
+        Scanner sc = new Scanner(System.in);
+        String U = userfield.getText();
+        String P = PassField.getText();
+        boolean Correct = Verify(sc, "Usuarios", U, P);
+        if (Correct == true) {
+            Pantalla.setVisible(true);
+            Constraseña.setVisible(false);
+        } else {
+            AvisoLabel.setText("Contraseña o Usuario incorrecto");
+        }
+    }//GEN-LAST:event_BtnVerifyUserActionPerformed
+
+    public static boolean Verify(Scanner sc, String file_name, String U, String P) {
+        boolean hay = false;
+        while (!hay) {
+            try {
+                BufferedReader br = new BufferedReader(new FileReader(file_name + ".txt"));
+                String line = null;
+                String passw = null;
+                boolean stop = false;
+
+                while ((line = br.readLine()) != null & stop == false) {
+                    String temp[] = line.split(";");
+                    if (temp[0].equalsIgnoreCase(U)) {
+                        stop = true;
+                        passw = temp[1];
+                    }
+                }
+                br.close();
+                hay = true;
+                if (stop == true) {
+                    if (passw != null & passw.equalsIgnoreCase(P)) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                } else {
+                    return false;
+                }
+
+            } catch (IOException ex) {
+                System.out.println("No se encontro archivo");
+                hay = false;
+                file_name = sc.nextLine(); // Archivo
+            }
+        }
+        return false;
+    }
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -610,6 +808,7 @@ public class PrincipalAD extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel AvisoLabel;
     private javax.swing.JButton BTNAgregar1;
     private javax.swing.JButton BTNAgregar2;
     private javax.swing.JButton BTNLimpiar1;
@@ -617,24 +816,30 @@ public class PrincipalAD extends javax.swing.JFrame {
     private javax.swing.JButton BtnGrafics;
     private javax.swing.JButton BtnInfo;
     private javax.swing.JButton BtnSalir;
+    private javax.swing.JButton BtnVerifyUser;
+    private custom.PanelRound Constraseña;
     private javax.swing.JLabel IconADMI;
     private javax.swing.JPanel PanelAgregar;
+    private custom.PanelRound Pantalla;
+    private javax.swing.JPasswordField PassField;
     private javax.swing.JTable TablaINVENTARIO;
     private javax.swing.JTextField fieldNombre;
     private javax.swing.JTextField fieldPrecio;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JComboBox<String> jcArtista;
     private javax.swing.JComboBox<String> jcCategoria;
     private javax.swing.JComboBox<String> jcSubcategoria;
     private javax.swing.JLabel labelD;
-    private custom.PanelRound panelRound1;
     private custom.PanelRound panelRound2;
+    private javax.swing.JTextField userfield;
     // End of variables declaration//GEN-END:variables
-    }
-
-
+}
