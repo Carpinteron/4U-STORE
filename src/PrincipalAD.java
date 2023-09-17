@@ -758,6 +758,17 @@ public class PrincipalAD extends javax.swing.JFrame {
                 if (stop == true) {
                     if (passw != null & passw.equalsIgnoreCase(P)) {
                         return true;
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
                     } else {
                         return false;
                     }
