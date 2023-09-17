@@ -26,7 +26,7 @@ public class PrincipalAD extends javax.swing.JFrame {
         this.setVisible(false);
         //Para mostrar archivo inventario 01
         ArchivoInventario("Inventario");// se puede reiniciar
-        //Usuarios("Usuarios");
+        Usuarios("Usuarios");
         Scanner sc = new Scanner(System.in);
         LeerNormal(sc, "Inventario", TablaINVENTARIO);
         sc.close();
@@ -598,7 +598,7 @@ public class PrincipalAD extends javax.swing.JFrame {
                 //Seccion CONAN
                 {"Nacale", "12345"},
                 {"Pauly", "888"},
-                {"IsaBella", "111"},};
+                {"IsaBella", "111"}};
 
             //Agregar datos de la matriz al registro
             for (String[] fila : usuariosADMIN) {
