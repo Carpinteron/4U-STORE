@@ -736,7 +736,7 @@ public class PrincipalAD extends javax.swing.JFrame {
             AvisoLabel.setText("Contraseña o Usuario incorrecto");
         }
     }//GEN-LAST:event_BtnVerifyUserActionPerformed
-
+//VERIFICACION DE USUARIOSSSS
     public static boolean Verify(Scanner sc, String file_name, String U, String P) {
         boolean hay = false;
         while (!hay) {
@@ -757,18 +757,7 @@ public class PrincipalAD extends javax.swing.JFrame {
                 hay = true;
                 if (stop == true) {
                     if (passw != null & passw.equalsIgnoreCase(P)) {
-                        return true;
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
+                        return true; 
                     } else {
                         return false;
                     }
