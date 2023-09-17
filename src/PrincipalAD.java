@@ -1,4 +1,4 @@
-package AdminFrames;
+
 
 import java.awt.Color;
 import java.io.BufferedReader;
@@ -17,6 +17,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
+
 public class PrincipalAD extends javax.swing.JFrame {
 
     public PrincipalAD() {
@@ -32,6 +33,7 @@ public class PrincipalAD extends javax.swing.JFrame {
         sc.close();
         //No visible
         PanelAgregar.setVisible(false);
+        
     }
 
     @SuppressWarnings("unchecked")
@@ -41,6 +43,10 @@ public class PrincipalAD extends javax.swing.JFrame {
         panelRound1 = new custom.PanelRound();
         jButton1 = new javax.swing.JButton();
         panelRound2 = new custom.PanelRound();
+        IconADMI = new javax.swing.JLabel();
+        BtnGrafics = new javax.swing.JButton();
+        BtnSalir = new javax.swing.JButton();
+        BtnInfo = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         TablaINVENTARIO = new javax.swing.JTable();
         BTNAgregar1 = new javax.swing.JButton();
@@ -76,18 +82,52 @@ public class PrincipalAD extends javax.swing.JFrame {
 
         panelRound2.setBackground(new java.awt.Color(153, 153, 255));
 
+        IconADMI.setText("jLabel3");
+
+        BtnGrafics.setText("Grafic");
+        BtnGrafics.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnGraficsActionPerformed(evt);
+            }
+        });
+
+        BtnSalir.setText("OUT");
+        BtnSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnSalirActionPerformed(evt);
+            }
+        });
+
+        BtnInfo.setText("Info");
+
         javax.swing.GroupLayout panelRound2Layout = new javax.swing.GroupLayout(panelRound2);
         panelRound2.setLayout(panelRound2Layout);
         panelRound2Layout.setHorizontalGroup(
             panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 85, Short.MAX_VALUE)
+            .addGroup(panelRound2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(IconADMI)
+                    .addComponent(BtnGrafics, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BtnInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BtnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelRound2Layout.setVerticalGroup(
             panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 724, Short.MAX_VALUE)
+            .addGroup(panelRound2Layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(IconADMI, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(BtnGrafics, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 422, Short.MAX_VALUE)
+                .addComponent(BtnInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
+                .addComponent(BtnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(23, 23, 23))
         );
 
-        panelRound1.add(panelRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        panelRound1.add(panelRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 65, 700));
 
         TablaINVENTARIO.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -261,6 +301,7 @@ public class PrincipalAD extends javax.swing.JFrame {
             String[][] inventario = {
                 //Seccion CONAN
                 {"Camiseta CG", "20", "Camiseta", "Conan Gray", "30000"},
+                {"Camiseta CG XS", "20", "Camiseta", "Conan Gray", "30000"},
                 {"CD CG", "23", "CD", "Conan Gray", "30000"},
                 {"Vinilo CG", "23", "Vinilo", "ConanGray", "30000"},
                 {"Gorra CG", "20", "Gorra", "Conan Gray", "30000"},
@@ -389,16 +430,16 @@ public class PrincipalAD extends javax.swing.JFrame {
         ALBUMES_ARTISTAS.put("Billie Eilish", new ArrayList<>(List.of("When We All Fall Asleep, Where Do We Go?", "Happier Than Ever", "Don't Smile at Me", "Live at Third Man Records")));
         ALBUMES_ARTISTAS.put("Louis Tomlinson", new ArrayList<>(List.of("Walls")));
         ALBUMES_ARTISTAS.put("5SOS", new ArrayList<>(List.of("5 Seconds of Summer", "Sounds Good Feels Good", "Youngblood")));
-        ALBUMES_ARTISTAS.put("Stray Kids", new ArrayList<>(List.of("Go Live", "No Easy")));
+        ALBUMES_ARTISTAS.put("Stray Kids", new ArrayList<>(List.of("Go Live", "No Easy","5Stars","ODDINARY","Maxident")));
         ALBUMES_ARTISTAS.put("Big Time Rush", new ArrayList<>(List.of("BTR", "Elevate")));
         ALBUMES_ARTISTAS.put("TXT", new ArrayList<>(List.of("The Dream Chapter: STAR", "The Chaos Chapter: FREEZE")));
-        ALBUMES_ARTISTAS.put("Imagine Dragons", new ArrayList<>(List.of("Night Visions", "Smoke + Mirrors", "Evolve")));
+        ALBUMES_ARTISTAS.put("Imagine Dragons", new ArrayList<>(List.of("Night Visions", "Smoke + Mirrors", "Evolve","Origins")));
     }
     
     
     //Subrutina para cargar datos de las subcategorias
     public void CargarDatosJcombo(){
-         String categoria = jcCategoria.getSelectedItem().toString();
+        String categoria = jcCategoria.getSelectedItem().toString();
         String artista = jcArtista.getSelectedItem().toString();
         List<String> albumes = ALBUMES_ARTISTAS.get(artista);
         
@@ -510,6 +551,17 @@ public class PrincipalAD extends javax.swing.JFrame {
         CargarDatosJcombo();
     }//GEN-LAST:event_jcCategoriaActionPerformed
 
+   
+    private void BtnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSalirActionPerformed
+        perfilesFR menu=new perfilesFR();
+        this.dispose();
+        menu.setVisible(true);
+    }//GEN-LAST:event_BtnSalirActionPerformed
+
+    private void BtnGraficsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnGraficsActionPerformed
+      //SE VISUALIZA PANEL ENCIMA NO QUIERO HACER OTRO FRAME
+    }//GEN-LAST:event_BtnGraficsActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -548,6 +600,10 @@ public class PrincipalAD extends javax.swing.JFrame {
     private javax.swing.JButton BTNAgregar2;
     private javax.swing.JButton BTNLimpiar1;
     private javax.swing.JButton BTNcerrarAgregar;
+    private javax.swing.JButton BtnGrafics;
+    private javax.swing.JButton BtnInfo;
+    private javax.swing.JButton BtnSalir;
+    private javax.swing.JLabel IconADMI;
     private javax.swing.JPanel PanelAgregar;
     private javax.swing.JTable TablaINVENTARIO;
     private javax.swing.JTextField fieldNombre;
