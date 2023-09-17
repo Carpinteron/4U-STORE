@@ -9,6 +9,7 @@ public class CarritoFR extends javax.swing.JFrame {
         setUndecorated(true);
         setBackground(new Color(0,0,0,0));
         initComponents();
+        setLocationRelativeTo(null);
     }
 
 
