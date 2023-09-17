@@ -234,10 +234,7 @@
                                       <EmptySpace min="-2" pref="171" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jLabel5" min="-2" pref="147" max="-2" attributes="0"/>
-                                          <Component id="jLabel4" min="-2" pref="128" max="-2" attributes="0"/>
-                                      </Group>
+                                      <Component id="jLabel5" min="-2" pref="147" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
@@ -247,7 +244,6 @@
                               </Group>
                               <Group type="103" groupAlignment="1" max="-2" attributes="0">
                                   <Component id="fieldPrecio" max="32767" attributes="0"/>
-                                  <Component id="fieldNombre" max="32767" attributes="0"/>
                                   <Component id="jcSubcategoria" max="32767" attributes="0"/>
                                   <Component id="jcArtista" max="32767" attributes="0"/>
                                   <Component id="jcCategoria" alignment="1" min="-2" pref="275" max="-2" attributes="0"/>
@@ -278,22 +274,17 @@
                           <Component id="jcSubcategoria" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="labelD" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="fieldNombre" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                          <Component id="fieldPrecio" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="fieldPrecio" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                      <EmptySpace pref="60" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="BTNAgregar2" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="BTNLimpiar1" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="42" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -358,8 +349,6 @@
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
               </AuxValues>
             </Component>
-            <Component class="javax.swing.JTextField" name="fieldNombre">
-            </Component>
             <Component class="javax.swing.JTextField" name="fieldPrecio">
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel1">
@@ -375,12 +364,7 @@
             <Component class="javax.swing.JLabel" name="labelD">
               <Properties>
                 <Property name="horizontalAlignment" type="int" value="2"/>
-                <Property name="text" type="java.lang.String" value="Talla/Album/Color (todo depende de lo anterior)"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabel4">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Nombre/Descripci&#xf3;n"/>
+                <Property name="text" type="java.lang.String" value="Talla/Album/Tipo (todo depende de lo anterior)"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel5">

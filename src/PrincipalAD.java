@@ -1,5 +1,4 @@
 
-
 import java.awt.Color;
 import java.io.BufferedReader;
 import java.io.File;
@@ -17,7 +16,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-
 public class PrincipalAD extends javax.swing.JFrame {
 
     public PrincipalAD() {
@@ -33,7 +31,8 @@ public class PrincipalAD extends javax.swing.JFrame {
         sc.close();
         //No visible
         PanelAgregar.setVisible(false);
-        
+        labelD.setVisible(false);
+
     }
 
     @SuppressWarnings("unchecked")
@@ -54,12 +53,10 @@ public class PrincipalAD extends javax.swing.JFrame {
         jcCategoria = new javax.swing.JComboBox<>();
         jcArtista = new javax.swing.JComboBox<>();
         jcSubcategoria = new javax.swing.JComboBox<>();
-        fieldNombre = new javax.swing.JTextField();
         fieldPrecio = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         labelD = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         BTNcerrarAgregar = new javax.swing.JButton();
         BTNAgregar2 = new javax.swing.JButton();
@@ -177,9 +174,7 @@ public class PrincipalAD extends javax.swing.JFrame {
         jLabel2.setText("Artista");
 
         labelD.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        labelD.setText("Talla/Album/Color (todo depende de lo anterior)");
-
-        jLabel4.setText("Nombre/Descripción");
+        labelD.setText("Talla/Album/Tipo (todo depende de lo anterior)");
 
         jLabel5.setText("Precio unitario (COP)");
 
@@ -227,16 +222,13 @@ public class PrincipalAD extends javax.swing.JFrame {
                                     .addComponent(jLabel1))
                                 .addGap(171, 171, 171))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelAgregarLayout.createSequentialGroup()
-                                .addGroup(PanelAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(75, 75, 75))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelAgregarLayout.createSequentialGroup()
                                 .addComponent(labelD, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
                                 .addGap(18, 18, 18)))
                         .addGroup(PanelAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(fieldPrecio)
-                            .addComponent(fieldNombre)
                             .addComponent(jcSubcategoria, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jcArtista, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jcCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -259,19 +251,15 @@ public class PrincipalAD extends javax.swing.JFrame {
                 .addGroup(PanelAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jcSubcategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(labelD))
-                .addGap(37, 37, 37)
-                .addGroup(PanelAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(fieldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
-                .addGap(40, 40, 40)
-                .addGroup(PanelAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(fieldPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5))
-                .addGap(29, 29, 29)
+                .addGap(53, 53, 53)
+                .addGroup(PanelAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5)
+                    .addComponent(fieldPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
                 .addGroup(PanelAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BTNAgregar2)
                     .addComponent(BTNLimpiar1))
-                .addContainerGap(42, Short.MAX_VALUE))
+                .addGap(38, 38, 38))
         );
 
         panelRound1.add(PanelAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, 950, 430));
@@ -300,71 +288,169 @@ public class PrincipalAD extends javax.swing.JFrame {
             //Matriz para crear Archivo Existente 
             String[][] inventario = {
                 //Seccion CONAN
-                {"Camiseta CG", "20", "Camiseta", "Conan Gray", "30000"},
-                {"Camiseta CG XS", "20", "Camiseta", "Conan Gray", "30000"},
-                {"CD CG", "23", "CD", "Conan Gray", "30000"},
-                {"Vinilo CG", "23", "Vinilo", "ConanGray", "30000"},
-                {"Gorra CG", "20", "Gorra", "Conan Gray", "30000"},
-                {"Llavero CG", "20", "Llavero", "Conan Gray", "30000"},
+                {"Camiseta XS", "20", "Camiseta", "Conan Gray", "30000"},
+                {"Camiseta S", "20", "Camiseta", "Conan Gray", "30000"},
+                {"Camiseta M", "20", "Camiseta", "Conan Gray", "30000"},
+                {"Camiseta L", "20", "Camiseta", "Conan Gray", "30000"},
+                {"Camiseta XL", "20", "Camiseta", "Conan Gray", "30000"},
+                {"CD Sunset Season", "23", "CD", "Conan Gray", "35000"},
+                {"CD Kid Grow", "23", "CD", "Conan Gray", "35000"},
+                {"CD Superache", "23", "CD", "Conan Gray", "35000"},
+                {"Vinilo Sunset Season", "23", "Vinilo", "Conan Gray", "45000"},
+                {"Vinilo Kid Grow", "23", "Vinilo", "Conan Gray", "45000"},
+                {"Vinilo Superache", "23", "Vinilo", "Conan Gray", "45000"},
+                {"Gorra Béisbol", "20", "Gorra", "Conan Gray", "25000"},
+                {"Gorra Plana/Snapback", "20", "Gorra", "Conan Gray", "25000"},
+                {"Gorra Trucker", "20", "Gorra", "Conan Gray", "25000"},
+                {"Llavero 1", "20", "Llavero", "Conan Gray", "15000"},
+                {"Llavero 2", "20", "Llavero", "Conan Gray", "15000"},
+                {"Llavero 3", "20", "Llavero", "Conan Gray", "15000"},
                 //SECCION BILLIE
-                {"Camiseta BE", "34", "Camiseta", "Billie Eilish", "30000"},
-                {"CD BE", "24", "CD", "Billie Eilish", "30000"},
-                {"Vinilo BE", "30", "Vinilo", "Billie Eilish", "30000"},
-                {"Gorra BE", "25", "Gorra", "Billie Eilish", "30000"},
-                {"Llavero BE", "28", "Llavero", "Billie Eilish", "30000"},
+                //"When We All Fall Asleep, Where Do We Go?", "Happier Than Ever", "Don't Smile at Me", "Live at Third Man Records")));
+                {"Camiseta XS", "34", "Camiseta", "Billie Eilish", "30000"},
+                {"Camiseta S", "32", "Camiseta", "Billie Eilish", "30000"},
+                {"Camiseta M", "30", "Camiseta", "Billie Eilish", "30000"},
+                {"Camiseta L", "28", "Camiseta", "Billie Eilish", "30000"},
+                {"Camiseta XL", "26", "Camiseta", "Billie Eilish", "30000"},
+                {"CD When We All Fall Asleep, Where Do We Go?", "24", "CD", "Billie Eilish", "35000"},
+                {"CD Happier Than Ever", "24", "CD", "Billie Eilish", "35000"},
+                {"CD Don't Smile at Me", "24", "CD", "Billie Eilish", "35000"},
+                {"CD Live at Third Man Records", "24", "CD", "Billie Eilish", "35000"},
+                {"Vinilo When We All Fall Asleep, Where Do We Go?", "24", "Vinilo", "Billie Eilish", "45000"},
+                {"Vinilo Happier Than Ever", "24", "Vinilo", "Billie Eilish", "45000"},
+                {"Vinilo Don't Smile at Me", "24", "Vinilo", "Billie Eilish", "45000"},
+                {"Vinilo Live at Third Man Records", "24", "Vinilo", "Billie Eilish", "45000"},
+                {"Gorra Béisbol", "20", "Gorra", "Billie Eilish", "25000"},
+                {"Gorra Plana/Snapback", "20", "Gorra", "Billie Eilish", "25000"},
+                {"Gorra Trucker", "20", "Gorra", "Billie Eilish", "25000"},
+                {"Llavero 1", "20", "Llavero", "Billie Eilish", "15000"},
+                {"Llavero 2", "20", "Llavero", "Billie Eilish", "15000"},
+                {"Llavero 3", "20", "Llavero", "Billie Eilish", "15000"},
                 //SECCION HARRY
-                {"CD HS", "6", "CD", "Harry Styles", ""},
+                {"Camiseta XS", "32", "Camiseta", "Harry Styles", "30000"},
+                {"Camiseta S", "30", "Camiseta", "Harry Styles", "30000"},
+                {"Camiseta M", "28", "Camiseta", "Harry Styles", "30000"},
+                {"Camiseta L", "26", "Camiseta", "Harry Styles", "30000"},
+                {"Camiseta XL", "24", "Camiseta", "Harry Styles", "30000"},
                 {"Camiseta HS", "6", "Camiseta", "Harry Styles", "30000"},
-                {"Gorra HS", "6", "Gorra", "Harry Styles", ""},
+                {"Gorra Béisbol", "20", "Gorra", "Harry Styles", "25000"},
+                {"Gorra Plana/Snapback", "20", "Gorra", "Harry Styles", "25000"},
+                {"Gorra Trucker", "20", "Gorra", "Harry Styles", "25000"},
                 {"Vinilo HS", "6", "Vinilo", "Harry Styles", ""},
-                {"Llavero HS", "6", "Llavero", "Harry Styles", ""},
+                {"Llavero 1", "20", "Llavero", "Harry Styles", "15000"},
+                {"Llavero 2", "20", "Llavero", "Harry Styles", "15000"},
+                {"Llavero 3", "20", "Llavero", "Harry Styles", "15000"},
                 //SECCION SABRINA
                 {"CD Sabrina", "7", "CD", "Sabrina Carpenter", ""},
-                {"Camiseta Sabrina", "8", "Camiseta", "Sabrina Carpenter", ""},
+                {"Camiseta XS", "30", "Camiseta", "Sabrina Carpenter", "30000"},
+                {"Camiseta S", "28", "Camiseta", "Sabrina Carpenter", "30000"},
+                {"Camiseta M", "26", "Camiseta", "Sabrina Carpenter", "30000"},
+                {"Camiseta L", "24", "Camiseta", "Sabrina Carpenter", "30000"},
+                {"Camiseta XL", "22", "Camiseta", "Sabrina Carpenter", "30000"},
                 {"Vinilo Sabrina", "7", "Vinilo", "Sabrina Carpenter", ""},
-                {"Llavero Sabrina", "7", "Llavero", "Sabrina Carpenter", ""},
-                {"Gorra Sabrina", "7", "Gorra", "Sabrina Carpenter", ""},
+                {"Llavero 1", "20", "Llavero", "Sabrina Carpenter", "15000"},
+                {"Llavero 2", "20", "Llavero", "Sabrina Carpenter", "15000"},
+                {"Llavero 3", "20", "Llavero", "Sabrina Carpenter", "15000"},
+                {"Gorra Béisbol", "20", "Gorra", "Sabrina Carpenter", "25000"},
+                {"Gorra Plana/Snapback", "20", "Gorra", "Sabrina Carpenter", "25000"},
+                {"Gorra Trucker", "20", "Gorra", "Sabrina Carpenter", "25000"},
                 //SECCION 5SOS
                 {"CD 5SOS", "9", "CD", "5SOS", ""},
-                {"Gorra 5SOS", "9", "Gorra", "5SOS", ""},
+                {"Gorra Béisbol", "20", "Gorra", "5SOS", "25000"},
+                {"Gorra Plana/Snapback", "20", "Gorra", "5SOS", "25000"},
+                {"Gorra Trucker", "20", "Gorra", "5SOS", "25000"},
                 {"Vinilo 5SOS", "9", "Vinilo", "5SOS", ""},
-                {"Llavero 5SOS", "9", "Llavero", "5SOS", ""},
-                {"Camiseta 5SOS", "12", "Camiseta", "5SOS", ""},
+                {"Llavero 1", "20", "Llavero", "5SOS", "15000"},
+                {"Llavero 2", "20", "Llavero", "5SOS", "15000"},
+                {"Llavero 3", "20", "Llavero", "5SOS", "15000"},
+                {"Camiseta XS", "28", "Camiseta", "5SOS", "30000"},
+                {"Camiseta S", "26", "Camiseta", "5SOS", "30000"},
+                {"Camiseta M", "24", "Camiseta", "5SOS", "30000"},
+                {"Camiseta L", "22", "Camiseta", "5SOS", "30000"},
+                {"Camiseta XL", "20", "Camiseta", "5SOS", "30000"},
                 //SECCION BTR
-                {"Camiseta BTRush", "12", "Camiseta", "Big Time Rush", ""},
+                {"Camiseta XS", "26", "Camiseta", "Big Time Rush", "30000"},
+                {"Camiseta S", "24", "Camiseta", "Big Time Rush", "30000"},
+                {"Camiseta M", "22", "Camiseta", "Big Time Rush", "30000"},
+                {"Camiseta L", "20", "Camiseta", "Big Time Rush", "30000"},
+                {"Camiseta XL", "18", "Camiseta", "Big Time Rush", "30000"},
                 {"CD BTR", "12", "CD", "Big Time Rush", ""},
-                {"Gorra BTR", "12", "Gorra", "Big Time Rush", ""},
+                {"Gorra Béisbol", "20", "Gorra", "Big Time Rush", "25000"},
+                {"Gorra Plana/Snapback", "20", "Gorra", "Big Time Rush", "25000"},
+                {"Gorra Trucker", "20", "Gorra", "Big Time Rush", "25000"},
                 {"Vinilo BTR", "12", "Vinilo", "Big Time Rush", ""},
-                {"Llavero BTR", "12", "Llavero", "Big Time Rush", ""},
+                {"Llavero 1", "20", "Llavero", "Big Time Rush", "15000"},
+                {"Llavero 2", "20", "Llavero", "Big Time Rush", "15000"},
+                {"Llavero 3", "20", "Llavero", "Big Time Rush", "15000"},
                 //SECCION STRAY KIDS
-                {"Camiseta SKZ", "23", "Camiseta", "Stray Kids", ""},
+                {"Camiseta XS", "24", "Camiseta", "Stray Kids", "30000"},
+                {"Camiseta S", "22", "Camiseta", "Stray Kids", "30000"},
+                {"Camiseta M", "20", "Camiseta", "Stray Kids", "30000"},
+                {"Camiseta L", "18", "Camiseta", "Stray Kids", "30000"},
+                {"Camiseta XL", "16", "Camiseta", "Stray Kids", "30000"},
                 {"CD SKZ", "14", "CD", "Stray Kids", ""},
                 {"Vinilo SKZ", "14", "Vinilo", "Stray Kids", ""},
-                {"Gorra SKZ", "14", "Gorra", "Stray Kids", ""},
-                {"Llavero SKZ", "14", "Llavero", "Stray Kids", ""},
+                {"Gorra Béisbol", "20", "Gorra", "Stray Kids", "25000"},
+                {"Gorra Plana/Snapback", "20", "Gorra", "Stray Kids", "25000"},
+                {"Gorra Trucker", "20", "Gorra", "Stray Kids", "25000"},
+                {"Llavero 1", "20", "Llavero", "Stray Kids", "15000"},
+                {"Llavero 2", "20", "Llavero", "Stray Kids", "15000"},
+                {"Llavero 3", "20", "Llavero", "Stray Kids", "15000"},
                 //SECCION TXT
                 {"CD TXT", "14", "CD", "TXT", ""},
-                {"Camiseta TXT", "14", "Camiseta", "TXT", ""},
+                {"Camiseta XS", "22", "Camiseta", "TXT", "30000"},
+                {"Camiseta S", "20", "Camiseta", "TXT", "30000"},
+                {"Camiseta M", "18", "Camiseta", "TXT", "30000"},
+                {"Camiseta L", "16", "Camiseta", "TXT", "30000"},
+                {"Camiseta XL", "14", "Camiseta", "TXT", "30000"},
                 {"Vinilo TXT", "14", "Vinilo", "TXT", ""},
-                {"Gorra TXT", "14", "Gorra", "TXT", ""},
-                {"Llavero TXT", "14", "Llavero", "TXT", ""},
+                {"Gorra Béisbol", "20", "Gorra", "TXT", "25000"},
+                {"Gorra Plana/Snapback", "20", "Gorra", "TXT", "25000"},
+                {"Gorra Trucker", "20", "Gorra", "TXT", "25000"},
+                {"Llavero 1", "20", "Llavero", "TXT", "15000"},
+                {"Llavero 2", "20", "Llavero", "TXT", "15000"},
+                {"Llavero 3", "20", "Llavero", "TXT", "15000"},
                 //SECCION TAYLOR
-                {"Camiseta Taylor Swift", "15", "Camiseta", "Taylor Swift", ""},
+                {"Camiseta XS", "20", "Camiseta", "Taylor Swift", "30000"},
+                {"Camiseta S", "18", "Camiseta", "Taylor Swift", "30000"},
+                {"Camiseta M", "16", "Camiseta", "Taylor Swift", "30000"},
+                {"Camiseta L", "14", "Camiseta", "Taylor Swift", "30000"},
+                {"Camiseta XL", "12", "Camiseta", "Taylor Swift", "30000"},
                 {"CD Taylor Swift", "17", "CD", "Taylor Swift", ""},
-                {"Llavero Taylor Swift", "17", "Llavero", "Taylor Swift", ""},
+                {"Llavero 1", "20", "Llavero", "Taylor Swift", "15000"},
+                {"Llavero 2", "20", "Llavero", "Taylor Swift", "15000"},
+                {"Llavero 3", "20", "Llavero", "Taylor Swift", "15000"},
                 {"Vinilo Taylor Swift", "17", "Vinilo", "Taylor Swift", ""},
-                {"Gorra Taylor Swift", "17", "Gorra", "Taylor Swift", ""},
+                {"Gorra Béisbol", "20", "Gorra", "Taylor Swift", "25000"},
+                {"Gorra Plana/Snapback", "20", "Gorra", "Taylor Swift", "25000"},
+                {"Gorra Trucker", "20", "Gorra", "Taylor Swift", "25000"},
                 //SECCION LOUIS
-                {"Camiseta Louis", "13", "Camiseta", "Louis Tomilson", ""},
+                {"Camiseta XS", "18", "Camiseta", "Louis Tomlinson", "30000"},
+                {"Camiseta S", "16", "Camiseta", "Louis Tomlinson", "30000"},
+                {"Camiseta M", "14", "Camiseta", "Louis Tomlinson", "30000"},
+                {"Camiseta L", "12", "Camiseta", "Louis Tomlinson", "30000"},
+                {"Camiseta XL", "10", "Camiseta", "Louis Tomlinson", "30000"},
                 {"CD Louis", "8", "CD", "Louis Tomilson", ""},
-                {"Gorra Louis", "8", "Gorra", "Louis Tomilson", ""},
-                {"Llavero Louis", "8", "Llavero", "Louis Tomilson", ""},
+                {"Gorra Béisbol", "20", "Gorra", "Louis Tomlinson", "25000"},
+                {"Gorra Plana/Snapback", "20", "Gorra", "Louis Tomlinson", "25000"},
+                {"Gorra Trucker", "20", "Gorra", "Louis Tomlinson", "25000"},
+                {"Llavero 1", "20", "Llavero", "Louis Tomlinson", "15000"},
+                {"Llavero 2", "20", "Llavero", "Louis Tomlinson", "15000"},
+                {"Llavero 3", "20", "Llavero", "Louis Tomlinson", "15000"},
                 {"Vinilo Louis", "8", "Vinilo", "Louis Tomilson", ""},
-                //SECCION IMEGINE DRAGONS
-                {"Camiseta Imagine D", "24", "Camiseta", "Imagine Dragons", ""},
+                //SECCION IMAGINE DRAGONS
+                {"Camiseta XS", "16", "Camiseta", "Imagine Dragons", "30000"},
+                {"Camiseta S", "14", "Camiseta", "Imagine Dragons", "30000"},
+                {"Camiseta M", "12", "Camiseta", "Imagine Dragons", "30000"},
+                {"Camiseta L", "10", "Camiseta", "Imagine Dragons", "30000"},
+                {"Camiseta XL", "8", "Camiseta", "Imagine Dragons", "30000"},
                 {"CD Imagine", "5", "CD", "Imagine Dragons", ""},
-                {"Gorra Imagine", "5", "Gorra", "Imagine Dragons", ""},
-                {"Llavero Imagine", "5", "Llavero", "Imagine Dragons", ""},
+                {"Gorra Béisbol", "20", "Gorra", "Imagine Dragons", "25000"},
+                {"Gorra Plana/Snapback", "20", "Gorra", "Imagine Dragons", "25000"},
+                {"Gorra Trucker", "20", "Gorra", "Imagine Dragons", "25000"},
+                {"Llavero 1", "20", "Llavero", "Imagine Dragons", "15000"},
+                {"Llavero 2", "20", "Llavero", "Imagine Dragons", "15000"},
+                {"Llavero 3", "20", "Llavero", "Imagine Dragons", "15000"},
                 {"Vinilo Imagine", "5", "Vinilo", "Imagine Dragons", ""}
 
             };
@@ -415,57 +501,55 @@ public class PrincipalAD extends javax.swing.JFrame {
             }
         }
     }
-    
-    
 
     private static final Map<String, List<String>> ALBUMES_ARTISTAS = new HashMap<>();
 
     static {
         //HACE FALTA ALBUMES
-        
+
         ALBUMES_ARTISTAS.put("Conan Gray", new ArrayList<>(List.of("Sunset Season", "Kid Krow", "Superache")));
         ALBUMES_ARTISTAS.put("Harry Styles", new ArrayList<>(List.of("Harry Styles", "Fine Line", "Harry's House")));
-        ALBUMES_ARTISTAS.put("Sabrina Carpenter", new ArrayList<>(List.of("Eyes WidALBUMES_ARTISTAS.put(\"Billie Eilish\", new ArrayList<>(List.of(\"When We All Fall Asleep, Where Do We Go?\", \"Happier Than Ever\")));e Open", "Evolution", "Emails I Can't Send")));
+        ALBUMES_ARTISTAS.put("Sabrina Carpenter", new ArrayList<>(List.of("Eyes Wide Open", "Evolution", "Emails I Can't Send")));
         ALBUMES_ARTISTAS.put("Taylor Swift", new ArrayList<>(List.of("Fearless (Taylor's version)", "Speak Now (Taylor's version)", "Red (Taylor's version)", "Lover", "folklore", "evermore")));
         ALBUMES_ARTISTAS.put("Billie Eilish", new ArrayList<>(List.of("When We All Fall Asleep, Where Do We Go?", "Happier Than Ever", "Don't Smile at Me", "Live at Third Man Records")));
         ALBUMES_ARTISTAS.put("Louis Tomlinson", new ArrayList<>(List.of("Walls")));
         ALBUMES_ARTISTAS.put("5SOS", new ArrayList<>(List.of("5 Seconds of Summer", "Sounds Good Feels Good", "Youngblood")));
-        ALBUMES_ARTISTAS.put("Stray Kids", new ArrayList<>(List.of("Go Live", "No Easy","5Stars","ODDINARY","Maxident")));
+        ALBUMES_ARTISTAS.put("Stray Kids", new ArrayList<>(List.of("Go Live", "No Easy", "5Stars", "ODDINARY", "Maxident")));
         ALBUMES_ARTISTAS.put("Big Time Rush", new ArrayList<>(List.of("BTR", "Elevate")));
         ALBUMES_ARTISTAS.put("TXT", new ArrayList<>(List.of("The Dream Chapter: STAR", "The Chaos Chapter: FREEZE")));
-        ALBUMES_ARTISTAS.put("Imagine Dragons", new ArrayList<>(List.of("Night Visions", "Smoke + Mirrors", "Evolve","Origins")));
+        ALBUMES_ARTISTAS.put("Imagine Dragons", new ArrayList<>(List.of("Night Visions", "Smoke + Mirrors", "Evolve", "Origins")));
     }
-    
-    
+
     //Subrutina para cargar datos de las subcategorias
-    public void CargarDatosJcombo(){
+    public void CargarDatosJcombo() {
         String categoria = jcCategoria.getSelectedItem().toString();
         String artista = jcArtista.getSelectedItem().toString();
         List<String> albumes = ALBUMES_ARTISTAS.get(artista);
-        
+
         if (categoria.equalsIgnoreCase("Seleccionar categoria")) {
             jcSubcategoria.setEnabled(false);
-            fieldNombre.setEnabled(false);
             fieldPrecio.setEnabled(false);
+            labelD.setVisible(false);
             System.out.println("Entre aqui en false");
 
-        }else if ((artista.equalsIgnoreCase("Seleccionar artista"))) {
+        } else if ((artista.equalsIgnoreCase("Seleccionar artista"))) {
             jcSubcategoria.setEnabled(false);
-            fieldNombre.setEnabled(false);
             fieldPrecio.setEnabled(false);
+            labelD.setVisible(false);
             System.out.println("Entre aqui en false");
 
-        }if (albumes == null || artista.equalsIgnoreCase("Seleccionar artista")) {
-        // El artista no existe en el mapa.
-        // Maneja este caso aquí.
-        return;
-    } else {
+        }
+        if (albumes == null || artista.equalsIgnoreCase("Seleccionar artista")) {
+            // El artista no existe en el mapa.
+            // Maneja este caso aquí.
+            return;
+        } else {
             jcSubcategoria.setEnabled(true);
-            fieldNombre.setEnabled(true);
             fieldPrecio.setEnabled(true);
 
             switch (categoria) {
                 case "Camiseta":
+                    labelD.setVisible(true);
                     labelD.setText("Talla");
                     DefaultComboBoxModel<String> comboBoxModel = new DefaultComboBoxModel<>();
                     comboBoxModel.addElement("Seleccionar talla");
@@ -477,6 +561,7 @@ public class PrincipalAD extends javax.swing.JFrame {
                     jcSubcategoria.setModel(comboBoxModel);
                     break;
                 case "CD":
+                    labelD.setVisible(true);
                     labelD.setText("Álbum");
                     DefaultComboBoxModel<String> comboBoxModel2 = new DefaultComboBoxModel<>();
                     comboBoxModel2.addElement("Seleccionar álbum");
@@ -484,23 +569,26 @@ public class PrincipalAD extends javax.swing.JFrame {
                     jcSubcategoria.setModel(comboBoxModel2);
                     break;
                 case "Vinilo":
+                    labelD.setVisible(true);
                     labelD.setText("Álbum");
                     DefaultComboBoxModel<String> comboBoxModel3 = new DefaultComboBoxModel<>();
                     comboBoxModel3.addElement("Seleccionar álbum");
                     ALBUMES_ARTISTAS.get(artista).forEach(comboBoxModel3::addElement);
                     jcSubcategoria.setModel(comboBoxModel3);
                     break;
-                 case "Gorra":
+                case "Gorra":
+                    labelD.setVisible(true);
                     labelD.setText("Tipo");
                     DefaultComboBoxModel<String> comboBoxModel4 = new DefaultComboBoxModel<>();
                     comboBoxModel4.addElement("Seleccionar tipo");
-                    comboBoxModel4.addElement("1");
-                    comboBoxModel4.addElement("2");
-                    comboBoxModel4.addElement("3");
+                    comboBoxModel4.addElement("Béisbol");
+                    comboBoxModel4.addElement("Plana/Snapback");
+                    comboBoxModel4.addElement("Trucker");
                     jcSubcategoria.setModel(comboBoxModel4);
                     break;
 
                 case "Llavero":
+                    labelD.setVisible(true);
                     labelD.setText("Tipo");
                     DefaultComboBoxModel<String> comboBoxModel5 = new DefaultComboBoxModel<>();
                     comboBoxModel5.addElement("Seleccionar tipo");
@@ -512,7 +600,7 @@ public class PrincipalAD extends javax.swing.JFrame {
 
             }
         }
-    
+
     }
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -554,26 +642,26 @@ public class PrincipalAD extends javax.swing.JFrame {
     }//GEN-LAST:event_BTNLimpiar1ActionPerformed
 
     private void jcSubcategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcSubcategoriaActionPerformed
-        
+
     }//GEN-LAST:event_jcSubcategoriaActionPerformed
 
     private void jcArtistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcArtistaActionPerformed
-       CargarDatosJcombo();
+        CargarDatosJcombo();
     }//GEN-LAST:event_jcArtistaActionPerformed
 
     private void jcCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcCategoriaActionPerformed
         CargarDatosJcombo();
     }//GEN-LAST:event_jcCategoriaActionPerformed
 
-   
+
     private void BtnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSalirActionPerformed
-        perfilesFR menu=new perfilesFR();
+        perfilesFR menu = new perfilesFR();
         menu.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_BtnSalirActionPerformed
 
     private void BtnGraficsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnGraficsActionPerformed
-      //SE VISUALIZA PANEL ENCIMA NO QUIERO HACER OTRO FRAME
+        //SE VISUALIZA PANEL ENCIMA NO QUIERO HACER OTRO FRAME
     }//GEN-LAST:event_BtnGraficsActionPerformed
 
     public static void main(String args[]) {
@@ -620,12 +708,10 @@ public class PrincipalAD extends javax.swing.JFrame {
     private javax.swing.JLabel IconADMI;
     private javax.swing.JPanel PanelAgregar;
     private javax.swing.JTable TablaINVENTARIO;
-    private javax.swing.JTextField fieldNombre;
     private javax.swing.JTextField fieldPrecio;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JComboBox<String> jcArtista;
@@ -635,6 +721,4 @@ public class PrincipalAD extends javax.swing.JFrame {
     private custom.PanelRound panelRound1;
     private custom.PanelRound panelRound2;
     // End of variables declaration//GEN-END:variables
-    }
-
-
+}
