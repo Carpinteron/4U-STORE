@@ -34,6 +34,11 @@ public class PrincipalAD extends javax.swing.JFrame {
         Constraseña.setVisible(true);
         Pantalla.setVisible(false);
         PanelAgregar.setVisible(false);
+        labelD.setVisible(false);
+        error1.setVisible(false);
+        error2.setVisible(false);
+        error3.setVisible(false);
+        error4.setVisible(false);
 
     }
 
@@ -72,6 +77,10 @@ public class PrincipalAD extends javax.swing.JFrame {
         BTNcerrarAgregar = new javax.swing.JButton();
         BTNAgregar2 = new javax.swing.JButton();
         BTNLimpiar1 = new javax.swing.JButton();
+        error4 = new javax.swing.JLabel();
+        error1 = new javax.swing.JLabel();
+        error2 = new javax.swing.JLabel();
+        error3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -258,12 +267,15 @@ public class PrincipalAD extends javax.swing.JFrame {
         });
         Pantalla.add(BTNAgregar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 65, -1, -1));
 
+        PanelAgregar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         jcCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar categoria", "Camiseta", "Gorra", "CD", "Vinilo", "Llavero" }));
         jcCategoria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jcCategoriaActionPerformed(evt);
             }
         });
+        PanelAgregar.add(jcCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(427, 83, 275, -1));
 
         jcArtista.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar artista", "Conan Gray", "Harry Styles", "Sabrina Carpenter", "Taylor Swift", "Billie Eilish", "Louis Tomlinson", "5SOS", "Stray Kids", "Big Time Rush", "TXT", "Imagine Dragons" }));
         jcArtista.addActionListener(new java.awt.event.ActionListener() {
@@ -271,21 +283,28 @@ public class PrincipalAD extends javax.swing.JFrame {
                 jcArtistaActionPerformed(evt);
             }
         });
+        PanelAgregar.add(jcArtista, new org.netbeans.lib.awtextra.AbsoluteConstraints(427, 133, 275, -1));
 
         jcSubcategoria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jcSubcategoriaActionPerformed(evt);
             }
         });
+        PanelAgregar.add(jcSubcategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(427, 193, 275, -1));
+        PanelAgregar.add(fieldPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(427, 268, 275, -1));
 
         jLabel1.setText("Categoría");
+        PanelAgregar.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(205, 86, -1, -1));
 
         jLabel2.setText("Artista");
+        PanelAgregar.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(205, 136, 51, -1));
 
         labelD.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         labelD.setText("Talla/Album/Tipo (todo depende de lo anterior)");
+        PanelAgregar.add(labelD, new org.netbeans.lib.awtextra.AbsoluteConstraints(205, 196, 204, -1));
 
         jLabel5.setText("Precio unitario (COP)");
+        PanelAgregar.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(205, 268, 147, -1));
 
         BTNcerrarAgregar.setText("Cerrar");
         BTNcerrarAgregar.addActionListener(new java.awt.event.ActionListener() {
@@ -293,6 +312,7 @@ public class PrincipalAD extends javax.swing.JFrame {
                 BTNcerrarAgregarActionPerformed(evt);
             }
         });
+        PanelAgregar.add(BTNcerrarAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(799, 32, -1, -1));
 
         BTNAgregar2.setText("Agregar");
         BTNAgregar2.addActionListener(new java.awt.event.ActionListener() {
@@ -300,6 +320,7 @@ public class PrincipalAD extends javax.swing.JFrame {
                 BTNAgregar2ActionPerformed(evt);
             }
         });
+        PanelAgregar.add(BTNAgregar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(716, 369, -1, -1));
 
         BTNLimpiar1.setText("Limpiar");
         BTNLimpiar1.addActionListener(new java.awt.event.ActionListener() {
@@ -307,69 +328,27 @@ public class PrincipalAD extends javax.swing.JFrame {
                 BTNLimpiar1ActionPerformed(evt);
             }
         });
+        PanelAgregar.add(BTNLimpiar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 369, -1, -1));
 
-        javax.swing.GroupLayout PanelAgregarLayout = new javax.swing.GroupLayout(PanelAgregar);
-        PanelAgregar.setLayout(PanelAgregarLayout);
-        PanelAgregarLayout.setHorizontalGroup(
-            PanelAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanelAgregarLayout.createSequentialGroup()
-                .addContainerGap(205, Short.MAX_VALUE)
-                .addGroup(PanelAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelAgregarLayout.createSequentialGroup()
-                        .addComponent(BTNcerrarAgregar)
-                        .addGap(79, 79, 79))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelAgregarLayout.createSequentialGroup()
-                        .addComponent(BTNAgregar2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(BTNLimpiar1)
-                        .addGap(78, 78, 78))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelAgregarLayout.createSequentialGroup()
-                        .addGroup(PanelAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelAgregarLayout.createSequentialGroup()
-                                .addGroup(PanelAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel1))
-                                .addGap(171, 171, 171))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelAgregarLayout.createSequentialGroup()
-                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(75, 75, 75))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelAgregarLayout.createSequentialGroup()
-                                .addComponent(labelD, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
-                                .addGap(18, 18, 18)))
-                        .addGroup(PanelAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(fieldPrecio)
-                            .addComponent(jcSubcategoria, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jcArtista, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jcCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(248, 248, 248))))
-        );
-        PanelAgregarLayout.setVerticalGroup(
-            PanelAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanelAgregarLayout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addComponent(BTNcerrarAgregar)
-                .addGap(28, 28, 28)
-                .addGroup(PanelAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jcCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
-                .addGap(28, 28, 28)
-                .addGroup(PanelAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jcArtista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addGap(38, 38, 38)
-                .addGroup(PanelAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jcSubcategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelD))
-                .addGap(53, 53, 53)
-                .addGroup(PanelAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5)
-                    .addComponent(fieldPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
-                .addGroup(PanelAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BTNAgregar2)
-                    .addComponent(BTNLimpiar1))
-                .addGap(38, 38, 38))
-        );
+        error4.setFont(new java.awt.Font("Perpetua", 0, 12)); // NOI18N
+        error4.setForeground(new java.awt.Color(255, 0, 0));
+        error4.setText("(!) El monto debe ser numérico y mayor a cero");
+        PanelAgregar.add(error4, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 280, 290, 40));
+
+        error1.setFont(new java.awt.Font("Perpetua", 0, 12)); // NOI18N
+        error1.setForeground(new java.awt.Color(255, 0, 0));
+        error1.setText("(!) Debe seleccionar una categoría");
+        PanelAgregar.add(error1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 100, 290, 22));
+
+        error2.setFont(new java.awt.Font("Perpetua", 0, 12)); // NOI18N
+        error2.setForeground(new java.awt.Color(255, 0, 0));
+        error2.setText("(!) Debe seleccionar un artista");
+        PanelAgregar.add(error2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 150, 290, 22));
+
+        error3.setFont(new java.awt.Font("Perpetua", 0, 12)); // NOI18N
+        error3.setForeground(new java.awt.Color(255, 0, 0));
+        error3.setText("(!) Debe seleccionar un artista");
+        PanelAgregar.add(error3, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 202, 290, 40));
 
         Pantalla.add(PanelAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, 950, 430));
 
@@ -701,7 +680,7 @@ public class PrincipalAD extends javax.swing.JFrame {
         ALBUMES_ARTISTAS.put("Taylor Swift", new ArrayList<>(List.of("Fearless (Taylor's version)", "Speak Now (Taylor's version)", "Red (Taylor's version)", "Lover", "Folklore", "Evermore", "Midnights")));
         ALBUMES_ARTISTAS.put("Billie Eilish", new ArrayList<>(List.of("When We All Fall Asleep, Where Do We Go?", "Happier Than Ever", "Don't Smile at Me", "Live at Third Man Records")));
         ALBUMES_ARTISTAS.put("Louis Tomlinson", new ArrayList<>(List.of("Walls", "Faith in the Future")));
-        ALBUMES_ARTISTAS.put("5SOS", new ArrayList<>(List.of("5 Seconds of Summer", "Sounds Good Feels Good", "Youngblood","CALM", "5SOS5")));
+        ALBUMES_ARTISTAS.put("5SOS", new ArrayList<>(List.of("5 Seconds of Summer", "Sounds Good Feels Good", "Youngblood", "CALM", "5SOS5")));
         ALBUMES_ARTISTAS.put("Stray Kids", new ArrayList<>(List.of("Go Live", "No Easy", "5Stars", "ODDINARY", "Maxident")));
         ALBUMES_ARTISTAS.put("Big Time Rush", new ArrayList<>(List.of("BTR", "Elevate", "24/Seven", "Another life")));
         ALBUMES_ARTISTAS.put("TXT", new ArrayList<>(List.of("The Dream Chapter: STAR", "Still Dreaming", "The Chaos Chapter: FREEZE", "Sweet")));
@@ -808,13 +787,15 @@ public class PrincipalAD extends javax.swing.JFrame {
     }//GEN-LAST:event_BTNcerrarAgregarActionPerformed
 
     private void BTNAgregar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNAgregar2ActionPerformed
-        String Categoria = jcCategoria.getSelectedItem().toString();
-        String Artista = jcArtista.getSelectedItem().toString();
-        if (Categoria.equalsIgnoreCase("Seleccionar categoria")) {
-            JOptionPane.showMessageDialog(null, "Debe seleccionar un empleado.", "Error", JOptionPane.ERROR_MESSAGE);
+        //Esto aun esta en construccion
+        String Categoria = (jcCategoria.getSelectedItem() != null) ? jcCategoria.getSelectedItem().toString() : "";
+        String Artista = (jcArtista.getSelectedItem() != null) ? jcArtista.getSelectedItem().toString() : "";
+        String Sub = (jcSubcategoria.getSelectedItem() != null) ? jcSubcategoria.getSelectedItem().toString() : "";
+        if (Categoria.equalsIgnoreCase("Seleccionar categoria") || Categoria == null) {
+            error1.setVisible(true);
         }
-        if (Artista.equalsIgnoreCase("Seleccionar artista")) {
-            JOptionPane.showMessageDialog(null, "Debe seleccionar un artista.", "Error", JOptionPane.ERROR_MESSAGE);
+        if (Artista.equalsIgnoreCase("Seleccionar artista") || Artista == null) {
+            error2.setVisible(true);
         }
         String seleccionarc = "Seleccionar categoria";
         String seleccionara = "Seleccionar artista";
@@ -863,12 +844,12 @@ public class PrincipalAD extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void PassFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PassFieldMouseClicked
-     
+
         PassField.setText(null);
     }//GEN-LAST:event_PassFieldMouseClicked
 
     private void userfieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userfieldMouseClicked
-       
+
         userfield.setText(null);
     }//GEN-LAST:event_userfieldMouseClicked
 
@@ -980,6 +961,10 @@ public class PrincipalAD extends javax.swing.JFrame {
     private custom.PanelRound Pantalla;
     private javax.swing.JPasswordField PassField;
     private javax.swing.JTable TablaINVENTARIO;
+    private javax.swing.JLabel error1;
+    private javax.swing.JLabel error2;
+    private javax.swing.JLabel error3;
+    private javax.swing.JLabel error4;
     private javax.swing.JTextField fieldPrecio;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
