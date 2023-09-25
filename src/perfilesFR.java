@@ -38,7 +38,7 @@ public class perfilesFR extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICons/cliente100-transformed.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICons/clienteimg.png"))); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Sitka Text", 1, 18)); // NOI18N
         jLabel2.setText("CLIENTE");
@@ -76,7 +76,7 @@ public class perfilesFR extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Sitka Text", 1, 18)); // NOI18N
         jLabel4.setText("ADMINISTRADOR");
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICons/iconadmin.png"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICons/adminimg.png"))); // NOI18N
 
         javax.swing.GroupLayout panelRound3Layout = new javax.swing.GroupLayout(panelRound3);
         panelRound3.setLayout(panelRound3Layout);
