@@ -21,8 +21,8 @@ public class PrincipalAD extends javax.swing.JFrame {
     public PrincipalAD() {
         setUndecorated(true);
         setBackground(new Color(0, 0, 0, 0));
-        initComponents();
-        setLocationRelativeTo(null);
+         initComponents();
+         setLocationRelativeTo(null);
         this.setVisible(false);
         //Para mostrar archivo inventario 01
         ArchivoInventario("Inventario");// se puede reiniciar
@@ -54,14 +54,15 @@ public class PrincipalAD extends javax.swing.JFrame {
         BtnVerifyUser = new javax.swing.JButton();
         PassField = new javax.swing.JPasswordField();
         jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
         AvisoLabel = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         Pantalla = new custom.PanelRound();
         panelRound2 = new custom.PanelRound();
         IconADMI = new javax.swing.JLabel();
         BtnGrafics = new javax.swing.JButton();
         BtnSalir = new javax.swing.JButton();
         BtnInfo = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         TablaINVENTARIO = new javax.swing.JTable();
         BTNAgregar1 = new javax.swing.JButton();
@@ -136,49 +137,42 @@ public class PrincipalAD extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setText("Registrarse");
-
         javax.swing.GroupLayout ConstraseñaLayout = new javax.swing.GroupLayout(Constraseña);
         Constraseña.setLayout(ConstraseñaLayout);
         ConstraseñaLayout.setHorizontalGroup(
             ConstraseñaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ConstraseñaLayout.createSequentialGroup()
-                .addGap(318, 318, 318)
-                .addComponent(BtnVerifyUser)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(ConstraseñaLayout.createSequentialGroup()
-                .addGap(229, 229, 229)
-                .addGroup(ConstraseñaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel3)
-                    .addComponent(userfield)
-                    .addComponent(PassField, javax.swing.GroupLayout.DEFAULT_SIZE, 277, Short.MAX_VALUE))
-                .addGroup(ConstraseñaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(ConstraseñaLayout.createSequentialGroup()
-                        .addGap(34, 34, 34)
-                        .addComponent(jButton2))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ConstraseñaLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton3)
-                        .addGap(260, 260, 260))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ConstraseñaLayout.createSequentialGroup()
                 .addContainerGap(436, Short.MAX_VALUE)
                 .addComponent(AvisoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 443, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(321, 321, 321))
+            .addGroup(ConstraseñaLayout.createSequentialGroup()
+                .addGroup(ConstraseñaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ConstraseñaLayout.createSequentialGroup()
+                        .addGap(318, 318, 318)
+                        .addComponent(BtnVerifyUser))
+                    .addGroup(ConstraseñaLayout.createSequentialGroup()
+                        .addGap(229, 229, 229)
+                        .addGroup(ConstraseñaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel6)
+                            .addComponent(userfield)
+                            .addComponent(PassField, javax.swing.GroupLayout.DEFAULT_SIZE, 277, Short.MAX_VALUE)
+                            .addGroup(ConstraseñaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jLabel4)
+                                .addComponent(jLabel3)))
+                        .addGap(34, 34, 34)
+                        .addComponent(jButton2)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         ConstraseñaLayout.setVerticalGroup(
             ConstraseñaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ConstraseñaLayout.createSequentialGroup()
-                .addGap(237, 237, 237)
+                .addGap(137, 137, 137)
+                .addComponent(jLabel4)
+                .addGap(84, 84, 84)
                 .addComponent(jLabel3)
-                .addGroup(ConstraseñaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(ConstraseñaLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(userfield, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(ConstraseñaLayout.createSequentialGroup()
-                        .addGap(56, 56, 56)
-                        .addComponent(jButton3)))
-                .addGap(46, 46, 46)
+                .addGap(18, 18, 18)
+                .addComponent(userfield, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(66, 66, 66)
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(ConstraseñaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -188,7 +182,7 @@ public class PrincipalAD extends javax.swing.JFrame {
                 .addComponent(BtnVerifyUser)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(AvisoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(150, Short.MAX_VALUE))
+                .addContainerGap(164, Short.MAX_VALUE))
         );
 
         getContentPane().add(Constraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1200, 700));
@@ -215,6 +209,8 @@ public class PrincipalAD extends javax.swing.JFrame {
 
         BtnInfo.setText("Info");
 
+        jButton3.setText("Registrarse");
+
         javax.swing.GroupLayout panelRound2Layout = new javax.swing.GroupLayout(panelRound2);
         panelRound2.setLayout(panelRound2Layout);
         panelRound2Layout.setHorizontalGroup(
@@ -223,9 +219,11 @@ public class PrincipalAD extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(IconADMI)
-                    .addComponent(BtnGrafics, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(BtnInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BtnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(BtnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jButton3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addComponent(BtnGrafics, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelRound2Layout.setVerticalGroup(
@@ -235,7 +233,9 @@ public class PrincipalAD extends javax.swing.JFrame {
                 .addComponent(IconADMI, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(BtnGrafics, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 422, Short.MAX_VALUE)
+                .addGap(175, 175, 175)
+                .addComponent(jButton3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 224, Short.MAX_VALUE)
                 .addComponent(BtnInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29)
                 .addComponent(BtnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -972,6 +972,7 @@ public class PrincipalAD extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;

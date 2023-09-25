@@ -5,10 +5,11 @@ import java.awt.Color;
 public class PrincipalCL extends javax.swing.JFrame {
 
     public PrincipalCL() {
+           
         setUndecorated(true);
         setBackground(new Color(0,0,0,0));
         initComponents();
-        setLocationRelativeTo(null);
+     setLocationRelativeTo(null);
     }
     public String Frameanterior;
     
