@@ -197,6 +197,7 @@ public class login extends javax.swing.JFrame {
         int queflojera = 0; // para no meter cedula a cada rato 
         if (queflojera == 0) { // ESTO SE QUITA
             existe = true;
+             user = fnombre.getText();
         } else {
             int pos = 0;
             user = fnombre.getText();

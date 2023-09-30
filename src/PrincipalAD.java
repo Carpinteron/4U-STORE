@@ -17,7 +17,7 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 public class PrincipalAD extends javax.swing.JFrame {
-    private String admi;
+     String admi;
     public PrincipalAD(String name) {
         setUndecorated(true);
         this.admi = name;
@@ -31,7 +31,8 @@ public class PrincipalAD extends javax.swing.JFrame {
         Scanner sc = new Scanner(System.in);
         LeerNormal(sc, "Inventario", TablaINVENTARIO);
         sc.close();
-        userfield.setText(admi);
+       // userfield.setText(admi);
+        userLABEL.setText(admi);
         //No visible
         Constraseña.setVisible(true);
         Pantalla.setVisible(false);
@@ -51,7 +52,6 @@ public class PrincipalAD extends javax.swing.JFrame {
 
         exitBTN = new javax.swing.JButton();
         Constraseña = new custom.PanelRound();
-        userfield = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         BtnVerifyUser = new javax.swing.JButton();
@@ -59,6 +59,7 @@ public class PrincipalAD extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         AvisoLabel = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        userLABEL = new javax.swing.JLabel();
         Pantalla = new custom.PanelRound();
         panelRound2 = new custom.PanelRound();
         IconADMI = new javax.swing.JLabel();
@@ -104,19 +105,6 @@ public class PrincipalAD extends javax.swing.JFrame {
         Constraseña.setBackground(new java.awt.Color(153, 153, 255));
         Constraseña.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        userfield.setText("User...");
-        userfield.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                userfieldMouseClicked(evt);
-            }
-        });
-        userfield.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                userfieldActionPerformed(evt);
-            }
-        });
-        Constraseña.add(userfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, 277, 41));
-
         jLabel3.setText("Usuario");
         Constraseña.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 40, -1, -1));
 
@@ -147,9 +135,12 @@ public class PrincipalAD extends javax.swing.JFrame {
         });
         Constraseña.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 210, -1, -1));
         Constraseña.add(AvisoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 250, 290, 25));
-        Constraseña.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 140, 120, 20));
+        Constraseña.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 150, 120, 20));
 
-        getContentPane().add(Constraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 150, 560, 370));
+        userLABEL.setText("User ..");
+        Constraseña.add(userLABEL, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 90, 140, 30));
+
+        getContentPane().add(Constraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 160, 560, 370));
 
         Pantalla.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -795,10 +786,6 @@ public class PrincipalAD extends javax.swing.JFrame {
         //SE VISUALIZA PANEL ENCIMA NO QUIERO HACER OTRO FRAME
     }//GEN-LAST:event_BtnGraficsActionPerformed
 
-    private void userfieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userfieldActionPerformed
-        userfield.setText(admi);
-    }//GEN-LAST:event_userfieldActionPerformed
-
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         char echoChar = PassField.getEchoChar(); // Obtener el carácter de eco actual
         if (echoChar != 0) {
@@ -809,24 +796,21 @@ public class PrincipalAD extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void PassFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PassFieldMouseClicked
-
+   
         PassField.setText(null);
     }//GEN-LAST:event_PassFieldMouseClicked
 
-    private void userfieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userfieldMouseClicked
-
-        userfield.setText(null);
-    }//GEN-LAST:event_userfieldMouseClicked
-
     private void BtnVerifyUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVerifyUserActionPerformed
-        exitBTN.setVisible(true);
+        
         Scanner sc = new Scanner(System.in);
-        String U = userfield.getText();
+        String U = admi;
+        //userfield.getText();
         String P = PassField.getText();
         boolean Correct = Verify(sc, "Usuarios", U, P);
         if (Correct == true) {
             Pantalla.setVisible(true);
             Constraseña.setVisible(false);
+            exitBTN.setVisible(true);
         } else {
             AvisoLabel.setText("Contraseña o Usuario incorrecto");
         }
@@ -947,6 +931,6 @@ public class PrincipalAD extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jcSubcategoria;
     private javax.swing.JLabel labelD;
     private custom.PanelRound panelRound2;
-    private javax.swing.JTextField userfield;
+    private javax.swing.JLabel userLABEL;
     // End of variables declaration//GEN-END:variables
 }
