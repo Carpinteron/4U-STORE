@@ -582,7 +582,7 @@ public class PrincipalAD extends javax.swing.JFrame {
                 //Seccion CONAN
                 {"Nacale", "12345"},
                 {"Pauly", "888"},
-                {"IsaBella", "111"}};
+                {"isabella", "111"}};
 
             //Agregar datos de la matriz al registro
             for (String[] fila : usuariosADMIN) {
