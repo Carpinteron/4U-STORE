@@ -156,6 +156,13 @@
           </SubComponents>
         </Container>
         <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+          <Properties>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="null"/>
+            </Property>
+            <Property name="horizontalScrollBarPolicy" type="int" value="31"/>
+            <Property name="opaque" type="boolean" value="false"/>
+          </Properties>
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
@@ -170,32 +177,29 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="SabrinaBTN7" min="-2" pref="191" max="-2" attributes="0"/>
-                              <Component id="SabrinaBTN5" min="-2" pref="191" max="-2" attributes="0"/>
-                              <Component id="HSbtn" min="-2" pref="191" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                              <Component id="SabrinaBTN5" alignment="1" max="32767" attributes="0"/>
+                              <Component id="HSbtn" pref="217" max="32767" attributes="0"/>
+                              <Component id="SabrinaBTN7" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                              <Component id="SabrinaBTN8" pref="222" max="32767" attributes="0"/>
+                              <Component id="SabrinaBTN" alignment="1" max="32767" attributes="0"/>
+                              <Component id="SabrinaBTN4" alignment="1" max="32767" attributes="0"/>
+                          </Group>
+                          <EmptySpace pref="54" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="SabrinaBTN" alignment="0" min="-2" pref="191" max="-2" attributes="0"/>
-                              <Component id="SabrinaBTN4" alignment="0" min="-2" pref="191" max="-2" attributes="0"/>
-                              <Component id="SabrinaBTN8" alignment="0" min="-2" pref="191" max="-2" attributes="0"/>
+                              <Component id="SabrinaBTN2" alignment="1" min="-2" pref="228" max="-2" attributes="0"/>
+                              <Component id="SabrinaBTN6" alignment="1" min="-2" pref="228" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Component id="SabrinaBTN2" min="-2" pref="191" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
-                                  <Component id="SabrinaBTN1" min="-2" pref="191" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" attributes="0">
-                                  <Component id="SabrinaBTN6" min="-2" pref="191" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="SabrinaBTN3" min="-2" pref="191" max="-2" attributes="0"/>
-                              </Group>
+                          <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="SabrinaBTN1" min="-2" pref="215" max="-2" attributes="0"/>
+                              <Component id="SabrinaBTN3" min="-2" pref="215" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="114" max="32767" attributes="0"/>
+                          <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
