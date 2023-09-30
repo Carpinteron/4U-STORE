@@ -1,9 +1,11 @@
 
 import java.awt.Color;
+import javax.swing.ImageIcon;
 
 public class ProductoFR extends javax.swing.JFrame {
 private String user;
     public ProductoFR(String name) {
+         setIconImage(new ImageIcon(getClass().getResource("ICons/4Uicon.png")).getImage());
         this.user=name;
         setUndecorated(true);
         setBackground(new Color(0, 0, 0, 0));

@@ -1,10 +1,12 @@
 
 import java.awt.Color;
+import javax.swing.ImageIcon;
 
 
 public class perfilesFR extends javax.swing.JFrame {
     private String user;
     public perfilesFR(String name) {
+         setIconImage(new ImageIcon(getClass().getResource("ICons/4Uicon.png")).getImage());
         this.user = name;
         setUndecorated(true);
         setBackground(new Color(0,0,0,0));

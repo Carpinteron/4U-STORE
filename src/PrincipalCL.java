@@ -1,11 +1,13 @@
 
 import java.awt.Color;
+import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 
 public class PrincipalCL extends javax.swing.JFrame {
 private String user;
     public PrincipalCL(String name) {
+         setIconImage(new ImageIcon(getClass().getResource("ICons/4Uicon.png")).getImage());
            this.user=name;
         setUndecorated(true);
         setBackground(new Color(0,0,0,0));
