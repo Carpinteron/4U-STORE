@@ -12,7 +12,7 @@ private String user;
         initComponents();
      setLocationRelativeTo(null);
      panelproductoss.setVisible(false);
-    // BTNartistas.setEnabled(false);//boton para que muestre el panel de todos los artistas
+    //BTNartistas.setEnabled(false);//boton para que muestre el panel de todos los artistas
      //La idea es que cuando se esten en el menu de artistas el boton este señalado o resaltado mas no se puede seleccionar
     // BTNproductos.setEnabled(false);
      //si selecciona un artista, el botonartistas se habilita por si el usuario se quiere regrsar, y se resal el boton de los productos del artista
