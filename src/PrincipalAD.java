@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -19,6 +20,7 @@ import javax.swing.table.DefaultTableModel;
 public class PrincipalAD extends javax.swing.JFrame {
      String admi;
     public PrincipalAD(String name) {
+         setIconImage(new ImageIcon(getClass().getResource("ICons/4Uicon.png")).getImage());
         setUndecorated(true);
         this.admi = name;
         setBackground(new Color(0, 0, 0, 0));

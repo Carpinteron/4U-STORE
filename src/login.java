@@ -1,5 +1,6 @@
 
 import java.awt.Color;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -12,7 +13,7 @@ public class login extends javax.swing.JFrame {
     String user;
 
     public login() {
-
+        setIconImage(new ImageIcon(getClass().getResource("ICons/4Uicon.png")).getImage());
         setUndecorated(true);
         setBackground(new Color(0, 0, 0, 0));
         initComponents();
