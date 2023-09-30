@@ -3,26 +3,28 @@ import java.awt.Color;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
-
 public class PrincipalCL extends javax.swing.JFrame {
-private String user;
+
+    private String user;
+
     public PrincipalCL(String name) {
-         setIconImage(new ImageIcon(getClass().getResource("ICons/4Uicon.png")).getImage());
-           this.user=name;
+        setIconImage(new ImageIcon(getClass().getResource("ICons/4Uicon.png")).getImage());
+        this.user = name;
         setUndecorated(true);
-        setBackground(new Color(0,0,0,0));
+        setBackground(new Color(0, 0, 0, 0));
         initComponents();
-     setLocationRelativeTo(null);
-     panelproductoss.setVisible(false);
-    //BTNartistas.setEnabled(false);//boton para que muestre el panel de todos los artistas
-     //La idea es que cuando se esten en el menu de artistas el boton este señalado o resaltado mas no se puede seleccionar
-    // BTNproductos.setEnabled(false);
-     //si selecciona un artista, el botonartistas se habilita por si el usuario se quiere regrsar, y se resal el boton de los productos del artista
-    // BTNelproducto.setEnabled(false);
+        setLocationRelativeTo(null);
+        panelproductoss.setVisible(false);
+        BTNartistas.setEnabled(false);//boton para que muestre el panel de todos los artistas
+        //La idea es que cuando se esten en el menu de artistas el boton este señalado o resaltado mas no se puede seleccionar
+        BTNproductos.setEnabled(false);
+        //si selecciona un artista, el botonartistas se habilita por si el usuario se quiere regrsar, y se resal el boton de los productos del artista
+        BTNelproducto.setEnabled(false);
     }
     public String Frameanterior;
     public JPanel actualPanel;
-    
+    public String SelectedArtist;
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -45,9 +47,10 @@ private String user;
         ImagineDragonsBTN = new javax.swing.JButton();
         LousiBTN = new javax.swing.JButton();
         SkzBTN = new javax.swing.JButton();
-        BeaMillerBTN = new javax.swing.JButton();
+        ManeskinBTN = new javax.swing.JButton();
         BillieBTN = new javax.swing.JButton();
         BTN5sos = new javax.swing.JButton();
+        BeaMillerBTN = new javax.swing.JButton();
         BTNartistas = new javax.swing.JButton();
         BTNproductos = new javax.swing.JButton();
         BTNelproducto = new javax.swing.JButton();
@@ -118,6 +121,11 @@ private String user;
         panelArtistas.add(HSbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(17, 12, 217, 234));
 
         SabrinaBTN.setText("Sabrina Carpenter");
+        SabrinaBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SabrinaBTNActionPerformed(evt);
+            }
+        });
         panelArtistas.add(SabrinaBTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(284, 12, 222, 235));
 
         BTRbtn.setText("Big Time Rush");
@@ -160,13 +168,13 @@ private String user;
         });
         panelArtistas.add(SkzBTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(17, 284, 217, 235));
 
-        BeaMillerBTN.setText("Bea Miller");
-        BeaMillerBTN.addActionListener(new java.awt.event.ActionListener() {
+        ManeskinBTN.setText("Maneskin");
+        ManeskinBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BeaMillerBTNActionPerformed(evt);
+                ManeskinBTNActionPerformed(evt);
             }
         });
-        panelArtistas.add(BeaMillerBTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(566, 284, 228, 235));
+        panelArtistas.add(ManeskinBTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 560, 228, 235));
 
         BillieBTN.setText("Billie Eilish");
         BillieBTN.addActionListener(new java.awt.event.ActionListener() {
@@ -183,6 +191,14 @@ private String user;
             }
         });
         panelArtistas.add(BTN5sos, new org.netbeans.lib.awtextra.AbsoluteConstraints(284, 556, 222, 235));
+
+        BeaMillerBTN.setText("Bea Miller");
+        BeaMillerBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BeaMillerBTNActionPerformed(evt);
+            }
+        });
+        panelArtistas.add(BeaMillerBTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(566, 284, 228, 235));
 
         jScrollPane1.setViewportView(panelArtistas);
 
@@ -256,72 +272,95 @@ private String user;
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       System.exit(0);
+        System.exit(0);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void BtnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSalirActionPerformed
-        perfilesFR menu=new perfilesFR(user);
+        perfilesFR menu = new perfilesFR(user);
         menu.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_BtnSalirActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        CarritoFR carrito=new CarritoFR(user);
+        CarritoFR carrito = new CarritoFR(user);
         carrito.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void BTRbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTRbtnActionPerformed
-        // TODO add your handling code here:
+        BotonesArtistasPanel();
+        SelectedArtist = "Big Time Rush";
     }//GEN-LAST:event_BTRbtnActionPerformed
 
     private void ConanBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConanBTNActionPerformed
-        // TODO add your handling code here:
+        BotonesArtistasPanel();
+        SelectedArtist = "Conan Gray";
     }//GEN-LAST:event_ConanBTNActionPerformed
 
     private void ImagineDragonsBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ImagineDragonsBTNActionPerformed
-        // TODO add your handling code here:
+        BotonesArtistasPanel();
+        SelectedArtist = "Imagine Dragons";
     }//GEN-LAST:event_ImagineDragonsBTNActionPerformed
 
     private void LousiBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LousiBTNActionPerformed
-        // TODO add your handling code here:
+        BotonesArtistasPanel();
+        SelectedArtist = "Louis Tomilson";
     }//GEN-LAST:event_LousiBTNActionPerformed
 
     private void SkzBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SkzBTNActionPerformed
-        // TODO add your handling code here:
+        BotonesArtistasPanel();
+        SelectedArtist = "Stray Kids";
     }//GEN-LAST:event_SkzBTNActionPerformed
 
-    private void BeaMillerBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BeaMillerBTNActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BeaMillerBTNActionPerformed
+    private void ManeskinBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ManeskinBTNActionPerformed
+        BotonesArtistasPanel();
+        SelectedArtist = "Maneskin";
+    }//GEN-LAST:event_ManeskinBTNActionPerformed
 
     private void BillieBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BillieBTNActionPerformed
-        // TODO add your handling code here:
+        BotonesArtistasPanel();
+        SelectedArtist = "Billie Eilish";
     }//GEN-LAST:event_BillieBTNActionPerformed
 
     private void BTN5sosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN5sosActionPerformed
-        // TODO add your handling code here:
+        BotonesArtistasPanel();
+        SelectedArtist = "5SOS";
     }//GEN-LAST:event_BTN5sosActionPerformed
 
     private void HSbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HSbtnActionPerformed
-        panelproductoss.setVisible(true);
-        panelArtistas.setVisible(false);
-        panelArtistas.setEnabled(false);
-         BTNartistas.setEnabled(true);
-         actualPanel=panelproductoss;
+        BotonesArtistasPanel();
+        SelectedArtist = "Harry Styles";
     }//GEN-LAST:event_HSbtnActionPerformed
 
     private void BTNartistasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNartistasActionPerformed
-        if(actualPanel==panelproductoss){
+        if (actualPanel == panelproductoss) {
             panelproductoss.setVisible(false);
-        panelArtistas.setVisible(true);
-        panelArtistas.setEnabled(true);
+            panelArtistas.setVisible(true);
+            panelArtistas.setEnabled(true);
+            BTNartistas.setEnabled(false);
         }
     }//GEN-LAST:event_BTNartistasActionPerformed
 
     private void BTNproductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNproductosActionPerformed
-       
+
     }//GEN-LAST:event_BTNproductosActionPerformed
+
+    private void SabrinaBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SabrinaBTNActionPerformed
+        BotonesArtistasPanel();
+    }//GEN-LAST:event_SabrinaBTNActionPerformed
+
+    private void BeaMillerBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BeaMillerBTNActionPerformed
+        BotonesArtistasPanel();
+        SelectedArtist = "Bea Miller";
+    }//GEN-LAST:event_BeaMillerBTNActionPerformed
+
+    public void BotonesArtistasPanel() {
+        panelproductoss.setVisible(true);
+        panelArtistas.setVisible(false);
+        panelArtistas.setEnabled(false);
+        BTNartistas.setEnabled(true);
+        actualPanel = panelproductoss;
+    }
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -368,6 +407,7 @@ private String user;
     private javax.swing.JButton HSbtn;
     private javax.swing.JButton ImagineDragonsBTN;
     private javax.swing.JButton LousiBTN;
+    private javax.swing.JButton ManeskinBTN;
     private javax.swing.JButton SabrinaBTN;
     private javax.swing.JButton SkzBTN;
     private javax.swing.JButton jButton1;
