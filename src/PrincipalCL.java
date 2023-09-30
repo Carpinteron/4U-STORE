@@ -39,9 +39,6 @@ public class PrincipalCL extends javax.swing.JFrame {
         BtnSalir = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        panelDELproducto = new javax.swing.JPanel();
-        labelArtist = new javax.swing.JLabel();
-        labelTipoProduct = new javax.swing.JLabel();
         panelproductoss = new javax.swing.JPanel();
         TituloArtista = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -50,6 +47,13 @@ public class PrincipalCL extends javax.swing.JFrame {
         btnGORRAS = new javax.swing.JButton();
         btnLLaveros = new javax.swing.JButton();
         btnCDS = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
+        panelDELproducto = new javax.swing.JPanel();
+        labelArtist = new javax.swing.JLabel();
+        labelTipoProduct = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jLabel4 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         panelArtistas = new javax.swing.JPanel();
         HSbtn = new javax.swing.JButton();
@@ -66,6 +70,7 @@ public class PrincipalCL extends javax.swing.JFrame {
         BTNartistas = new javax.swing.JButton();
         BTNproductos = new javax.swing.JButton();
         BTNelproducto = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -111,34 +116,6 @@ public class PrincipalCL extends javax.swing.JFrame {
 
         panelRound1.add(menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        labelArtist.setFont(new java.awt.Font("Tekton Pro", 0, 36)); // NOI18N
-        labelArtist.setText("ARTISTA");
-
-        labelTipoProduct.setText("jLabel5");
-
-        javax.swing.GroupLayout panelDELproductoLayout = new javax.swing.GroupLayout(panelDELproducto);
-        panelDELproducto.setLayout(panelDELproductoLayout);
-        panelDELproductoLayout.setHorizontalGroup(
-            panelDELproductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelDELproductoLayout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addGroup(panelDELproductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(labelTipoProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelArtist, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(691, Short.MAX_VALUE))
-        );
-        panelDELproductoLayout.setVerticalGroup(
-            panelDELproductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelDELproductoLayout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addComponent(labelArtist, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(labelTipoProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(467, Short.MAX_VALUE))
-        );
-
-        panelRound1.add(panelDELproducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, 1060, 580));
-
         panelproductoss.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         TituloArtista.setFont(new java.awt.Font("Tekton Pro", 0, 36)); // NOI18N
@@ -146,7 +123,7 @@ public class PrincipalCL extends javax.swing.JFrame {
         panelproductoss.add(TituloArtista, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 20, 475, 66));
 
         jLabel2.setText("¿Que producto desea explorar? ");
-        panelproductoss.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(42, 92, 263, 24));
+        panelproductoss.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 100, 180, 24));
 
         btnCamisetas.setText("CAMISETAS");
         btnCamisetas.addActionListener(new java.awt.event.ActionListener() {
@@ -154,7 +131,7 @@ public class PrincipalCL extends javax.swing.JFrame {
                 btnCamisetasActionPerformed(evt);
             }
         });
-        panelproductoss.add(btnCamisetas, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 163, 171, 359));
+        panelproductoss.add(btnCamisetas, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 500, 190, 70));
 
         btnVINILOS.setText("VINILOS");
         btnVINILOS.addActionListener(new java.awt.event.ActionListener() {
@@ -162,7 +139,7 @@ public class PrincipalCL extends javax.swing.JFrame {
                 btnVINILOSActionPerformed(evt);
             }
         });
-        panelproductoss.add(btnVINILOS, new org.netbeans.lib.awtextra.AbsoluteConstraints(643, 163, 187, 359));
+        panelproductoss.add(btnVINILOS, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 320, 187, 70));
 
         btnGORRAS.setText("GORRAS");
         btnGORRAS.addActionListener(new java.awt.event.ActionListener() {
@@ -170,7 +147,7 @@ public class PrincipalCL extends javax.swing.JFrame {
                 btnGORRASActionPerformed(evt);
             }
         });
-        panelproductoss.add(btnGORRAS, new org.netbeans.lib.awtextra.AbsoluteConstraints(856, 163, 195, 359));
+        panelproductoss.add(btnGORRAS, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 140, 195, 70));
 
         btnLLaveros.setText("LLAVEROS");
         btnLLaveros.addActionListener(new java.awt.event.ActionListener() {
@@ -178,7 +155,7 @@ public class PrincipalCL extends javax.swing.JFrame {
                 btnLLaverosActionPerformed(evt);
             }
         });
-        panelproductoss.add(btnLLaveros, new org.netbeans.lib.awtextra.AbsoluteConstraints(443, 163, 173, 359));
+        panelproductoss.add(btnLLaveros, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 410, 190, 70));
 
         btnCDS.setText("CD");
         btnCDS.addActionListener(new java.awt.event.ActionListener() {
@@ -186,9 +163,41 @@ public class PrincipalCL extends javax.swing.JFrame {
                 btnCDSActionPerformed(evt);
             }
         });
-        panelproductoss.add(btnCDS, new org.netbeans.lib.awtextra.AbsoluteConstraints(231, 163, 180, 359));
+        panelproductoss.add(btnCDS, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 230, 190, 70));
+
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane3.setViewportView(jTable2);
+
+        panelproductoss.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 157, 750, 420));
 
         panelRound1.add(panelproductoss, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 40, 1070, 590));
+
+        panelDELproducto.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        labelArtist.setFont(new java.awt.Font("Tekton Pro", 0, 36)); // NOI18N
+        labelArtist.setText("ARTISTA");
+        panelDELproducto.add(labelArtist, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 28, 335, 55));
+
+        labelTipoProduct.setText("jLabel5");
+        panelDELproducto.add(labelTipoProduct, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 89, 320, 24));
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        panelDELproducto.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 185, -1));
+
+        jLabel4.setText("jLabel4");
+        panelDELproducto.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 40, 240, 260));
+
+        panelRound1.add(panelDELproducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, 1060, 580));
 
         jScrollPane1.setBorder(null);
         jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
@@ -307,6 +316,9 @@ public class PrincipalCL extends javax.swing.JFrame {
 
         BTNelproducto.setText("VISTAZO DEL PRODUCTO");
         panelRound1.add(BTNelproducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(331, 6, -1, -1));
+
+        jButton4.setText("TODOS LOS PRODUCTOS");
+        panelRound1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 10, 180, -1));
 
         getContentPane().add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -532,10 +544,15 @@ public class PrincipalCL extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JTable jTable2;
     private javax.swing.JLabel labelArtist;
     private javax.swing.JLabel labelTipoProduct;
     private custom.PanelRound menu;
