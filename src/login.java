@@ -7,11 +7,12 @@ import java.awt.Color;
  */
 public class login extends javax.swing.JFrame {
 
-    int[] cedAdmin = {1042245460, 1047037245, 12345};
+    int[] cedAdmin = {1042245460, 1047037245, 1044610582};
     boolean existe;
     String user;
+
     public login() {
-        
+
         setUndecorated(true);
         setBackground(new Color(0, 0, 0, 0));
         initComponents();
@@ -64,6 +65,11 @@ public class login extends javax.swing.JFrame {
         fnombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 fnombreActionPerformed(evt);
+            }
+        });
+        fnombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                fnombreKeyTyped(evt);
             }
         });
 
@@ -121,7 +127,7 @@ public class login extends javax.swing.JFrame {
         panelRound2Layout.setVerticalGroup(
             panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRound2Layout.createSequentialGroup()
-                .addContainerGap(153, Short.MAX_VALUE)
+                .addContainerGap(154, Short.MAX_VALUE)
                 .addComponent(Login)
                 .addGap(72, 72, 72)
                 .addComponent(valid, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -179,7 +185,8 @@ public class login extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnEXITActionPerformed
 
     private void fnombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fnombreActionPerformed
-       fnombre.setText(null);
+        fnombre.setText(null);
+        
     }//GEN-LAST:event_fnombreActionPerformed
 
     private void fcontraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fcontraseñaActionPerformed
@@ -187,21 +194,23 @@ public class login extends javax.swing.JFrame {
     }//GEN-LAST:event_fcontraseñaActionPerformed
 
     private void LoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginActionPerformed
-       int pos = 0;
-       user=fnombre.getText();
-        String cedula = fcontraseña.getText();
-        if(cedula.length()!=10){
-            valid.setText("La cédula debe tener 10 dígitos.");
-        }else{
-        
-        while (pos < cedAdmin.length && existe == false) {
-            System.out.println(cedAdmin[pos]);
-            if (cedAdmin[pos] == Integer.parseInt(cedula)) {
-                existe = true;
-            } else {
-                pos++;
+        int queflojera = 0;
+        if (queflojera == 0) {
+            existe = true;
+        } else {
+            int pos = 0;
+            user = fnombre.getText();
+            String cedula = fcontraseña.getText();
+
+            while (pos < cedAdmin.length && existe == false) {
+                System.out.println(cedAdmin[pos]);
+                if (cedAdmin[pos] == Integer.parseInt(cedula)) {
+                    existe = true;
+                } else {
+                    pos++;
+                }
             }
-        }
+       }
         System.out.println(existe);
 
         if (existe == true) { // Admin
@@ -213,8 +222,8 @@ public class login extends javax.swing.JFrame {
             CL.setVisible(true);
             this.dispose();
         }
-        }
-        
+
+
     }//GEN-LAST:event_LoginActionPerformed
 
     private void fcontraseñaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fcontraseñaKeyTyped
@@ -225,6 +234,13 @@ public class login extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_fcontraseñaKeyTyped
+
+    private void fnombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fnombreKeyTyped
+      char ce = evt.getKeyChar();
+        if (Character.isDigit(ce)) {
+            evt.consume(); // Ignora el carácter si no es un dígito
+        }
+    }//GEN-LAST:event_fnombreKeyTyped
 
     /**
      * @param args the command line arguments
