@@ -4,8 +4,9 @@ import java.awt.Color;
 public class login00 extends javax.swing.JFrame {
 
     int[] cedAdmin = {1042245460, 12345, 67890};
-
+   String user;
     public login00() {
+     
         setUndecorated(true);
         setBackground(new Color(0, 0, 0, 0));
         initComponents();
@@ -167,13 +168,13 @@ boolean existe;
     }//GEN-LAST:event_fcontraseñaActionPerformed
 
     private void LoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginActionPerformed
-      
+        user=fnombre.getText();
         if(existe == true){ // Admin
-            perfilesFR p = new perfilesFR();
+            perfilesFR p = new perfilesFR(user);
             p.setVisible(true);
             this.dispose();
         }else{ // Cliente
-            PrincipalCL CL = new PrincipalCL();
+            PrincipalCL CL = new PrincipalCL(user);
             CL.setVisible(true);
             this.dispose();
         }
@@ -207,7 +208,7 @@ boolean existe;
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CarritoFR().setVisible(true);
+                new CarritoFR(null).setVisible(true);
             }
         });
     }

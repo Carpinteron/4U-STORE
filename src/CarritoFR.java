@@ -4,8 +4,9 @@
 import java.awt.Color;
 
 public class CarritoFR extends javax.swing.JFrame {
-
-    public CarritoFR() {
+private String user;
+    public CarritoFR(String name) {
+        this.user=name;
         setUndecorated(true);
         setBackground(new Color(0,0,0,0));
         initComponents();
@@ -129,13 +130,13 @@ public class CarritoFR extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnEXITActionPerformed
 
     private void BtnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSalirActionPerformed
-        perfilesFR menu=new perfilesFR();
+        perfilesFR menu=new perfilesFR(user);
         menu.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_BtnSalirActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        PrincipalCL cl=new PrincipalCL();
+        PrincipalCL cl=new PrincipalCL(user);
         cl.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -167,7 +168,7 @@ public class CarritoFR extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CarritoFR().setVisible(true);
+                new CarritoFR(null).setVisible(true);
             }
         });
     }

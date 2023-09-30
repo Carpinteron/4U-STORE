@@ -2,8 +2,9 @@
 import java.awt.Color;
 
 public class ProductoFR extends javax.swing.JFrame {
-
-    public ProductoFR() {
+private String user;
+    public ProductoFR(String name) {
+        this.user=name;
         setUndecorated(true);
         setBackground(new Color(0, 0, 0, 0));
         setLocationRelativeTo(null);
@@ -94,7 +95,7 @@ public class ProductoFR extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnExitActionPerformed
 
     private void BtnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSalirActionPerformed
-        perfilesFR menu = new perfilesFR();
+        perfilesFR menu = new perfilesFR(user);
         menu.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_BtnSalirActionPerformed
@@ -126,7 +127,7 @@ public class ProductoFR extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ProductoFR().setVisible(true);
+                new ProductoFR(null).setVisible(true);
             }
         });
     }

@@ -9,9 +9,9 @@ public class login extends javax.swing.JFrame {
 
     int[] cedAdmin = {1042245460, 1047037245, 12345};
     boolean existe;
-
+    String user;
     public login() {
-
+        
         setUndecorated(true);
         setBackground(new Color(0, 0, 0, 0));
         initComponents();
@@ -188,6 +188,7 @@ public class login extends javax.swing.JFrame {
 
     private void LoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginActionPerformed
        int pos = 0;
+       user=fnombre.getText();
         String cedula = fcontraseña.getText();
         if(cedula.length()!=10){
             valid.setText("La cédula debe tener 10 dígitos.");
@@ -204,11 +205,11 @@ public class login extends javax.swing.JFrame {
         System.out.println(existe);
 
         if (existe == true) { // Admin
-            perfilesFR p = new perfilesFR();
+            perfilesFR p = new perfilesFR(user);
             p.setVisible(true);
             this.dispose();
         } else { // Cliente
-            PrincipalCL CL = new PrincipalCL();
+            PrincipalCL CL = new PrincipalCL(user);
             CL.setVisible(true);
             this.dispose();
         }

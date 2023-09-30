@@ -3,8 +3,9 @@ import java.awt.Color;
 
 
 public class perfilesFR extends javax.swing.JFrame {
-
-    public perfilesFR() {
+    private String user;
+    public perfilesFR(String name) {
+        this.user = name;
         setUndecorated(true);
         setBackground(new Color(0,0,0,0));
         initComponents();
@@ -156,13 +157,13 @@ public class perfilesFR extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void panelRound3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelRound3MouseClicked
-        PrincipalAD AD = new PrincipalAD();
+        PrincipalAD AD = new PrincipalAD(user);
         AD.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_panelRound3MouseClicked
 
     private void panelRound2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelRound2MouseClicked
-        PrincipalCL CL = new PrincipalCL();
+        PrincipalCL CL = new PrincipalCL(user);
         CL.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_panelRound2MouseClicked
@@ -201,7 +202,7 @@ public class perfilesFR extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new perfilesFR().setVisible(true);
+                new perfilesFR(null).setVisible(true);
             }
         });
     }

@@ -17,9 +17,10 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 public class PrincipalAD extends javax.swing.JFrame {
-
-    public PrincipalAD() {
+    private String admi;
+    public PrincipalAD(String name) {
         setUndecorated(true);
+        this.admi = name;
         setBackground(new Color(0, 0, 0, 0));
          initComponents();
          setLocationRelativeTo(null);
@@ -30,9 +31,11 @@ public class PrincipalAD extends javax.swing.JFrame {
         Scanner sc = new Scanner(System.in);
         LeerNormal(sc, "Inventario", TablaINVENTARIO);
         sc.close();
+        userfield.setText(admi);
         //No visible
         Constraseña.setVisible(true);
         Pantalla.setVisible(false);
+        exitBTN.setVisible(false);
         PanelAgregar.setVisible(false);
         labelD.setVisible(false);
         error1.setVisible(false);
@@ -46,7 +49,7 @@ public class PrincipalAD extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
+        exitBTN = new javax.swing.JButton();
         Constraseña = new custom.PanelRound();
         userfield = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
@@ -88,17 +91,18 @@ public class PrincipalAD extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(1200, 700));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICons/cerrrar35.png"))); // NOI18N
-        jButton1.setBorderPainted(false);
-        jButton1.setContentAreaFilled(false);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        exitBTN.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICons/cerrrar35.png"))); // NOI18N
+        exitBTN.setBorderPainted(false);
+        exitBTN.setContentAreaFilled(false);
+        exitBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                exitBTNActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1163, 0, -1, 53));
+        getContentPane().add(exitBTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(1163, 0, -1, 53));
 
         Constraseña.setBackground(new java.awt.Color(153, 153, 255));
+        Constraseña.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         userfield.setText("User...");
         userfield.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -111,10 +115,13 @@ public class PrincipalAD extends javax.swing.JFrame {
                 userfieldActionPerformed(evt);
             }
         });
+        Constraseña.add(userfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, 277, 41));
 
         jLabel3.setText("Usuario");
+        Constraseña.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 40, -1, -1));
 
         jLabel6.setText("Contraseña");
+        Constraseña.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 180, -1, -1));
 
         BtnVerifyUser.setText("SIGN IN");
         BtnVerifyUser.addActionListener(new java.awt.event.ActionListener() {
@@ -122,6 +129,7 @@ public class PrincipalAD extends javax.swing.JFrame {
                 BtnVerifyUserActionPerformed(evt);
             }
         });
+        Constraseña.add(BtnVerifyUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 290, -1, -1));
 
         PassField.setText("jPasswordField1");
         PassField.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -129,6 +137,7 @@ public class PrincipalAD extends javax.swing.JFrame {
                 PassFieldMouseClicked(evt);
             }
         });
+        Constraseña.add(PassField, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 200, 277, 36));
 
         jButton2.setText("Mostrar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -136,62 +145,18 @@ public class PrincipalAD extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
+        Constraseña.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 210, -1, -1));
+        Constraseña.add(AvisoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 250, 290, 25));
+        Constraseña.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 140, 120, 20));
 
-        javax.swing.GroupLayout ConstraseñaLayout = new javax.swing.GroupLayout(Constraseña);
-        Constraseña.setLayout(ConstraseñaLayout);
-        ConstraseñaLayout.setHorizontalGroup(
-            ConstraseñaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ConstraseñaLayout.createSequentialGroup()
-                .addContainerGap(436, Short.MAX_VALUE)
-                .addComponent(AvisoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 443, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(321, 321, 321))
-            .addGroup(ConstraseñaLayout.createSequentialGroup()
-                .addGroup(ConstraseñaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(ConstraseñaLayout.createSequentialGroup()
-                        .addGap(318, 318, 318)
-                        .addComponent(BtnVerifyUser))
-                    .addGroup(ConstraseñaLayout.createSequentialGroup()
-                        .addGap(229, 229, 229)
-                        .addGroup(ConstraseñaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel6)
-                            .addComponent(userfield)
-                            .addComponent(PassField, javax.swing.GroupLayout.DEFAULT_SIZE, 277, Short.MAX_VALUE)
-                            .addGroup(ConstraseñaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jLabel4)
-                                .addComponent(jLabel3)))
-                        .addGap(34, 34, 34)
-                        .addComponent(jButton2)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        ConstraseñaLayout.setVerticalGroup(
-            ConstraseñaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ConstraseñaLayout.createSequentialGroup()
-                .addGap(137, 137, 137)
-                .addComponent(jLabel4)
-                .addGap(84, 84, 84)
-                .addComponent(jLabel3)
-                .addGap(18, 18, 18)
-                .addComponent(userfield, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(66, 66, 66)
-                .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(ConstraseñaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(PassField, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2))
-                .addGap(50, 50, 50)
-                .addComponent(BtnVerifyUser)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(AvisoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(164, Short.MAX_VALUE))
-        );
-
-        getContentPane().add(Constraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1200, 700));
+        getContentPane().add(Constraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 150, 560, 370));
 
         Pantalla.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panelRound2.setBackground(new java.awt.Color(153, 153, 255));
 
         IconADMI.setText("jLabel3");
+        IconADMI.setOpaque(true);
 
         BtnGrafics.setText("Grafic");
         BtnGrafics.addActionListener(new java.awt.event.ActionListener() {
@@ -235,7 +200,7 @@ public class PrincipalAD extends javax.swing.JFrame {
                 .addComponent(BtnGrafics, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(175, 175, 175)
                 .addComponent(jButton3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 224, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 225, Short.MAX_VALUE)
                 .addComponent(BtnInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29)
                 .addComponent(BtnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -767,9 +732,9 @@ public class PrincipalAD extends javax.swing.JFrame {
     }
 
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void exitBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitBTNActionPerformed
         System.exit(0);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_exitBTNActionPerformed
 
     private void BTNAgregar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNAgregar1ActionPerformed
         PanelAgregar.setVisible(true);
@@ -821,7 +786,7 @@ public class PrincipalAD extends javax.swing.JFrame {
 
 
     private void BtnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSalirActionPerformed
-        perfilesFR menu = new perfilesFR();
+        perfilesFR menu = new perfilesFR(admi);
         menu.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_BtnSalirActionPerformed
@@ -831,7 +796,7 @@ public class PrincipalAD extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnGraficsActionPerformed
 
     private void userfieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userfieldActionPerformed
-
+        userfield.setText(admi);
     }//GEN-LAST:event_userfieldActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -854,6 +819,7 @@ public class PrincipalAD extends javax.swing.JFrame {
     }//GEN-LAST:event_userfieldMouseClicked
 
     private void BtnVerifyUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVerifyUserActionPerformed
+        exitBTN.setVisible(true);
         Scanner sc = new Scanner(System.in);
         String U = userfield.getText();
         String P = PassField.getText();
@@ -939,7 +905,7 @@ public class PrincipalAD extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PrincipalAD().setVisible(true);
+                new PrincipalAD(null).setVisible(true);
 
             }
         });
@@ -965,8 +931,8 @@ public class PrincipalAD extends javax.swing.JFrame {
     private javax.swing.JLabel error2;
     private javax.swing.JLabel error3;
     private javax.swing.JLabel error4;
+    private javax.swing.JButton exitBTN;
     private javax.swing.JTextField fieldPrecio;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;

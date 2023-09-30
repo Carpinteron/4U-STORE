@@ -3,9 +3,9 @@ import java.awt.Color;
 
 
 public class PrincipalCL extends javax.swing.JFrame {
-
-    public PrincipalCL() {
-           
+private String user;
+    public PrincipalCL(String name) {
+           this.user=name;
         setUndecorated(true);
         setBackground(new Color(0,0,0,0));
         initComponents();
@@ -142,19 +142,19 @@ public class PrincipalCL extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void CarritoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CarritoActionPerformed
-         CarritoFR carrito = new CarritoFR();
+         CarritoFR carrito = new CarritoFR(user);
         carrito.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_CarritoActionPerformed
 
     private void BtnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSalirActionPerformed
-        perfilesFR menu=new perfilesFR();
+        perfilesFR menu=new perfilesFR(user);
         menu.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_BtnSalirActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        CarritoFR carrito=new CarritoFR();
+        CarritoFR carrito=new CarritoFR(user);
         carrito.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -186,7 +186,7 @@ public class PrincipalCL extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PrincipalCL().setVisible(true);
+                new PrincipalCL(null).setVisible(true);
             }
         });
     }
