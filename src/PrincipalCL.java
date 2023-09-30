@@ -20,6 +20,7 @@ public class PrincipalCL extends javax.swing.JFrame {
         BTNproductos.setEnabled(false);
         //si selecciona un artista, el botonartistas se habilita por si el usuario se quiere regrsar, y se resal el boton de los productos del artista
         BTNelproducto.setEnabled(false);
+         TituloArtista.setText(SelectedArtist);
     }
     public String Frameanterior;
     public JPanel actualPanel;
@@ -31,7 +32,6 @@ public class PrincipalCL extends javax.swing.JFrame {
 
         panelRound1 = new custom.PanelRound();
         jButton1 = new javax.swing.JButton();
-        panelproductoss = new javax.swing.JPanel();
         menu = new custom.PanelRound();
         jLabel1 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
@@ -54,10 +54,14 @@ public class PrincipalCL extends javax.swing.JFrame {
         BTNartistas = new javax.swing.JButton();
         BTNproductos = new javax.swing.JButton();
         BTNelproducto = new javax.swing.JButton();
+        panelproductoss = new javax.swing.JPanel();
+        TituloArtista = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        panelRound1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICons/cerrrar35.png"))); // NOI18N
         jButton1.setBorderPainted(false);
@@ -67,17 +71,7 @@ public class PrincipalCL extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout panelproductossLayout = new javax.swing.GroupLayout(panelproductoss);
-        panelproductoss.setLayout(panelproductossLayout);
-        panelproductossLayout.setHorizontalGroup(
-            panelproductossLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1092, Short.MAX_VALUE)
-        );
-        panelproductossLayout.setVerticalGroup(
-            panelproductossLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 577, Short.MAX_VALUE)
-        );
+        panelRound1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1159, 6, -1, 44));
 
         menu.setBackground(new java.awt.Color(153, 102, 255));
         menu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -104,6 +98,8 @@ public class PrincipalCL extends javax.swing.JFrame {
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICons/Logo 4U_1.png"))); // NOI18N
         menu.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
+
+        panelRound1.add(menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         jScrollPane1.setBorder(null);
         jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
@@ -202,12 +198,15 @@ public class PrincipalCL extends javax.swing.JFrame {
 
         jScrollPane1.setViewportView(panelArtistas);
 
+        panelRound1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(98, 56, 1098, 564));
+
         BTNartistas.setText("ARTISTAS");
         BTNartistas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BTNartistasActionPerformed(evt);
             }
         });
+        panelRound1.add(BTNartistas, new org.netbeans.lib.awtextra.AbsoluteConstraints(117, 6, -1, -1));
 
         BTNproductos.setText("PRODUCTOS");
         BTNproductos.addActionListener(new java.awt.event.ActionListener() {
@@ -215,56 +214,32 @@ public class PrincipalCL extends javax.swing.JFrame {
                 BTNproductosActionPerformed(evt);
             }
         });
+        panelRound1.add(BTNproductos, new org.netbeans.lib.awtextra.AbsoluteConstraints(215, 6, -1, -1));
 
         BTNelproducto.setText("VISTAZO DEL PRODUCTO");
+        panelRound1.add(BTNelproducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(331, 6, -1, -1));
 
-        javax.swing.GroupLayout panelRound1Layout = new javax.swing.GroupLayout(panelRound1);
-        panelRound1.setLayout(panelRound1Layout);
-        panelRound1Layout.setHorizontalGroup(
-            panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRound1Layout.createSequentialGroup()
-                .addComponent(menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelRound1Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1098, Short.MAX_VALUE))
-                    .addGroup(panelRound1Layout.createSequentialGroup()
-                        .addGap(37, 37, 37)
-                        .addComponent(BTNartistas)
-                        .addGap(18, 18, 18)
-                        .addComponent(BTNproductos)
-                        .addGap(18, 18, 18)
-                        .addComponent(BTNelproducto)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1)
-                        .addContainerGap())))
-            .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRound1Layout.createSequentialGroup()
-                    .addContainerGap(87, Short.MAX_VALUE)
-                    .addComponent(panelproductoss, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(17, Short.MAX_VALUE)))
+        TituloArtista.setFont(new java.awt.Font("Tekton Pro", 0, 36)); // NOI18N
+        TituloArtista.setText("Nombre del Artista");
+
+        javax.swing.GroupLayout panelproductossLayout = new javax.swing.GroupLayout(panelproductoss);
+        panelproductoss.setLayout(panelproductossLayout);
+        panelproductossLayout.setHorizontalGroup(
+            panelproductossLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelproductossLayout.createSequentialGroup()
+                .addGap(52, 52, 52)
+                .addComponent(TituloArtista, javax.swing.GroupLayout.PREFERRED_SIZE, 475, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(576, Short.MAX_VALUE))
         );
-        panelRound1Layout.setVerticalGroup(
-            panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(menu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRound1Layout.createSequentialGroup()
-                .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(panelRound1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(BTNartistas)
-                            .addComponent(BTNproductos)
-                            .addComponent(BTNelproducto))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRound1Layout.createSequentialGroup()
-                    .addContainerGap(43, Short.MAX_VALUE)
-                    .addComponent(panelproductoss, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap()))
+        panelproductossLayout.setVerticalGroup(
+            panelproductossLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelproductossLayout.createSequentialGroup()
+                .addGap(42, 42, 42)
+                .addComponent(TituloArtista, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(469, Short.MAX_VALUE))
         );
+
+        panelRound1.add(panelproductoss, new org.netbeans.lib.awtextra.AbsoluteConstraints(87, 43, -1, -1));
 
         getContentPane().add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -330,6 +305,10 @@ public class PrincipalCL extends javax.swing.JFrame {
     private void HSbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HSbtnActionPerformed
         BotonesArtistasPanel();
         SelectedArtist = "Harry Styles";
+        if (actualPanel == panelproductoss) {
+           // TituloArtista.setText(SelectedArtist);
+        }
+
     }//GEN-LAST:event_HSbtnActionPerformed
 
     private void BTNartistasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNartistasActionPerformed
@@ -338,6 +317,7 @@ public class PrincipalCL extends javax.swing.JFrame {
             panelArtistas.setVisible(true);
             panelArtistas.setEnabled(true);
             BTNartistas.setEnabled(false);
+            jScrollPane1.setVisible(true);
         }
     }//GEN-LAST:event_BTNartistasActionPerformed
 
@@ -356,10 +336,13 @@ public class PrincipalCL extends javax.swing.JFrame {
 
     public void BotonesArtistasPanel() {
         panelproductoss.setVisible(true);
+        panelproductoss.setEnabled(true);
+        
         panelArtistas.setVisible(false);
         panelArtistas.setEnabled(false);
         BTNartistas.setEnabled(true);
         actualPanel = panelproductoss;
+        jScrollPane1.setVisible(false);
     }
 
     public static void main(String args[]) {
@@ -410,6 +393,7 @@ public class PrincipalCL extends javax.swing.JFrame {
     private javax.swing.JButton ManeskinBTN;
     private javax.swing.JButton SabrinaBTN;
     private javax.swing.JButton SkzBTN;
+    private javax.swing.JLabel TituloArtista;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
