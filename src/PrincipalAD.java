@@ -63,11 +63,11 @@ public class PrincipalAD extends javax.swing.JFrame {
         userLABEL = new javax.swing.JLabel();
         Pantalla = new custom.PanelRound();
         panelRound2 = new custom.PanelRound();
-        IconADMI = new javax.swing.JLabel();
         BtnGrafics = new javax.swing.JButton();
         BtnSalir = new javax.swing.JButton();
         BtnInfo = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         TablaINVENTARIO = new javax.swing.JTable();
         BTNAgregar1 = new javax.swing.JButton();
@@ -138,9 +138,6 @@ public class PrincipalAD extends javax.swing.JFrame {
 
         panelRound2.setBackground(new java.awt.Color(153, 153, 255));
 
-        IconADMI.setText("jLabel3");
-        IconADMI.setOpaque(true);
-
         BtnGrafics.setText("Grafic");
         BtnGrafics.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -159,6 +156,8 @@ public class PrincipalAD extends javax.swing.JFrame {
 
         jButton3.setText("Registrarse");
 
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICons/Logo 4U_1.png"))); // NOI18N
+
         javax.swing.GroupLayout panelRound2Layout = new javax.swing.GroupLayout(panelRound2);
         panelRound2.setLayout(panelRound2Layout);
         panelRound2Layout.setHorizontalGroup(
@@ -166,31 +165,31 @@ public class PrincipalAD extends javax.swing.JFrame {
             .addGroup(panelRound2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(IconADMI)
                     .addComponent(BtnInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(BtnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(jButton3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                        .addComponent(BtnGrafics, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(BtnGrafics, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel7))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelRound2Layout.setVerticalGroup(
             panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelRound2Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(IconADMI, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
+                .addComponent(jLabel7)
                 .addGap(18, 18, 18)
                 .addComponent(BtnGrafics, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(175, 175, 175)
                 .addComponent(jButton3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 225, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 224, Short.MAX_VALUE)
                 .addComponent(BtnInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29)
                 .addComponent(BtnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(23, 23, 23))
         );
 
-        Pantalla.add(panelRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 65, 700));
+        Pantalla.add(panelRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 80, 700));
 
         TablaINVENTARIO.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -908,7 +907,6 @@ public class PrincipalAD extends javax.swing.JFrame {
     private javax.swing.JButton BtnSalir;
     private javax.swing.JButton BtnVerifyUser;
     private custom.PanelRound Constraseña;
-    private javax.swing.JLabel IconADMI;
     private javax.swing.JPanel PanelAgregar;
     private custom.PanelRound Pantalla;
     private javax.swing.JPasswordField PassField;
@@ -927,6 +925,7 @@ public class PrincipalAD extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JComboBox<String> jcArtista;
     private javax.swing.JComboBox<String> jcCategoria;
