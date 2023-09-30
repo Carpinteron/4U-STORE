@@ -1,5 +1,6 @@
 
 import java.awt.Color;
+import javax.swing.JPanel;
 
 
 public class PrincipalCL extends javax.swing.JFrame {
@@ -10,8 +11,15 @@ private String user;
         setBackground(new Color(0,0,0,0));
         initComponents();
      setLocationRelativeTo(null);
+     panelproductoss.setVisible(false);
+    // BTNartistas.setEnabled(false);//boton para que muestre el panel de todos los artistas
+     //La idea es que cuando se esten en el menu de artistas el boton este señalado o resaltado mas no se puede seleccionar
+    // BTNproductos.setEnabled(false);
+     //si selecciona un artista, el botonartistas se habilita por si el usuario se quiere regrsar, y se resal el boton de los productos del artista
+    // BTNelproducto.setEnabled(false);
     }
     public String Frameanterior;
+    public JPanel actualPanel;
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -19,7 +27,8 @@ private String user;
 
         panelRound1 = new custom.PanelRound();
         jButton1 = new javax.swing.JButton();
-        panelRound2 = new custom.PanelRound();
+        panelproductoss = new javax.swing.JPanel();
+        menu = new custom.PanelRound();
         jLabel1 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         BtnSalir = new javax.swing.JButton();
@@ -36,9 +45,13 @@ private String user;
         SabrinaBTN6 = new javax.swing.JButton();
         SabrinaBTN7 = new javax.swing.JButton();
         SabrinaBTN8 = new javax.swing.JButton();
+        BTNartistas = new javax.swing.JButton();
+        BTNproductos = new javax.swing.JButton();
+        BTNelproducto = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICons/cerrrar35.png"))); // NOI18N
         jButton1.setBorderPainted(false);
@@ -49,7 +62,20 @@ private String user;
             }
         });
 
-        panelRound2.setBackground(new java.awt.Color(153, 102, 255));
+        javax.swing.GroupLayout panelproductossLayout = new javax.swing.GroupLayout(panelproductoss);
+        panelproductoss.setLayout(panelproductossLayout);
+        panelproductossLayout.setHorizontalGroup(
+            panelproductossLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1092, Short.MAX_VALUE)
+        );
+        panelproductossLayout.setVerticalGroup(
+            panelproductossLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 577, Short.MAX_VALUE)
+        );
+
+        menu.setBackground(new java.awt.Color(153, 102, 255));
+        menu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        menu.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 32, 64, 75));
 
         jButton2.setText("Carrito");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -57,6 +83,7 @@ private String user;
                 jButton2ActionPerformed(evt);
             }
         });
+        menu.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 260, -1, 45));
 
         BtnSalir.setText("OUT");
         BtnSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -64,51 +91,28 @@ private String user;
                 BtnSalirActionPerformed(evt);
             }
         });
+        menu.add(BtnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 604, -1, -1));
 
         jButton3.setText("Explore");
-
-        javax.swing.GroupLayout panelRound2Layout = new javax.swing.GroupLayout(panelRound2);
-        panelRound2.setLayout(panelRound2Layout);
-        panelRound2Layout.setHorizontalGroup(
-            panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelRound2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelRound2Layout.createSequentialGroup()
-                        .addGroup(panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton2))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRound2Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(BtnSalir, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton3, javax.swing.GroupLayout.Alignment.TRAILING))))
-                .addContainerGap())
-        );
-        panelRound2Layout.setVerticalGroup(
-            panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelRound2Layout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(82, 82, 82)
-                .addComponent(jButton3)
-                .addGap(49, 49, 49)
-                .addComponent(jButton2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 322, Short.MAX_VALUE)
-                .addComponent(BtnSalir)
-                .addGap(74, 74, 74))
-        );
+        menu.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 189, -1, 33));
 
         jScrollPane1.setBorder(null);
         jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane1.setOpaque(false);
 
         panelArtistas.setPreferredSize(new java.awt.Dimension(1000, 824));
+        panelArtistas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         HSbtn.setText("Harry Styles");
+        HSbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                HSbtnActionPerformed(evt);
+            }
+        });
+        panelArtistas.add(HSbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(17, 12, 217, 234));
 
         SabrinaBTN.setText("Sabrina Carpenter");
+        panelArtistas.add(SabrinaBTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(284, 12, 222, 235));
 
         SabrinaBTN1.setText("Big Time Rush");
         SabrinaBTN1.addActionListener(new java.awt.event.ActionListener() {
@@ -116,6 +120,7 @@ private String user;
                 SabrinaBTN1ActionPerformed(evt);
             }
         });
+        panelArtistas.add(SabrinaBTN1, new org.netbeans.lib.awtextra.AbsoluteConstraints(849, 12, 215, 235));
 
         SabrinaBTN2.setText("Conan Gray");
         SabrinaBTN2.addActionListener(new java.awt.event.ActionListener() {
@@ -123,6 +128,7 @@ private String user;
                 SabrinaBTN2ActionPerformed(evt);
             }
         });
+        panelArtistas.add(SabrinaBTN2, new org.netbeans.lib.awtextra.AbsoluteConstraints(566, 12, 228, 235));
 
         SabrinaBTN3.setText("Imagine Dragons");
         SabrinaBTN3.addActionListener(new java.awt.event.ActionListener() {
@@ -130,6 +136,7 @@ private String user;
                 SabrinaBTN3ActionPerformed(evt);
             }
         });
+        panelArtistas.add(SabrinaBTN3, new org.netbeans.lib.awtextra.AbsoluteConstraints(849, 284, 215, 235));
 
         SabrinaBTN4.setText("Louis Tomilson");
         SabrinaBTN4.addActionListener(new java.awt.event.ActionListener() {
@@ -137,6 +144,7 @@ private String user;
                 SabrinaBTN4ActionPerformed(evt);
             }
         });
+        panelArtistas.add(SabrinaBTN4, new org.netbeans.lib.awtextra.AbsoluteConstraints(284, 284, 222, 235));
 
         SabrinaBTN5.setText("Stray Kids");
         SabrinaBTN5.addActionListener(new java.awt.event.ActionListener() {
@@ -144,6 +152,7 @@ private String user;
                 SabrinaBTN5ActionPerformed(evt);
             }
         });
+        panelArtistas.add(SabrinaBTN5, new org.netbeans.lib.awtextra.AbsoluteConstraints(17, 284, 217, 235));
 
         SabrinaBTN6.setText("Bea Miller");
         SabrinaBTN6.addActionListener(new java.awt.event.ActionListener() {
@@ -151,6 +160,7 @@ private String user;
                 SabrinaBTN6ActionPerformed(evt);
             }
         });
+        panelArtistas.add(SabrinaBTN6, new org.netbeans.lib.awtextra.AbsoluteConstraints(566, 284, 228, 235));
 
         SabrinaBTN7.setText("Billie Eilish");
         SabrinaBTN7.addActionListener(new java.awt.event.ActionListener() {
@@ -158,6 +168,7 @@ private String user;
                 SabrinaBTN7ActionPerformed(evt);
             }
         });
+        panelArtistas.add(SabrinaBTN7, new org.netbeans.lib.awtextra.AbsoluteConstraints(17, 556, 217, 235));
 
         SabrinaBTN8.setText("5 Seconds Of Summer");
         SabrinaBTN8.addActionListener(new java.awt.event.ActionListener() {
@@ -165,92 +176,75 @@ private String user;
                 SabrinaBTN8ActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout panelArtistasLayout = new javax.swing.GroupLayout(panelArtistas);
-        panelArtistas.setLayout(panelArtistasLayout);
-        panelArtistasLayout.setHorizontalGroup(
-            panelArtistasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelArtistasLayout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addGroup(panelArtistasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(SabrinaBTN5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(HSbtn, javax.swing.GroupLayout.DEFAULT_SIZE, 217, Short.MAX_VALUE)
-                    .addComponent(SabrinaBTN7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(50, 50, 50)
-                .addGroup(panelArtistasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(SabrinaBTN8, javax.swing.GroupLayout.DEFAULT_SIZE, 222, Short.MAX_VALUE)
-                    .addComponent(SabrinaBTN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(SabrinaBTN4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
-                .addGroup(panelArtistasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(SabrinaBTN2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(SabrinaBTN6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(55, 55, 55)
-                .addGroup(panelArtistasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(SabrinaBTN1, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(SabrinaBTN3, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(24, 24, 24))
-        );
-        panelArtistasLayout.setVerticalGroup(
-            panelArtistasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelArtistasLayout.createSequentialGroup()
-                .addGap(12, 12, 12)
-                .addGroup(panelArtistasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(HSbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(SabrinaBTN2, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(SabrinaBTN1, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(SabrinaBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(37, 37, 37)
-                .addGroup(panelArtistasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(SabrinaBTN5, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(SabrinaBTN4, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(SabrinaBTN6, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(SabrinaBTN3, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(37, 37, 37)
-                .addGroup(panelArtistasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(SabrinaBTN7, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(SabrinaBTN8, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        panelArtistas.add(SabrinaBTN8, new org.netbeans.lib.awtextra.AbsoluteConstraints(284, 556, 222, 235));
 
         jScrollPane1.setViewportView(panelArtistas);
+
+        BTNartistas.setText("ARTISTAS");
+        BTNartistas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BTNartistasActionPerformed(evt);
+            }
+        });
+
+        BTNproductos.setText("PRODUCTOS");
+        BTNproductos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BTNproductosActionPerformed(evt);
+            }
+        });
+
+        BTNelproducto.setText("VISTAZO DEL PRODUCTO");
 
         javax.swing.GroupLayout panelRound1Layout = new javax.swing.GroupLayout(panelRound1);
         panelRound1.setLayout(panelRound1Layout);
         panelRound1Layout.setHorizontalGroup(
             panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRound1Layout.createSequentialGroup()
-                .addComponent(panelRound2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addComponent(menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelRound1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton1))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1092, Short.MAX_VALUE))
-                .addContainerGap())
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1098, Short.MAX_VALUE))
+                    .addGroup(panelRound1Layout.createSequentialGroup()
+                        .addGap(37, 37, 37)
+                        .addComponent(BTNartistas)
+                        .addGap(18, 18, 18)
+                        .addComponent(BTNproductos)
+                        .addGap(18, 18, 18)
+                        .addComponent(BTNelproducto)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton1)
+                        .addContainerGap())))
+            .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRound1Layout.createSequentialGroup()
+                    .addContainerGap(86, Short.MAX_VALUE)
+                    .addComponent(panelproductoss, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(16, Short.MAX_VALUE)))
         );
         panelRound1Layout.setVerticalGroup(
             panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelRound2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(menu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRound1Layout.createSequentialGroup()
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(panelRound1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(BTNartistas)
+                            .addComponent(BTNproductos)
+                            .addComponent(BTNelproducto))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                 .addContainerGap())
+            .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRound1Layout.createSequentialGroup()
+                    .addContainerGap(43, Short.MAX_VALUE)
+                    .addComponent(panelproductoss, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap()))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
+        getContentPane().add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -303,6 +297,26 @@ private String user;
         // TODO add your handling code here:
     }//GEN-LAST:event_SabrinaBTN8ActionPerformed
 
+    private void HSbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HSbtnActionPerformed
+        panelproductoss.setVisible(true);
+        panelArtistas.setVisible(false);
+        panelArtistas.setEnabled(false);
+         BTNartistas.setEnabled(true);
+         actualPanel=panelproductoss;
+    }//GEN-LAST:event_HSbtnActionPerformed
+
+    private void BTNartistasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNartistasActionPerformed
+        if(actualPanel==panelproductoss){
+            panelproductoss.setVisible(false);
+        panelArtistas.setVisible(true);
+        panelArtistas.setEnabled(true);
+        }
+    }//GEN-LAST:event_BTNartistasActionPerformed
+
+    private void BTNproductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNproductosActionPerformed
+       
+    }//GEN-LAST:event_BTNproductosActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -336,6 +350,9 @@ private String user;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BTNartistas;
+    private javax.swing.JButton BTNelproducto;
+    private javax.swing.JButton BTNproductos;
     private javax.swing.JButton BtnSalir;
     private javax.swing.JButton HSbtn;
     private javax.swing.JButton SabrinaBTN;
@@ -352,8 +369,9 @@ private String user;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private custom.PanelRound menu;
     private javax.swing.JPanel panelArtistas;
     private custom.PanelRound panelRound1;
-    private custom.PanelRound panelRound2;
+    private javax.swing.JPanel panelproductoss;
     // End of variables declaration//GEN-END:variables
 }
