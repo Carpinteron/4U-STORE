@@ -50,7 +50,6 @@ public class PrincipalAD extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        exitBTN = new javax.swing.JButton();
         Constraseña = new custom.PanelRound();
         jLabel3 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -86,30 +85,21 @@ public class PrincipalAD extends javax.swing.JFrame {
         error1 = new javax.swing.JLabel();
         error2 = new javax.swing.JLabel();
         error3 = new javax.swing.JLabel();
+        exitBTN = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
         setSize(new java.awt.Dimension(1200, 700));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        exitBTN.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICons/cerrrar35.png"))); // NOI18N
-        exitBTN.setBorderPainted(false);
-        exitBTN.setContentAreaFilled(false);
-        exitBTN.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                exitBTNActionPerformed(evt);
-            }
-        });
-        getContentPane().add(exitBTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(1163, 0, -1, 53));
-
         Constraseña.setBackground(new java.awt.Color(153, 153, 255));
         Constraseña.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel3.setText("Usuario");
-        Constraseña.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 40, -1, -1));
+        Constraseña.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 60, -1, -1));
 
-        jLabel6.setText("Contraseña");
-        Constraseña.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 180, -1, -1));
+        jLabel6.setText("Verifique Contraseña De Administrador");
+        Constraseña.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 170, -1, -1));
 
         BtnVerifyUser.setText("SIGN IN");
         BtnVerifyUser.addActionListener(new java.awt.event.ActionListener() {
@@ -138,7 +128,7 @@ public class PrincipalAD extends javax.swing.JFrame {
         Constraseña.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 150, 120, 20));
 
         userLABEL.setText("User ..");
-        Constraseña.add(userLABEL, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 90, 140, 30));
+        Constraseña.add(userLABEL, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 90, 140, 30));
 
         getContentPane().add(Constraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 160, 560, 370));
 
@@ -307,6 +297,16 @@ public class PrincipalAD extends javax.swing.JFrame {
         PanelAgregar.add(error3, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 202, 290, 40));
 
         Pantalla.add(PanelAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, 950, 430));
+
+        exitBTN.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICons/cerrrar35.png"))); // NOI18N
+        exitBTN.setBorderPainted(false);
+        exitBTN.setContentAreaFilled(false);
+        exitBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                exitBTNActionPerformed(evt);
+            }
+        });
+        Pantalla.add(exitBTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(1160, 0, -1, 40));
 
         getContentPane().add(Pantalla, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1200, 700));
 
