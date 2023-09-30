@@ -24,7 +24,18 @@ private String user;
         jButton2 = new javax.swing.JButton();
         BtnSalir = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-        Carrito = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        panelArtistas = new javax.swing.JPanel();
+        HSbtn = new javax.swing.JButton();
+        SabrinaBTN = new javax.swing.JButton();
+        SabrinaBTN1 = new javax.swing.JButton();
+        SabrinaBTN2 = new javax.swing.JButton();
+        SabrinaBTN3 = new javax.swing.JButton();
+        SabrinaBTN4 = new javax.swing.JButton();
+        SabrinaBTN5 = new javax.swing.JButton();
+        SabrinaBTN6 = new javax.swing.JButton();
+        SabrinaBTN7 = new javax.swing.JButton();
+        SabrinaBTN8 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -84,17 +95,123 @@ private String user;
                 .addComponent(jButton3)
                 .addGap(49, 49, 49)
                 .addComponent(jButton2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 410, Short.MAX_VALUE)
                 .addComponent(BtnSalir)
                 .addGap(74, 74, 74))
         );
 
-        Carrito.setText("Carrito");
-        Carrito.addActionListener(new java.awt.event.ActionListener() {
+        HSbtn.setText("Harry Styles");
+
+        SabrinaBTN.setText("Sabrina Carpenter");
+
+        SabrinaBTN1.setText("Big Time Rush");
+        SabrinaBTN1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CarritoActionPerformed(evt);
+                SabrinaBTN1ActionPerformed(evt);
             }
         });
+
+        SabrinaBTN2.setText("Conan Gray");
+        SabrinaBTN2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SabrinaBTN2ActionPerformed(evt);
+            }
+        });
+
+        SabrinaBTN3.setText("Imagine Dragons");
+        SabrinaBTN3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SabrinaBTN3ActionPerformed(evt);
+            }
+        });
+
+        SabrinaBTN4.setText("Louis Tomilson");
+        SabrinaBTN4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SabrinaBTN4ActionPerformed(evt);
+            }
+        });
+
+        SabrinaBTN5.setText("Stray Kids");
+        SabrinaBTN5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SabrinaBTN5ActionPerformed(evt);
+            }
+        });
+
+        SabrinaBTN6.setText("Bea Miller");
+        SabrinaBTN6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SabrinaBTN6ActionPerformed(evt);
+            }
+        });
+
+        SabrinaBTN7.setText("Billie Eilish");
+        SabrinaBTN7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SabrinaBTN7ActionPerformed(evt);
+            }
+        });
+
+        SabrinaBTN8.setText("5 Seconds Of Summer");
+        SabrinaBTN8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SabrinaBTN8ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelArtistasLayout = new javax.swing.GroupLayout(panelArtistas);
+        panelArtistas.setLayout(panelArtistasLayout);
+        panelArtistasLayout.setHorizontalGroup(
+            panelArtistasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelArtistasLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addGroup(panelArtistasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(SabrinaBTN5, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(HSbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(60, 60, 60)
+                .addGroup(panelArtistasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(panelArtistasLayout.createSequentialGroup()
+                        .addComponent(SabrinaBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(72, 72, 72)
+                        .addComponent(SabrinaBTN2, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelArtistasLayout.createSequentialGroup()
+                        .addComponent(SabrinaBTN4, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(72, 72, 72)
+                        .addComponent(SabrinaBTN6, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(72, 72, 72)
+                .addGroup(panelArtistasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelArtistasLayout.createSequentialGroup()
+                        .addComponent(SabrinaBTN3, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
+                        .addComponent(SabrinaBTN1, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelArtistasLayout.createSequentialGroup()
+                        .addComponent(SabrinaBTN7, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(SabrinaBTN8, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(125, 125, 125))
+        );
+        panelArtistasLayout.setVerticalGroup(
+            panelArtistasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelArtistasLayout.createSequentialGroup()
+                .addGap(12, 12, 12)
+                .addGroup(panelArtistasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(HSbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(SabrinaBTN2, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(SabrinaBTN3, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(SabrinaBTN1, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(SabrinaBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(37, 37, 37)
+                .addGroup(panelArtistasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(SabrinaBTN5, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(SabrinaBTN4, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(SabrinaBTN6, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(SabrinaBTN7, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(SabrinaBTN8, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(174, Short.MAX_VALUE))
+        );
+
+        jScrollPane1.setViewportView(panelArtistas);
 
         javax.swing.GroupLayout panelRound1Layout = new javax.swing.GroupLayout(panelRound1);
         panelRound1.setLayout(panelRound1Layout);
@@ -102,30 +219,30 @@ private String user;
             panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRound1Layout.createSequentialGroup()
                 .addComponent(panelRound2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 966, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRound1Layout.createSequentialGroup()
                         .addComponent(jButton1)
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRound1Layout.createSequentialGroup()
-                        .addComponent(Carrito, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(50, 50, 50))))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1299, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(32, 32, 32))))
         );
         panelRound1Layout.setVerticalGroup(
             panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelRound1Layout.createSequentialGroup()
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 587, Short.MAX_VALUE)
-                .addComponent(Carrito, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(48, 48, 48))
             .addComponent(panelRound2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRound1Layout.createSequentialGroup()
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 705, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelRound1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panelRound1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -141,12 +258,6 @@ private String user;
        System.exit(0);
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void CarritoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CarritoActionPerformed
-         CarritoFR carrito = new CarritoFR(user);
-        carrito.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_CarritoActionPerformed
-
     private void BtnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSalirActionPerformed
         perfilesFR menu=new perfilesFR(user);
         menu.setVisible(true);
@@ -158,6 +269,38 @@ private String user;
         carrito.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void SabrinaBTN1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SabrinaBTN1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SabrinaBTN1ActionPerformed
+
+    private void SabrinaBTN2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SabrinaBTN2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SabrinaBTN2ActionPerformed
+
+    private void SabrinaBTN3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SabrinaBTN3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SabrinaBTN3ActionPerformed
+
+    private void SabrinaBTN4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SabrinaBTN4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SabrinaBTN4ActionPerformed
+
+    private void SabrinaBTN5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SabrinaBTN5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SabrinaBTN5ActionPerformed
+
+    private void SabrinaBTN6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SabrinaBTN6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SabrinaBTN6ActionPerformed
+
+    private void SabrinaBTN7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SabrinaBTN7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SabrinaBTN7ActionPerformed
+
+    private void SabrinaBTN8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SabrinaBTN8ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SabrinaBTN8ActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -193,11 +336,22 @@ private String user;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnSalir;
-    private javax.swing.JButton Carrito;
+    private javax.swing.JButton HSbtn;
+    private javax.swing.JButton SabrinaBTN;
+    private javax.swing.JButton SabrinaBTN1;
+    private javax.swing.JButton SabrinaBTN2;
+    private javax.swing.JButton SabrinaBTN3;
+    private javax.swing.JButton SabrinaBTN4;
+    private javax.swing.JButton SabrinaBTN5;
+    private javax.swing.JButton SabrinaBTN6;
+    private javax.swing.JButton SabrinaBTN7;
+    private javax.swing.JButton SabrinaBTN8;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JPanel panelArtistas;
     private custom.PanelRound panelRound1;
     private custom.PanelRound panelRound2;
     // End of variables declaration//GEN-END:variables
