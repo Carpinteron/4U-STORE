@@ -37,14 +37,14 @@ private String user;
         panelArtistas = new javax.swing.JPanel();
         HSbtn = new javax.swing.JButton();
         SabrinaBTN = new javax.swing.JButton();
-        SabrinaBTN1 = new javax.swing.JButton();
-        SabrinaBTN2 = new javax.swing.JButton();
-        SabrinaBTN3 = new javax.swing.JButton();
-        SabrinaBTN4 = new javax.swing.JButton();
-        SabrinaBTN5 = new javax.swing.JButton();
-        SabrinaBTN6 = new javax.swing.JButton();
-        SabrinaBTN7 = new javax.swing.JButton();
-        SabrinaBTN8 = new javax.swing.JButton();
+        BTRbtn = new javax.swing.JButton();
+        ConanBTN = new javax.swing.JButton();
+        ImagineDragonsBTN = new javax.swing.JButton();
+        LousiBTN = new javax.swing.JButton();
+        SkzBTN = new javax.swing.JButton();
+        BeaMillerBTN = new javax.swing.JButton();
+        BillieBTN = new javax.swing.JButton();
+        BTN5sos = new javax.swing.JButton();
         BTNartistas = new javax.swing.JButton();
         BTNproductos = new javax.swing.JButton();
         BTNelproducto = new javax.swing.JButton();
@@ -114,69 +114,69 @@ private String user;
         SabrinaBTN.setText("Sabrina Carpenter");
         panelArtistas.add(SabrinaBTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(284, 12, 222, 235));
 
-        SabrinaBTN1.setText("Big Time Rush");
-        SabrinaBTN1.addActionListener(new java.awt.event.ActionListener() {
+        BTRbtn.setText("Big Time Rush");
+        BTRbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SabrinaBTN1ActionPerformed(evt);
+                BTRbtnActionPerformed(evt);
             }
         });
-        panelArtistas.add(SabrinaBTN1, new org.netbeans.lib.awtextra.AbsoluteConstraints(849, 12, 215, 235));
+        panelArtistas.add(BTRbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(849, 12, 215, 235));
 
-        SabrinaBTN2.setText("Conan Gray");
-        SabrinaBTN2.addActionListener(new java.awt.event.ActionListener() {
+        ConanBTN.setText("Conan Gray");
+        ConanBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SabrinaBTN2ActionPerformed(evt);
+                ConanBTNActionPerformed(evt);
             }
         });
-        panelArtistas.add(SabrinaBTN2, new org.netbeans.lib.awtextra.AbsoluteConstraints(566, 12, 228, 235));
+        panelArtistas.add(ConanBTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(566, 12, 228, 235));
 
-        SabrinaBTN3.setText("Imagine Dragons");
-        SabrinaBTN3.addActionListener(new java.awt.event.ActionListener() {
+        ImagineDragonsBTN.setText("Imagine Dragons");
+        ImagineDragonsBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SabrinaBTN3ActionPerformed(evt);
+                ImagineDragonsBTNActionPerformed(evt);
             }
         });
-        panelArtistas.add(SabrinaBTN3, new org.netbeans.lib.awtextra.AbsoluteConstraints(849, 284, 215, 235));
+        panelArtistas.add(ImagineDragonsBTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(849, 284, 215, 235));
 
-        SabrinaBTN4.setText("Louis Tomilson");
-        SabrinaBTN4.addActionListener(new java.awt.event.ActionListener() {
+        LousiBTN.setText("Louis Tomilson");
+        LousiBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SabrinaBTN4ActionPerformed(evt);
+                LousiBTNActionPerformed(evt);
             }
         });
-        panelArtistas.add(SabrinaBTN4, new org.netbeans.lib.awtextra.AbsoluteConstraints(284, 284, 222, 235));
+        panelArtistas.add(LousiBTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(284, 284, 222, 235));
 
-        SabrinaBTN5.setText("Stray Kids");
-        SabrinaBTN5.addActionListener(new java.awt.event.ActionListener() {
+        SkzBTN.setText("Stray Kids");
+        SkzBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SabrinaBTN5ActionPerformed(evt);
+                SkzBTNActionPerformed(evt);
             }
         });
-        panelArtistas.add(SabrinaBTN5, new org.netbeans.lib.awtextra.AbsoluteConstraints(17, 284, 217, 235));
+        panelArtistas.add(SkzBTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(17, 284, 217, 235));
 
-        SabrinaBTN6.setText("Bea Miller");
-        SabrinaBTN6.addActionListener(new java.awt.event.ActionListener() {
+        BeaMillerBTN.setText("Bea Miller");
+        BeaMillerBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SabrinaBTN6ActionPerformed(evt);
+                BeaMillerBTNActionPerformed(evt);
             }
         });
-        panelArtistas.add(SabrinaBTN6, new org.netbeans.lib.awtextra.AbsoluteConstraints(566, 284, 228, 235));
+        panelArtistas.add(BeaMillerBTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(566, 284, 228, 235));
 
-        SabrinaBTN7.setText("Billie Eilish");
-        SabrinaBTN7.addActionListener(new java.awt.event.ActionListener() {
+        BillieBTN.setText("Billie Eilish");
+        BillieBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SabrinaBTN7ActionPerformed(evt);
+                BillieBTNActionPerformed(evt);
             }
         });
-        panelArtistas.add(SabrinaBTN7, new org.netbeans.lib.awtextra.AbsoluteConstraints(17, 556, 217, 235));
+        panelArtistas.add(BillieBTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(17, 556, 217, 235));
 
-        SabrinaBTN8.setText("5 Seconds Of Summer");
-        SabrinaBTN8.addActionListener(new java.awt.event.ActionListener() {
+        BTN5sos.setText("5 Seconds Of Summer");
+        BTN5sos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SabrinaBTN8ActionPerformed(evt);
+                BTN5sosActionPerformed(evt);
             }
         });
-        panelArtistas.add(SabrinaBTN8, new org.netbeans.lib.awtextra.AbsoluteConstraints(284, 556, 222, 235));
+        panelArtistas.add(BTN5sos, new org.netbeans.lib.awtextra.AbsoluteConstraints(284, 556, 222, 235));
 
         jScrollPane1.setViewportView(panelArtistas);
 
@@ -265,37 +265,37 @@ private String user;
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void SabrinaBTN1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SabrinaBTN1ActionPerformed
+    private void BTRbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTRbtnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_SabrinaBTN1ActionPerformed
+    }//GEN-LAST:event_BTRbtnActionPerformed
 
-    private void SabrinaBTN2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SabrinaBTN2ActionPerformed
+    private void ConanBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConanBTNActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_SabrinaBTN2ActionPerformed
+    }//GEN-LAST:event_ConanBTNActionPerformed
 
-    private void SabrinaBTN3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SabrinaBTN3ActionPerformed
+    private void ImagineDragonsBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ImagineDragonsBTNActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_SabrinaBTN3ActionPerformed
+    }//GEN-LAST:event_ImagineDragonsBTNActionPerformed
 
-    private void SabrinaBTN4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SabrinaBTN4ActionPerformed
+    private void LousiBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LousiBTNActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_SabrinaBTN4ActionPerformed
+    }//GEN-LAST:event_LousiBTNActionPerformed
 
-    private void SabrinaBTN5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SabrinaBTN5ActionPerformed
+    private void SkzBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SkzBTNActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_SabrinaBTN5ActionPerformed
+    }//GEN-LAST:event_SkzBTNActionPerformed
 
-    private void SabrinaBTN6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SabrinaBTN6ActionPerformed
+    private void BeaMillerBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BeaMillerBTNActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_SabrinaBTN6ActionPerformed
+    }//GEN-LAST:event_BeaMillerBTNActionPerformed
 
-    private void SabrinaBTN7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SabrinaBTN7ActionPerformed
+    private void BillieBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BillieBTNActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_SabrinaBTN7ActionPerformed
+    }//GEN-LAST:event_BillieBTNActionPerformed
 
-    private void SabrinaBTN8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SabrinaBTN8ActionPerformed
+    private void BTN5sosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN5sosActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_SabrinaBTN8ActionPerformed
+    }//GEN-LAST:event_BTN5sosActionPerformed
 
     private void HSbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HSbtnActionPerformed
         panelproductoss.setVisible(true);
@@ -350,20 +350,20 @@ private String user;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BTN5sos;
     private javax.swing.JButton BTNartistas;
     private javax.swing.JButton BTNelproducto;
     private javax.swing.JButton BTNproductos;
+    private javax.swing.JButton BTRbtn;
+    private javax.swing.JButton BeaMillerBTN;
+    private javax.swing.JButton BillieBTN;
     private javax.swing.JButton BtnSalir;
+    private javax.swing.JButton ConanBTN;
     private javax.swing.JButton HSbtn;
+    private javax.swing.JButton ImagineDragonsBTN;
+    private javax.swing.JButton LousiBTN;
     private javax.swing.JButton SabrinaBTN;
-    private javax.swing.JButton SabrinaBTN1;
-    private javax.swing.JButton SabrinaBTN2;
-    private javax.swing.JButton SabrinaBTN3;
-    private javax.swing.JButton SabrinaBTN4;
-    private javax.swing.JButton SabrinaBTN5;
-    private javax.swing.JButton SabrinaBTN6;
-    private javax.swing.JButton SabrinaBTN7;
-    private javax.swing.JButton SabrinaBTN8;
+    private javax.swing.JButton SkzBTN;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
