@@ -66,6 +66,8 @@ public class PrincipalAD extends javax.swing.JFrame {
         AvisoLabel = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         userLABEL = new javax.swing.JLabel();
+        BtnSalir1 = new javax.swing.JButton();
+        BtnSalir2 = new javax.swing.JButton();
         Pantalla = new custom.PanelRound();
         panelRound2 = new custom.PanelRound();
         BtnGrafics = new javax.swing.JButton();
@@ -149,6 +151,22 @@ public class PrincipalAD extends javax.swing.JFrame {
 
         userLABEL.setText("User ..");
         Constraseña.add(userLABEL, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 90, 140, 30));
+
+        BtnSalir1.setText("OUT");
+        BtnSalir1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnSalir1ActionPerformed(evt);
+            }
+        });
+        Constraseña.add(BtnSalir1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 604, -1, -1));
+
+        BtnSalir2.setText("OUT");
+        BtnSalir2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnSalir2ActionPerformed(evt);
+            }
+        });
+        Constraseña.add(BtnSalir2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 20, 57, 38));
 
         getContentPane().add(Constraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 160, 560, 370));
 
@@ -1068,6 +1086,18 @@ public class PrincipalAD extends javax.swing.JFrame {
     private void fieldCantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldCantActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_fieldCantActionPerformed
+
+    private void BtnSalir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSalir1ActionPerformed
+        perfilesFR menu = new perfilesFR(admi);
+        menu.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_BtnSalir1ActionPerformed
+
+    private void BtnSalir2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSalir2ActionPerformed
+         perfilesFR menu = new perfilesFR(admi);
+        menu.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_BtnSalir2ActionPerformed
 //VERIFICACION DE USUARIOSSSS
 
     public static boolean Verify(Scanner sc, String file_name, String U, String P) {
@@ -1159,6 +1189,8 @@ public class PrincipalAD extends javax.swing.JFrame {
     private javax.swing.JButton BtnGrafics;
     private javax.swing.JButton BtnInfo;
     private javax.swing.JButton BtnSalir;
+    private javax.swing.JButton BtnSalir1;
+    private javax.swing.JButton BtnSalir2;
     private javax.swing.JButton BtnVerifyUser;
     private custom.PanelRound Constraseña;
     private javax.swing.JPanel PanelAgregar;
