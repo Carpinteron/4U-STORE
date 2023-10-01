@@ -15,16 +15,17 @@ public class PrincipalCL extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         panelproductoss.setVisible(false);
+        panelDELproducto.setVisible(false);
         BTNartistas.setEnabled(false);//boton para que muestre el panel de todos los artistas
         //La idea es que cuando se esten en el menu de artistas el boton este señalado o resaltado mas no se puede seleccionar
         BTNproductos.setEnabled(false);
         //si selecciona un artista, el botonartistas se habilita por si el usuario se quiere regrsar, y se resal el boton de los productos del artista
         BTNelproducto.setEnabled(false);
-         TituloArtista.setText(SelectedArtist);
+        TituloArtista.setText(SelectedArtist);
     }
     public String Frameanterior;
     public JPanel actualPanel;
-    public String SelectedArtist;
+    public String SelectedArtist,product;
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -38,6 +39,23 @@ public class PrincipalCL extends javax.swing.JFrame {
         BtnSalir = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
+        panelproductoss = new javax.swing.JPanel();
+        TituloArtista = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        btnCamisetas = new javax.swing.JButton();
+        btnVINILOS = new javax.swing.JButton();
+        btnGORRAS = new javax.swing.JButton();
+        btnLLaveros = new javax.swing.JButton();
+        btnCDS = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
+        jRadioButton1 = new javax.swing.JRadioButton();
+        jRadioButton2 = new javax.swing.JRadioButton();
+        panelDELproducto = new javax.swing.JPanel();
+        labelArtist = new javax.swing.JLabel();
+        labelTipoProduct = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jLabel4 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         panelArtistas = new javax.swing.JPanel();
         HSbtn = new javax.swing.JButton();
@@ -54,8 +72,6 @@ public class PrincipalCL extends javax.swing.JFrame {
         BTNartistas = new javax.swing.JButton();
         BTNproductos = new javax.swing.JButton();
         BTNelproducto = new javax.swing.JButton();
-        panelproductoss = new javax.swing.JPanel();
-        TituloArtista = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -100,6 +116,103 @@ public class PrincipalCL extends javax.swing.JFrame {
         menu.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
 
         panelRound1.add(menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        panelproductoss.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        TituloArtista.setFont(new java.awt.Font("Tekton Pro", 0, 36)); // NOI18N
+        TituloArtista.setText("Nombre del Artista");
+        panelproductoss.add(TituloArtista, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 20, 475, 66));
+
+        jLabel2.setText("¿Que producto desea explorar? ");
+        panelproductoss.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 100, 180, 24));
+
+        btnCamisetas.setText("CAMISETAS");
+        btnCamisetas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCamisetasActionPerformed(evt);
+            }
+        });
+        panelproductoss.add(btnCamisetas, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 500, 190, 70));
+
+        btnVINILOS.setText("VINILOS");
+        btnVINILOS.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVINILOSActionPerformed(evt);
+            }
+        });
+        panelproductoss.add(btnVINILOS, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 320, 187, 70));
+
+        btnGORRAS.setText("GORRAS");
+        btnGORRAS.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGORRASActionPerformed(evt);
+            }
+        });
+        panelproductoss.add(btnGORRAS, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 140, 195, 70));
+
+        btnLLaveros.setText("LLAVEROS");
+        btnLLaveros.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLLaverosActionPerformed(evt);
+            }
+        });
+        panelproductoss.add(btnLLaveros, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 410, 190, 70));
+
+        btnCDS.setText("CD");
+        btnCDS.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCDSActionPerformed(evt);
+            }
+        });
+        panelproductoss.add(btnCDS, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 230, 190, 70));
+
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Producto", "Precio", "Disponibilidad", "Tipo"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane3.setViewportView(jTable2);
+
+        panelproductoss.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 127, 810, 450));
+
+        jRadioButton1.setText("Precio");
+        panelproductoss.add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, -1, -1));
+
+        jRadioButton2.setText("Tipo de Producto");
+        panelproductoss.add(jRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 90, -1, -1));
+
+        panelRound1.add(panelproductoss, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 40, 1070, 590));
+
+        panelDELproducto.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        labelArtist.setFont(new java.awt.Font("Tekton Pro", 0, 36)); // NOI18N
+        labelArtist.setText("ARTISTA");
+        panelDELproducto.add(labelArtist, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 28, 335, 55));
+
+        labelTipoProduct.setText("jLabel5");
+        panelDELproducto.add(labelTipoProduct, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 89, 320, 24));
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        panelDELproducto.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 185, -1));
+
+        jLabel4.setText("jLabel4");
+        panelDELproducto.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 40, 240, 260));
+
+        panelRound1.add(panelDELproducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, 1060, 580));
 
         jScrollPane1.setBorder(null);
         jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
@@ -219,28 +332,6 @@ public class PrincipalCL extends javax.swing.JFrame {
         BTNelproducto.setText("VISTAZO DEL PRODUCTO");
         panelRound1.add(BTNelproducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(331, 6, -1, -1));
 
-        TituloArtista.setFont(new java.awt.Font("Tekton Pro", 0, 36)); // NOI18N
-        TituloArtista.setText("Nombre del Artista");
-
-        javax.swing.GroupLayout panelproductossLayout = new javax.swing.GroupLayout(panelproductoss);
-        panelproductoss.setLayout(panelproductossLayout);
-        panelproductossLayout.setHorizontalGroup(
-            panelproductossLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelproductossLayout.createSequentialGroup()
-                .addGap(52, 52, 52)
-                .addComponent(TituloArtista, javax.swing.GroupLayout.PREFERRED_SIZE, 475, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(576, Short.MAX_VALUE))
-        );
-        panelproductossLayout.setVerticalGroup(
-            panelproductossLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelproductossLayout.createSequentialGroup()
-                .addGap(42, 42, 42)
-                .addComponent(TituloArtista, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(469, Short.MAX_VALUE))
-        );
-
-        panelRound1.add(panelproductoss, new org.netbeans.lib.awtextra.AbsoluteConstraints(87, 43, -1, -1));
-
         getContentPane().add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
@@ -263,86 +354,149 @@ public class PrincipalCL extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void BTRbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTRbtnActionPerformed
-        BotonesArtistasPanel();
+
         SelectedArtist = "Big Time Rush";
+        BotonesArtistasPanel();
     }//GEN-LAST:event_BTRbtnActionPerformed
 
     private void ConanBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConanBTNActionPerformed
-        BotonesArtistasPanel();
+
         SelectedArtist = "Conan Gray";
+        BotonesArtistasPanel();
     }//GEN-LAST:event_ConanBTNActionPerformed
 
     private void ImagineDragonsBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ImagineDragonsBTNActionPerformed
-        BotonesArtistasPanel();
+
         SelectedArtist = "Imagine Dragons";
+        BotonesArtistasPanel();
     }//GEN-LAST:event_ImagineDragonsBTNActionPerformed
 
     private void LousiBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LousiBTNActionPerformed
-        BotonesArtistasPanel();
+
         SelectedArtist = "Louis Tomilson";
+        BotonesArtistasPanel();
     }//GEN-LAST:event_LousiBTNActionPerformed
 
     private void SkzBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SkzBTNActionPerformed
-        BotonesArtistasPanel();
+
         SelectedArtist = "Stray Kids";
+        BotonesArtistasPanel();
     }//GEN-LAST:event_SkzBTNActionPerformed
 
     private void ManeskinBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ManeskinBTNActionPerformed
-        BotonesArtistasPanel();
+
         SelectedArtist = "Maneskin";
+        BotonesArtistasPanel();
     }//GEN-LAST:event_ManeskinBTNActionPerformed
 
     private void BillieBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BillieBTNActionPerformed
-        BotonesArtistasPanel();
+
         SelectedArtist = "Billie Eilish";
+        BotonesArtistasPanel();
     }//GEN-LAST:event_BillieBTNActionPerformed
 
     private void BTN5sosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN5sosActionPerformed
-        BotonesArtistasPanel();
+
         SelectedArtist = "5SOS";
+        BotonesArtistasPanel();
     }//GEN-LAST:event_BTN5sosActionPerformed
 
     private void HSbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HSbtnActionPerformed
-        BotonesArtistasPanel();
         SelectedArtist = "Harry Styles";
-        if (actualPanel == panelproductoss) {
-           // TituloArtista.setText(SelectedArtist);
-        }
+        BotonesArtistasPanel();
 
     }//GEN-LAST:event_HSbtnActionPerformed
 
     private void BTNartistasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNartistasActionPerformed
-        if (actualPanel == panelproductoss) {
+        if (actualPanel == panelproductoss | actualPanel == panelDELproducto) {
             panelproductoss.setVisible(false);
+            panelDELproducto.setVisible(false);
+            panelDELproducto.setEnabled(false);
             panelArtistas.setVisible(true);
             panelArtistas.setEnabled(true);
+            BTNelproducto.setEnabled(false);
             BTNartistas.setEnabled(false);
             jScrollPane1.setVisible(true);
+            BTNproductos.setEnabled(false);
         }
     }//GEN-LAST:event_BTNartistasActionPerformed
 
     private void BTNproductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNproductosActionPerformed
-
+        if (actualPanel == panelDELproducto) {
+            panelproductoss.setVisible(true);
+            panelDELproducto.setVisible(false);
+            panelArtistas.setVisible(false);
+            panelArtistas.setEnabled(false);
+            BTNartistas.setEnabled(true);
+            jScrollPane1.setVisible(false);
+            BTNelproducto.setEnabled(false);
+            
+        }
     }//GEN-LAST:event_BTNproductosActionPerformed
 
     private void SabrinaBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SabrinaBTNActionPerformed
+        SelectedArtist = "Sabrina Carpenter";
         BotonesArtistasPanel();
     }//GEN-LAST:event_SabrinaBTNActionPerformed
 
     private void BeaMillerBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BeaMillerBTNActionPerformed
-        BotonesArtistasPanel();
+
         SelectedArtist = "Bea Miller";
+        BotonesArtistasPanel();
     }//GEN-LAST:event_BeaMillerBTNActionPerformed
+
+    private void btnGORRASActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGORRASActionPerformed
+        product="Goorras";
+        BotonesProductoPanel();
+    }//GEN-LAST:event_btnGORRASActionPerformed
+
+    private void btnVINILOSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVINILOSActionPerformed
+        product="Vinilos";
+        BotonesProductoPanel();
+    }//GEN-LAST:event_btnVINILOSActionPerformed
+
+    private void btnCamisetasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCamisetasActionPerformed
+        product="Camisetas";
+        BotonesProductoPanel();
+    }//GEN-LAST:event_btnCamisetasActionPerformed
+
+    private void btnCDSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCDSActionPerformed
+        product="CD´s";
+        BotonesProductoPanel();
+    }//GEN-LAST:event_btnCDSActionPerformed
+
+    private void btnLLaverosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLLaverosActionPerformed
+        product="Llaveros";
+        BotonesProductoPanel();
+    }//GEN-LAST:event_btnLLaverosActionPerformed
 
     public void BotonesArtistasPanel() {
         panelproductoss.setVisible(true);
         panelproductoss.setEnabled(true);
-        
+        TituloArtista.setText(SelectedArtist);
         panelArtistas.setVisible(false);
         panelArtistas.setEnabled(false);
         BTNartistas.setEnabled(true);
         actualPanel = panelproductoss;
         jScrollPane1.setVisible(false);
+        BTNelproducto.setEnabled(false);
+    }
+
+    public void BotonesProductoPanel() {
+        panelDELproducto.setVisible(true);
+        panelDELproducto.setEnabled(true);
+        panelproductoss.setVisible(false);
+        panelproductoss.setEnabled(false);
+        panelArtistas.setVisible(false);
+        panelArtistas.setEnabled(false);
+        BTNartistas.setEnabled(true);
+        BTNproductos.setEnabled(true);
+        actualPanel = panelDELproducto;
+        jScrollPane1.setVisible(false);
+        BTNelproducto.setEnabled(true);
+        labelArtist.setText(SelectedArtist);
+        labelTipoProduct.setText(product);
+        
     }
 
     public static void main(String args[]) {
@@ -394,14 +548,29 @@ public class PrincipalCL extends javax.swing.JFrame {
     private javax.swing.JButton SabrinaBTN;
     private javax.swing.JButton SkzBTN;
     private javax.swing.JLabel TituloArtista;
+    private javax.swing.JButton btnCDS;
+    private javax.swing.JButton btnCamisetas;
+    private javax.swing.JButton btnGORRAS;
+    private javax.swing.JButton btnLLaveros;
+    private javax.swing.JButton btnVINILOS;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JRadioButton jRadioButton1;
+    private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JTable jTable2;
+    private javax.swing.JLabel labelArtist;
+    private javax.swing.JLabel labelTipoProduct;
     private custom.PanelRound menu;
     private javax.swing.JPanel panelArtistas;
+    private javax.swing.JPanel panelDELproducto;
     private custom.PanelRound panelRound1;
     private javax.swing.JPanel panelproductoss;
     // End of variables declaration//GEN-END:variables
