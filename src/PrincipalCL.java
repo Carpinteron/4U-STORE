@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Scanner;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
@@ -18,6 +19,7 @@ public class PrincipalCL extends javax.swing.JFrame {
         setUndecorated(true);
         setBackground(new Color(0, 0, 0, 0));
         initComponents();
+        Scanner sc =new Scanner(System.in);
         setLocationRelativeTo(null);
         panelproductoss.setVisible(false);
         panelDELproducto.setVisible(false);
@@ -27,6 +29,9 @@ public class PrincipalCL extends javax.swing.JFrame {
         //si selecciona un artista, el botonartistas se habilita por si el usuario se quiere regrsar, y se resal el boton de los productos del artista
         BTNelproducto.setEnabled(false);
         TituloArtista.setText(SelectedArtist);
+        PrincipalAD.ListaEnlazada Cantidad=new PrincipalAD.ListaEnlazada();
+        PrincipalAD.ListaEnlazada Names=new PrincipalAD.ListaEnlazada();
+         PrincipalAD.CopiarArchivoAlISTA(sc, "Inventario",Cantidad,Names);
     }
     public String Frameanterior;
     public JPanel actualPanel;
@@ -514,7 +519,7 @@ public class PrincipalCL extends javax.swing.JFrame {
         cargardatosalcombo();
         
     }
-
+ 
     public void cargardatosalcombo(){
          switch (product) {
                 case "Camisetas":

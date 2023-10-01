@@ -30,8 +30,7 @@ public class login extends javax.swing.JFrame {
         CedulasAdmins("CedulasAdmins");
         Scanner sc=new Scanner(System.in);
         PrincipalAD.ArchivoInventario("Inventario");
-        
-        PrincipalAD.CopiarArchivoAlISTA(sc, "Inventario");
+       
         
     }
 
