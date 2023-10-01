@@ -18,14 +18,16 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 public class PrincipalAD extends javax.swing.JFrame {
-     String admi;
+
+    String admi;
+
     public PrincipalAD(String name) {
-         setIconImage(new ImageIcon(getClass().getResource("ICons/4Uicon.png")).getImage());
+        setIconImage(new ImageIcon(getClass().getResource("ICons/4Uicon.png")).getImage());
         setUndecorated(true);
         this.admi = name;
         setBackground(new Color(0, 0, 0, 0));
-         initComponents();
-         setLocationRelativeTo(null);
+        initComponents();
+        setLocationRelativeTo(null);
         this.setVisible(false);
         //Para mostrar archivo inventario 01
         ArchivoInventario("Inventario");// se puede reiniciar
@@ -33,7 +35,7 @@ public class PrincipalAD extends javax.swing.JFrame {
         Scanner sc = new Scanner(System.in);
         LeerNormal(sc, "Inventario", TablaINVENTARIO);
         sc.close();
-       // userfield.setText(admi);
+        // userfield.setText(admi);
         userLABEL.setText(admi);
         //No visible
         Constraseña.setVisible(true);
@@ -45,6 +47,8 @@ public class PrincipalAD extends javax.swing.JFrame {
         error2.setVisible(false);
         error3.setVisible(false);
         error4.setVisible(false);
+        error5.setVisible(false);
+        error6.setVisible(false);
 
     }
 
@@ -83,11 +87,19 @@ public class PrincipalAD extends javax.swing.JFrame {
         BTNcerrarAgregar = new javax.swing.JButton();
         BTNAgregar2 = new javax.swing.JButton();
         BTNLimpiar1 = new javax.swing.JButton();
-        error4 = new javax.swing.JLabel();
+        error6 = new javax.swing.JLabel();
         error1 = new javax.swing.JLabel();
         error2 = new javax.swing.JLabel();
         error3 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        fieldDescripcion = new javax.swing.JTextField();
+        error4 = new javax.swing.JLabel();
+        labelCantidad = new javax.swing.JLabel();
+        fieldCant = new javax.swing.JTextField();
+        error5 = new javax.swing.JLabel();
         exitBTN = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -206,13 +218,13 @@ public class PrincipalAD extends javax.swing.JFrame {
 
         Pantalla.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(124, 146, 950, 420));
 
-        BTNAgregar1.setText("Agregar Producto");
+        BTNAgregar1.setText("Agregar Nuevo Producto");
         BTNAgregar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BTNAgregar1ActionPerformed(evt);
             }
         });
-        Pantalla.add(BTNAgregar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 65, -1, -1));
+        Pantalla.add(BTNAgregar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 70, -1, -1));
 
         PanelAgregar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -237,8 +249,8 @@ public class PrincipalAD extends javax.swing.JFrame {
                 jcSubcategoriaActionPerformed(evt);
             }
         });
-        PanelAgregar.add(jcSubcategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(427, 193, 275, -1));
-        PanelAgregar.add(fieldPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(427, 268, 275, -1));
+        PanelAgregar.add(jcSubcategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 190, 275, -1));
+        PanelAgregar.add(fieldPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 310, 275, -1));
 
         jLabel1.setText("Categoría");
         PanelAgregar.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(205, 86, -1, -1));
@@ -248,10 +260,10 @@ public class PrincipalAD extends javax.swing.JFrame {
 
         labelD.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         labelD.setText("Talla/Album/Tipo (todo depende de lo anterior)");
-        PanelAgregar.add(labelD, new org.netbeans.lib.awtextra.AbsoluteConstraints(205, 196, 204, -1));
+        PanelAgregar.add(labelD, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 190, 204, -1));
 
         jLabel5.setText("Precio unitario (COP)");
-        PanelAgregar.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(205, 268, 147, -1));
+        PanelAgregar.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 330, 147, -1));
 
         BTNcerrarAgregar.setText("Cerrar");
         BTNcerrarAgregar.addActionListener(new java.awt.event.ActionListener() {
@@ -277,10 +289,10 @@ public class PrincipalAD extends javax.swing.JFrame {
         });
         PanelAgregar.add(BTNLimpiar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 369, -1, -1));
 
-        error4.setFont(new java.awt.Font("Perpetua", 0, 12)); // NOI18N
-        error4.setForeground(new java.awt.Color(255, 0, 0));
-        error4.setText("(!) El monto debe ser numérico y mayor a cero");
-        PanelAgregar.add(error4, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 280, 290, 40));
+        error6.setFont(new java.awt.Font("Perpetua", 0, 12)); // NOI18N
+        error6.setForeground(new java.awt.Color(255, 0, 0));
+        error6.setText("(!) El monto debe ser numérico y mayor a cero");
+        PanelAgregar.add(error6, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 320, 290, 40));
 
         error1.setFont(new java.awt.Font("Perpetua", 0, 12)); // NOI18N
         error1.setForeground(new java.awt.Color(255, 0, 0));
@@ -295,7 +307,38 @@ public class PrincipalAD extends javax.swing.JFrame {
         error3.setFont(new java.awt.Font("Perpetua", 0, 12)); // NOI18N
         error3.setForeground(new java.awt.Color(255, 0, 0));
         error3.setText("(!) Debe seleccionar un artista");
-        PanelAgregar.add(error3, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 202, 290, 40));
+        PanelAgregar.add(error3, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 200, 290, 40));
+
+        jLabel8.setText("Descripción producto");
+        PanelAgregar.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 230, -1, -1));
+
+        fieldDescripcion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fieldDescripcionActionPerformed(evt);
+            }
+        });
+        PanelAgregar.add(fieldDescripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 230, 270, -1));
+
+        error4.setFont(new java.awt.Font("Perpetua", 0, 12)); // NOI18N
+        error4.setForeground(new java.awt.Color(255, 0, 0));
+        error4.setText("(!) Debe ingresar una descripción");
+        PanelAgregar.add(error4, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 250, 180, -1));
+
+        labelCantidad.setText("Cantidad");
+        PanelAgregar.add(labelCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 280, -1, -1));
+
+        fieldCant.setText("1");
+        fieldCant.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fieldCantActionPerformed(evt);
+            }
+        });
+        PanelAgregar.add(fieldCant, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 270, 270, -1));
+
+        error5.setFont(new java.awt.Font("Perpetua", 0, 12)); // NOI18N
+        error5.setForeground(new java.awt.Color(255, 0, 0));
+        error5.setText("(!) Debe ser mayor a cero");
+        PanelAgregar.add(error5, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 290, -1, -1));
 
         Pantalla.add(PanelAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, 950, 430));
 
@@ -308,6 +351,12 @@ public class PrincipalAD extends javax.swing.JFrame {
             }
         });
         Pantalla.add(exitBTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(1160, 0, -1, 40));
+
+        jButton1.setText("Agregar producto Existente");
+        Pantalla.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 70, -1, -1));
+
+        jButton4.setText("Eliminar Producto");
+        Pantalla.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 70, -1, -1));
 
         getContentPane().add(Pantalla, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1200, 700));
 
@@ -572,36 +621,6 @@ public class PrincipalAD extends javax.swing.JFrame {
         }
     }
 
-    public static void Usuarios(String file_name) {
-        try {
-            FileWriter outFile = new FileWriter(file_name + ".txt", false);
-            PrintWriter registro = new PrintWriter(outFile);
-
-            //Matriz para crear Archivo Existente 
-            String[][] usuariosADMIN = {
-                //Seccion CONAN
-                {"Nacale", "12345"},
-                {"Pauly", "888"},
-                {"isabella", "111"}};
-
-            //Agregar datos de la matriz al registro
-            for (String[] fila : usuariosADMIN) {
-                String NombreProducto = fila[0];
-                String Contraseña = fila[1];
-
-                // Agregar los datos al archivo
-                registro.println(NombreProducto + ";" + Contraseña);
-            }
-
-            registro.close();
-            System.out.println("Datos agregados exitosamente al archivo " + file_name);
-
-        } catch (IOException ex) {
-            System.out.println("Error al agregar datos al archivo " + file_name);
-            ex.printStackTrace();
-        }
-    }
-
     //02 Subrutina para mostrar datos en la tabla
     public static void LeerNormal(Scanner sc, String file_name, JTable tabla) {
         boolean hay = false;
@@ -627,6 +646,185 @@ public class PrincipalAD extends javax.swing.JFrame {
         }
     }
 
+    //Subrutina para los usuarios administradores
+    public static void Usuarios(String file_name) {
+        try {
+            FileWriter outFile = new FileWriter(file_name + ".txt", false);
+            PrintWriter registro = new PrintWriter(outFile);
+
+            //Matriz para crear Archivo Existente 
+            String[][] usuariosADMIN = {
+                //Seccion CONAN
+                {"Nacale", "12345"},
+                {"Pauly", "888"},
+                {"isa", "111"}};
+
+            //Agregar datos de la matriz al registro
+            for (String[] fila : usuariosADMIN) {
+                String NombreProducto = fila[0];
+                String Contraseña = fila[1];
+
+                // Agregar los datos al archivo
+                registro.println(NombreProducto + ";" + Contraseña);
+            }
+
+            registro.close();
+            System.out.println("Datos agregados exitosamente al archivo " + file_name);
+
+        } catch (IOException ex) {
+            System.out.println("Error al agregar datos al archivo " + file_name);
+            ex.printStackTrace();
+        }
+    }
+    boolean seagrego = false;
+
+    //Subrutina para agregar un nuevo producto al inventario
+    public void AgregarProducto(String file_name) {
+
+        String Categoria, Artista, Descripcion, Precio, Cantidad, Sub;
+
+        try {
+            FileWriter outFile = new FileWriter(file_name + ".txt", true);  //Archivo.txt
+            // if false the file will be deleted and created everytime
+            // if true the registers will be appended to the end of the file
+            PrintWriter registrar_producto = new PrintWriter(outFile);
+            Categoria = (jcCategoria.getSelectedItem() != null) ? jcCategoria.getSelectedItem().toString() : "";
+            Artista = (jcArtista.getSelectedItem() != null) ? jcArtista.getSelectedItem().toString() : "";
+            Sub = (jcSubcategoria.getSelectedItem() != null) ? jcSubcategoria.getSelectedItem().toString() : "";
+            Descripcion = fieldDescripcion.getText();
+            Cantidad = fieldCant.getText();
+            Precio = fieldPrecio.getText();
+            //Validaciones
+            if (Validaciones(Categoria, Artista, Sub, Descripcion, Cantidad, Precio)) {
+                registrar_producto.println((Categoria + " " + Sub + " " + Descripcion) + ";" + Cantidad + ";" + Categoria + ";" + Artista + ";" + Precio);
+                System.out.println("YA SE AGREGO (ESTO DESPUES SE BORRA)");
+                seagrego = true;
+            }
+
+            registrar_producto.close();
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(null, "Ha ocurrido un error al agregar los datos.", "Error", JOptionPane.ERROR_MESSAGE);
+
+            System.out.println("Error creando el archivo");
+            ex.printStackTrace();
+        }
+
+    }
+
+    //Funcion para validar los campos de agregar producto
+    public boolean Validaciones(String c1, String c2, String c3, String c4, String c5, String c6) {
+
+        //Validacion seleccion de categoria
+        if (c1.equalsIgnoreCase("Seleccionar categoria") || c1 == null) {
+            error1.setVisible(true);
+            return false;
+        } else {
+            error1.setVisible(false);
+        }
+        //Validacion seleccion de artista
+        if (c2.equalsIgnoreCase("Seleccionar artista") || c2 == null) {
+            error2.setVisible(true); //Si no selecciono artista 
+            return false;
+        } else {
+            error2.setVisible(false);
+        }
+        //Validacion seleccion de subcategoria
+        if (c3.equalsIgnoreCase("Seleccionar talla") || c3.equalsIgnoreCase("Seleccionar tipo de gorra") || c3.equalsIgnoreCase("Seleccionar álbum") || c3 == null) {
+            error3.setText("(!) Realice una seleccion");
+            error3.setVisible(true); //Si no selecciono descripcion
+            return false;
+        } else {
+            error3.setVisible(false);
+        }
+        //Validacion descripcion de producto
+        if (c4.isEmpty()) { //que no este vacio el texto ingresado
+            error4.setText("(!) Campo vacío");
+            error4.setVisible(true);
+            return false;
+        } else { // Validacion Formato: que sea letras
+            error4.setVisible(false);
+            boolean validod = true;
+            for (char c : c4.toCharArray()) {
+                if (!Character.isLetter(c) && !Character.isSpaceChar(c)) {
+                    validod = false;
+                    break;
+                }
+            }
+            if (!validod) {
+                error4.setVisible(true);
+                return false;
+            } else {
+                error4.setVisible(false);
+            }
+        }
+        //Validacion cantidad
+        if (c5.isEmpty()) {//que no este vacio
+            error5.setText("(!) Campo vacío");
+            error5.setVisible(true);
+            return false;
+        } else {// Validación que sea numerico y mayor a cero
+            boolean validocant = true;
+            for (char c : c5.toCharArray()) {
+                if (!Character.isDigit(c)) {
+                    validocant = false;
+                    break;
+                }
+            }
+            try {
+                double cant = Double.parseDouble(c5);
+                if (cant < 0) {
+                    error5.setVisible(false);
+                }
+            } catch (NumberFormatException e) {
+                error5.setText("(!) La cantidad debe ser mayor a 0");
+                error5.setVisible(true); // Mostrar mensaje de error
+                return false;
+            }
+
+            if (!validocant) {
+                error5.setText("(!) El valor debe ser numerico");
+                error5.setVisible(true); // Mostrar mensaje de error
+                return false;
+            } else {
+                error5.setVisible(false); // Ocultar mensaje de error  
+
+            }
+        }
+        //Validacion precio
+        if (c6.isEmpty()) {//que no este vacio
+            error6.setText("(!) Campo vacío");
+            error6.setVisible(true);
+            return false;
+        } else {// Validación que sea numerico y mayor a cero
+            boolean validoprecio = true;
+            for (char c : c6.toCharArray()) {
+                if (!Character.isDigit(c)) {
+                    validoprecio = false;
+                    break;
+                }
+            }
+            try {
+                double precio = Double.parseDouble(c6);
+                if (precio < 0) {
+                    error6.setVisible(false);
+                }
+            } catch (NumberFormatException e) {
+                error6.setText("(!) El monto debe ser mayor a 0");
+                error6.setVisible(true); // Mostrar mensaje de error
+                return false;
+            }
+
+            if (!validoprecio) {
+                error6.setText("(!) El valor debe ser numerico");
+                error6.setVisible(true); // Mostrar mensaje de error
+                return false;
+            } else {
+                error6.setVisible(false); // Ocultar mensaje de error  
+
+            }
+        }
+        return true;// se devuelve true si cumple con todas las validaciones correspondientes
+    }
     private static final Map<String, List<String>> ALBUMES_ARTISTAS = new HashMap<>();
 
     static {
@@ -653,12 +851,16 @@ public class PrincipalAD extends javax.swing.JFrame {
         if (categoria.equalsIgnoreCase("Seleccionar categoria")) {
             jcSubcategoria.setEnabled(false);
             fieldPrecio.setEnabled(false);
+            fieldDescripcion.setEnabled(false);
+            fieldCant.setEnabled(false);
             labelD.setVisible(false);
             System.out.println("Entre aqui en false");
 
         } else if ((artista.equalsIgnoreCase("Seleccionar artista"))) {
             jcSubcategoria.setEnabled(false);
             fieldPrecio.setEnabled(false);
+            fieldDescripcion.setEnabled(false);
+            fieldCant.setEnabled(false);
             labelD.setVisible(false);
             System.out.println("Entre aqui en false");
 
@@ -669,7 +871,6 @@ public class PrincipalAD extends javax.swing.JFrame {
             return;
         } else {
             jcSubcategoria.setEnabled(true);
-            fieldPrecio.setEnabled(true);
             labelD.setVisible(true);
 
             switch (categoria) {
@@ -701,10 +902,10 @@ public class PrincipalAD extends javax.swing.JFrame {
                 case "Gorra":
                     labelD.setText("Tipo");
                     DefaultComboBoxModel<String> comboBoxModel4 = new DefaultComboBoxModel<>();
-                    comboBoxModel4.addElement("Seleccionar tipo");
-                    comboBoxModel4.addElement("Gorra Béisbol");
-                    comboBoxModel4.addElement("Gorra Plana/Snapback");
-                    comboBoxModel4.addElement("Gorra Trucker");
+                    comboBoxModel4.addElement("Seleccionar tipo de gorra");
+                    comboBoxModel4.addElement("Béisbol");
+                    comboBoxModel4.addElement("Plana/Snapback");
+                    comboBoxModel4.addElement("Trucker");
                     jcSubcategoria.setModel(comboBoxModel4);
                     break;
 
@@ -744,20 +945,26 @@ public class PrincipalAD extends javax.swing.JFrame {
     }//GEN-LAST:event_BTNcerrarAgregarActionPerformed
 
     private void BTNAgregar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNAgregar2ActionPerformed
-        //Esto aun esta en construccion
-        String Categoria = (jcCategoria.getSelectedItem() != null) ? jcCategoria.getSelectedItem().toString() : "";
-        String Artista = (jcArtista.getSelectedItem() != null) ? jcArtista.getSelectedItem().toString() : "";
-        String Sub = (jcSubcategoria.getSelectedItem() != null) ? jcSubcategoria.getSelectedItem().toString() : "";
-        if (Categoria.equalsIgnoreCase("Seleccionar categoria") || Categoria == null) {
-            error1.setVisible(true);
+        AgregarProducto("Inventario");
+        if (seagrego) {
+            //CargarDatosJcombo();
+            String seleccionarc = "Seleccionar Categoria";
+            String seleccionara = "Seleccionar Artista";
+            jcCategoria.setSelectedItem(seleccionarc);
+            jcArtista.setSelectedItem(seleccionara);
+            jcCategoria.setSelectedIndex(0);//Doble verificacion
+            jcArtista.setSelectedIndex(0);
+            jcSubcategoria.setSelectedItem(null);
+            //CargarDatosJcombo();
+            fieldDescripcion.setText("");
+            fieldDescripcion.setEnabled(false);
+            fieldCant.setText("");
+            fieldCant.setEnabled(false);
+            fieldPrecio.setText("");
+            fieldPrecio.setEnabled(false);
         }
-        if (Artista.equalsIgnoreCase("Seleccionar artista") || Artista == null) {
-            error2.setVisible(true);
-        }
-        String seleccionarc = "Seleccionar categoria";
-        String seleccionara = "Seleccionar artista";
-        jcCategoria.setSelectedItem(seleccionarc);
-        jcArtista.setSelectedItem(seleccionara);
+
+
     }//GEN-LAST:event_BTNAgregar2ActionPerformed
 
     private void BTNLimpiar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNLimpiar1ActionPerformed
@@ -765,7 +972,11 @@ public class PrincipalAD extends javax.swing.JFrame {
     }//GEN-LAST:event_BTNLimpiar1ActionPerformed
 
     private void jcSubcategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcSubcategoriaActionPerformed
-
+        if (jcSubcategoria.getSelectedItem() != null) {
+            fieldDescripcion.setEnabled(true);
+            fieldPrecio.setEnabled(true);
+            fieldCant.setEnabled(true);
+        }
     }//GEN-LAST:event_jcSubcategoriaActionPerformed
 
     private void jcArtistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcArtistaActionPerformed
@@ -797,12 +1008,12 @@ public class PrincipalAD extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void PassFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PassFieldMouseClicked
-   
+
         PassField.setText(null);
     }//GEN-LAST:event_PassFieldMouseClicked
 
     private void BtnVerifyUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVerifyUserActionPerformed
-        
+
         Scanner sc = new Scanner(System.in);
         String U = admi;
         //userfield.getText();
@@ -816,6 +1027,14 @@ public class PrincipalAD extends javax.swing.JFrame {
             AvisoLabel.setText("Contraseña o Usuario incorrecto");
         }
     }//GEN-LAST:event_BtnVerifyUserActionPerformed
+
+    private void fieldDescripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldDescripcionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fieldDescripcionActionPerformed
+
+    private void fieldCantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldCantActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fieldCantActionPerformed
 //VERIFICACION DE USUARIOSSSS
 
     public static boolean Verify(Scanner sc, String file_name, String U, String P) {
@@ -915,10 +1134,16 @@ public class PrincipalAD extends javax.swing.JFrame {
     private javax.swing.JLabel error2;
     private javax.swing.JLabel error3;
     private javax.swing.JLabel error4;
+    private javax.swing.JLabel error5;
+    private javax.swing.JLabel error6;
     private javax.swing.JButton exitBTN;
+    private javax.swing.JTextField fieldCant;
+    private javax.swing.JTextField fieldDescripcion;
     private javax.swing.JTextField fieldPrecio;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -926,10 +1151,12 @@ public class PrincipalAD extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JComboBox<String> jcArtista;
     private javax.swing.JComboBox<String> jcCategoria;
     private javax.swing.JComboBox<String> jcSubcategoria;
+    private javax.swing.JLabel labelCantidad;
     private javax.swing.JLabel labelD;
     private custom.PanelRound panelRound2;
     private javax.swing.JLabel userLABEL;
