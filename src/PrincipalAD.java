@@ -22,6 +22,7 @@ import javax.swing.table.DefaultTableModel;
 public class PrincipalAD extends javax.swing.JFrame {
 
     String admi;
+  
 
     public PrincipalAD(String name) {
         setIconImage(new ImageIcon(getClass().getResource("ICons/4Uicon.png")).getImage());
@@ -45,7 +46,7 @@ public class PrincipalAD extends javax.swing.JFrame {
         PanelAgregar.setVisible(false);
         PanelAgregarPE.setVisible(false);
         PanelEliminar.setVisible(false);
-        CopiarArchivoAlISTA(sc, "Inventario");
+      //  CopiarArchivoAlISTA(sc, "Inventario");
         RegistroPanel.setVisible(false);
        
     }
@@ -2081,7 +2082,7 @@ public class PrincipalAD extends javax.swing.JFrame {
     static ListaEnlazada listInventarioTempCANT = new ListaEnlazada();
     static ListaEnlazada listInventarioTempNAMES = new ListaEnlazada();
 
-    public static void CopiarArchivoAlISTA(Scanner sc, String file_name) {
+    public static void CopiarArchivoAlISTA(Scanner sc, String file_name, ListaEnlazada names,ListaEnlazada cant) {
         
         boolean hay = false;
         while (hay == false) {
@@ -2091,11 +2092,11 @@ public class PrincipalAD extends javax.swing.JFrame {
 
                 while ((line = br.readLine()) != null) {
                     String temp[] = line.split(";");
-                    listInventarioTempCANT.agregarAlFinal(temp[1]); //Cantidad en el inventario pero esta en String
-                    listInventarioTempNAMES.agregarAlFinal(temp[0] + ";" + temp[3]);
+                    cant.agregarAlFinal(temp[1]); //Cantidad en el inventario pero esta en String
+                    names.agregarAlFinal(temp[0] + ";" + temp[3]);
                 }
-                listInventarioTempCANT.mostrarLista();
-                listInventarioTempNAMES.mostrarLista();
+                cant.mostrarLista();
+                names.mostrarLista();
                 br.close();
                 hay = true;
 
