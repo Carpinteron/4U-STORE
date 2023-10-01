@@ -35,6 +35,7 @@ public class PrincipalAD extends javax.swing.JFrame {
         Scanner sc = new Scanner(System.in);
         LeerNormal(sc, "Inventario", TablaINVENTARIO);
         sc.close();
+        CopiarArchivoAlISTA(sc,"Inventario");
         // userfield.setText(admi);
         userLABEL.setText(admi);
         //No visible
@@ -50,6 +51,7 @@ public class PrincipalAD extends javax.swing.JFrame {
         error4.setVisible(false);
         error5.setVisible(false);
         error6.setVisible(false);
+        ListaEnlazada listInventarioTempCANT = new ListaEnlazada();
 
     }
 
@@ -961,6 +963,82 @@ public class PrincipalAD extends javax.swing.JFrame {
 
     }
 
+    //CLASES PARA LA LISTAS ENLAZADAS
+    class Nodo {
+
+        int dato;
+        Nodo siguiente;
+
+        public Nodo(int dato) {
+            this.dato = dato;
+            this.siguiente = null;
+        }
+    }
+
+    class ListaEnlazada {
+
+        Nodo head; // El primer nodo de la lista
+
+        public ListaEnlazada() {
+            head = null;
+        }
+
+        public void agregarAlInicio(int dato) {
+            Nodo nuevoNodo = new Nodo(dato);
+            nuevoNodo.siguiente = head;
+            head= nuevoNodo;
+        }
+        public void agregarAlFinal(int dato) {
+        Nodo nuevoNodo = new Nodo(dato);
+
+        // Si la lista está vacía, el nuevo nodo será la cabeza
+        if (head == null) {
+            head = nuevoNodo;
+        } else {
+            Nodo nodoActual = head;
+            while (nodoActual.siguiente != null) {
+                nodoActual = nodoActual.siguiente;
+            }
+            nodoActual.siguiente = nuevoNodo;
+        }
+        }
+
+        public void mostrarLista() {
+            Nodo nodoActual = head;
+            while (nodoActual != null) {
+                System.out.print(nodoActual.dato + " -> ");
+                nodoActual = nodoActual.siguiente;
+            }
+            System.out.println("null");
+        }
+    }
+
+    public void CopiarArchivoAlISTA(Scanner sc, String file_name) {
+        ListaEnlazada listInventarioTempCANT = new ListaEnlazada();
+        boolean hay = false;
+        while (hay == false) {
+            try {
+                BufferedReader br = new BufferedReader(new FileReader(file_name + ".txt"));
+                String line = null;
+                
+                while ((line = br.readLine()) != null) {
+                    String temp[] = line.split(";");
+                    int valor = Integer.parseInt(temp[1]);
+                   listInventarioTempCANT.agregarAlFinal(valor);
+                    
+                }
+                listInventarioTempCANT.mostrarLista();
+                br.close();
+                hay = true;
+
+            } catch (IOException ex) {
+                System.out.println("No se encontro archivo");
+                hay = false;
+                file_name = sc.nextLine(); // Archivo
+            }
+        }
+
+    }
 
     private void exitBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitBTNActionPerformed
         System.exit(0);
@@ -1094,7 +1172,7 @@ public class PrincipalAD extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnSalir1ActionPerformed
 
     private void BtnSalir2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSalir2ActionPerformed
-         perfilesFR menu = new perfilesFR(admi);
+        perfilesFR menu = new perfilesFR(admi);
         menu.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_BtnSalir2ActionPerformed
