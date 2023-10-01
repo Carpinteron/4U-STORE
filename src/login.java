@@ -250,7 +250,7 @@ public class login extends javax.swing.JFrame {
     }//GEN-LAST:event_fcontraseñaActionPerformed
 
     private void LoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginActionPerformed
-        int queflojera = 5; // para no meter cedula a cada rato 
+        int queflojera = 0; // para no meter cedula a cada rato 
         if (queflojera == 0) { // ESTO SE QUITA
             existe = true;
              user = fnombre.getText();
