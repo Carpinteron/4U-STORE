@@ -649,7 +649,7 @@ public class PrincipalAD extends javax.swing.JFrame {
     //Subrutina para los usuarios administradores
     public static void Usuarios(String file_name) {
         try {
-            FileWriter outFile = new FileWriter(file_name + ".txt", true);
+            FileWriter outFile = new FileWriter(file_name + ".txt", false);
             PrintWriter registro = new PrintWriter(outFile);
 
             //Matriz para crear Archivo Existente 
@@ -657,7 +657,7 @@ public class PrincipalAD extends javax.swing.JFrame {
                 //Seccion CONAN
                 {"Nacale", "12345"},
                 {"Pauly", "888"},
-                {"isabella", "111"}};
+                {"isa", "111"}};
 
             //Agregar datos de la matriz al registro
             for (String[] fila : usuariosADMIN) {
