@@ -22,7 +22,6 @@ import javax.swing.table.DefaultTableModel;
 public class PrincipalAD extends javax.swing.JFrame {
 
     String admi;
-
     public PrincipalAD(String name) {
         setIconImage(new ImageIcon(getClass().getResource("ICons/4Uicon.png")).getImage());
         setUndecorated(true);
@@ -37,7 +36,6 @@ public class PrincipalAD extends javax.swing.JFrame {
         Scanner sc = new Scanner(System.in);
         LeerNormal(sc, "Inventario", TablaINVENTARIO);
         sc.close();
-        // userfield.setText(admi);
         userLABEL.setText(admi);
         //No visible
         Constraseña.setVisible(true);
@@ -55,16 +53,18 @@ public class PrincipalAD extends javax.swing.JFrame {
     private void initComponents() {
 
         Constraseña = new custom.PanelRound();
-        jLabel3 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         BtnVerifyUser = new javax.swing.JButton();
         PassField = new javax.swing.JPasswordField();
-        jButton2 = new javax.swing.JButton();
+        ojo = new javax.swing.JButton();
         AvisoLabel = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         userLABEL = new javax.swing.JLabel();
         BtnSalir1 = new javax.swing.JButton();
-        BtnSalir2 = new javax.swing.JButton();
+        BtnEXIT = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
         Pantalla = new custom.PanelRound();
         panelRound2 = new custom.PanelRound();
         BtnGrafics = new javax.swing.JButton();
@@ -146,56 +146,91 @@ public class PrincipalAD extends javax.swing.JFrame {
         Constraseña.setBackground(new java.awt.Color(153, 153, 255));
         Constraseña.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel3.setText("Usuario");
-        Constraseña.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 60, -1, -1));
-
+        jLabel6.setFont(new java.awt.Font("Sylfaen", 1, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Verifique Contraseña De Administrador");
-        Constraseña.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 170, -1, -1));
+        Constraseña.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 170, -1, -1));
 
-        BtnVerifyUser.setText("SIGN IN");
+        BtnVerifyUser.setBackground(new java.awt.Color(38, 0, 75));
+        BtnVerifyUser.setFont(new java.awt.Font("Sylfaen", 1, 14)); // NOI18N
+        BtnVerifyUser.setForeground(new java.awt.Color(209, 163, 255));
+        BtnVerifyUser.setText("LOGIN");
+        BtnVerifyUser.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(209, 163, 255), 2, true));
         BtnVerifyUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnVerifyUserActionPerformed(evt);
             }
         });
-        Constraseña.add(BtnVerifyUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 290, -1, -1));
+        Constraseña.add(BtnVerifyUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 270, 70, 40));
 
-        PassField.setText("jPasswordField1");
+        PassField.setBackground(new java.awt.Color(209, 163, 255));
+        PassField.setFont(new java.awt.Font("Sylfaen", 0, 14)); // NOI18N
+        PassField.setForeground(new java.awt.Color(0, 0, 0));
+        PassField.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(38, 0, 75), 2, true));
         PassField.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 PassFieldMouseClicked(evt);
             }
         });
-        Constraseña.add(PassField, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 200, 277, 36));
-
-        jButton2.setText("Mostrar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        PassField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                PassFieldActionPerformed(evt);
             }
         });
-        Constraseña.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 210, -1, -1));
+        Constraseña.add(PassField, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 210, 160, 30));
+
+        ojo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICons/ojoabierto.png"))); // NOI18N
+        ojo.setContentAreaFilled(false);
+        ojo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ojoActionPerformed(evt);
+            }
+        });
+        Constraseña.add(ojo, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 210, -1, 30));
         Constraseña.add(AvisoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 250, 290, 25));
         Constraseña.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 150, 120, 20));
 
-        userLABEL.setText("User ..");
-        Constraseña.add(userLABEL, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 90, 140, 30));
+        userLABEL.setFont(new java.awt.Font("Sylfaen", 1, 14)); // NOI18N
+        userLABEL.setForeground(new java.awt.Color(0, 0, 0));
+        userLABEL.setText("User");
+        Constraseña.add(userLABEL, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 100, 140, 30));
 
+        BtnSalir1.setBackground(new java.awt.Color(38, 0, 75));
+        BtnSalir1.setFont(new java.awt.Font("Sylfaen", 1, 14)); // NOI18N
+        BtnSalir1.setForeground(new java.awt.Color(209, 163, 255));
         BtnSalir1.setText("OUT");
+        BtnSalir1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(209, 163, 255), 2, true));
         BtnSalir1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnSalir1ActionPerformed(evt);
             }
         });
-        Constraseña.add(BtnSalir1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 604, -1, -1));
+        Constraseña.add(BtnSalir1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 334, 50, 30));
 
-        BtnSalir2.setText("OUT");
-        BtnSalir2.addActionListener(new java.awt.event.ActionListener() {
+        BtnEXIT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICons/cerrrar35.png"))); // NOI18N
+        BtnEXIT.setBorder(null);
+        BtnEXIT.setBorderPainted(false);
+        BtnEXIT.setContentAreaFilled(false);
+        BtnEXIT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnSalir2ActionPerformed(evt);
+                BtnEXITActionPerformed(evt);
             }
         });
-        Constraseña.add(BtnSalir2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 20, 57, 38));
+        Constraseña.add(BtnEXIT, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 10, -1, -1));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICons/adminimg.png"))); // NOI18N
+        Constraseña.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, -1, -1));
+
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICons/Logo 4U_1.png"))); // NOI18N
+        Constraseña.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 290, -1, -1));
+
+        jButton2.setText("SKIP");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        Constraseña.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 260, -1, -1));
 
         getContentPane().add(Constraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 160, 560, 370));
 
@@ -1652,14 +1687,16 @@ public class PrincipalAD extends javax.swing.JFrame {
         //SE VISUALIZA PANEL ENCIMA NO QUIERO HACER OTRO FRAME
     }//GEN-LAST:event_BtnGraficsActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void ojoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ojoActionPerformed
         char echoChar = PassField.getEchoChar(); // Obtener el carácter de eco actual
         if (echoChar != 0) {
             PassField.setEchoChar((char) 0); // Establecer el carácter de eco a 0 (sin ocultar)
+            ojo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICons/ojocerrado.png")));;
         } else {
             PassField.setEchoChar('\u2022'); // Establecer el carácter de eco a • (ocultar)
+            ojo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICons/ojoabierto.png")));;
         }
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_ojoActionPerformed
 
     private void PassFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PassFieldMouseClicked
 
@@ -1680,6 +1717,11 @@ public class PrincipalAD extends javax.swing.JFrame {
         } else {
             AvisoLabel.setText("Contraseña o Usuario incorrecto");
         }
+        //////////////////
+         Pantalla.setVisible(true);
+            Constraseña.setVisible(false);
+            exitBTN.setVisible(true);
+        //////////////////
     }//GEN-LAST:event_BtnVerifyUserActionPerformed
 
     private void fieldDescripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldDescripcionActionPerformed
@@ -1695,12 +1737,6 @@ public class PrincipalAD extends javax.swing.JFrame {
         menu.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_BtnSalir1ActionPerformed
-
-    private void BtnSalir2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSalir2ActionPerformed
-        perfilesFR menu = new perfilesFR(admi);
-        menu.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_BtnSalir2ActionPerformed
 
     private void botonPEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonPEActionPerformed
         labelDPE.setVisible(false);
@@ -1854,6 +1890,20 @@ public class PrincipalAD extends javax.swing.JFrame {
         RegistroPanel.setVisible(false);
         CargarDatosJcombo3();
     }//GEN-LAST:event_botonEPActionPerformed
+
+    private void BtnEXITActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEXITActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_BtnEXITActionPerformed
+
+    private void PassFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PassFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PassFieldActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        Pantalla.setVisible(true);
+            Constraseña.setVisible(false);
+            exitBTN.setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
 //VERIFICACION DE USUARIOSSSS
 
     public static boolean Verify(Scanner sc, String file_name, String U, String P) {
@@ -2025,11 +2075,11 @@ public class PrincipalAD extends javax.swing.JFrame {
     private javax.swing.JButton BTNcerrarAgregar1;
     private javax.swing.JButton BTNcerrarEliminar;
     private javax.swing.JButton BotonEliminar;
+    private javax.swing.JButton BtnEXIT;
     private javax.swing.JButton BtnGrafics;
     private javax.swing.JButton BtnInfo;
     private javax.swing.JButton BtnSalir;
     private javax.swing.JButton BtnSalir1;
-    private javax.swing.JButton BtnSalir2;
     private javax.swing.JButton BtnVerifyUser;
     private custom.PanelRound Constraseña;
     private javax.swing.JPanel PanelAgregar;
@@ -2075,6 +2125,7 @@ public class PrincipalAD extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
@@ -2093,6 +2144,7 @@ public class PrincipalAD extends javax.swing.JFrame {
     private javax.swing.JLabel labelD;
     private javax.swing.JLabel labelDEli;
     private javax.swing.JLabel labelDPE;
+    private javax.swing.JButton ojo;
     private custom.PanelRound panelRound1;
     private custom.PanelRound panelRound2;
     private custom.PanelRound panelRound3;

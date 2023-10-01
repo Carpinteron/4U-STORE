@@ -16,7 +16,6 @@ import javax.swing.ImageIcon;
  */
 public class login extends javax.swing.JFrame {
 
-  
     boolean existe;
     String user;
 
@@ -30,17 +29,16 @@ public class login extends javax.swing.JFrame {
 
     }
 
-     public static void CedulasAdmins(String file_name) {
+    public static void CedulasAdmins(String file_name) {
         try {
             FileWriter outFile = new FileWriter(file_name + ".txt", false);
             PrintWriter registro = new PrintWriter(outFile);
 
             //Matriz para crear Archivo Existente 
             String[][] usuariosADMIN = {
-                //Seccion CONAN
-                {"1042245460"}, 
-                {"1047037245"}, 
-                {"1044610582"}};
+                {"Paula Núñez| 1042245460| 77777"},
+                {"Natalia Carpintero| 1047037245| 12345"},
+                {"Isabella Arrieta| 1044610582| 09876"}};
 
             //Agregar datos de la matriz al registro
             for (String[] fila : usuariosADMIN) {
@@ -58,6 +56,7 @@ public class login extends javax.swing.JFrame {
             ex.printStackTrace();
         }
     }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -65,7 +64,7 @@ public class login extends javax.swing.JFrame {
         panelRound1 = new custom.PanelRound();
         panelRound2 = new custom.PanelRound();
         Login = new javax.swing.JButton();
-        fcontraseña = new javax.swing.JTextField();
+        fcedula = new javax.swing.JTextField();
         fnombre = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -74,6 +73,7 @@ public class login extends javax.swing.JFrame {
         valid = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -88,19 +88,19 @@ public class login extends javax.swing.JFrame {
             }
         });
 
-        fcontraseña.setBackground(new java.awt.Color(209, 163, 255));
-        fcontraseña.setFont(new java.awt.Font("Sylfaen", 0, 14)); // NOI18N
-        fcontraseña.setForeground(new java.awt.Color(0, 0, 0));
-        fcontraseña.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(38, 0, 75), 3, true));
-        fcontraseña.setOpaque(true);
-        fcontraseña.addActionListener(new java.awt.event.ActionListener() {
+        fcedula.setBackground(new java.awt.Color(209, 163, 255));
+        fcedula.setFont(new java.awt.Font("Sylfaen", 0, 14)); // NOI18N
+        fcedula.setForeground(new java.awt.Color(0, 0, 0));
+        fcedula.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(38, 0, 75), 3, true));
+        fcedula.setOpaque(true);
+        fcedula.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                fcontraseñaActionPerformed(evt);
+                fcedulaActionPerformed(evt);
             }
         });
-        fcontraseña.addKeyListener(new java.awt.event.KeyAdapter() {
+        fcedula.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                fcontraseñaKeyTyped(evt);
+                fcedulaKeyTyped(evt);
             }
         });
 
@@ -151,6 +151,13 @@ public class login extends javax.swing.JFrame {
         jLabel5.setForeground(new java.awt.Color(38, 0, 75));
         jLabel5.setText("LOGIN");
 
+        jButton1.setText("SKIP");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelRound2Layout = new javax.swing.GroupLayout(panelRound2);
         panelRound2.setLayout(panelRound2Layout);
         panelRound2Layout.setHorizontalGroup(
@@ -158,30 +165,38 @@ public class login extends javax.swing.JFrame {
             .addGroup(panelRound2Layout.createSequentialGroup()
                 .addContainerGap(18, Short.MAX_VALUE)
                 .addGroup(panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(valid, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(panelRound2Layout.createSequentialGroup()
-                        .addGap(157, 157, 157)
-                        .addComponent(jLabel5))
+                        .addComponent(valid, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRound2Layout.createSequentialGroup()
+                                .addComponent(BtnEXIT)
+                                .addGap(8, 8, 8)))
+                        .addContainerGap())
                     .addGroup(panelRound2Layout.createSequentialGroup()
-                        .addGroup(panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel3)
+                        .addGroup(panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jLabel3)
+                                .addGroup(panelRound2Layout.createSequentialGroup()
+                                    .addGroup(panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel1)
+                                        .addComponent(jLabel2))
+                                    .addGap(18, 18, 18)
+                                    .addGroup(panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(fnombre)
+                                        .addComponent(fcedula, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(panelRound2Layout.createSequentialGroup()
-                                .addGroup(panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel1)
-                                    .addComponent(jLabel2))
+                                .addGap(157, 157, 157)
+                                .addComponent(jLabel5)))
+                        .addGroup(panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelRound2Layout.createSequentialGroup()
                                 .addGap(18, 18, 18)
-                                .addGroup(panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(fnombre)
-                                    .addComponent(fcontraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(18, 18, 18)
-                        .addComponent(Login)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRound2Layout.createSequentialGroup()
-                        .addComponent(BtnEXIT)
-                        .addGap(8, 8, 8)))
-                .addContainerGap())
+                                .addComponent(Login))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRound2Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                                .addComponent(jButton1)
+                                .addGap(51, 51, 51))))))
         );
         panelRound2Layout.setVerticalGroup(
             panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -197,7 +212,7 @@ public class login extends javax.swing.JFrame {
                 .addGap(30, 30, 30)
                 .addGroup(panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(fcontraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(fcedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(valid, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 28, Short.MAX_VALUE))
@@ -205,6 +220,8 @@ public class login extends javax.swing.JFrame {
                 .addGap(14, 14, 14)
                 .addComponent(BtnEXIT)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(18, 18, 18)
                 .addComponent(Login, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4)
@@ -242,34 +259,32 @@ public class login extends javax.swing.JFrame {
 
     private void fnombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fnombreActionPerformed
         fnombre.setText(null);
-        
+
     }//GEN-LAST:event_fnombreActionPerformed
 
-    private void fcontraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fcontraseñaActionPerformed
-        fcontraseña.setText(null);
-    }//GEN-LAST:event_fcontraseñaActionPerformed
-
+    private void fcedulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fcedulaActionPerformed
+        fcedula.setText(null);
+    }//GEN-LAST:event_fcedulaActionPerformed
+String[] cUsuarios;
     private void LoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginActionPerformed
-        int queflojera = 0; // para no meter cedula a cada rato 
-        if (queflojera == 0) { // ESTO SE QUITA
-            existe = true;
-             user = fnombre.getText();
-        } else {
-            
-            user = fnombre.getText();
-            String cedula = fcontraseña.getText();
-
-            try {
+        user = fnombre.getText();
+        String cedula = fcedula.getText();
+        
+        try {
             BufferedReader br = new BufferedReader(new FileReader("CedulasAdmins.txt"));
             String linea;
-            
             while ((linea = br.readLine()) != null && !existe) {
+                cUsuarios = linea.split("\\| ");
+                System.out.println("cccc"+cUsuarios[1]);
+               
                 System.out.println(linea);
-                if (linea.equals(cedula)) {
+                    if (cUsuarios[1].equals(cedula)) {
                     existe = true;
+                
                 }
+                
             }
-            
+
             br.close();
         } catch (IOException ex) {
             System.out.println("Error al leer el archivo.");
@@ -283,7 +298,6 @@ public class login extends javax.swing.JFrame {
 //                    pos++;
 //                }
 //            }
-       } //----
         System.out.println(existe);
 
         if (existe == true) { // Admin
@@ -299,21 +313,27 @@ public class login extends javax.swing.JFrame {
 
     }//GEN-LAST:event_LoginActionPerformed
 
-    private void fcontraseñaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fcontraseñaKeyTyped
+    private void fcedulaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fcedulaKeyTyped
 
         char c = evt.getKeyChar();
         if (!Character.isDigit(c)) {
             evt.consume(); // Ignora el carácter si no es un dígito
         }
 
-    }//GEN-LAST:event_fcontraseñaKeyTyped
+    }//GEN-LAST:event_fcedulaKeyTyped
 
     private void fnombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fnombreKeyTyped
-      char ce = evt.getKeyChar();
+        char ce = evt.getKeyChar();
         if (Character.isDigit(ce)) {
             evt.consume(); // Ignora el carácter si no es un dígito
         }
     }//GEN-LAST:event_fnombreKeyTyped
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        perfilesFR p = new perfilesFR(user);
+        p.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -353,8 +373,9 @@ public class login extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnEXIT;
     private javax.swing.JButton Login;
-    private javax.swing.JTextField fcontraseña;
+    private javax.swing.JTextField fcedula;
     private javax.swing.JTextField fnombre;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
