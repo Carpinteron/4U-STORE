@@ -7,6 +7,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -35,7 +37,6 @@ public class PrincipalAD extends javax.swing.JFrame {
         Scanner sc = new Scanner(System.in);
         LeerNormal(sc, "Inventario", TablaINVENTARIO);
         sc.close();
-        CopiarArchivoAlISTA(sc,"Inventario");
         // userfield.setText(admi);
         userLABEL.setText(admi);
         //No visible
@@ -43,16 +44,8 @@ public class PrincipalAD extends javax.swing.JFrame {
         Pantalla.setVisible(false);
         exitBTN.setVisible(false);
         PanelAgregar.setVisible(false);
-        AgregarProductoExistente.setVisible(true);
-        labelD.setVisible(false);
-        error1.setVisible(false);
-        error2.setVisible(false);
-        error3.setVisible(false);
-        error4.setVisible(false);
-        error5.setVisible(false);
-        error6.setVisible(false);
-       // ListaEnlazada listInventarioTempCANT = new ListaEnlazada();
-       // ListaEnlazada listInventarioTempNAMES=new ListaEnlazada();
+        PanelAgregarPE.setVisible(false);
+        PanelEliminar.setVisible(false);
 
     }
 
@@ -107,11 +100,33 @@ public class PrincipalAD extends javax.swing.JFrame {
         botonPE = new javax.swing.JButton();
         botonEP = new javax.swing.JButton();
         btnactualizar = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        AgregarProductoExistente = new custom.PanelRound();
-        AvisoLabel1 = new javax.swing.JLabel();
+        PanelAgregarPE = new javax.swing.JPanel();
+        panelRound1 = new custom.PanelRound();
+        jLabel10 = new javax.swing.JLabel();
+        jcCategoriaPE = new javax.swing.JComboBox<>();
+        jcArtistaPE = new javax.swing.JComboBox<>();
+        jcSubcategoriaPE = new javax.swing.JComboBox<>();
         jLabel11 = new javax.swing.JLabel();
-        PanelGraficas = new javax.swing.JPanel();
+        labelDPE = new javax.swing.JLabel();
+        BTNcerrarAgregar1 = new javax.swing.JButton();
+        BTNAgregarPE = new javax.swing.JButton();
+        BTNLimpiar2 = new javax.swing.JButton();
+        error1PE = new javax.swing.JLabel();
+        error2PE = new javax.swing.JLabel();
+        error3PE = new javax.swing.JLabel();
+        labelCantidad1 = new javax.swing.JLabel();
+        fieldCantPE = new javax.swing.JTextField();
+        error4PE = new javax.swing.JLabel();
+        PanelEliminar = new javax.swing.JPanel();
+        panelRound3 = new custom.PanelRound();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jComboBox2 = new javax.swing.JComboBox<>();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jComboBox3 = new javax.swing.JComboBox<>();
+        jcCategoriaEL = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -204,12 +219,13 @@ public class PrincipalAD extends javax.swing.JFrame {
             panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelRound2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(BtnInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(BtnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(BtnGrafics, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addGroup(panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jButton3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addComponent(BtnGrafics, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel7))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelRound2Layout.setVerticalGroup(
@@ -219,9 +235,9 @@ public class PrincipalAD extends javax.swing.JFrame {
                 .addComponent(jLabel7)
                 .addGap(18, 18, 18)
                 .addComponent(BtnGrafics, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 365, Short.MAX_VALUE)
+                .addGap(175, 175, 175)
+                .addComponent(jButton3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 224, Short.MAX_VALUE)
                 .addComponent(BtnInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29)
                 .addComponent(BtnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -380,6 +396,11 @@ public class PrincipalAD extends javax.swing.JFrame {
         Pantalla.add(exitBTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(1160, 0, -1, 40));
 
         botonPE.setText("Agregar producto Existente");
+        botonPE.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonPEActionPerformed(evt);
+            }
+        });
         Pantalla.add(botonPE, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 70, -1, -1));
 
         botonEP.setText("Eliminar Producto");
@@ -388,28 +409,145 @@ public class PrincipalAD extends javax.swing.JFrame {
         btnactualizar.setText("Actualizar Inventario de acuerdo a ventas");
         Pantalla.add(btnactualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 90, -1, -1));
 
-        jButton1.setText("Ver grafica");
-        Pantalla.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 110, -1, -1));
+        PanelAgregarPE.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        AgregarProductoExistente.setBackground(new java.awt.Color(153, 153, 255));
-        AgregarProductoExistente.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        AgregarProductoExistente.add(AvisoLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 250, 290, 25));
-        AgregarProductoExistente.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 150, 120, 20));
+        panelRound1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Pantalla.add(AgregarProductoExistente, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 160, 560, 370));
+        jLabel10.setText("Categoría");
+        panelRound1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(205, 86, -1, -1));
 
-        javax.swing.GroupLayout PanelGraficasLayout = new javax.swing.GroupLayout(PanelGraficas);
-        PanelGraficas.setLayout(PanelGraficasLayout);
-        PanelGraficasLayout.setHorizontalGroup(
-            PanelGraficasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1060, Short.MAX_VALUE)
+        jcCategoriaPE.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar categoria", "Camiseta", "Gorra", "CD", "Vinilo", "Llavero" }));
+        jcCategoriaPE.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcCategoriaPEActionPerformed(evt);
+            }
+        });
+        panelRound1.add(jcCategoriaPE, new org.netbeans.lib.awtextra.AbsoluteConstraints(427, 83, 275, -1));
+
+        jcArtistaPE.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar artista", "Conan Gray", "Harry Styles", "Sabrina Carpenter", "Taylor Swift", "Billie Eilish", "Louis Tomlinson", "5SOS", "Stray Kids", "Big Time Rush", "TXT", "Imagine Dragons" }));
+        jcArtistaPE.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcArtistaPEActionPerformed(evt);
+            }
+        });
+        panelRound1.add(jcArtistaPE, new org.netbeans.lib.awtextra.AbsoluteConstraints(427, 133, 275, -1));
+
+        jcSubcategoriaPE.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcSubcategoriaPEActionPerformed(evt);
+            }
+        });
+        panelRound1.add(jcSubcategoriaPE, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 190, 275, -1));
+
+        jLabel11.setText("Artista");
+        panelRound1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(205, 136, 51, -1));
+
+        labelDPE.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        labelDPE.setText("Seleccione el producto ");
+        panelRound1.add(labelDPE, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 190, 204, -1));
+
+        BTNcerrarAgregar1.setText("Cerrar");
+        BTNcerrarAgregar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BTNcerrarAgregar1ActionPerformed(evt);
+            }
+        });
+        panelRound1.add(BTNcerrarAgregar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(799, 32, -1, -1));
+
+        BTNAgregarPE.setText("Agregar");
+        BTNAgregarPE.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BTNAgregarPEActionPerformed(evt);
+            }
+        });
+        panelRound1.add(BTNAgregarPE, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 350, -1, -1));
+
+        BTNLimpiar2.setText("Limpiar");
+        BTNLimpiar2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BTNLimpiar2ActionPerformed(evt);
+            }
+        });
+        panelRound1.add(BTNLimpiar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 350, -1, -1));
+
+        error1PE.setFont(new java.awt.Font("Perpetua", 0, 12)); // NOI18N
+        error1PE.setForeground(new java.awt.Color(255, 0, 0));
+        error1PE.setText("(!) Debe seleccionar una categoría");
+        panelRound1.add(error1PE, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 100, 290, 22));
+
+        error2PE.setFont(new java.awt.Font("Perpetua", 0, 12)); // NOI18N
+        error2PE.setForeground(new java.awt.Color(255, 0, 0));
+        error2PE.setText("(!) Debe seleccionar un artista");
+        panelRound1.add(error2PE, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 150, 290, 22));
+
+        error3PE.setFont(new java.awt.Font("Perpetua", 0, 12)); // NOI18N
+        error3PE.setForeground(new java.awt.Color(255, 0, 0));
+        error3PE.setText("(!) Debe seleccionar un producto");
+        panelRound1.add(error3PE, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 200, 290, 40));
+
+        labelCantidad1.setText("Cantidad");
+        panelRound1.add(labelCantidad1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 250, -1, -1));
+
+        fieldCantPE.setText("1");
+        fieldCantPE.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fieldCantPEActionPerformed(evt);
+            }
+        });
+        panelRound1.add(fieldCantPE, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 250, 270, -1));
+
+        error4PE.setFont(new java.awt.Font("Perpetua", 0, 12)); // NOI18N
+        error4PE.setForeground(new java.awt.Color(255, 0, 0));
+        error4PE.setText("(!) Debe ser mayor a cero");
+        panelRound1.add(error4PE, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 270, -1, -1));
+
+        PanelAgregarPE.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 950, 440));
+
+        Pantalla.add(PanelAgregarPE, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, 950, 430));
+
+        panelRound3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel9.setText("Categoria");
+        panelRound3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 84, -1, -1));
+
+        jLabel13.setText("jLabel13");
+        panelRound3.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 110, -1, -1));
+
+        jLabel14.setText("Artista");
+        panelRound3.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 164, -1, -1));
+
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        panelRound3.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(291, 161, -1, -1));
+
+        jLabel15.setText("jLabel15");
+        panelRound3.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 180, -1, -1));
+
+        jLabel16.setText("Nombre Producto");
+        panelRound3.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 230, -1, -1));
+
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        panelRound3.add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 230, -1, -1));
+
+        jcCategoriaEL.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar categoria", "Camiseta", "Gorra", "CD", "Vinilo", "Llavero" }));
+        jcCategoriaEL.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcCategoriaELActionPerformed(evt);
+            }
+        });
+        panelRound3.add(jcCategoriaEL, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 80, 275, -1));
+
+        javax.swing.GroupLayout PanelEliminarLayout = new javax.swing.GroupLayout(PanelEliminar);
+        PanelEliminar.setLayout(PanelEliminarLayout);
+        PanelEliminarLayout.setHorizontalGroup(
+            PanelEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(panelRound3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-        PanelGraficasLayout.setVerticalGroup(
-            PanelGraficasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 610, Short.MAX_VALUE)
+        PanelEliminarLayout.setVerticalGroup(
+            PanelEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(panelRound3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        Pantalla.add(PanelGraficas, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 50, 1060, 610));
+        Pantalla.add(PanelEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 140, 680, 400));
 
         getContentPane().add(Pantalla, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1200, 700));
 
@@ -673,30 +811,44 @@ public class PrincipalAD extends javax.swing.JFrame {
             ex.printStackTrace();
         }
     }
-
-    //02 Subrutina para mostrar datos en la tabla
+    //Leer datos de forma ordenada (Segun Artista)
     public static void LeerNormal(Scanner sc, String file_name, JTable tabla) {
-        boolean hay = false;
-        while (hay == false) {
-            try {
-                BufferedReader br = new BufferedReader(new FileReader(file_name + ".txt"));
-                String line = null;
-                DefaultTableModel model = (DefaultTableModel) tabla.getModel();
-                model.setRowCount(0);
+         try {
+        BufferedReader br = new BufferedReader(new FileReader(file_name + ".txt"));
+        String line;
+        List<String[]> Datos = new ArrayList<>(); //Implemento una lista 
 
-                while ((line = br.readLine()) != null) {
-                    String temp[] = line.split(";");
-                    model.addRow(temp); //Agregar datos del archivo a la tabla
-                }
-                br.close();
-                hay = true;
-
-            } catch (IOException ex) {
-                System.out.println("No se encontro archivo");
-                hay = false;
-                file_name = sc.nextLine(); // Archivo
-            }
+        while ((line = br.readLine()) != null) {
+            String[] temp = line.split(";");
+            Datos.add(temp);//Agrego los registros a la lista
         }
+        
+        br.close();
+
+        // Ordena los datos solo por artista
+        /** METODO A IMPLEMENTAR
+        Collections.sort es un método en Java que se utiliza para ordenar colecciones,como listas, conjuntos, colas, etc. 
+        Permite ordenar los elementos de una colección en un orden específico según un criterio de comparación.
+        * **/
+        Collections.sort(Datos, new Comparator<String[]>() {
+            @Override
+            public int compare(String[] o1, String[] o2) {
+                return o1[3].compareTo(o2[3]); // Compara por artista
+            }
+        });
+
+        // Limpia la tabla
+        DefaultTableModel model = (DefaultTableModel) tabla.getModel();
+        model.setRowCount(0);
+
+        // Agrega los datos ordenados a la tabla
+        for (String[] rowData : Datos) {
+            model.addRow(rowData);
+        }
+    } catch (IOException ex) {
+        System.out.println("Error al leer el archivo: " + ex.getMessage());
+    }
+
     }
 
     //Subrutina para los usuarios administradores
@@ -753,7 +905,6 @@ public class PrincipalAD extends javax.swing.JFrame {
                 System.out.println("YA SE AGREGO (ESTO DESPUES SE BORRA)");
                 seagrego = true;
             }
-
             registrar_producto.close();
         } catch (IOException ex) {
             JOptionPane.showMessageDialog(null, "Ha ocurrido un error al agregar los datos.", "Error", JOptionPane.ERROR_MESSAGE);
@@ -764,6 +915,63 @@ public class PrincipalAD extends javax.swing.JFrame {
 
     }
 
+    // Subrutina para actualizar cantidad en el inventario
+    public static void ActualizarInventario(Scanner sc, String file_name, JTable tabla, String ProductoAct, String ArtistaAct, String cantidadAct) {
+        boolean hay = false;
+        while (!hay) {
+            try {
+                File archivoOriginal = new File(file_name + ".txt");
+                File archivoTemporal = new File(file_name + "_temp.txt");
+
+                BufferedReader br = new BufferedReader(new FileReader(archivoOriginal));
+                PrintWriter pw = new PrintWriter(new FileWriter(archivoTemporal));
+
+                String line;
+
+                while ((line = br.readLine()) != null) {
+                    String[] campos = line.split(";");
+                    String nombreProducto = campos[0]; // Nombre del producto
+                    int cantidadActual = Integer.parseInt(campos[1]); // Cantidad actual
+                    String Categoria = campos[2]; // Nombre de la categoria
+                    String nombreArtista = campos[3]; // Nombre del artista
+                    String Precio = campos[4]; // Precio Producto
+                    
+                        // Si el nombre ingresado y artista ingresado coincide con el archivo agregar la cantidad ingresada
+                        if (nombreProducto.equals(ProductoAct) && nombreArtista.equals(ArtistaAct)) {
+                            System.out.println("si soy iguaaal");
+                            int cantidadNueva = Integer.parseInt(cantidadAct); // Cantidad actual
+                            cantidadActual += cantidadNueva; // Aumentar la cantidad en 10
+                        }
+
+                        // Construir la nueva línea con los campos actualizados
+                        String nuevaLinea = nombreProducto + ";" + cantidadActual + ";" + Categoria + ";" + nombreArtista + ";" + Precio;
+                        // Escribir la nueva línea en el archivo temporal
+                        pw.println(nuevaLinea);
+                     
+                }
+                br.close();
+                pw.close();
+
+                // Reemplazar el archivo original con el archivo temporal
+                if (archivoOriginal.delete() && archivoTemporal.renameTo(archivoOriginal)) {
+                    System.out.println("Inventario actualizado con éxito.");
+                    hay = true;
+                    LeerNormal(sc, file_name, tabla);
+                } else {
+                    JOptionPane.showMessageDialog(null, "No se pudo actualizar el inventario.", "Error", JOptionPane.ERROR_MESSAGE);
+                    hay = false;
+                }
+
+            } catch (IOException ex) {
+                JOptionPane.showMessageDialog(null, "No se encontró el archivo " + file_name + ".txt", "Error", JOptionPane.ERROR_MESSAGE);
+                hay = false;
+                System.out.println("Introduce el nombre del archivo: ");
+                file_name = sc.nextLine(); // Archivo
+            }
+        }
+    }
+
+    //FUNCIONES
     //Funcion para validar los campos de agregar producto
     public boolean Validaciones(String c1, String c2, String c3, String c4, String c5, String c6) {
 
@@ -810,37 +1018,25 @@ public class PrincipalAD extends javax.swing.JFrame {
                 error4.setVisible(false);
             }
         }
-        //Validacion cantidad
-        if (c5.isEmpty()) {//que no este vacio
+        //Validacion cantidad 
+        if (c5.isEmpty()) {
             error5.setText("(!) Campo vacío");
             error5.setVisible(true);
             return false;
-        } else {// Validación que sea numerico y mayor a cero
-            boolean validocant = true;
-            for (char c : c5.toCharArray()) {
-                if (!Character.isDigit(c)) {
-                    validocant = false;
-                    break;
-                }
-            }
+        } else {
             try {
-                double cant = Double.parseDouble(c5);
-                if (cant < 0) {
+                int cantidad = Integer.parseInt(c5);
+                if (cantidad <= 0) {
+                    error5.setText("(!) La cantidad debe ser mayor a 0");
+                    error5.setVisible(true);
+                    return false;
+                } else {
                     error5.setVisible(false);
                 }
             } catch (NumberFormatException e) {
-                error5.setText("(!) La cantidad debe ser mayor a 0");
-                error5.setVisible(true); // Mostrar mensaje de error
+                error5.setText("(!) El valor debe ser un número entero");
+                error5.setVisible(true);
                 return false;
-            }
-
-            if (!validocant) {
-                error5.setText("(!) El valor debe ser numerico");
-                error5.setVisible(true); // Mostrar mensaje de error
-                return false;
-            } else {
-                error5.setVisible(false); // Ocultar mensaje de error  
-
             }
         }
         //Validacion precio
@@ -878,6 +1074,57 @@ public class PrincipalAD extends javax.swing.JFrame {
         }
         return true;// se devuelve true si cumple con todas las validaciones correspondientes
     }
+
+    //Funcion para validar los campos de agregar producto Existente
+    public boolean Validaciones2(String c1, String c2, String c3, String c4) {
+
+        //Validacion seleccion de categoria
+        if (c1.equalsIgnoreCase("Seleccionar categoria") || c1 == null) {
+            error1PE.setVisible(true);
+            return false;
+        } else {
+            error1PE.setVisible(false);
+        }
+        //Validacion seleccion de artista
+        if (c2.equalsIgnoreCase("Seleccionar artista") || c2 == null) {
+            error2PE.setVisible(true); //Si no selecciono artista 
+            return false;
+        } else {
+            error2PE.setVisible(false);
+        }
+        //Validacion seleccion de subcategoria
+        if (c3.equalsIgnoreCase("Seleccionar talla") || c3.equalsIgnoreCase("Seleccionar tipo de gorra") || c3.equalsIgnoreCase("Seleccionar álbum") || c3 == null) {
+            error3PE.setText("(!) Realice una seleccion");
+            error3PE.setVisible(true); //Si no selecciono descripcion
+            return false;
+        } else {
+            error3PE.setVisible(false);
+        }
+        //Validacion Campos
+        if (c4.isEmpty()) {
+            error4PE.setText("(!) Campo vacío");
+            error4PE.setVisible(true);
+            return false;
+        } else {
+            try {
+                int cantidad = Integer.parseInt(c4);
+                if (cantidad <= 0) {
+                    error4PE.setText("(!) La cantidad debe ser mayor a 0");
+                    error4PE.setVisible(true);
+                    return false;
+                } else {
+                    error4PE.setVisible(false);
+                }
+            } catch (NumberFormatException e) {
+                error4PE.setText("(!) El valor debe ser un número entero");
+                error4PE.setVisible(true);
+                return false;
+            }
+        }
+        return true;// se devuelve true si cumple con todas las validaciones correspondientes
+    }
+    
+    
     public static final Map<String, List<String>> ALBUMES_ARTISTAS = new HashMap<>();
 
     static {
@@ -937,6 +1184,7 @@ public class PrincipalAD extends javax.swing.JFrame {
                     comboBoxModel.addElement("L");
                     comboBoxModel.addElement("XL");
                     jcSubcategoria.setModel(comboBoxModel);
+
                     break;
                 case "CD":
                     labelD.setText("Álbum");
@@ -944,6 +1192,7 @@ public class PrincipalAD extends javax.swing.JFrame {
                     comboBoxModel2.addElement("Seleccionar álbum");
                     ALBUMES_ARTISTAS.get(artista).forEach(comboBoxModel2::addElement);
                     jcSubcategoria.setModel(comboBoxModel2);
+
                     break;
                 case "Vinilo":
                     labelD.setText("Álbum");
@@ -951,6 +1200,7 @@ public class PrincipalAD extends javax.swing.JFrame {
                     comboBoxModel3.addElement("Seleccionar álbum");
                     ALBUMES_ARTISTAS.get(artista).forEach(comboBoxModel3::addElement);
                     jcSubcategoria.setModel(comboBoxModel3);
+
                     break;
                 case "Gorra":
                     labelD.setText("Tipo");
@@ -960,6 +1210,7 @@ public class PrincipalAD extends javax.swing.JFrame {
                     comboBoxModel4.addElement("Plana/Snapback");
                     comboBoxModel4.addElement("Trucker");
                     jcSubcategoria.setModel(comboBoxModel4);
+
                     break;
 
                 case "Llavero":
@@ -970,90 +1221,90 @@ public class PrincipalAD extends javax.swing.JFrame {
                     comboBoxModel5.addElement("2");
                     comboBoxModel5.addElement("3");
                     jcSubcategoria.setModel(comboBoxModel5);
+
                     break;
 
             }
         }
 
     }
+    
 
-    //CLASES PARA LA LISTAS ENLAZADAS
-    class Nodo {
+    DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();
+    // Método para cargar elementos iniciales desde el archivo
+    public void CargarDatosJcombo2() {
+        String categoria = jcCategoriaPE.getSelectedItem().toString();
+        String artista = jcArtistaPE.getSelectedItem().toString();
+        List<String> albumesPE = ALBUMES_ARTISTAS.get(artista);
 
-        String dato;
-        Nodo siguiente;
+        if (categoria.equalsIgnoreCase("Seleccionar categoria")) {
+            jcSubcategoriaPE.setEnabled(false);
+           
+            fieldCantPE.setEnabled(false);
+            labelDPE.setVisible(false);
+            System.out.println("Entre aqui en false");
 
-        public Nodo(String dato) {
-            this.dato = dato;
-            this.siguiente = null;
+        } else if ((artista.equalsIgnoreCase("Seleccionar artista"))) {
+            jcSubcategoriaPE.setEnabled(false);
+           
+            fieldCantPE.setEnabled(false);
+            labelDPE.setVisible(false);
+            System.out.println("Entre aqui en false");
+
         }
-    }
-
-    class ListaEnlazada {
-
-        Nodo head; // El primer nodo de la lista
-
-        public ListaEnlazada() {
-            head = null;
-        }
-
-        public void agregarAlInicio( String dato) {
-            Nodo nuevoNodo = new Nodo(dato);
-            nuevoNodo.siguiente = head;
-            head= nuevoNodo;
-        }
-        public void agregarAlFinal(String dato) {
-        Nodo nuevoNodo = new Nodo(dato);
-
-        // Si la lista está vacía, el nuevo nodo será la cabeza
-        if (head == null) {
-            head = nuevoNodo;
+        if (albumesPE == null || artista.equalsIgnoreCase("Seleccionar artista")) {
+            // El artista no existe en el mapa.
+            // Maneja este caso aquí.
+            return;
         } else {
-            Nodo nodoActual = head;
-            while (nodoActual.siguiente != null) {
-                nodoActual = nodoActual.siguiente;
-            }
-            nodoActual.siguiente = nuevoNodo;
-        }
-        }
-
-        public void mostrarLista() {
-            Nodo nodoActual = head;
-            while (nodoActual != null) {
-                System.out.print(nodoActual.dato + " -> ");
-                nodoActual = nodoActual.siguiente;
-            }
-            System.out.println("null");
-        }
-    }
-
-    public void CopiarArchivoAlISTA(Scanner sc, String file_name) {
-        ListaEnlazada listInventarioTempCANT = new ListaEnlazada();
-        ListaEnlazada listInventarioTempNAMES=new ListaEnlazada();
-        boolean hay = false;
-        while (hay == false) {
-            try {
-                BufferedReader br = new BufferedReader(new FileReader(file_name + ".txt"));
-                String line = null;
-                
-                while ((line = br.readLine()) != null) {
-                    String temp[] = line.split(";");
-                   listInventarioTempCANT.agregarAlFinal(temp[1]); //Cantidad en el inventario pero esta en String
-                   listInventarioTempNAMES.agregarAlFinal(temp[0]+";"+temp[3]);
+            jcSubcategoriaPE.setEnabled(true);
+            labelDPE.setVisible(true);
+            
+            model.removeAllElements(); // Limpia el modelo antes de cargar los elementos desde el archivo
+            boolean hayElementos = false; // Bandera para verificar si se encontraron elementos
+            try (BufferedReader BR = new BufferedReader(new FileReader("inventario.txt"))) {
+            String line;
+            while ((line = BR.readLine()) != null) {
+                String[] campos = line.split(";");
+                if (campos.length > 3) { // Asegúrate de que haya suficientes campos
+                    String nombreProducto = campos[0];
+                    String CategoriaArch = campos[2];
+                    String ArtistaArch = campos[3];
+                    if (CategoriaArch.equalsIgnoreCase(categoria) && ArtistaArch.equalsIgnoreCase(artista)){
+                      if (!existeEnComboBox(nombreProducto)) {
+                        model.addElement(nombreProducto);
+                        hayElementos = true; // Se encontraron elementos
+                    }  
+                    }
+                    
                 }
-                listInventarioTempCANT.mostrarLista();
-                listInventarioTempNAMES.mostrarLista();
-                br.close();
-                hay = true;
-
-            } catch (IOException ex) {
-                System.out.println("No se encontro archivo");
-                hay = false;
-                file_name = sc.nextLine(); // Archivo
             }
+            if (!hayElementos) {
+                jcSubcategoriaPE.setEnabled(false); // Deshabilita el JComboBox
+                BTNAgregarPE.setEnabled(false);
+            } else {
+                jcSubcategoriaPE.setEnabled(true); // Habilita el JComboBox si hay elementos
+                BTNAgregarPE.setEnabled(true);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        jcSubcategoriaPE.setModel(model); // Asigna el modelo al JComboBox
+            
         }
 
     }
+    // Método para verificar si un elemento ya existe en el JComboBox
+    private boolean existeEnComboBox(String codigo) {
+        for (int i = 0; i < model.getSize(); i++) {
+            if (codigo.equalsIgnoreCase(model.getElementAt(i))) {
+                return true;
+            }
+        }
+        return false;
+    }
+
 
     private void exitBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitBTNActionPerformed
         System.exit(0);
@@ -1061,9 +1312,17 @@ public class PrincipalAD extends javax.swing.JFrame {
 
     private void BTNAgregar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNAgregar1ActionPerformed
         PanelAgregar.setVisible(true);
+        labelD.setVisible(false);
+        error1.setVisible(false);
+        error2.setVisible(false);
+        error3.setVisible(false);
+        error4.setVisible(false);
+        error5.setVisible(false);
+        error6.setVisible(false);
         jScrollPane1.setVisible(false);
         TablaINVENTARIO.setVisible(false);
         BTNAgregar1.setVisible(false);
+        btnactualizar.setVisible(false);
         botonPE.setVisible(false);
         botonEP.setVisible(false);
         CargarDatosJcombo();
@@ -1076,11 +1335,15 @@ public class PrincipalAD extends javax.swing.JFrame {
         BTNAgregar1.setVisible(true);
         botonPE.setVisible(true);
         botonEP.setVisible(true);
+        btnactualizar.setVisible(true);
     }//GEN-LAST:event_BTNcerrarAgregarActionPerformed
 
     private void BTNAgregar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNAgregar2ActionPerformed
         AgregarProducto("Inventario");
         if (seagrego) {
+            Scanner sc = new Scanner(System.in);
+            LeerNormal(sc, "Inventario", TablaINVENTARIO);
+            sc.close();
             String seleccionarc = "Seleccionar Categoria";
             String seleccionara = "Seleccionar Artista";
             jcCategoria.setSelectedItem(seleccionarc);
@@ -1101,18 +1364,18 @@ public class PrincipalAD extends javax.swing.JFrame {
 
     private void BTNLimpiar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNLimpiar1ActionPerformed
         String seleccionarc = "Seleccionar Categoria";
-            String seleccionara = "Seleccionar Artista";
-            jcCategoria.setSelectedItem(seleccionarc);
-            jcArtista.setSelectedItem(seleccionara);
-            jcCategoria.setSelectedIndex(0);//Doble verificacion
-            jcArtista.setSelectedIndex(0);
-            jcSubcategoria.setSelectedItem(null);
-            fieldDescripcion.setText("");
-            fieldDescripcion.setEnabled(false);
-            fieldCant.setText("");
-            fieldCant.setEnabled(false);
-            fieldPrecio.setText("");
-            fieldPrecio.setEnabled(false);
+        String seleccionara = "Seleccionar Artista";
+        jcCategoria.setSelectedItem(seleccionarc);
+        jcArtista.setSelectedItem(seleccionara);
+        jcCategoria.setSelectedIndex(0);//Doble verificacion
+        jcArtista.setSelectedIndex(0);
+        jcSubcategoria.setSelectedItem(null);
+        fieldDescripcion.setText("");
+        fieldDescripcion.setEnabled(false);
+        fieldCant.setText("");
+        fieldCant.setEnabled(false);
+        fieldPrecio.setText("");
+        fieldPrecio.setEnabled(false);
     }//GEN-LAST:event_BTNLimpiar1ActionPerformed
 
     private void jcSubcategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcSubcategoriaActionPerformed
@@ -1191,6 +1454,94 @@ public class PrincipalAD extends javax.swing.JFrame {
         menu.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_BtnSalir2ActionPerformed
+
+    private void botonPEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonPEActionPerformed
+        labelDPE.setVisible(false);
+        error1PE.setVisible(false);
+        error2PE.setVisible(false);
+        error3PE.setVisible(false);
+        error4PE.setVisible(false);
+        PanelAgregarPE.setVisible(true);
+        jScrollPane1.setVisible(false);
+        TablaINVENTARIO.setVisible(false);
+        BTNAgregar1.setVisible(false);
+        btnactualizar.setVisible(false);
+        botonPE.setVisible(false);
+        botonEP.setVisible(false);
+        CargarDatosJcombo2();
+    }//GEN-LAST:event_botonPEActionPerformed
+
+    private void jcCategoriaPEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcCategoriaPEActionPerformed
+        CargarDatosJcombo2();
+
+    }//GEN-LAST:event_jcCategoriaPEActionPerformed
+
+    private void jcArtistaPEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcArtistaPEActionPerformed
+        CargarDatosJcombo2();
+    }//GEN-LAST:event_jcArtistaPEActionPerformed
+
+    private void jcSubcategoriaPEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcSubcategoriaPEActionPerformed
+        if (jcSubcategoriaPE.getSelectedItem() != null) {
+            System.out.println("Deberia entrar aqui");
+            fieldCantPE.setEnabled(true);
+        }
+    }//GEN-LAST:event_jcSubcategoriaPEActionPerformed
+
+    private void BTNcerrarAgregar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNcerrarAgregar1ActionPerformed
+        PanelAgregarPE.setVisible(false);
+        jScrollPane1.setVisible(true);
+        TablaINVENTARIO.setVisible(true);
+        BTNAgregar1.setVisible(true);
+        botonPE.setVisible(true);
+        botonEP.setVisible(true);
+        btnactualizar.setVisible(true);
+    }//GEN-LAST:event_BTNcerrarAgregar1ActionPerformed
+
+    private void BTNAgregarPEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNAgregarPEActionPerformed
+        String Categoria = (jcCategoriaPE.getSelectedItem() != null) ? jcCategoriaPE.getSelectedItem().toString() : "";
+        String Artista = (jcArtistaPE.getSelectedItem() != null) ? jcArtistaPE.getSelectedItem().toString() : "";
+        String Sub = (jcSubcategoriaPE.getSelectedItem() != null) ? jcSubcategoriaPE.getSelectedItem().toString() : "";
+        
+        String Cantidad = fieldCantPE.getText();
+        if (Validaciones2(Categoria, Artista, Sub, Cantidad)) {
+            System.out.println("Se cumplieron las validaciones");
+            Scanner sc = new Scanner(System.in);
+            System.out.println("Este es el nombre producto que estoy enviando: "+ Sub);
+             System.out.println("Este es el nombre artista que estoy enviando: "+ Artista);
+             System.out.println("Esta es la cantidad que estoy enviando: "+ Cantidad);
+            ActualizarInventario(sc, "Inventario", TablaINVENTARIO, Sub, Artista, Cantidad);
+            sc.close();
+            String seleccionarc = "Seleccionar Categoria";
+            String seleccionara = "Seleccionar Artista";
+            jcCategoriaPE.setSelectedItem(seleccionarc);
+            jcArtistaPE.setSelectedItem(seleccionara);
+            jcCategoriaPE.setSelectedIndex(0);//Doble verificacion
+            jcArtistaPE.setSelectedIndex(0);
+            jcSubcategoriaPE.setSelectedItem(null);
+            fieldCantPE.setText("");
+            fieldCantPE.setEnabled(false);
+        }
+    }//GEN-LAST:event_BTNAgregarPEActionPerformed
+
+    private void BTNLimpiar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNLimpiar2ActionPerformed
+        String seleccionarc = "Seleccionar Categoria";
+        String seleccionara = "Seleccionar Artista";
+        jcCategoriaPE.setSelectedItem(seleccionarc);
+        jcArtistaPE.setSelectedItem(seleccionara);
+        jcCategoriaPE.setSelectedIndex(0);//Doble verificacion
+        jcArtistaPE.setSelectedIndex(0);
+        jcSubcategoriaPE.setSelectedItem(null);
+        fieldCantPE.setText("");
+        fieldCantPE.setEnabled(false);
+    }//GEN-LAST:event_BTNLimpiar2ActionPerformed
+
+    private void fieldCantPEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldCantPEActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fieldCantPEActionPerformed
+
+    private void jcCategoriaELActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcCategoriaELActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jcCategoriaELActionPerformed
 //VERIFICACION DE USUARIOSSSS
 
     public static boolean Verify(Scanner sc, String file_name, String U, String P) {
@@ -1272,13 +1623,14 @@ public class PrincipalAD extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private custom.PanelRound AgregarProductoExistente;
     private javax.swing.JLabel AvisoLabel;
-    private javax.swing.JLabel AvisoLabel1;
     private javax.swing.JButton BTNAgregar1;
     private javax.swing.JButton BTNAgregar2;
+    private javax.swing.JButton BTNAgregarPE;
     private javax.swing.JButton BTNLimpiar1;
+    private javax.swing.JButton BTNLimpiar2;
     private javax.swing.JButton BTNcerrarAgregar;
+    private javax.swing.JButton BTNcerrarAgregar1;
     private javax.swing.JButton BtnGrafics;
     private javax.swing.JButton BtnInfo;
     private javax.swing.JButton BtnSalir;
@@ -1287,7 +1639,8 @@ public class PrincipalAD extends javax.swing.JFrame {
     private javax.swing.JButton BtnVerifyUser;
     private custom.PanelRound Constraseña;
     private javax.swing.JPanel PanelAgregar;
-    private javax.swing.JPanel PanelGraficas;
+    private javax.swing.JPanel PanelAgregarPE;
+    private javax.swing.JPanel PanelEliminar;
     private custom.PanelRound Pantalla;
     private javax.swing.JPasswordField PassField;
     private javax.swing.JTable TablaINVENTARIO;
@@ -1295,20 +1648,31 @@ public class PrincipalAD extends javax.swing.JFrame {
     private javax.swing.JButton botonPE;
     private javax.swing.JButton btnactualizar;
     private javax.swing.JLabel error1;
+    private javax.swing.JLabel error1PE;
     private javax.swing.JLabel error2;
+    private javax.swing.JLabel error2PE;
     private javax.swing.JLabel error3;
+    private javax.swing.JLabel error3PE;
     private javax.swing.JLabel error4;
+    private javax.swing.JLabel error4PE;
     private javax.swing.JLabel error5;
     private javax.swing.JLabel error6;
     private javax.swing.JButton exitBTN;
     private javax.swing.JTextField fieldCant;
+    private javax.swing.JTextField fieldCantPE;
     private javax.swing.JTextField fieldDescripcion;
     private javax.swing.JTextField fieldPrecio;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -1316,13 +1680,22 @@ public class PrincipalAD extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JComboBox<String> jcArtista;
+    private javax.swing.JComboBox<String> jcArtistaPE;
     private javax.swing.JComboBox<String> jcCategoria;
+    private javax.swing.JComboBox<String> jcCategoriaEL;
+    private javax.swing.JComboBox<String> jcCategoriaPE;
     private javax.swing.JComboBox<String> jcSubcategoria;
+    private javax.swing.JComboBox<String> jcSubcategoriaPE;
     private javax.swing.JLabel labelCantidad;
+    private javax.swing.JLabel labelCantidad1;
     private javax.swing.JLabel labelD;
+    private javax.swing.JLabel labelDPE;
+    private custom.PanelRound panelRound1;
     private custom.PanelRound panelRound2;
+    private custom.PanelRound panelRound3;
     private javax.swing.JLabel userLABEL;
     // End of variables declaration//GEN-END:variables
 }
