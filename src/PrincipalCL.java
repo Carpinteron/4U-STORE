@@ -49,6 +49,8 @@ public class PrincipalCL extends javax.swing.JFrame {
         btnCDS = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
+        jRadioButton1 = new javax.swing.JRadioButton();
+        jRadioButton2 = new javax.swing.JRadioButton();
         panelDELproducto = new javax.swing.JPanel();
         labelArtist = new javax.swing.JLabel();
         labelTipoProduct = new javax.swing.JLabel();
@@ -70,7 +72,6 @@ public class PrincipalCL extends javax.swing.JFrame {
         BTNartistas = new javax.swing.JButton();
         BTNproductos = new javax.swing.JButton();
         BTNelproducto = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -173,12 +174,26 @@ public class PrincipalCL extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Producto", "Precio", "Disponibilidad", "Tipo"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane3.setViewportView(jTable2);
 
-        panelproductoss.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 157, 750, 420));
+        panelproductoss.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 127, 810, 450));
+
+        jRadioButton1.setText("Precio");
+        panelproductoss.add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, -1, -1));
+
+        jRadioButton2.setText("Tipo de Producto");
+        panelproductoss.add(jRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 90, -1, -1));
 
         panelRound1.add(panelproductoss, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 40, 1070, 590));
 
@@ -316,9 +331,6 @@ public class PrincipalCL extends javax.swing.JFrame {
 
         BTNelproducto.setText("VISTAZO DEL PRODUCTO");
         panelRound1.add(BTNelproducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(331, 6, -1, -1));
-
-        jButton4.setText("TODOS LOS PRODUCTOS");
-        panelRound1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 10, 180, -1));
 
         getContentPane().add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -544,12 +556,13 @@ public class PrincipalCL extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JRadioButton jRadioButton1;
+    private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable jTable2;
