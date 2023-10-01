@@ -51,7 +51,8 @@ public class PrincipalAD extends javax.swing.JFrame {
         error4.setVisible(false);
         error5.setVisible(false);
         error6.setVisible(false);
-        ListaEnlazada listInventarioTempCANT = new ListaEnlazada();
+       // ListaEnlazada listInventarioTempCANT = new ListaEnlazada();
+       // ListaEnlazada listInventarioTempNAMES=new ListaEnlazada();
 
     }
 
@@ -110,6 +111,7 @@ public class PrincipalAD extends javax.swing.JFrame {
         AgregarProductoExistente = new custom.PanelRound();
         AvisoLabel1 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
+        PanelGraficas = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -202,13 +204,12 @@ public class PrincipalAD extends javax.swing.JFrame {
             panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelRound2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(BtnInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(BtnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jButton3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                        .addComponent(BtnGrafics, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel7))
+                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(BtnGrafics, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelRound2Layout.setVerticalGroup(
@@ -218,9 +219,9 @@ public class PrincipalAD extends javax.swing.JFrame {
                 .addComponent(jLabel7)
                 .addGap(18, 18, 18)
                 .addComponent(BtnGrafics, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(175, 175, 175)
-                .addComponent(jButton3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 224, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 365, Short.MAX_VALUE)
                 .addComponent(BtnInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29)
                 .addComponent(BtnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -396,6 +397,19 @@ public class PrincipalAD extends javax.swing.JFrame {
         AgregarProductoExistente.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 150, 120, 20));
 
         Pantalla.add(AgregarProductoExistente, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 160, 560, 370));
+
+        javax.swing.GroupLayout PanelGraficasLayout = new javax.swing.GroupLayout(PanelGraficas);
+        PanelGraficas.setLayout(PanelGraficasLayout);
+        PanelGraficasLayout.setHorizontalGroup(
+            PanelGraficasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1060, Short.MAX_VALUE)
+        );
+        PanelGraficasLayout.setVerticalGroup(
+            PanelGraficasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 610, Short.MAX_VALUE)
+        );
+
+        Pantalla.add(PanelGraficas, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 50, 1060, 610));
 
         getContentPane().add(Pantalla, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1200, 700));
 
@@ -966,10 +980,10 @@ public class PrincipalAD extends javax.swing.JFrame {
     //CLASES PARA LA LISTAS ENLAZADAS
     class Nodo {
 
-        int dato;
+        String dato;
         Nodo siguiente;
 
-        public Nodo(int dato) {
+        public Nodo(String dato) {
             this.dato = dato;
             this.siguiente = null;
         }
@@ -983,12 +997,12 @@ public class PrincipalAD extends javax.swing.JFrame {
             head = null;
         }
 
-        public void agregarAlInicio(int dato) {
+        public void agregarAlInicio( String dato) {
             Nodo nuevoNodo = new Nodo(dato);
             nuevoNodo.siguiente = head;
             head= nuevoNodo;
         }
-        public void agregarAlFinal(int dato) {
+        public void agregarAlFinal(String dato) {
         Nodo nuevoNodo = new Nodo(dato);
 
         // Si la lista está vacía, el nuevo nodo será la cabeza
@@ -1015,6 +1029,7 @@ public class PrincipalAD extends javax.swing.JFrame {
 
     public void CopiarArchivoAlISTA(Scanner sc, String file_name) {
         ListaEnlazada listInventarioTempCANT = new ListaEnlazada();
+        ListaEnlazada listInventarioTempNAMES=new ListaEnlazada();
         boolean hay = false;
         while (hay == false) {
             try {
@@ -1023,11 +1038,11 @@ public class PrincipalAD extends javax.swing.JFrame {
                 
                 while ((line = br.readLine()) != null) {
                     String temp[] = line.split(";");
-                    int valor = Integer.parseInt(temp[1]);
-                   listInventarioTempCANT.agregarAlFinal(valor);
-                    
+                   listInventarioTempCANT.agregarAlFinal(temp[1]); //Cantidad en el inventario pero esta en String
+                   listInventarioTempNAMES.agregarAlFinal(temp[0]+";"+temp[3]);
                 }
                 listInventarioTempCANT.mostrarLista();
+                listInventarioTempNAMES.mostrarLista();
                 br.close();
                 hay = true;
 
@@ -1272,6 +1287,7 @@ public class PrincipalAD extends javax.swing.JFrame {
     private javax.swing.JButton BtnVerifyUser;
     private custom.PanelRound Constraseña;
     private javax.swing.JPanel PanelAgregar;
+    private javax.swing.JPanel PanelGraficas;
     private custom.PanelRound Pantalla;
     private javax.swing.JPasswordField PassField;
     private javax.swing.JTable TablaINVENTARIO;
