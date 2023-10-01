@@ -46,7 +46,7 @@ public class PrincipalAD extends javax.swing.JFrame {
         PanelAgregar.setVisible(false);
         PanelAgregarPE.setVisible(false);
         PanelEliminar.setVisible(false);
-        CopiarArchivoAlISTA( sc, "Inventario");
+        CopiarArchivoAlISTA(sc, "Inventario");
 
     }
 
@@ -118,21 +118,25 @@ public class PrincipalAD extends javax.swing.JFrame {
         labelCantidad1 = new javax.swing.JLabel();
         fieldCantPE = new javax.swing.JTextField();
         error4PE = new javax.swing.JLabel();
-        PanelEliminar = new javax.swing.JPanel();
-        panelRound3 = new custom.PanelRound();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        jComboBox3 = new javax.swing.JComboBox<>();
-        jcCategoriaEL = new javax.swing.JComboBox<>();
         RegistroPanel = new javax.swing.JPanel();
         jTextField1 = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        PanelEliminar = new javax.swing.JPanel();
+        panelRound3 = new custom.PanelRound();
+        jLabel12 = new javax.swing.JLabel();
+        jcCategoriaEli = new javax.swing.JComboBox<>();
+        jcArtistaEli = new javax.swing.JComboBox<>();
+        jcSubcategoriaEli = new javax.swing.JComboBox<>();
+        jLabel13 = new javax.swing.JLabel();
+        labelDEli = new javax.swing.JLabel();
+        BTNcerrarEliminar = new javax.swing.JButton();
+        BotonEliminar = new javax.swing.JButton();
+        BTNLimpiarEliminar = new javax.swing.JButton();
+        error1Eli = new javax.swing.JLabel();
+        error2Eli = new javax.swing.JLabel();
+        error3Eli = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -410,6 +414,11 @@ public class PrincipalAD extends javax.swing.JFrame {
         Pantalla.add(botonPE, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 70, -1, -1));
 
         botonEP.setText("Eliminar Producto");
+        botonEP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonEPActionPerformed(evt);
+            }
+        });
         Pantalla.add(botonEP, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 70, -1, -1));
 
         btnactualizar.setText("Actualizar Inventario de acuerdo a ventas");
@@ -511,50 +520,6 @@ public class PrincipalAD extends javax.swing.JFrame {
 
         Pantalla.add(PanelAgregarPE, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, 950, 430));
 
-        panelRound3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel9.setText("Categoria");
-        panelRound3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 84, -1, -1));
-
-        jLabel13.setText("jLabel13");
-        panelRound3.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 110, -1, -1));
-
-        jLabel14.setText("Artista");
-        panelRound3.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 164, -1, -1));
-
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        panelRound3.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(291, 161, -1, -1));
-
-        jLabel15.setText("jLabel15");
-        panelRound3.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 180, -1, -1));
-
-        jLabel16.setText("Nombre Producto");
-        panelRound3.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 230, -1, -1));
-
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        panelRound3.add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 230, -1, -1));
-
-        jcCategoriaEL.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar categoria", "Camiseta", "Gorra", "CD", "Vinilo", "Llavero" }));
-        jcCategoriaEL.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jcCategoriaELActionPerformed(evt);
-            }
-        });
-        panelRound3.add(jcCategoriaEL, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 80, 275, -1));
-
-        javax.swing.GroupLayout PanelEliminarLayout = new javax.swing.GroupLayout(PanelEliminar);
-        PanelEliminar.setLayout(PanelEliminarLayout);
-        PanelEliminarLayout.setHorizontalGroup(
-            PanelEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelRound3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        PanelEliminarLayout.setVerticalGroup(
-            PanelEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelRound3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-
-        Pantalla.add(PanelEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 140, 680, 400));
-
         jTextField1.setText("jTextField1");
 
         jTextField2.setText("jTextField2");
@@ -595,6 +560,86 @@ public class PrincipalAD extends javax.swing.JFrame {
         );
 
         Pantalla.add(RegistroPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 370, 830, 310));
+
+        PanelEliminar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        panelRound3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel12.setText("Categoría");
+        panelRound3.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(205, 86, -1, -1));
+
+        jcCategoriaEli.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar categoria", "Camiseta", "Gorra", "CD", "Vinilo", "Llavero" }));
+        jcCategoriaEli.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcCategoriaEliActionPerformed(evt);
+            }
+        });
+        panelRound3.add(jcCategoriaEli, new org.netbeans.lib.awtextra.AbsoluteConstraints(427, 83, 275, -1));
+
+        jcArtistaEli.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar artista", "Conan Gray", "Harry Styles", "Sabrina Carpenter", "Taylor Swift", "Billie Eilish", "Louis Tomlinson", "5SOS", "Stray Kids", "Big Time Rush", "TXT", "Imagine Dragons" }));
+        jcArtistaEli.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcArtistaEliActionPerformed(evt);
+            }
+        });
+        panelRound3.add(jcArtistaEli, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 140, 275, -1));
+
+        jcSubcategoriaEli.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcSubcategoriaEliActionPerformed(evt);
+            }
+        });
+        panelRound3.add(jcSubcategoriaEli, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 210, 275, -1));
+
+        jLabel13.setText("Artista");
+        panelRound3.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 140, 51, -1));
+
+        labelDEli.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        labelDEli.setText("Seleccione el producto ");
+        panelRound3.add(labelDEli, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 210, 204, -1));
+
+        BTNcerrarEliminar.setText("Cerrar");
+        BTNcerrarEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BTNcerrarEliminarActionPerformed(evt);
+            }
+        });
+        panelRound3.add(BTNcerrarEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(799, 32, -1, -1));
+
+        BotonEliminar.setText("Eliminar");
+        BotonEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonEliminarActionPerformed(evt);
+            }
+        });
+        panelRound3.add(BotonEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 350, -1, -1));
+
+        BTNLimpiarEliminar.setText("Limpiar");
+        BTNLimpiarEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BTNLimpiarEliminarActionPerformed(evt);
+            }
+        });
+        panelRound3.add(BTNLimpiarEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 350, -1, -1));
+
+        error1Eli.setFont(new java.awt.Font("Perpetua", 0, 12)); // NOI18N
+        error1Eli.setForeground(new java.awt.Color(255, 0, 0));
+        error1Eli.setText("(!) Debe seleccionar una categoría");
+        panelRound3.add(error1Eli, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 100, 290, 22));
+
+        error2Eli.setFont(new java.awt.Font("Perpetua", 0, 12)); // NOI18N
+        error2Eli.setForeground(new java.awt.Color(255, 0, 0));
+        error2Eli.setText("(!) Debe seleccionar un artista");
+        panelRound3.add(error2Eli, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 160, 290, 22));
+
+        error3Eli.setFont(new java.awt.Font("Perpetua", 0, 12)); // NOI18N
+        error3Eli.setForeground(new java.awt.Color(255, 0, 0));
+        error3Eli.setText("(!) Debe seleccionar un producto");
+        panelRound3.add(error3Eli, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 220, 290, 40));
+
+        PanelEliminar.add(panelRound3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 950, 440));
+
+        Pantalla.add(PanelEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, 950, 430));
 
         getContentPane().add(Pantalla, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1200, 700));
 
@@ -878,8 +923,7 @@ public class PrincipalAD extends javax.swing.JFrame {
              * METODO A IMPLEMENTAR Collections.sort es un método en Java que se
              * utiliza para ordenar colecciones,como listas, conjuntos, colas,
              * etc. Permite ordenar los elementos de una colección en un orden
-             * específico según un criterio de comparación.
-        * *
+             * específico según un criterio de comparación. *
              */
             Collections.sort(Datos, new Comparator<String[]>() {
                 @Override
@@ -926,7 +970,6 @@ public class PrincipalAD extends javax.swing.JFrame {
 
             registro.close();
             System.out.println("Datos agregados exitosamente al archivo " + file_name);
-           
 
         } catch (IOException ex) {
             System.out.println("Error al agregar datos al archivo " + file_name);
@@ -955,7 +998,7 @@ public class PrincipalAD extends javax.swing.JFrame {
             if (Validaciones(Categoria, Artista, Sub, Descripcion, Cantidad, Precio)) {
                 registrar_producto.println((Categoria + " " + Sub + " " + Descripcion) + ";" + Cantidad + ";" + Categoria + ";" + Artista + ";" + Precio);
                 System.out.println("YA SE AGREGO (ESTO DESPUES SE BORRA)");
-                 JOptionPane.showMessageDialog(null, "Los datos se han agregado satisfactoriamente.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Los datos se han agregado satisfactoriamente.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
                 seagrego = true;
             }
             registrar_producto.close();
@@ -1009,6 +1052,57 @@ public class PrincipalAD extends javax.swing.JFrame {
                 if (archivoOriginal.delete() && archivoTemporal.renameTo(archivoOriginal)) {
                     System.out.println("Inventario actualizado con éxito.");
                     JOptionPane.showMessageDialog(null, "Los datos se han agregado satisfactoriamente.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+                    hay = true;
+                    LeerNormal(sc, file_name, tabla);
+                } else {
+                    JOptionPane.showMessageDialog(null, "No se pudo actualizar el inventario.", "Error", JOptionPane.ERROR_MESSAGE);
+                    hay = false;
+                }
+
+            } catch (IOException ex) {
+                JOptionPane.showMessageDialog(null, "No se encontró el archivo " + file_name + ".txt", "Error", JOptionPane.ERROR_MESSAGE);
+                hay = false;
+                System.out.println("Introduce el nombre del archivo: ");
+                file_name = sc.nextLine(); // Archivo
+            }
+        }
+    }
+     // Subrutina para eliminar del inventario
+    public static void EliminarProducto(Scanner sc, String file_name, JTable tabla, String ProductoAct) {
+        boolean hay = false;
+        while (!hay) {
+            try {
+                File archivoOriginal = new File(file_name + ".txt");
+                File archivoTemporal = new File(file_name + "_temp.txt");
+
+                BufferedReader br = new BufferedReader(new FileReader(archivoOriginal));
+                PrintWriter pw = new PrintWriter(new FileWriter(archivoTemporal));
+
+                String line;
+
+                while ((line = br.readLine()) != null) {
+                    String[] campos = line.split(";");
+                    String nombreProducto = campos[0]; // Nombre del producto
+                    int cantidadActual = Integer.parseInt(campos[1]); // Cantidad actual
+                    String Categoria = campos[2]; // Nombre de la categoria
+                    String nombreArtista = campos[3]; // Nombre del artista
+                    String Precio = campos[4]; // Precio Producto
+
+                    // Si coincide con el nombre Eliminar
+                    if (!nombreProducto.equals(ProductoAct)) {
+                        // Construir la nueva línea sin ese producto
+                    String nuevaLinea = nombreProducto + ";" + cantidadActual + ";" + Categoria + ";" + nombreArtista + ";" + Precio;
+                    // Escribir la nueva línea en el archivo temporal
+                    pw.println(nuevaLinea);
+                    }
+                }
+                br.close();
+                pw.close();
+
+                // Reemplazar el archivo original con el archivo temporal
+                if (archivoOriginal.delete() && archivoTemporal.renameTo(archivoOriginal)) {
+                    System.out.println("Inventario actualizado con éxito.");
+                    JOptionPane.showMessageDialog(null, "El producto se ha eliminado satisfactoriamente.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
                     hay = true;
                     LeerNormal(sc, file_name, tabla);
                 } else {
@@ -1177,6 +1271,34 @@ public class PrincipalAD extends javax.swing.JFrame {
         }
         return true;// se devuelve true si cumple con todas las validaciones correspondientes
     }
+    //Funcion para validar los campos de Eliminar Producto
+    public boolean Validaciones3(String c1, String c2, String c3) {
+
+        //Validacion seleccion de categoria
+        if (c1.equalsIgnoreCase("Seleccionar categoria") || c1 == null) {
+            error1Eli.setVisible(true);
+            return false;
+        } else {
+            error1Eli.setVisible(false);
+        }
+        //Validacion seleccion de artista
+        if (c2.equalsIgnoreCase("Seleccionar artista") || c2 == null) {
+            error2Eli.setVisible(true); //Si no selecciono artista 
+            return false;
+        } else {
+            error2Eli.setVisible(false);
+        }
+        //Validacion seleccion de subcategoria
+        if (c3.equalsIgnoreCase("Seleccionar talla") || c3.equalsIgnoreCase("Seleccionar tipo de gorra") || c3.equalsIgnoreCase("Seleccionar álbum") || c3 == null) {
+            error3Eli.setText("(!) Realice una seleccion");
+            error3Eli.setVisible(true); //Si no selecciono descripcion
+            return false;
+        } else {
+            error3Eli.setVisible(false);
+        }
+        
+        return true;// se devuelve true si cumple con todas las validaciones correspondientes
+    }
 
     public static final Map<String, List<String>> ALBUMES_ARTISTAS = new HashMap<>();
 
@@ -1316,7 +1438,7 @@ public class PrincipalAD extends javax.swing.JFrame {
 
             model.removeAllElements(); // Limpia el modelo antes de cargar los elementos desde el archivo
             boolean hayElementos = false; // Bandera para verificar si se encontraron elementos
-            try ( BufferedReader BR = new BufferedReader(new FileReader("inventario.txt"))) {
+            try (BufferedReader BR = new BufferedReader(new FileReader("inventario.txt"))) {
                 String line;
                 while ((line = BR.readLine()) != null) {
                     String[] campos = line.split(";");
@@ -1350,10 +1472,79 @@ public class PrincipalAD extends javax.swing.JFrame {
 
     }
 
+    DefaultComboBoxModel<String> model2 = new DefaultComboBoxModel<>();
+
+    // Método para cargar elementos iniciales desde el archivo
+    public void CargarDatosJcombo3() {
+        String categoria = jcCategoriaEli.getSelectedItem().toString();
+        String artista = jcArtistaEli.getSelectedItem().toString();
+        List<String> albumesPE = ALBUMES_ARTISTAS.get(artista);
+
+        if (categoria.equalsIgnoreCase("Seleccionar categoria")) {
+            jcSubcategoriaEli.setEnabled(false);
+            System.out.println("Entre aqui en false");
+
+        } else if ((artista.equalsIgnoreCase("Seleccionar artista"))) {
+            jcSubcategoriaEli.setEnabled(false);
+            System.out.println("Entre aqui en false");
+
+        }
+        if (albumesPE == null || artista.equalsIgnoreCase("Seleccionar artista")) {
+            // El artista no existe en el mapa.
+            // Maneja este caso aquí.
+            return;
+        } else {
+            jcSubcategoriaEli.setEnabled(true);
+            model2.removeAllElements(); // Limpia el modelo antes de cargar los elementos desde el archivo
+            boolean hayElementos = false; // Bandera para verificar si se encontraron elementos
+            try (BufferedReader BR = new BufferedReader(new FileReader("inventario.txt"))) {
+                String line;
+                while ((line = BR.readLine()) != null) {
+                    String[] campos = line.split(";");
+                    if (campos.length > 3) { // Asegúrate de que haya suficientes campos
+                        String nombreProducto = campos[0];
+                        String CategoriaArch = campos[2];
+                        String ArtistaArch = campos[3];
+                        if (CategoriaArch.equalsIgnoreCase(categoria) && ArtistaArch.equalsIgnoreCase(artista)) {
+                            if (!existeEnComboBox2(nombreProducto)) {
+                                model2.addElement(nombreProducto);
+                                hayElementos = true; // Se encontraron elementos
+                            }
+                        }
+
+                    }
+                }
+                if (!hayElementos) {
+                    jcSubcategoriaEli.setEnabled(false); // Deshabilita el JComboBox
+                    BotonEliminar.setEnabled(false);
+                } else {
+                    jcSubcategoriaEli.setEnabled(true); // Habilita el JComboBox si hay elementos
+                    BotonEliminar.setEnabled(true);
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            jcSubcategoriaEli.setModel(model2); // Asigna el modelo al JComboBox
+
+        }
+
+    }
+
     // Método para verificar si un elemento ya existe en el JComboBox
-    private boolean existeEnComboBox(String codigo) {
+    private boolean existeEnComboBox(String elemento) {
         for (int i = 0; i < model.getSize(); i++) {
-            if (codigo.equalsIgnoreCase(model.getElementAt(i))) {
+            if (elemento.equalsIgnoreCase(model.getElementAt(i))) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    // Método para verificar si un elemento ya existe en el JComboBox
+    private boolean existeEnComboBox2(String elemento) {
+        for (int i = 0; i < model2.getSize(); i++) {
+            if (elemento.equalsIgnoreCase(model2.getElementAt(i))) {
                 return true;
             }
         }
@@ -1536,7 +1727,7 @@ public class PrincipalAD extends javax.swing.JFrame {
     }//GEN-LAST:event_jcArtistaPEActionPerformed
 
     private void jcSubcategoriaPEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcSubcategoriaPEActionPerformed
-        
+
     }//GEN-LAST:event_jcSubcategoriaPEActionPerformed
 
     private void BTNcerrarAgregar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNcerrarAgregar1ActionPerformed
@@ -1591,9 +1782,75 @@ public class PrincipalAD extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_fieldCantPEActionPerformed
 
-    private void jcCategoriaELActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcCategoriaELActionPerformed
+    private void jcCategoriaEliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcCategoriaEliActionPerformed
+        CargarDatosJcombo3();
+    }//GEN-LAST:event_jcCategoriaEliActionPerformed
+
+    private void jcArtistaEliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcArtistaEliActionPerformed
+        CargarDatosJcombo3();
+    }//GEN-LAST:event_jcArtistaEliActionPerformed
+
+    private void jcSubcategoriaEliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcSubcategoriaEliActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jcCategoriaELActionPerformed
+    }//GEN-LAST:event_jcSubcategoriaEliActionPerformed
+
+    private void BTNcerrarEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNcerrarEliminarActionPerformed
+         PanelEliminar.setVisible(false);
+        jScrollPane1.setVisible(true);
+        TablaINVENTARIO.setVisible(true);
+        BTNAgregar1.setVisible(true);
+        botonPE.setVisible(true);
+        botonEP.setVisible(true);
+        btnactualizar.setVisible(true);
+    }//GEN-LAST:event_BTNcerrarEliminarActionPerformed
+
+    private void BotonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonEliminarActionPerformed
+        String Categoria = (jcCategoriaEli.getSelectedItem() != null) ? jcCategoriaEli.getSelectedItem().toString() : "";
+        String Artista = (jcArtistaEli.getSelectedItem() != null) ? jcArtistaEli.getSelectedItem().toString() : "";
+        String NombreProducto = (jcSubcategoriaEli.getSelectedItem() != null) ? jcSubcategoriaEli.getSelectedItem().toString() : "";
+
+        if (Validaciones3(Categoria, Artista,  NombreProducto)) {
+            System.out.println("Se cumplieron las validaciones");
+            Scanner sc = new Scanner(System.in);
+            System.out.println("Este es el nombre producto que estoy enviando: " + NombreProducto);
+            System.out.println("Este es el nombre artista que estoy enviando: " + Artista);
+            EliminarProducto(sc, "Inventario", TablaINVENTARIO, NombreProducto);
+            sc.close();
+            String seleccionarc = "Seleccionar Categoria";
+            String seleccionara = "Seleccionar Artista";
+            jcCategoriaEli.setSelectedItem(seleccionarc);
+            jcArtistaEli.setSelectedItem(seleccionara);
+            jcCategoriaEli.setSelectedIndex(0);//Doble verificacion
+            jcArtistaEli.setSelectedIndex(0);
+            jcSubcategoriaEli.setSelectedItem(null);
+        }
+
+    }//GEN-LAST:event_BotonEliminarActionPerformed
+
+    private void BTNLimpiarEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNLimpiarEliminarActionPerformed
+        String seleccionarc = "Seleccionar Categoria";
+            String seleccionara = "Seleccionar Artista";
+            jcCategoriaEli.setSelectedItem(seleccionarc);
+            jcArtistaEli.setSelectedItem(seleccionara);
+            jcCategoriaEli.setSelectedIndex(0);//Doble verificacion
+            jcArtistaEli.setSelectedIndex(0);
+            jcSubcategoriaEli.setSelectedItem(null);
+    }//GEN-LAST:event_BTNLimpiarEliminarActionPerformed
+
+    private void botonEPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEPActionPerformed
+       
+        error1Eli.setVisible(false);
+        error2Eli.setVisible(false);
+        error3Eli.setVisible(false);
+        PanelEliminar.setVisible(true);
+        jScrollPane1.setVisible(false);
+        TablaINVENTARIO.setVisible(false);
+        BTNAgregar1.setVisible(false);
+        btnactualizar.setVisible(false);
+        botonPE.setVisible(false);
+        botonEP.setVisible(false);
+        CargarDatosJcombo3();
+    }//GEN-LAST:event_botonEPActionPerformed
 //VERIFICACION DE USUARIOSSSS
 
     public static boolean Verify(Scanner sc, String file_name, String U, String P) {
@@ -1633,7 +1890,48 @@ public class PrincipalAD extends javax.swing.JFrame {
         return false;
     }
 
-//CLASES PARA LA LISTAS ENLAZADAS
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(PrincipalAD.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(PrincipalAD.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(PrincipalAD.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(PrincipalAD.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new PrincipalAD(null).setVisible(true);
+
+            }
+        });
+    }
+
+    //CLASES PARA LA LISTAS ENLAZADAS
     class Nodo {
 
         String dato;
@@ -1711,48 +2009,6 @@ public class PrincipalAD extends javax.swing.JFrame {
         }
     }
 
-    
-
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PrincipalAD.class
-                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
-
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PrincipalAD.class
-                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
-
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PrincipalAD.class
-                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
-
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PrincipalAD.class
-                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new PrincipalAD(null).setVisible(true);
-
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel AvisoLabel;
@@ -1761,8 +2017,11 @@ public class PrincipalAD extends javax.swing.JFrame {
     private javax.swing.JButton BTNAgregarPE;
     private javax.swing.JButton BTNLimpiar1;
     private javax.swing.JButton BTNLimpiar2;
+    private javax.swing.JButton BTNLimpiarEliminar;
     private javax.swing.JButton BTNcerrarAgregar;
     private javax.swing.JButton BTNcerrarAgregar1;
+    private javax.swing.JButton BTNcerrarEliminar;
+    private javax.swing.JButton BotonEliminar;
     private javax.swing.JButton BtnGrafics;
     private javax.swing.JButton BtnInfo;
     private javax.swing.JButton BtnSalir;
@@ -1781,10 +2040,13 @@ public class PrincipalAD extends javax.swing.JFrame {
     private javax.swing.JButton botonPE;
     private javax.swing.JButton btnactualizar;
     private javax.swing.JLabel error1;
+    private javax.swing.JLabel error1Eli;
     private javax.swing.JLabel error1PE;
     private javax.swing.JLabel error2;
+    private javax.swing.JLabel error2Eli;
     private javax.swing.JLabel error2PE;
     private javax.swing.JLabel error3;
+    private javax.swing.JLabel error3Eli;
     private javax.swing.JLabel error3PE;
     private javax.swing.JLabel error4;
     private javax.swing.JLabel error4PE;
@@ -1798,15 +2060,11 @@ public class PrincipalAD extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -1814,21 +2072,23 @@ public class PrincipalAD extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JComboBox<String> jcArtista;
+    private javax.swing.JComboBox<String> jcArtistaEli;
     private javax.swing.JComboBox<String> jcArtistaPE;
     private javax.swing.JComboBox<String> jcCategoria;
-    private javax.swing.JComboBox<String> jcCategoriaEL;
+    private javax.swing.JComboBox<String> jcCategoriaEli;
     private javax.swing.JComboBox<String> jcCategoriaPE;
     private javax.swing.JComboBox<String> jcSubcategoria;
+    private javax.swing.JComboBox<String> jcSubcategoriaEli;
     private javax.swing.JComboBox<String> jcSubcategoriaPE;
     private javax.swing.JLabel labelCantidad;
     private javax.swing.JLabel labelCantidad1;
     private javax.swing.JLabel labelD;
+    private javax.swing.JLabel labelDEli;
     private javax.swing.JLabel labelDPE;
     private custom.PanelRound panelRound1;
     private custom.PanelRound panelRound2;
