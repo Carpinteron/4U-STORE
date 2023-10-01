@@ -22,6 +22,7 @@ import javax.swing.table.DefaultTableModel;
 public class PrincipalAD extends javax.swing.JFrame {
 
     String admi;
+
     public PrincipalAD(String name) {
         setIconImage(new ImageIcon(getClass().getResource("ICons/4Uicon.png")).getImage());
         setUndecorated(true);
@@ -45,7 +46,8 @@ public class PrincipalAD extends javax.swing.JFrame {
         PanelAgregarPE.setVisible(false);
         PanelEliminar.setVisible(false);
         CopiarArchivoAlISTA(sc, "Inventario");
-
+        RegistroPanel.setVisible(false);
+       
     }
 
     @SuppressWarnings("unchecked")
@@ -65,6 +67,11 @@ public class PrincipalAD extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
+        RegistroPanel = new javax.swing.JPanel();
+        nombreadmi = new javax.swing.JTextField();
+        cedulaAdmi = new javax.swing.JTextField();
+        Contraseñaadmi = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
         Pantalla = new custom.PanelRound();
         panelRound2 = new custom.PanelRound();
         BtnGrafics = new javax.swing.JButton();
@@ -118,11 +125,6 @@ public class PrincipalAD extends javax.swing.JFrame {
         labelCantidad1 = new javax.swing.JLabel();
         fieldCantPE = new javax.swing.JTextField();
         error4PE = new javax.swing.JLabel();
-        RegistroPanel = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
         PanelEliminar = new javax.swing.JPanel();
         panelRound3 = new custom.PanelRound();
         jLabel12 = new javax.swing.JLabel();
@@ -234,6 +236,54 @@ public class PrincipalAD extends javax.swing.JFrame {
 
         getContentPane().add(Constraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 160, 560, 370));
 
+        RegistroPanel.setOpaque(false);
+
+        nombreadmi.setText("jTextField1");
+
+        cedulaAdmi.setText("jTextField2");
+
+        Contraseñaadmi.setText("jTextField3");
+
+        jButton1.setText("jButton1");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout RegistroPanelLayout = new javax.swing.GroupLayout(RegistroPanel);
+        RegistroPanel.setLayout(RegistroPanelLayout);
+        RegistroPanelLayout.setHorizontalGroup(
+            RegistroPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(RegistroPanelLayout.createSequentialGroup()
+                .addGroup(RegistroPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(RegistroPanelLayout.createSequentialGroup()
+                        .addGap(67, 67, 67)
+                        .addGroup(RegistroPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(Contraseñaadmi, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)
+                            .addComponent(cedulaAdmi)
+                            .addComponent(nombreadmi)))
+                    .addGroup(RegistroPanelLayout.createSequentialGroup()
+                        .addGap(139, 139, 139)
+                        .addComponent(jButton1)))
+                .addContainerGap(520, Short.MAX_VALUE))
+        );
+        RegistroPanelLayout.setVerticalGroup(
+            RegistroPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(RegistroPanelLayout.createSequentialGroup()
+                .addGap(44, 44, 44)
+                .addComponent(nombreadmi, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34)
+                .addComponent(cedulaAdmi, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(38, 38, 38)
+                .addComponent(Contraseñaadmi, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton1)
+                .addContainerGap(31, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(RegistroPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 370, 830, 310));
+
         Pantalla.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panelRound2.setBackground(new java.awt.Color(153, 153, 255));
@@ -255,6 +305,11 @@ public class PrincipalAD extends javax.swing.JFrame {
         BtnInfo.setText("Info");
 
         jButton3.setText("Registrarse");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICons/Logo 4U_1.png"))); // NOI18N
 
@@ -554,47 +609,6 @@ public class PrincipalAD extends javax.swing.JFrame {
         PanelAgregarPE.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 950, 440));
 
         Pantalla.add(PanelAgregarPE, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, 950, 430));
-
-        jTextField1.setText("jTextField1");
-
-        jTextField2.setText("jTextField2");
-
-        jTextField3.setText("jTextField3");
-
-        jButton1.setText("jButton1");
-
-        javax.swing.GroupLayout RegistroPanelLayout = new javax.swing.GroupLayout(RegistroPanel);
-        RegistroPanel.setLayout(RegistroPanelLayout);
-        RegistroPanelLayout.setHorizontalGroup(
-            RegistroPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(RegistroPanelLayout.createSequentialGroup()
-                .addGroup(RegistroPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(RegistroPanelLayout.createSequentialGroup()
-                        .addGap(67, 67, 67)
-                        .addGroup(RegistroPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)
-                            .addComponent(jTextField2)
-                            .addComponent(jTextField1)))
-                    .addGroup(RegistroPanelLayout.createSequentialGroup()
-                        .addGap(139, 139, 139)
-                        .addComponent(jButton1)))
-                .addContainerGap(520, Short.MAX_VALUE))
-        );
-        RegistroPanelLayout.setVerticalGroup(
-            RegistroPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(RegistroPanelLayout.createSequentialGroup()
-                .addGap(44, 44, 44)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38)
-                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton1)
-                .addContainerGap(31, Short.MAX_VALUE))
-        );
-
-        Pantalla.add(RegistroPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 370, 830, 310));
 
         PanelEliminar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -1102,7 +1116,8 @@ public class PrincipalAD extends javax.swing.JFrame {
             }
         }
     }
-     // Subrutina para eliminar del inventario
+    // Subrutina para eliminar del inventario
+
     public static void EliminarProducto(Scanner sc, String file_name, JTable tabla, String ProductoAct) {
         boolean hay = false;
         while (!hay) {
@@ -1126,9 +1141,9 @@ public class PrincipalAD extends javax.swing.JFrame {
                     // Si coincide con el nombre Eliminar
                     if (!nombreProducto.equals(ProductoAct)) {
                         // Construir la nueva línea sin ese producto
-                    String nuevaLinea = nombreProducto + ";" + cantidadActual + ";" + Categoria + ";" + nombreArtista + ";" + Precio;
-                    // Escribir la nueva línea en el archivo temporal
-                    pw.println(nuevaLinea);
+                        String nuevaLinea = nombreProducto + ";" + cantidadActual + ";" + Categoria + ";" + nombreArtista + ";" + Precio;
+                        // Escribir la nueva línea en el archivo temporal
+                        pw.println(nuevaLinea);
                     }
                 }
                 br.close();
@@ -1306,6 +1321,7 @@ public class PrincipalAD extends javax.swing.JFrame {
         }
         return true;// se devuelve true si cumple con todas las validaciones correspondientes
     }
+
     //Funcion para validar los campos de Eliminar Producto
     public boolean Validaciones3(String c1, String c2, String c3) {
 
@@ -1331,7 +1347,7 @@ public class PrincipalAD extends javax.swing.JFrame {
         } else {
             error3Eli.setVisible(false);
         }
-        
+
         return true;// se devuelve true si cumple con todas las validaciones correspondientes
     }
 
@@ -1473,7 +1489,7 @@ public class PrincipalAD extends javax.swing.JFrame {
 
             model.removeAllElements(); // Limpia el modelo antes de cargar los elementos desde el archivo
             boolean hayElementos = false; // Bandera para verificar si se encontraron elementos
-            try (BufferedReader BR = new BufferedReader(new FileReader("inventario.txt"))) {
+            try ( BufferedReader BR = new BufferedReader(new FileReader("inventario.txt"))) {
                 String line;
                 while ((line = BR.readLine()) != null) {
                     String[] campos = line.split(";");
@@ -1532,7 +1548,7 @@ public class PrincipalAD extends javax.swing.JFrame {
             jcSubcategoriaEli.setEnabled(true);
             model2.removeAllElements(); // Limpia el modelo antes de cargar los elementos desde el archivo
             boolean hayElementos = false; // Bandera para verificar si se encontraron elementos
-            try (BufferedReader BR = new BufferedReader(new FileReader("inventario.txt"))) {
+            try ( BufferedReader BR = new BufferedReader(new FileReader("inventario.txt"))) {
                 String line;
                 while ((line = BR.readLine()) != null) {
                     String[] campos = line.split(";");
@@ -1606,7 +1622,7 @@ public class PrincipalAD extends javax.swing.JFrame {
         btnactualizar.setVisible(false);
         botonPE.setVisible(false);
         botonEP.setVisible(false);
-         RegistroPanel.setVisible(false);
+        RegistroPanel.setVisible(false);
         CargarDatosJcombo();
     }//GEN-LAST:event_BTNAgregar1ActionPerformed
 
@@ -1718,9 +1734,9 @@ public class PrincipalAD extends javax.swing.JFrame {
             AvisoLabel.setText("Contraseña o Usuario incorrecto");
         }
         //////////////////
-         Pantalla.setVisible(true);
-            Constraseña.setVisible(false);
-            exitBTN.setVisible(true);
+        Pantalla.setVisible(true);
+        Constraseña.setVisible(false);
+        exitBTN.setVisible(true);
         //////////////////
     }//GEN-LAST:event_BtnVerifyUserActionPerformed
 
@@ -1751,7 +1767,7 @@ public class PrincipalAD extends javax.swing.JFrame {
         btnactualizar.setVisible(false);
         botonPE.setVisible(false);
         botonEP.setVisible(false);
-         RegistroPanel.setVisible(false);
+        RegistroPanel.setVisible(false);
         CargarDatosJcombo2();
     }//GEN-LAST:event_botonPEActionPerformed
 
@@ -1833,7 +1849,7 @@ public class PrincipalAD extends javax.swing.JFrame {
     }//GEN-LAST:event_jcSubcategoriaEliActionPerformed
 
     private void BTNcerrarEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNcerrarEliminarActionPerformed
-         PanelEliminar.setVisible(false);
+        PanelEliminar.setVisible(false);
         jScrollPane1.setVisible(true);
         TablaINVENTARIO.setVisible(true);
         BTNAgregar1.setVisible(true);
@@ -1847,7 +1863,7 @@ public class PrincipalAD extends javax.swing.JFrame {
         String Artista = (jcArtistaEli.getSelectedItem() != null) ? jcArtistaEli.getSelectedItem().toString() : "";
         String NombreProducto = (jcSubcategoriaEli.getSelectedItem() != null) ? jcSubcategoriaEli.getSelectedItem().toString() : "";
 
-        if (Validaciones3(Categoria, Artista,  NombreProducto)) {
+        if (Validaciones3(Categoria, Artista, NombreProducto)) {
             System.out.println("Se cumplieron las validaciones");
             Scanner sc = new Scanner(System.in);
             System.out.println("Este es el nombre producto que estoy enviando: " + NombreProducto);
@@ -1867,16 +1883,16 @@ public class PrincipalAD extends javax.swing.JFrame {
 
     private void BTNLimpiarEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNLimpiarEliminarActionPerformed
         String seleccionarc = "Seleccionar Categoria";
-            String seleccionara = "Seleccionar Artista";
-            jcCategoriaEli.setSelectedItem(seleccionarc);
-            jcArtistaEli.setSelectedItem(seleccionara);
-            jcCategoriaEli.setSelectedIndex(0);//Doble verificacion
-            jcArtistaEli.setSelectedIndex(0);
-            jcSubcategoriaEli.setSelectedItem(null);
+        String seleccionara = "Seleccionar Artista";
+        jcCategoriaEli.setSelectedItem(seleccionarc);
+        jcArtistaEli.setSelectedItem(seleccionara);
+        jcCategoriaEli.setSelectedIndex(0);//Doble verificacion
+        jcArtistaEli.setSelectedIndex(0);
+        jcSubcategoriaEli.setSelectedItem(null);
     }//GEN-LAST:event_BTNLimpiarEliminarActionPerformed
 
     private void botonEPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEPActionPerformed
-       
+
         error1Eli.setVisible(false);
         error2Eli.setVisible(false);
         error3Eli.setVisible(false);
@@ -1901,9 +1917,37 @@ public class PrincipalAD extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         Pantalla.setVisible(true);
-            Constraseña.setVisible(false);
-            exitBTN.setVisible(true);
+        Constraseña.setVisible(false);
+        exitBTN.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        String c = cedulaAdmi.getText();
+        int ced = Integer.parseInt(c);
+        AñadirUsuarios("Usuarios");
+          RegistroPanel.setVisible(false);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        RegistroPanel.setVisible(true);
+    }//GEN-LAST:event_jButton3ActionPerformed
+    public void AñadirUsuarios(String file_name) {
+        try {
+            FileWriter outFile = new FileWriter(file_name + ".txt", true);
+            PrintWriter registro = new PrintWriter(outFile);
+            String name, pass;
+            pass = Contraseñaadmi.getText();
+            name = nombreadmi.getText();
+            registro.println(name + ";" + pass);
+
+            registro.close();
+            System.out.println("Datos agregados exitosamente al archivo " + file_name);
+
+        } catch (IOException ex) {
+            System.out.println("Error al agregar datos al archivo " + file_name);
+            ex.printStackTrace();
+        }
+    }
 //VERIFICACION DE USUARIOSSSS
 
     public static boolean Verify(Scanner sc, String file_name, String U, String P) {
@@ -1985,7 +2029,7 @@ public class PrincipalAD extends javax.swing.JFrame {
     }
 
     //CLASES PARA LA LISTAS ENLAZADAS
-    class Nodo {
+    static class Nodo {
 
         String dato;
         Nodo siguiente;
@@ -1996,7 +2040,7 @@ public class PrincipalAD extends javax.swing.JFrame {
         }
     }
 
-    class ListaEnlazada {
+    static class ListaEnlazada {
 
         Nodo head; // El primer nodo de la lista
 
@@ -2034,10 +2078,11 @@ public class PrincipalAD extends javax.swing.JFrame {
             System.out.println("null");
         }
     }
+    static ListaEnlazada listInventarioTempCANT = new ListaEnlazada();
+    static ListaEnlazada listInventarioTempNAMES = new ListaEnlazada();
 
-    public void CopiarArchivoAlISTA(Scanner sc, String file_name) {
-        ListaEnlazada listInventarioTempCANT = new ListaEnlazada();
-        ListaEnlazada listInventarioTempNAMES = new ListaEnlazada();
+    public static void CopiarArchivoAlISTA(Scanner sc, String file_name) {
+        
         boolean hay = false;
         while (hay == false) {
             try {
@@ -2082,6 +2127,7 @@ public class PrincipalAD extends javax.swing.JFrame {
     private javax.swing.JButton BtnSalir1;
     private javax.swing.JButton BtnVerifyUser;
     private custom.PanelRound Constraseña;
+    private javax.swing.JTextField Contraseñaadmi;
     private javax.swing.JPanel PanelAgregar;
     private javax.swing.JPanel PanelAgregarPE;
     private javax.swing.JPanel PanelEliminar;
@@ -2092,6 +2138,7 @@ public class PrincipalAD extends javax.swing.JFrame {
     private javax.swing.JButton botonEP;
     private javax.swing.JButton botonPE;
     private javax.swing.JButton btnactualizar;
+    private javax.swing.JTextField cedulaAdmi;
     private javax.swing.JLabel error1;
     private javax.swing.JLabel error1Eli;
     private javax.swing.JLabel error1PE;
@@ -2127,9 +2174,6 @@ public class PrincipalAD extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
     private javax.swing.JComboBox<String> jcArtista;
     private javax.swing.JComboBox<String> jcArtistaEli;
     private javax.swing.JComboBox<String> jcArtistaPE;
@@ -2144,6 +2188,7 @@ public class PrincipalAD extends javax.swing.JFrame {
     private javax.swing.JLabel labelD;
     private javax.swing.JLabel labelDEli;
     private javax.swing.JLabel labelDPE;
+    private javax.swing.JTextField nombreadmi;
     private javax.swing.JButton ojo;
     private custom.PanelRound panelRound1;
     private custom.PanelRound panelRound2;
