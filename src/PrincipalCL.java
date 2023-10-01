@@ -55,7 +55,7 @@ public class PrincipalCL extends javax.swing.JFrame {
         labelArtist = new javax.swing.JLabel();
         labelTipoProduct = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
-        jLabel4 = new javax.swing.JLabel();
+        ImagenProducto = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         panelArtistas = new javax.swing.JPanel();
         HSbtn = new javax.swing.JButton();
@@ -209,8 +209,8 @@ public class PrincipalCL extends javax.swing.JFrame {
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         panelDELproducto.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 185, -1));
 
-        jLabel4.setText("jLabel4");
-        panelDELproducto.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 40, 240, 260));
+        ImagenProducto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICons/camiseta-200.png"))); // NOI18N
+        panelDELproducto.add(ImagenProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 30, 180, 240));
 
         panelRound1.add(panelDELproducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, 1060, 580));
 
@@ -542,6 +542,7 @@ public class PrincipalCL extends javax.swing.JFrame {
     private javax.swing.JButton BtnSalir;
     private javax.swing.JButton ConanBTN;
     private javax.swing.JButton HSbtn;
+    private javax.swing.JLabel ImagenProducto;
     private javax.swing.JButton ImagineDragonsBTN;
     private javax.swing.JButton LousiBTN;
     private javax.swing.JButton ManeskinBTN;
@@ -560,7 +561,6 @@ public class PrincipalCL extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JScrollPane jScrollPane1;
