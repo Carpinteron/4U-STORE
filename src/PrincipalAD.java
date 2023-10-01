@@ -825,7 +825,7 @@ public class PrincipalAD extends javax.swing.JFrame {
         }
         return true;// se devuelve true si cumple con todas las validaciones correspondientes
     }
-    private static final Map<String, List<String>> ALBUMES_ARTISTAS = new HashMap<>();
+    public static final Map<String, List<String>> ALBUMES_ARTISTAS = new HashMap<>();
 
     static {
 

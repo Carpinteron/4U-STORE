@@ -1,5 +1,10 @@
 
 import java.awt.Color;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
@@ -65,10 +70,10 @@ public class PrincipalCL extends javax.swing.JFrame {
         ImagineDragonsBTN = new javax.swing.JButton();
         LousiBTN = new javax.swing.JButton();
         SkzBTN = new javax.swing.JButton();
-        ManeskinBTN = new javax.swing.JButton();
+        txtBTN = new javax.swing.JButton();
         BillieBTN = new javax.swing.JButton();
         BTN5sos = new javax.swing.JButton();
-        BeaMillerBTN = new javax.swing.JButton();
+        TaylorBTN = new javax.swing.JButton();
         BTNartistas = new javax.swing.JButton();
         BTNproductos = new javax.swing.JButton();
         BTNelproducto = new javax.swing.JButton();
@@ -204,10 +209,15 @@ public class PrincipalCL extends javax.swing.JFrame {
         panelDELproducto.add(labelArtist, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 28, 335, 55));
 
         labelTipoProduct.setText("jLabel5");
-        panelDELproducto.add(labelTipoProduct, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 89, 320, 24));
+        panelDELproducto.add(labelTipoProduct, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 320, 24));
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        panelDELproducto.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 185, -1));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
+        panelDELproducto.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 185, -1));
 
         ImagenProducto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICons/camiseta-200.png"))); // NOI18N
         panelDELproducto.add(ImagenProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 30, 180, 240));
@@ -277,13 +287,13 @@ public class PrincipalCL extends javax.swing.JFrame {
         });
         panelArtistas.add(SkzBTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(17, 284, 217, 235));
 
-        ManeskinBTN.setText("Maneskin");
-        ManeskinBTN.addActionListener(new java.awt.event.ActionListener() {
+        txtBTN.setText("TXT");
+        txtBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ManeskinBTNActionPerformed(evt);
+                txtBTNActionPerformed(evt);
             }
         });
-        panelArtistas.add(ManeskinBTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 560, 228, 235));
+        panelArtistas.add(txtBTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 560, 228, 235));
 
         BillieBTN.setText("Billie Eilish");
         BillieBTN.addActionListener(new java.awt.event.ActionListener() {
@@ -301,13 +311,13 @@ public class PrincipalCL extends javax.swing.JFrame {
         });
         panelArtistas.add(BTN5sos, new org.netbeans.lib.awtextra.AbsoluteConstraints(284, 556, 222, 235));
 
-        BeaMillerBTN.setText("Bea Miller");
-        BeaMillerBTN.addActionListener(new java.awt.event.ActionListener() {
+        TaylorBTN.setText("Taylor Swift");
+        TaylorBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BeaMillerBTNActionPerformed(evt);
+                TaylorBTNActionPerformed(evt);
             }
         });
-        panelArtistas.add(BeaMillerBTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(566, 284, 228, 235));
+        panelArtistas.add(TaylorBTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(566, 284, 228, 235));
 
         jScrollPane1.setViewportView(panelArtistas);
 
@@ -383,11 +393,11 @@ public class PrincipalCL extends javax.swing.JFrame {
         BotonesArtistasPanel();
     }//GEN-LAST:event_SkzBTNActionPerformed
 
-    private void ManeskinBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ManeskinBTNActionPerformed
+    private void txtBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBTNActionPerformed
 
-        SelectedArtist = "Maneskin";
+        SelectedArtist = "TXT";
         BotonesArtistasPanel();
-    }//GEN-LAST:event_ManeskinBTNActionPerformed
+    }//GEN-LAST:event_txtBTNActionPerformed
 
     private void BillieBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BillieBTNActionPerformed
 
@@ -439,14 +449,14 @@ public class PrincipalCL extends javax.swing.JFrame {
         BotonesArtistasPanel();
     }//GEN-LAST:event_SabrinaBTNActionPerformed
 
-    private void BeaMillerBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BeaMillerBTNActionPerformed
+    private void TaylorBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TaylorBTNActionPerformed
 
-        SelectedArtist = "Bea Miller";
+        SelectedArtist = "Taylor Swift";
         BotonesArtistasPanel();
-    }//GEN-LAST:event_BeaMillerBTNActionPerformed
+    }//GEN-LAST:event_TaylorBTNActionPerformed
 
     private void btnGORRASActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGORRASActionPerformed
-        product="Goorras";
+        product="Gorras";
         BotonesProductoPanel();
     }//GEN-LAST:event_btnGORRASActionPerformed
 
@@ -461,7 +471,7 @@ public class PrincipalCL extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCamisetasActionPerformed
 
     private void btnCDSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCDSActionPerformed
-        product="CD´s";
+        product="CD";
         BotonesProductoPanel();
     }//GEN-LAST:event_btnCDSActionPerformed
 
@@ -469,6 +479,11 @@ public class PrincipalCL extends javax.swing.JFrame {
         product="Llaveros";
         BotonesProductoPanel();
     }//GEN-LAST:event_btnLLaverosActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+         cargardatosalcombo();
+       
+    }//GEN-LAST:event_jComboBox1ActionPerformed
 
     public void BotonesArtistasPanel() {
         panelproductoss.setVisible(true);
@@ -496,9 +511,75 @@ public class PrincipalCL extends javax.swing.JFrame {
         BTNelproducto.setEnabled(true);
         labelArtist.setText(SelectedArtist);
         labelTipoProduct.setText(product);
+        cargardatosalcombo();
         
     }
 
+    public void cargardatosalcombo(){
+         switch (product) {
+                case "Camisetas":
+                    //labelD.setText("Talla");
+                    DefaultComboBoxModel<String> comboBoxModel = new DefaultComboBoxModel<>();
+                    comboBoxModel.addElement("Seleccionar talla");
+                    comboBoxModel.addElement("XS");
+                    comboBoxModel.addElement("S");
+                    comboBoxModel.addElement("M");
+                    comboBoxModel.addElement("L");
+                    comboBoxModel.addElement("XL");
+                    jComboBox1.setModel(comboBoxModel);
+                    break;
+                case "CD":
+                    //labelD.setText("Álbum");
+                    DefaultComboBoxModel<String> comboBoxModel2 = new DefaultComboBoxModel<>();
+                    comboBoxModel2.addElement("Seleccionar álbum");
+                    ALBUMES_ARTISTAS.get(SelectedArtist).forEach(comboBoxModel2::addElement);
+                    jComboBox1.setModel(comboBoxModel2);
+                    break;
+                case "Vinilos":
+                   // labelD.setText("Álbum");
+                    DefaultComboBoxModel<String> comboBoxModel3 = new DefaultComboBoxModel<>();
+                    comboBoxModel3.addElement("Seleccionar álbum");
+                    ALBUMES_ARTISTAS.get(SelectedArtist).forEach(comboBoxModel3::addElement);
+                    jComboBox1.setModel(comboBoxModel3);
+                    break;
+                case "Gorras":
+                    //labelD.setText("Tipo");
+                    DefaultComboBoxModel<String> comboBoxModel4 = new DefaultComboBoxModel<>();
+                    comboBoxModel4.addElement("Seleccionar tipo de gorra");
+                    comboBoxModel4.addElement("Béisbol");
+                    comboBoxModel4.addElement("Plana/Snapback");
+                    comboBoxModel4.addElement("Trucker");
+                    jComboBox1.setModel(comboBoxModel4);
+                    break;
+
+                case "Llaveros":
+                  //  labelD.setText("Tipo");
+                    DefaultComboBoxModel<String> comboBoxModel5 = new DefaultComboBoxModel<>();
+                    comboBoxModel5.addElement("Seleccionar tipo");
+                    comboBoxModel5.addElement("1");
+                    comboBoxModel5.addElement("2");
+                    comboBoxModel5.addElement("3");
+                    jComboBox1.setModel(comboBoxModel5);
+                    break;
+
+            }
+    }
+    private static final Map<String, List<String>> ALBUMES_ARTISTAS = new HashMap<>();
+
+    static {
+
+        ALBUMES_ARTISTAS.put("Conan Gray", new ArrayList<>(List.of("Sunset Season", "Kid Krow", "Superache")));
+        ALBUMES_ARTISTAS.put("Harry Styles", new ArrayList<>(List.of("Harry Styles", "Fine Line", "Harry's House")));
+        ALBUMES_ARTISTAS.put("Sabrina Carpenter", new ArrayList<>(List.of("Eyes Wide Open", "Evolution", "Emails I Can't Send")));
+        ALBUMES_ARTISTAS.put("Taylor Swift", new ArrayList<>(List.of("Fearless (Taylor's version)", "Speak Now (Taylor's version)", "Red (Taylor's version)", "Lover", "Folklore", "Evermore", "Midnights")));
+        ALBUMES_ARTISTAS.put("Billie Eilish", new ArrayList<>(List.of("When We All Fall Asleep, Where Do We Go?", "Happier Than Ever", "Don't Smile at Me", "Live at Third Man Records")));
+        ALBUMES_ARTISTAS.put("Louis Tomlinson", new ArrayList<>(List.of("Walls", "Faith in the Future")));
+        ALBUMES_ARTISTAS.put("5SOS", new ArrayList<>(List.of("5 Seconds of Summer", "Sounds Good Feels Good", "Youngblood", "CALM", "5SOS5")));
+        ALBUMES_ARTISTAS.put("Stray Kids", new ArrayList<>(List.of("Go Live", "No Easy", "5Stars", "ODDINARY", "Maxident")));
+        ALBUMES_ARTISTAS.put("Big Time Rush", new ArrayList<>(List.of("BTR", "Elevate", "24/Seven", "Another life")));
+        ALBUMES_ARTISTAS.put("TXT", new ArrayList<>(List.of("The Dream Chapter: STAR", "Still Dreaming", "The Chaos Chapter: FREEZE", "Sweet")));
+        ALBUMES_ARTISTAS.put("Imagine Dragons", new ArrayList<>(List.of("Night Visions", "Smoke + Mirrors", "Evolve", "Origins", "Mercury")));
+    }
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -537,7 +618,6 @@ public class PrincipalCL extends javax.swing.JFrame {
     private javax.swing.JButton BTNelproducto;
     private javax.swing.JButton BTNproductos;
     private javax.swing.JButton BTRbtn;
-    private javax.swing.JButton BeaMillerBTN;
     private javax.swing.JButton BillieBTN;
     private javax.swing.JButton BtnSalir;
     private javax.swing.JButton ConanBTN;
@@ -545,9 +625,9 @@ public class PrincipalCL extends javax.swing.JFrame {
     private javax.swing.JLabel ImagenProducto;
     private javax.swing.JButton ImagineDragonsBTN;
     private javax.swing.JButton LousiBTN;
-    private javax.swing.JButton ManeskinBTN;
     private javax.swing.JButton SabrinaBTN;
     private javax.swing.JButton SkzBTN;
+    private javax.swing.JButton TaylorBTN;
     private javax.swing.JLabel TituloArtista;
     private javax.swing.JButton btnCDS;
     private javax.swing.JButton btnCamisetas;
@@ -573,5 +653,6 @@ public class PrincipalCL extends javax.swing.JFrame {
     private javax.swing.JPanel panelDELproducto;
     private custom.PanelRound panelRound1;
     private javax.swing.JPanel panelproductoss;
+    private javax.swing.JButton txtBTN;
     // End of variables declaration//GEN-END:variables
 }
