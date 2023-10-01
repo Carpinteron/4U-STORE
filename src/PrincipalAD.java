@@ -880,6 +880,7 @@ public class PrincipalAD extends javax.swing.JFrame {
 
             registro.close();
             System.out.println("Datos agregados exitosamente al archivo " + file_name);
+           
 
         } catch (IOException ex) {
             System.out.println("Error al agregar datos al archivo " + file_name);
@@ -908,6 +909,7 @@ public class PrincipalAD extends javax.swing.JFrame {
             if (Validaciones(Categoria, Artista, Sub, Descripcion, Cantidad, Precio)) {
                 registrar_producto.println((Categoria + " " + Sub + " " + Descripcion) + ";" + Cantidad + ";" + Categoria + ";" + Artista + ";" + Precio);
                 System.out.println("YA SE AGREGO (ESTO DESPUES SE BORRA)");
+                 JOptionPane.showMessageDialog(null, "Los datos se han agregado satisfactoriamente.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
                 seagrego = true;
             }
             registrar_producto.close();
@@ -960,6 +962,7 @@ public class PrincipalAD extends javax.swing.JFrame {
                 // Reemplazar el archivo original con el archivo temporal
                 if (archivoOriginal.delete() && archivoTemporal.renameTo(archivoOriginal)) {
                     System.out.println("Inventario actualizado con éxito.");
+                    JOptionPane.showMessageDialog(null, "Los datos se han agregado satisfactoriamente.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
                     hay = true;
                     LeerNormal(sc, file_name, tabla);
                 } else {
@@ -1262,6 +1265,7 @@ public class PrincipalAD extends javax.swing.JFrame {
             return;
         } else {
             jcSubcategoriaPE.setEnabled(true);
+            fieldCantPE.setEnabled(true);
             labelDPE.setVisible(true);
 
             model.removeAllElements(); // Limpia el modelo antes de cargar los elementos desde el archivo
@@ -1486,10 +1490,7 @@ public class PrincipalAD extends javax.swing.JFrame {
     }//GEN-LAST:event_jcArtistaPEActionPerformed
 
     private void jcSubcategoriaPEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcSubcategoriaPEActionPerformed
-        if (jcSubcategoriaPE.getSelectedItem() != null) {
-            System.out.println("Deberia entrar aqui");
-            fieldCantPE.setEnabled(true);
-        }
+        
     }//GEN-LAST:event_jcSubcategoriaPEActionPerformed
 
     private void BTNcerrarAgregar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNcerrarAgregar1ActionPerformed
