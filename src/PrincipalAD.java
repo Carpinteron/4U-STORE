@@ -46,6 +46,7 @@ public class PrincipalAD extends javax.swing.JFrame {
         PanelAgregar.setVisible(false);
         PanelAgregarPE.setVisible(false);
         PanelEliminar.setVisible(false);
+        CopiarArchivoAlISTA( sc, "Inventario");
 
     }
 
@@ -811,43 +812,47 @@ public class PrincipalAD extends javax.swing.JFrame {
             ex.printStackTrace();
         }
     }
+
     //Leer datos de forma ordenada (Segun Artista)
     public static void LeerNormal(Scanner sc, String file_name, JTable tabla) {
-         try {
-        BufferedReader br = new BufferedReader(new FileReader(file_name + ".txt"));
-        String line;
-        List<String[]> Datos = new ArrayList<>(); //Implemento una lista 
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(file_name + ".txt"));
+            String line;
+            List<String[]> Datos = new ArrayList<>(); //Implemento una lista 
 
-        while ((line = br.readLine()) != null) {
-            String[] temp = line.split(";");
-            Datos.add(temp);//Agrego los registros a la lista
-        }
-        
-        br.close();
-
-        // Ordena los datos solo por artista
-        /** METODO A IMPLEMENTAR
-        Collections.sort es un método en Java que se utiliza para ordenar colecciones,como listas, conjuntos, colas, etc. 
-        Permite ordenar los elementos de una colección en un orden específico según un criterio de comparación.
-        * **/
-        Collections.sort(Datos, new Comparator<String[]>() {
-            @Override
-            public int compare(String[] o1, String[] o2) {
-                return o1[3].compareTo(o2[3]); // Compara por artista
+            while ((line = br.readLine()) != null) {
+                String[] temp = line.split(";");
+                Datos.add(temp);//Agrego los registros a la lista
             }
-        });
 
-        // Limpia la tabla
-        DefaultTableModel model = (DefaultTableModel) tabla.getModel();
-        model.setRowCount(0);
+            br.close();
 
-        // Agrega los datos ordenados a la tabla
-        for (String[] rowData : Datos) {
-            model.addRow(rowData);
+            // Ordena los datos solo por artista
+            /**
+             * METODO A IMPLEMENTAR Collections.sort es un método en Java que se
+             * utiliza para ordenar colecciones,como listas, conjuntos, colas,
+             * etc. Permite ordenar los elementos de una colección en un orden
+             * específico según un criterio de comparación.
+        * *
+             */
+            Collections.sort(Datos, new Comparator<String[]>() {
+                @Override
+                public int compare(String[] o1, String[] o2) {
+                    return o1[3].compareTo(o2[3]); // Compara por artista
+                }
+            });
+
+            // Limpia la tabla
+            DefaultTableModel model = (DefaultTableModel) tabla.getModel();
+            model.setRowCount(0);
+
+            // Agrega los datos ordenados a la tabla
+            for (String[] rowData : Datos) {
+                model.addRow(rowData);
+            }
+        } catch (IOException ex) {
+            System.out.println("Error al leer el archivo: " + ex.getMessage());
         }
-    } catch (IOException ex) {
-        System.out.println("Error al leer el archivo: " + ex.getMessage());
-    }
 
     }
 
@@ -935,19 +940,19 @@ public class PrincipalAD extends javax.swing.JFrame {
                     String Categoria = campos[2]; // Nombre de la categoria
                     String nombreArtista = campos[3]; // Nombre del artista
                     String Precio = campos[4]; // Precio Producto
-                    
-                        // Si el nombre ingresado y artista ingresado coincide con el archivo agregar la cantidad ingresada
-                        if (nombreProducto.equals(ProductoAct) && nombreArtista.equals(ArtistaAct)) {
-                            System.out.println("si soy iguaaal");
-                            int cantidadNueva = Integer.parseInt(cantidadAct); // Cantidad actual
-                            cantidadActual += cantidadNueva; // Aumentar la cantidad en 10
-                        }
 
-                        // Construir la nueva línea con los campos actualizados
-                        String nuevaLinea = nombreProducto + ";" + cantidadActual + ";" + Categoria + ";" + nombreArtista + ";" + Precio;
-                        // Escribir la nueva línea en el archivo temporal
-                        pw.println(nuevaLinea);
-                     
+                    // Si el nombre ingresado y artista ingresado coincide con el archivo agregar la cantidad ingresada
+                    if (nombreProducto.equals(ProductoAct) && nombreArtista.equals(ArtistaAct)) {
+                        System.out.println("si soy iguaaal");
+                        int cantidadNueva = Integer.parseInt(cantidadAct); // Cantidad actual
+                        cantidadActual += cantidadNueva; // Aumentar la cantidad en 10
+                    }
+
+                    // Construir la nueva línea con los campos actualizados
+                    String nuevaLinea = nombreProducto + ";" + cantidadActual + ";" + Categoria + ";" + nombreArtista + ";" + Precio;
+                    // Escribir la nueva línea en el archivo temporal
+                    pw.println(nuevaLinea);
+
                 }
                 br.close();
                 pw.close();
@@ -1123,8 +1128,7 @@ public class PrincipalAD extends javax.swing.JFrame {
         }
         return true;// se devuelve true si cumple con todas las validaciones correspondientes
     }
-    
-    
+
     public static final Map<String, List<String>> ALBUMES_ARTISTAS = new HashMap<>();
 
     static {
@@ -1228,9 +1232,9 @@ public class PrincipalAD extends javax.swing.JFrame {
         }
 
     }
-    
 
     DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();
+
     // Método para cargar elementos iniciales desde el archivo
     public void CargarDatosJcombo2() {
         String categoria = jcCategoriaPE.getSelectedItem().toString();
@@ -1239,14 +1243,14 @@ public class PrincipalAD extends javax.swing.JFrame {
 
         if (categoria.equalsIgnoreCase("Seleccionar categoria")) {
             jcSubcategoriaPE.setEnabled(false);
-           
+
             fieldCantPE.setEnabled(false);
             labelDPE.setVisible(false);
             System.out.println("Entre aqui en false");
 
         } else if ((artista.equalsIgnoreCase("Seleccionar artista"))) {
             jcSubcategoriaPE.setEnabled(false);
-           
+
             fieldCantPE.setEnabled(false);
             labelDPE.setVisible(false);
             System.out.println("Entre aqui en false");
@@ -1259,42 +1263,43 @@ public class PrincipalAD extends javax.swing.JFrame {
         } else {
             jcSubcategoriaPE.setEnabled(true);
             labelDPE.setVisible(true);
-            
+
             model.removeAllElements(); // Limpia el modelo antes de cargar los elementos desde el archivo
             boolean hayElementos = false; // Bandera para verificar si se encontraron elementos
-            try (BufferedReader BR = new BufferedReader(new FileReader("inventario.txt"))) {
-            String line;
-            while ((line = BR.readLine()) != null) {
-                String[] campos = line.split(";");
-                if (campos.length > 3) { // Asegúrate de que haya suficientes campos
-                    String nombreProducto = campos[0];
-                    String CategoriaArch = campos[2];
-                    String ArtistaArch = campos[3];
-                    if (CategoriaArch.equalsIgnoreCase(categoria) && ArtistaArch.equalsIgnoreCase(artista)){
-                      if (!existeEnComboBox(nombreProducto)) {
-                        model.addElement(nombreProducto);
-                        hayElementos = true; // Se encontraron elementos
-                    }  
-                    }
-                    
-                }
-            }
-            if (!hayElementos) {
-                jcSubcategoriaPE.setEnabled(false); // Deshabilita el JComboBox
-                BTNAgregarPE.setEnabled(false);
-            } else {
-                jcSubcategoriaPE.setEnabled(true); // Habilita el JComboBox si hay elementos
-                BTNAgregarPE.setEnabled(true);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+            try ( BufferedReader BR = new BufferedReader(new FileReader("inventario.txt"))) {
+                String line;
+                while ((line = BR.readLine()) != null) {
+                    String[] campos = line.split(";");
+                    if (campos.length > 3) { // Asegúrate de que haya suficientes campos
+                        String nombreProducto = campos[0];
+                        String CategoriaArch = campos[2];
+                        String ArtistaArch = campos[3];
+                        if (CategoriaArch.equalsIgnoreCase(categoria) && ArtistaArch.equalsIgnoreCase(artista)) {
+                            if (!existeEnComboBox(nombreProducto)) {
+                                model.addElement(nombreProducto);
+                                hayElementos = true; // Se encontraron elementos
+                            }
+                        }
 
-        jcSubcategoriaPE.setModel(model); // Asigna el modelo al JComboBox
-            
+                    }
+                }
+                if (!hayElementos) {
+                    jcSubcategoriaPE.setEnabled(false); // Deshabilita el JComboBox
+                    BTNAgregarPE.setEnabled(false);
+                } else {
+                    jcSubcategoriaPE.setEnabled(true); // Habilita el JComboBox si hay elementos
+                    BTNAgregarPE.setEnabled(true);
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            jcSubcategoriaPE.setModel(model); // Asigna el modelo al JComboBox
+
         }
 
     }
+
     // Método para verificar si un elemento ya existe en el JComboBox
     private boolean existeEnComboBox(String codigo) {
         for (int i = 0; i < model.getSize(); i++) {
@@ -1501,14 +1506,14 @@ public class PrincipalAD extends javax.swing.JFrame {
         String Categoria = (jcCategoriaPE.getSelectedItem() != null) ? jcCategoriaPE.getSelectedItem().toString() : "";
         String Artista = (jcArtistaPE.getSelectedItem() != null) ? jcArtistaPE.getSelectedItem().toString() : "";
         String Sub = (jcSubcategoriaPE.getSelectedItem() != null) ? jcSubcategoriaPE.getSelectedItem().toString() : "";
-        
+
         String Cantidad = fieldCantPE.getText();
         if (Validaciones2(Categoria, Artista, Sub, Cantidad)) {
             System.out.println("Se cumplieron las validaciones");
             Scanner sc = new Scanner(System.in);
-            System.out.println("Este es el nombre producto que estoy enviando: "+ Sub);
-             System.out.println("Este es el nombre artista que estoy enviando: "+ Artista);
-             System.out.println("Esta es la cantidad que estoy enviando: "+ Cantidad);
+            System.out.println("Este es el nombre producto que estoy enviando: " + Sub);
+            System.out.println("Este es el nombre artista que estoy enviando: " + Artista);
+            System.out.println("Esta es la cantidad que estoy enviando: " + Cantidad);
             ActualizarInventario(sc, "Inventario", TablaINVENTARIO, Sub, Artista, Cantidad);
             sc.close();
             String seleccionarc = "Seleccionar Categoria";
@@ -1580,6 +1585,86 @@ public class PrincipalAD extends javax.swing.JFrame {
         }
         return false;
     }
+
+//CLASES PARA LA LISTAS ENLAZADAS
+    class Nodo {
+
+        String dato;
+        Nodo siguiente;
+
+        public Nodo(String dato) {
+            this.dato = dato;
+            this.siguiente = null;
+        }
+    }
+
+    class ListaEnlazada {
+
+        Nodo head; // El primer nodo de la lista
+
+        public ListaEnlazada() {
+            head = null;
+        }
+
+        public void agregarAlInicio(String dato) {
+            Nodo nuevoNodo = new Nodo(dato);
+            nuevoNodo.siguiente = head;
+            head = nuevoNodo;
+        }
+
+        public void agregarAlFinal(String dato) {
+            Nodo nuevoNodo = new Nodo(dato);
+
+            // Si la lista está vacía, el nuevo nodo será la cabeza
+            if (head == null) {
+                head = nuevoNodo;
+            } else {
+                Nodo nodoActual = head;
+                while (nodoActual.siguiente != null) {
+                    nodoActual = nodoActual.siguiente;
+                }
+                nodoActual.siguiente = nuevoNodo;
+            }
+        }
+
+        public void mostrarLista() {
+            Nodo nodoActual = head;
+            while (nodoActual != null) {
+                System.out.print(nodoActual.dato + " -> ");
+                nodoActual = nodoActual.siguiente;
+            }
+            System.out.println("null");
+        }
+    }
+
+    public void CopiarArchivoAlISTA(Scanner sc, String file_name) {
+        ListaEnlazada listInventarioTempCANT = new ListaEnlazada();
+        ListaEnlazada listInventarioTempNAMES = new ListaEnlazada();
+        boolean hay = false;
+        while (hay == false) {
+            try {
+                BufferedReader br = new BufferedReader(new FileReader(file_name + ".txt"));
+                String line = null;
+
+                while ((line = br.readLine()) != null) {
+                    String temp[] = line.split(";");
+                    listInventarioTempCANT.agregarAlFinal(temp[1]); //Cantidad en el inventario pero esta en String
+                    listInventarioTempNAMES.agregarAlFinal(temp[0] + ";" + temp[3]);
+                }
+                listInventarioTempCANT.mostrarLista();
+                listInventarioTempNAMES.mostrarLista();
+                br.close();
+                hay = true;
+
+            } catch (IOException ex) {
+                System.out.println("No se encontro archivo");
+                hay = false;
+                file_name = sc.nextLine(); // Archivo
+            }
+        }
+    }
+
+    
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
