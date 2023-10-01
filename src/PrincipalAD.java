@@ -128,6 +128,11 @@ public class PrincipalAD extends javax.swing.JFrame {
         jLabel16 = new javax.swing.JLabel();
         jComboBox3 = new javax.swing.JComboBox<>();
         jcCategoriaEL = new javax.swing.JComboBox<>();
+        RegistroPanel = new javax.swing.JPanel();
+        jTextField1 = new javax.swing.JTextField();
+        jTextField2 = new javax.swing.JTextField();
+        jTextField3 = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -549,6 +554,47 @@ public class PrincipalAD extends javax.swing.JFrame {
         );
 
         Pantalla.add(PanelEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 140, 680, 400));
+
+        jTextField1.setText("jTextField1");
+
+        jTextField2.setText("jTextField2");
+
+        jTextField3.setText("jTextField3");
+
+        jButton1.setText("jButton1");
+
+        javax.swing.GroupLayout RegistroPanelLayout = new javax.swing.GroupLayout(RegistroPanel);
+        RegistroPanel.setLayout(RegistroPanelLayout);
+        RegistroPanelLayout.setHorizontalGroup(
+            RegistroPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(RegistroPanelLayout.createSequentialGroup()
+                .addGroup(RegistroPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(RegistroPanelLayout.createSequentialGroup()
+                        .addGap(67, 67, 67)
+                        .addGroup(RegistroPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)
+                            .addComponent(jTextField2)
+                            .addComponent(jTextField1)))
+                    .addGroup(RegistroPanelLayout.createSequentialGroup()
+                        .addGap(139, 139, 139)
+                        .addComponent(jButton1)))
+                .addContainerGap(520, Short.MAX_VALUE))
+        );
+        RegistroPanelLayout.setVerticalGroup(
+            RegistroPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(RegistroPanelLayout.createSequentialGroup()
+                .addGap(44, 44, 44)
+                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34)
+                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(38, 38, 38)
+                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton1)
+                .addContainerGap(31, Short.MAX_VALUE))
+        );
+
+        Pantalla.add(RegistroPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 370, 830, 310));
 
         getContentPane().add(Pantalla, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1200, 700));
 
@@ -1729,6 +1775,7 @@ public class PrincipalAD extends javax.swing.JFrame {
     private javax.swing.JPanel PanelEliminar;
     private custom.PanelRound Pantalla;
     private javax.swing.JPasswordField PassField;
+    private javax.swing.JPanel RegistroPanel;
     private javax.swing.JTable TablaINVENTARIO;
     private javax.swing.JButton botonEP;
     private javax.swing.JButton botonPE;
@@ -1748,6 +1795,7 @@ public class PrincipalAD extends javax.swing.JFrame {
     private javax.swing.JTextField fieldCantPE;
     private javax.swing.JTextField fieldDescripcion;
     private javax.swing.JTextField fieldPrecio;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JComboBox<String> jComboBox2;
@@ -1768,6 +1816,9 @@ public class PrincipalAD extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
     private javax.swing.JComboBox<String> jcArtista;
     private javax.swing.JComboBox<String> jcArtistaPE;
     private javax.swing.JComboBox<String> jcCategoria;

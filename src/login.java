@@ -1,5 +1,13 @@
 
 import java.awt.Color;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import javax.swing.ImageIcon;
 
 /**
@@ -8,7 +16,7 @@ import javax.swing.ImageIcon;
  */
 public class login extends javax.swing.JFrame {
 
-    int[] cedAdmin = {1042245460, 1047037245, 1044610582};
+  
     boolean existe;
     String user;
 
@@ -18,9 +26,38 @@ public class login extends javax.swing.JFrame {
         setBackground(new Color(0, 0, 0, 0));
         initComponents();
         setLocationRelativeTo(null);
+        CedulasAdmins("CedulasAdmins");
 
     }
 
+     public static void CedulasAdmins(String file_name) {
+        try {
+            FileWriter outFile = new FileWriter(file_name + ".txt", false);
+            PrintWriter registro = new PrintWriter(outFile);
+
+            //Matriz para crear Archivo Existente 
+            String[][] usuariosADMIN = {
+                //Seccion CONAN
+                {"1042245460"}, 
+                {"1047037245"}, 
+                {"1044610582"}};
+
+            //Agregar datos de la matriz al registro
+            for (String[] fila : usuariosADMIN) {
+                String cedula = fila[0];
+
+                // Agregar los datos al archivo
+                registro.println(cedula);
+            }
+
+            registro.close();
+            System.out.println("Datos agregados exitosamente al archivo " + file_name);
+
+        } catch (IOException ex) {
+            System.out.println("Error al agregar datos al archivo " + file_name);
+            ex.printStackTrace();
+        }
+    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -213,23 +250,39 @@ public class login extends javax.swing.JFrame {
     }//GEN-LAST:event_fcontraseñaActionPerformed
 
     private void LoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginActionPerformed
-        int queflojera = 0; // para no meter cedula a cada rato 
+        int queflojera = 5; // para no meter cedula a cada rato 
         if (queflojera == 0) { // ESTO SE QUITA
             existe = true;
              user = fnombre.getText();
         } else {
-            int pos = 0;
+            
             user = fnombre.getText();
             String cedula = fcontraseña.getText();
 
-            while (pos < cedAdmin.length && existe == false) {
-                System.out.println(cedAdmin[pos]);
-                if (cedAdmin[pos] == Integer.parseInt(cedula)) {
+            try {
+            BufferedReader br = new BufferedReader(new FileReader("CedulasAdmins.txt"));
+            String linea;
+            
+            while ((linea = br.readLine()) != null && !existe) {
+                System.out.println(linea);
+                if (linea.equals(cedula)) {
                     existe = true;
-                } else {
-                    pos++;
                 }
             }
+            
+            br.close();
+        } catch (IOException ex) {
+            System.out.println("Error al leer el archivo.");
+            ex.printStackTrace();
+        }
+//            while (pos < cedAdmin.length && existe == false) {
+//                System.out.println(cedAdmin[pos]);
+//                if (cedAdmin[pos] == Integer.parseInt(cedula)) {
+//                    existe = true;
+//                } else {
+//                    pos++;
+//                }
+//            }
        } //----
         System.out.println(existe);
 
