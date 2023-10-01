@@ -1571,6 +1571,7 @@ public class PrincipalAD extends javax.swing.JFrame {
         btnactualizar.setVisible(false);
         botonPE.setVisible(false);
         botonEP.setVisible(false);
+         RegistroPanel.setVisible(false);
         CargarDatosJcombo();
     }//GEN-LAST:event_BTNAgregar1ActionPerformed
 
@@ -1714,6 +1715,7 @@ public class PrincipalAD extends javax.swing.JFrame {
         btnactualizar.setVisible(false);
         botonPE.setVisible(false);
         botonEP.setVisible(false);
+         RegistroPanel.setVisible(false);
         CargarDatosJcombo2();
     }//GEN-LAST:event_botonPEActionPerformed
 
@@ -1849,6 +1851,7 @@ public class PrincipalAD extends javax.swing.JFrame {
         btnactualizar.setVisible(false);
         botonPE.setVisible(false);
         botonEP.setVisible(false);
+        RegistroPanel.setVisible(false);
         CargarDatosJcombo3();
     }//GEN-LAST:event_botonEPActionPerformed
 //VERIFICACION DE USUARIOSSSS
