@@ -1,4 +1,5 @@
 
+
 import java.awt.Color;
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -8,6 +9,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Scanner;
 import javax.swing.ImageIcon;
 
 /**
@@ -26,7 +28,11 @@ public class login extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         CedulasAdmins("CedulasAdmins");
-
+        Scanner sc=new Scanner(System.in);
+        PrincipalAD.ArchivoInventario("Inventario");
+        
+        PrincipalAD.CopiarArchivoAlISTA(sc, "Inventario");
+        
     }
 
     public static void CedulasAdmins(String file_name) {
