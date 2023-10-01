@@ -42,6 +42,7 @@ public class PrincipalAD extends javax.swing.JFrame {
         Pantalla.setVisible(false);
         exitBTN.setVisible(false);
         PanelAgregar.setVisible(false);
+        AgregarProductoExistente.setVisible(true);
         labelD.setVisible(false);
         error1.setVisible(false);
         error2.setVisible(false);
@@ -98,8 +99,13 @@ public class PrincipalAD extends javax.swing.JFrame {
         fieldCant = new javax.swing.JTextField();
         error5 = new javax.swing.JLabel();
         exitBTN = new javax.swing.JButton();
+        botonPE = new javax.swing.JButton();
+        botonEP = new javax.swing.JButton();
+        btnactualizar = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        AgregarProductoExistente = new custom.PanelRound();
+        AvisoLabel1 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -352,11 +358,24 @@ public class PrincipalAD extends javax.swing.JFrame {
         });
         Pantalla.add(exitBTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(1160, 0, -1, 40));
 
-        jButton1.setText("Agregar producto Existente");
-        Pantalla.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 70, -1, -1));
+        botonPE.setText("Agregar producto Existente");
+        Pantalla.add(botonPE, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 70, -1, -1));
 
-        jButton4.setText("Eliminar Producto");
-        Pantalla.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 70, -1, -1));
+        botonEP.setText("Eliminar Producto");
+        Pantalla.add(botonEP, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 70, -1, -1));
+
+        btnactualizar.setText("Actualizar Inventario de acuerdo a ventas");
+        Pantalla.add(btnactualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 90, -1, -1));
+
+        jButton1.setText("Ver grafica");
+        Pantalla.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 110, -1, -1));
+
+        AgregarProductoExistente.setBackground(new java.awt.Color(153, 153, 255));
+        AgregarProductoExistente.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        AgregarProductoExistente.add(AvisoLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 250, 290, 25));
+        AgregarProductoExistente.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 150, 120, 20));
+
+        Pantalla.add(AgregarProductoExistente, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 160, 560, 370));
 
         getContentPane().add(Pantalla, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1200, 700));
 
@@ -934,6 +953,8 @@ public class PrincipalAD extends javax.swing.JFrame {
         jScrollPane1.setVisible(false);
         TablaINVENTARIO.setVisible(false);
         BTNAgregar1.setVisible(false);
+        botonPE.setVisible(false);
+        botonEP.setVisible(false);
         CargarDatosJcombo();
     }//GEN-LAST:event_BTNAgregar1ActionPerformed
 
@@ -942,12 +963,13 @@ public class PrincipalAD extends javax.swing.JFrame {
         jScrollPane1.setVisible(true);
         TablaINVENTARIO.setVisible(true);
         BTNAgregar1.setVisible(true);
+        botonPE.setVisible(true);
+        botonEP.setVisible(true);
     }//GEN-LAST:event_BTNcerrarAgregarActionPerformed
 
     private void BTNAgregar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNAgregar2ActionPerformed
         AgregarProducto("Inventario");
         if (seagrego) {
-            //CargarDatosJcombo();
             String seleccionarc = "Seleccionar Categoria";
             String seleccionara = "Seleccionar Artista";
             jcCategoria.setSelectedItem(seleccionarc);
@@ -955,7 +977,6 @@ public class PrincipalAD extends javax.swing.JFrame {
             jcCategoria.setSelectedIndex(0);//Doble verificacion
             jcArtista.setSelectedIndex(0);
             jcSubcategoria.setSelectedItem(null);
-            //CargarDatosJcombo();
             fieldDescripcion.setText("");
             fieldDescripcion.setEnabled(false);
             fieldCant.setText("");
@@ -968,7 +989,19 @@ public class PrincipalAD extends javax.swing.JFrame {
     }//GEN-LAST:event_BTNAgregar2ActionPerformed
 
     private void BTNLimpiar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNLimpiar1ActionPerformed
-        // TODO add your handling code here:
+        String seleccionarc = "Seleccionar Categoria";
+            String seleccionara = "Seleccionar Artista";
+            jcCategoria.setSelectedItem(seleccionarc);
+            jcArtista.setSelectedItem(seleccionara);
+            jcCategoria.setSelectedIndex(0);//Doble verificacion
+            jcArtista.setSelectedIndex(0);
+            jcSubcategoria.setSelectedItem(null);
+            fieldDescripcion.setText("");
+            fieldDescripcion.setEnabled(false);
+            fieldCant.setText("");
+            fieldCant.setEnabled(false);
+            fieldPrecio.setText("");
+            fieldPrecio.setEnabled(false);
     }//GEN-LAST:event_BTNLimpiar1ActionPerformed
 
     private void jcSubcategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcSubcategoriaActionPerformed
@@ -1116,7 +1149,9 @@ public class PrincipalAD extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private custom.PanelRound AgregarProductoExistente;
     private javax.swing.JLabel AvisoLabel;
+    private javax.swing.JLabel AvisoLabel1;
     private javax.swing.JButton BTNAgregar1;
     private javax.swing.JButton BTNAgregar2;
     private javax.swing.JButton BTNLimpiar1;
@@ -1130,6 +1165,9 @@ public class PrincipalAD extends javax.swing.JFrame {
     private custom.PanelRound Pantalla;
     private javax.swing.JPasswordField PassField;
     private javax.swing.JTable TablaINVENTARIO;
+    private javax.swing.JButton botonEP;
+    private javax.swing.JButton botonPE;
+    private javax.swing.JButton btnactualizar;
     private javax.swing.JLabel error1;
     private javax.swing.JLabel error2;
     private javax.swing.JLabel error3;
@@ -1143,8 +1181,8 @@ public class PrincipalAD extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
