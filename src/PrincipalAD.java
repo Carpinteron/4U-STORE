@@ -1652,7 +1652,7 @@ public class PrincipalAD extends javax.swing.JFrame {
 
             model.removeAllElements(); // Limpia el modelo antes de cargar los elementos desde el archivo
             boolean hayElementos = false; // Bandera para verificar si se encontraron elementos
-            try (BufferedReader BR = new BufferedReader(new FileReader("inventario.txt"))) {
+            try ( BufferedReader BR = new BufferedReader(new FileReader("inventario.txt"))) {
                 String line;
                 while ((line = BR.readLine()) != null) {
                     String[] campos = line.split(";");
@@ -1711,7 +1711,7 @@ public class PrincipalAD extends javax.swing.JFrame {
             jcSubcategoriaEli.setEnabled(true);
             model2.removeAllElements(); // Limpia el modelo antes de cargar los elementos desde el archivo
             boolean hayElementos = false; // Bandera para verificar si se encontraron elementos
-            try (BufferedReader BR = new BufferedReader(new FileReader("inventario.txt"))) {
+            try ( BufferedReader BR = new BufferedReader(new FileReader("inventario.txt"))) {
                 String line;
                 while ((line = BR.readLine()) != null) {
                     String[] campos = line.split(";");
@@ -2410,6 +2410,31 @@ public class PrincipalAD extends javax.swing.JFrame {
             return null; // La posición está más allá del final de la lista
         }
 
+        public void eliminarNodo(String valor) {
+            Nodo temp = head;
+            Nodo previo = null;
+
+            // Si el nodo a eliminar es la cabeza
+            if (temp != null && temp.dato.equals(valor)) {
+                head = temp.siguiente;
+                return;
+            }
+
+            // Buscar el nodo a eliminar
+            while (temp != null && !temp.dato.equals(valor)) {
+                previo = temp;
+                temp = temp.siguiente;
+            }
+
+            // Si no se encuentra el valor en la lista
+            if (temp == null) {
+                System.out.println("El valor no se encontró en la lista enlazada.");
+                return;
+            }
+
+            // Eliminar el nodo encontrado
+            previo.siguiente = temp.siguiente;
+        }
     }
     ListaEnlazada listInventarioTempCANT = new ListaEnlazada();
     ListaEnlazada listInventarioTempNAMES = new ListaEnlazada();
