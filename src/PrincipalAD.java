@@ -116,7 +116,6 @@ public class PrincipalAD extends javax.swing.JFrame {
         panelRound2 = new custom.PanelRound();
         BtnGrafics = new javax.swing.JButton();
         BtnSalir = new javax.swing.JButton();
-        BtnInfo = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -311,14 +310,13 @@ public class PrincipalAD extends javax.swing.JFrame {
             }
         });
 
-        BtnSalir.setText("OUT");
+        BtnSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICons/regreso.png"))); // NOI18N
+        BtnSalir.setContentAreaFilled(false);
         BtnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnSalirActionPerformed(evt);
             }
         });
-
-        BtnInfo.setText("Info");
 
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICons/reg.png"))); // NOI18N
         jButton3.setContentAreaFilled(false);
@@ -337,7 +335,6 @@ public class PrincipalAD extends javax.swing.JFrame {
             .addGroup(panelRound2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(BtnInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7)
                     .addGroup(panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(jButton3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -354,9 +351,7 @@ public class PrincipalAD extends javax.swing.JFrame {
                 .addComponent(BtnGrafics, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(170, 170, 170)
                 .addComponent(jButton3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 200, Short.MAX_VALUE)
-                .addComponent(BtnInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 269, Short.MAX_VALUE)
                 .addComponent(BtnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(23, 23, 23))
         );
@@ -393,8 +388,12 @@ public class PrincipalAD extends javax.swing.JFrame {
         });
         Pantalla.add(BTNAgregar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 70, -1, -1));
 
+        PanelAgregar.setBackground(new java.awt.Color(209, 163, 255));
         PanelAgregar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jcCategoria.setBackground(new java.awt.Color(204, 204, 255));
+        jcCategoria.setFont(new java.awt.Font("Sylfaen", 0, 12)); // NOI18N
+        jcCategoria.setForeground(new java.awt.Color(0, 0, 0));
         jcCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar categoria", "Camiseta", "Gorra", "CD", "Vinilo", "Llavero" }));
         jcCategoria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -403,6 +402,9 @@ public class PrincipalAD extends javax.swing.JFrame {
         });
         PanelAgregar.add(jcCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(427, 83, 275, -1));
 
+        jcArtista.setBackground(new java.awt.Color(204, 204, 255));
+        jcArtista.setFont(new java.awt.Font("Sylfaen", 0, 12)); // NOI18N
+        jcArtista.setForeground(new java.awt.Color(0, 0, 0));
         jcArtista.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar artista", "Conan Gray", "Harry Styles", "Sabrina Carpenter", "Taylor Swift", "Billie Eilish", "Louis Tomlinson", "5SOS", "Stray Kids", "Big Time Rush", "TXT", "Imagine Dragons" }));
         jcArtista.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -411,24 +413,39 @@ public class PrincipalAD extends javax.swing.JFrame {
         });
         PanelAgregar.add(jcArtista, new org.netbeans.lib.awtextra.AbsoluteConstraints(427, 133, 275, -1));
 
+        jcSubcategoria.setBackground(new java.awt.Color(204, 204, 255));
+        jcSubcategoria.setFont(new java.awt.Font("Sylfaen", 0, 12)); // NOI18N
+        jcSubcategoria.setForeground(new java.awt.Color(0, 0, 0));
         jcSubcategoria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jcSubcategoriaActionPerformed(evt);
             }
         });
         PanelAgregar.add(jcSubcategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 190, 275, -1));
+
+        fieldPrecio.setBackground(new java.awt.Color(204, 204, 255));
+        fieldPrecio.setFont(new java.awt.Font("Sylfaen", 0, 12)); // NOI18N
+        fieldPrecio.setForeground(new java.awt.Color(0, 0, 0));
         PanelAgregar.add(fieldPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 310, 275, -1));
 
+        jLabel1.setFont(new java.awt.Font("Sylfaen", 0, 12)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Categoría");
         PanelAgregar.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(205, 86, -1, -1));
 
+        jLabel2.setFont(new java.awt.Font("Sylfaen", 0, 12)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Artista");
         PanelAgregar.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(205, 136, 51, -1));
 
+        labelD.setFont(new java.awt.Font("Sylfaen", 0, 12)); // NOI18N
+        labelD.setForeground(new java.awt.Color(0, 0, 0));
         labelD.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         labelD.setText("Talla/Album/Tipo (todo depende de lo anterior)");
         PanelAgregar.add(labelD, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 190, 204, -1));
 
+        jLabel5.setFont(new java.awt.Font("Sylfaen", 0, 12)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Precio unitario (COP)");
         PanelAgregar.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 330, 147, -1));
 
@@ -476,9 +493,14 @@ public class PrincipalAD extends javax.swing.JFrame {
         error3.setText("(!) Debe seleccionar un artista");
         PanelAgregar.add(error3, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 200, 290, 40));
 
+        jLabel8.setFont(new java.awt.Font("Sylfaen", 0, 12)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("Descripción producto");
         PanelAgregar.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 230, -1, -1));
 
+        fieldDescripcion.setBackground(new java.awt.Color(204, 204, 255));
+        fieldDescripcion.setFont(new java.awt.Font("Sylfaen", 0, 12)); // NOI18N
+        fieldDescripcion.setForeground(new java.awt.Color(0, 0, 0));
         fieldDescripcion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 fieldDescripcionActionPerformed(evt);
@@ -491,9 +513,14 @@ public class PrincipalAD extends javax.swing.JFrame {
         error4.setText("(!) Debe ingresar una descripción");
         PanelAgregar.add(error4, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 250, 180, -1));
 
+        labelCantidad.setFont(new java.awt.Font("Sylfaen", 0, 12)); // NOI18N
+        labelCantidad.setForeground(new java.awt.Color(0, 0, 0));
         labelCantidad.setText("Cantidad");
         PanelAgregar.add(labelCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 280, -1, -1));
 
+        fieldCant.setBackground(new java.awt.Color(204, 204, 255));
+        fieldCant.setFont(new java.awt.Font("Sylfaen", 0, 12)); // NOI18N
+        fieldCant.setForeground(new java.awt.Color(0, 0, 0));
         fieldCant.setText("1");
         fieldCant.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -557,11 +584,17 @@ public class PrincipalAD extends javax.swing.JFrame {
 
         PanelAgregarPE.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        panelRound1.setBackground(new java.awt.Color(209, 163, 255));
         panelRound1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel10.setFont(new java.awt.Font("Sylfaen", 0, 12)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(0, 0, 0));
         jLabel10.setText("Categoría");
         panelRound1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(205, 86, -1, -1));
 
+        jcCategoriaPE.setBackground(new java.awt.Color(204, 204, 255));
+        jcCategoriaPE.setFont(new java.awt.Font("Sylfaen", 0, 12)); // NOI18N
+        jcCategoriaPE.setForeground(new java.awt.Color(0, 0, 0));
         jcCategoriaPE.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar categoria", "Camiseta", "Gorra", "CD", "Vinilo", "Llavero" }));
         jcCategoriaPE.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -570,6 +603,9 @@ public class PrincipalAD extends javax.swing.JFrame {
         });
         panelRound1.add(jcCategoriaPE, new org.netbeans.lib.awtextra.AbsoluteConstraints(427, 83, 275, -1));
 
+        jcArtistaPE.setBackground(new java.awt.Color(204, 204, 255));
+        jcArtistaPE.setFont(new java.awt.Font("Sylfaen", 0, 12)); // NOI18N
+        jcArtistaPE.setForeground(new java.awt.Color(0, 0, 0));
         jcArtistaPE.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar artista", "Conan Gray", "Harry Styles", "Sabrina Carpenter", "Taylor Swift", "Billie Eilish", "Louis Tomlinson", "5SOS", "Stray Kids", "Big Time Rush", "TXT", "Imagine Dragons" }));
         jcArtistaPE.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -578,6 +614,9 @@ public class PrincipalAD extends javax.swing.JFrame {
         });
         panelRound1.add(jcArtistaPE, new org.netbeans.lib.awtextra.AbsoluteConstraints(427, 133, 275, -1));
 
+        jcSubcategoriaPE.setBackground(new java.awt.Color(204, 204, 255));
+        jcSubcategoriaPE.setFont(new java.awt.Font("Sylfaen", 0, 12)); // NOI18N
+        jcSubcategoriaPE.setForeground(new java.awt.Color(0, 0, 0));
         jcSubcategoriaPE.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jcSubcategoriaPEActionPerformed(evt);
@@ -585,9 +624,13 @@ public class PrincipalAD extends javax.swing.JFrame {
         });
         panelRound1.add(jcSubcategoriaPE, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 190, 275, -1));
 
+        jLabel11.setFont(new java.awt.Font("Sylfaen", 0, 12)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(0, 0, 0));
         jLabel11.setText("Artista");
         panelRound1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(205, 136, 51, -1));
 
+        labelDPE.setFont(new java.awt.Font("Sylfaen", 0, 12)); // NOI18N
+        labelDPE.setForeground(new java.awt.Color(0, 0, 0));
         labelDPE.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         labelDPE.setText("Seleccione el producto ");
         panelRound1.add(labelDPE, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 190, 204, -1));
@@ -631,9 +674,14 @@ public class PrincipalAD extends javax.swing.JFrame {
         error3PE.setText("(!) Debe seleccionar un producto");
         panelRound1.add(error3PE, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 200, 290, 40));
 
+        labelCantidad1.setFont(new java.awt.Font("Sylfaen", 0, 12)); // NOI18N
+        labelCantidad1.setForeground(new java.awt.Color(0, 0, 0));
         labelCantidad1.setText("Cantidad");
         panelRound1.add(labelCantidad1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 250, -1, -1));
 
+        fieldCantPE.setBackground(new java.awt.Color(204, 204, 255));
+        fieldCantPE.setFont(new java.awt.Font("Sylfaen", 0, 12)); // NOI18N
+        fieldCantPE.setForeground(new java.awt.Color(0, 0, 0));
         fieldCantPE.setText("1");
         fieldCantPE.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -653,11 +701,17 @@ public class PrincipalAD extends javax.swing.JFrame {
 
         PanelEliminar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        panelRound3.setBackground(new java.awt.Color(209, 163, 255));
         panelRound3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel12.setFont(new java.awt.Font("Sylfaen", 0, 12)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(0, 0, 0));
         jLabel12.setText("Categoría");
         panelRound3.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(205, 86, -1, -1));
 
+        jcCategoriaEli.setBackground(new java.awt.Color(204, 204, 255));
+        jcCategoriaEli.setFont(new java.awt.Font("Sylfaen", 0, 12)); // NOI18N
+        jcCategoriaEli.setForeground(new java.awt.Color(0, 0, 0));
         jcCategoriaEli.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar categoria", "Camiseta", "Gorra", "CD", "Vinilo", "Llavero" }));
         jcCategoriaEli.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -666,6 +720,9 @@ public class PrincipalAD extends javax.swing.JFrame {
         });
         panelRound3.add(jcCategoriaEli, new org.netbeans.lib.awtextra.AbsoluteConstraints(427, 83, 275, -1));
 
+        jcArtistaEli.setBackground(new java.awt.Color(204, 204, 255));
+        jcArtistaEli.setFont(new java.awt.Font("Sylfaen", 0, 12)); // NOI18N
+        jcArtistaEli.setForeground(new java.awt.Color(0, 0, 0));
         jcArtistaEli.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar artista", "Conan Gray", "Harry Styles", "Sabrina Carpenter", "Taylor Swift", "Billie Eilish", "Louis Tomlinson", "5SOS", "Stray Kids", "Big Time Rush", "TXT", "Imagine Dragons" }));
         jcArtistaEli.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -674,6 +731,9 @@ public class PrincipalAD extends javax.swing.JFrame {
         });
         panelRound3.add(jcArtistaEli, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 140, 275, -1));
 
+        jcSubcategoriaEli.setBackground(new java.awt.Color(204, 204, 255));
+        jcSubcategoriaEli.setFont(new java.awt.Font("Sylfaen", 0, 12)); // NOI18N
+        jcSubcategoriaEli.setForeground(new java.awt.Color(0, 0, 0));
         jcSubcategoriaEli.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jcSubcategoriaEliActionPerformed(evt);
@@ -681,9 +741,13 @@ public class PrincipalAD extends javax.swing.JFrame {
         });
         panelRound3.add(jcSubcategoriaEli, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 210, 275, -1));
 
+        jLabel13.setFont(new java.awt.Font("Sylfaen", 0, 12)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(0, 0, 0));
         jLabel13.setText("Artista");
         panelRound3.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 140, 51, -1));
 
+        labelDEli.setFont(new java.awt.Font("Sylfaen", 0, 12)); // NOI18N
+        labelDEli.setForeground(new java.awt.Color(0, 0, 0));
         labelDEli.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         labelDEli.setText("Seleccione el producto ");
         panelRound3.add(labelDEli, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 210, 204, -1));
@@ -2076,7 +2140,8 @@ public class PrincipalAD extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnEXIT3ActionPerformed
 
     private void btnactualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnactualizarActionPerformed
-        // TODO add your handling code here:
+        Scanner sc = null;
+         LeerNormal(sc, "Inventario", TablaINVENTARIO);
     }//GEN-LAST:event_btnactualizarActionPerformed
 //    public void AñadirUsuarios(String file_name, String file_ced) {
 //        try {
@@ -2456,7 +2521,6 @@ public class PrincipalAD extends javax.swing.JFrame {
     private javax.swing.JButton BtnEXIT1;
     private javax.swing.JButton BtnEXIT3;
     private javax.swing.JButton BtnGrafics;
-    private javax.swing.JButton BtnInfo;
     private javax.swing.JButton BtnSalir;
     private javax.swing.JButton BtnSalir1;
     private javax.swing.JButton BtnVerifyUser;

@@ -1,5 +1,4 @@
 
-
 import java.awt.Color;
 import java.io.BufferedReader;
 import java.io.File;
@@ -22,6 +21,7 @@ public class login extends javax.swing.JFrame {
     boolean existe;
     String user;
     String cedula;
+
     public login() {
         setIconImage(new ImageIcon(getClass().getResource("ICons/4Uicon.png")).getImage());
         setUndecorated(true);
@@ -29,14 +29,13 @@ public class login extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         CedulasAdmins("CedulasAdmins");
-        Scanner sc=new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
         PrincipalAD.ArchivoInventario("Inventario");
-       
-        
+
     }
 
     public static void CedulasAdmins(String file_name) {
-       
+
 //        try {
 //            FileWriter outFile = new FileWriter(file_name + ".txt", true);
 //            PrintWriter registro = new PrintWriter(outFile);
@@ -62,50 +61,50 @@ public class login extends javax.swing.JFrame {
 //            System.out.println("Error al agregar datos al archivo " + file_name);
 //            ex.printStackTrace();
 //        }
-         try {
-    // Archivo existente
-     file_name = "CedulasAdmins.txt";
-    
-    // Registros a agregar
-    String[][] nuevosRegistros = {
-        {"Paula Núñez| 1042245460| 77777"},
-        {"Natalia Carpintero| 1047037245| 12345"},
-        {"Isabella Arrieta| 1044610582| 09876"}
-    };
+        try {
+            // Archivo existente
+            file_name = "CedulasAdmins.txt";
 
-    // Verificar si los registros ya existen en el archivo
-    boolean registrosExistentes = false;
-    BufferedReader reader = new BufferedReader(new FileReader(file_name));
-    String linea;
-    while ((linea = reader.readLine()) != null) {
-        for (String[] registro : nuevosRegistros) {
-            if (linea.equals(registro[0])) {
-                registrosExistentes = true;
-                break;
+            // Registros a agregar
+            String[][] nuevosRegistros = {
+                {"Paula Núñez| 1042245460| 77777"},
+                {"Natalia Carpintero| 1047037245| 12345"},
+                {"Isabella Arrieta| 1044610582| 09876"}
+            };
+
+            // Verificar si los registros ya existen en el archivo
+            boolean registrosExistentes = false;
+            BufferedReader reader = new BufferedReader(new FileReader(file_name));
+            String linea;
+            while ((linea = reader.readLine()) != null) {
+                for (String[] registro : nuevosRegistros) {
+                    if (linea.equals(registro[0])) {
+                        registrosExistentes = true;
+                        break;
+                    }
+                }
+                if (registrosExistentes) {
+                    break;
+                }
             }
-        }
-        if (registrosExistentes) {
-            break;
-        }
-    }
-    reader.close();
+            reader.close();
 
-    // Agregar los registros al archivo si no existen
-    if (!registrosExistentes) {
-        PrintWriter writer = new PrintWriter(new FileWriter(file_name));
-        for (String[] registro : nuevosRegistros) {
-            String cedula = registro[0];
-            writer.println(cedula);
+            // Agregar los registros al archivo si no existen
+            if (!registrosExistentes) {
+                PrintWriter writer = new PrintWriter(new FileWriter(file_name));
+                for (String[] registro : nuevosRegistros) {
+                    String cedula = registro[0];
+                    writer.println(cedula);
+                }
+                writer.close();
+                System.out.println("Registros agregados exitosamente al archivo " + file_name);
+            } else {
+                System.out.println("Los registros ya existen en el archivo " + file_name);
+            }
+        } catch (IOException ex) {
+            System.out.println("Error al agregar registros al archivo");
+            ex.printStackTrace();
         }
-        writer.close();
-        System.out.println("Registros agregados exitosamente al archivo " + file_name);
-    } else {
-        System.out.println("Los registros ya existen en el archivo " + file_name);
-    }
-} catch (IOException ex) {
-    System.out.println("Error al agregar registros al archivo");
-    ex.printStackTrace();
-}
 
     }
 
@@ -302,24 +301,24 @@ public class login extends javax.swing.JFrame {
     private void fcedulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fcedulaActionPerformed
         fcedula.setText(null);
     }//GEN-LAST:event_fcedulaActionPerformed
-String[] cUsuarios;
+    String[] cUsuarios;
     private void LoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginActionPerformed
         user = fnombre.getText();
         cedula = fcedula.getText();
-        
+
         try {
             BufferedReader br = new BufferedReader(new FileReader("CedulasAdmins.txt"));
             String linea;
             while ((linea = br.readLine()) != null && !existe) {
                 cUsuarios = linea.split("\\| ");
-                System.out.println("cccc"+cUsuarios[1]);
-               
+                System.out.println("cccc" + cUsuarios[1]);
+
                 System.out.println(linea);
-                    if (cUsuarios[1].equals(cedula)) {
+                if (cUsuarios[1].equals(cedula)) {
                     existe = true;
-                
+
                 }
-                
+
             }
 
             br.close();
@@ -336,18 +335,20 @@ String[] cUsuarios;
 //                }
 //            }
         System.out.println(existe);
+//        if (fnombre.isEmpty() || fcedula.isEmpty()) {
+//            valid.setText("Debe llenar ambos campos.");
+//        } else {
+            if (existe == true) { // Admin
+                perfilesFR p = new perfilesFR(user, cedula);
+                p.setVisible(true);
+                this.dispose();
+            } else { // Cliente
+                PrincipalCL CL = new PrincipalCL(user, cedula);
+                CL.setVisible(true);
+                this.dispose();
+            }
 
-        if (existe == true) { // Admin
-            perfilesFR p = new perfilesFR(user, cedula);
-            p.setVisible(true);
-            this.dispose();
-        } else { // Cliente
-            PrincipalCL CL = new PrincipalCL(user, cedula);
-            CL.setVisible(true);
-            this.dispose();
-        }
-
-
+      //  }
     }//GEN-LAST:event_LoginActionPerformed
 
     private void fcedulaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fcedulaKeyTyped
