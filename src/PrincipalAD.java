@@ -1937,29 +1937,36 @@ public class PrincipalAD extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        String c = cedulaAdmi.getText();
-        int ced = Integer.parseInt(c);
-        AñadirUsuarios("Usuarios");
+       
+        AñadirUsuarios("Usuarios","CedulasAdmins");
           RegistroPanel.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         RegistroPanel.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
-    public void AñadirUsuarios(String file_name) {
+    public void AñadirUsuarios(String file_name, String file_ced) {
         try {
             FileWriter outFile = new FileWriter(file_name + ".txt", true);
             PrintWriter registro = new PrintWriter(outFile);
+            FileWriter outFile2 = new FileWriter(file_ced + ".txt", true);
+            PrintWriter registro2 = new PrintWriter(outFile2);
             String name, pass;
             pass = Contraseñaadmi.getText();
             name = nombreadmi.getText();
             registro.println(name + ";" + pass);
 
+             String c = cedulaAdmi.getText();
+             int ced = Integer.parseInt(c);
+             registro2.println(name+"| "+ced+"| "+pass);
             registro.close();
+            registro2.close();
             System.out.println("Datos agregados exitosamente al archivo " + file_name);
+            System.out.println("Datos agregados exitosamente al archivo " + file_ced);
 
         } catch (IOException ex) {
             System.out.println("Error al agregar datos al archivo " + file_name);
+            System.out.println("Error al agregar datos al archivo " + file_ced);
             ex.printStackTrace();
         }
     }
@@ -2122,8 +2129,8 @@ public class PrincipalAD extends javax.swing.JFrame {
             System.out.println("null");
         }
     }
-    static ListaEnlazada listInventarioTempCANT = new ListaEnlazada();
-    static ListaEnlazada listInventarioTempNAMES = new ListaEnlazada();
+    ListaEnlazada listInventarioTempCANT = new ListaEnlazada();
+    ListaEnlazada listInventarioTempNAMES = new ListaEnlazada();
 
     public static void CopiarArchivoAlISTA(Scanner sc, String file_name, ListaEnlazada names,ListaEnlazada cant) {
         
@@ -2151,6 +2158,44 @@ public class PrincipalAD extends javax.swing.JFrame {
         }
     }
 
+     public static void CopiarlISTAaArchivo(Scanner sc, String file_name, ListaEnlazada names,ListaEnlazada cant) {
+          try {
+            BufferedReader br = new BufferedReader(new FileReader(file_name + ".txt"));
+            FileWriter outFile = new FileWriter(file_name + ".txt", true);
+            PrintWriter registro = new PrintWriter(outFile);
+            
+            String line=null;
+             Nodo nodoActual = names.head;
+            while (nodoActual != null) {
+                String temp[] = nodoActual.dato.split(";");
+                String producto,artista;
+                producto=temp[0];
+                artista=temp[1];
+                
+                
+                
+                //System.out.print(nodoActual.dato + " -> ");
+                nodoActual = nodoActual.siguiente;
+            }
+//             while ((line = br.readLine()) != null) {
+//                    String temp[] = line.split(";");
+//                    cant.agregarAlFinal(temp[1]); //Cantidad en el inventario pero esta en String
+//                    names.agregarAlFinal(temp[0] + ";" + temp[3]);
+//                }
+//            pass = Contraseñaadmi.getText();
+//            name = nombreadmi.getText();
+//            registro.println(name + ";" + pass);
+
+            
+            registro.close();
+         
+            System.out.println("Datos agregados exitosamente al archivo " + file_name);
+            
+        } catch (IOException ex) {
+            System.out.println("Error al agregar datos al archivo " + file_name);
+           ex.printStackTrace();
+        }
+     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel AvisoLabel;

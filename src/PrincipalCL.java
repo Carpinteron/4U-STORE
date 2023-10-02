@@ -30,10 +30,11 @@ public class PrincipalCL extends javax.swing.JFrame {
         //si selecciona un artista, el botonartistas se habilita por si el usuario se quiere regrsar, y se resal el boton de los productos del artista
         BTNelproducto.setEnabled(false);
         TituloArtista.setText(SelectedArtist);
-        PrincipalAD.ListaEnlazada Cantidad=new PrincipalAD.ListaEnlazada();
-        PrincipalAD.ListaEnlazada Names=new PrincipalAD.ListaEnlazada();
-         PrincipalAD.CopiarArchivoAlISTA(sc, "Inventario",Cantidad,Names);
+        
+        PrincipalAD.CopiarArchivoAlISTA(sc, "Inventario",Names,Cantidad);
     }
+     PrincipalAD.ListaEnlazada Cantidad=new PrincipalAD.ListaEnlazada();
+    PrincipalAD.ListaEnlazada Names=new PrincipalAD.ListaEnlazada();
     public String Frameanterior;
     public JPanel actualPanel;
     public String SelectedArtist,product;
@@ -379,6 +380,8 @@ public class PrincipalCL extends javax.swing.JFrame {
 
         SelectedArtist = "Conan Gray";
         BotonesArtistasPanel();
+//        Cantidad.agregarAlFinal(user);
+//        Cantidad.mostrarLista();
     }//GEN-LAST:event_ConanBTNActionPerformed
 
     private void ImagineDragonsBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ImagineDragonsBTNActionPerformed
