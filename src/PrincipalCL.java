@@ -173,7 +173,8 @@ public class PrincipalCL extends javax.swing.JFrame {
         jLabel2.setText("¿Que producto desea explorar? ");
         panelproductoss.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 100, 180, 24));
 
-        btnCamisetas.setText("CAMISETAS");
+        btnCamisetas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/5G.png"))); // NOI18N
+        btnCamisetas.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(204, 153, 255), null, null));
         btnCamisetas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCamisetasActionPerformed(evt);
@@ -181,7 +182,8 @@ public class PrincipalCL extends javax.swing.JFrame {
         });
         panelproductoss.add(btnCamisetas, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 500, 190, 70));
 
-        btnVINILOS.setText("VINILOS");
+        btnVINILOS.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/3G.png"))); // NOI18N
+        btnVINILOS.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(204, 153, 255), null, null));
         btnVINILOS.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVINILOSActionPerformed(evt);
@@ -189,7 +191,8 @@ public class PrincipalCL extends javax.swing.JFrame {
         });
         panelproductoss.add(btnVINILOS, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 320, 187, 70));
 
-        btnGORRAS.setText("GORRAS");
+        btnGORRAS.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/1G.png"))); // NOI18N
+        btnGORRAS.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(204, 153, 255), null, null));
         btnGORRAS.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGORRASActionPerformed(evt);
@@ -197,7 +200,8 @@ public class PrincipalCL extends javax.swing.JFrame {
         });
         panelproductoss.add(btnGORRAS, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 140, 195, 70));
 
-        btnLLaveros.setText("LLAVEROS");
+        btnLLaveros.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/4G.png"))); // NOI18N
+        btnLLaveros.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(204, 153, 255), null, null));
         btnLLaveros.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLLaverosActionPerformed(evt);
@@ -205,7 +209,8 @@ public class PrincipalCL extends javax.swing.JFrame {
         });
         panelproductoss.add(btnLLaveros, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 410, 190, 70));
 
-        btnCDS.setText("CD");
+        btnCDS.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/2G.png"))); // NOI18N
+        btnCDS.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(204, 153, 255), null, null));
         btnCDS.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCDSActionPerformed(evt);
