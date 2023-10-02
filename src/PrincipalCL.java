@@ -359,7 +359,6 @@ public class PrincipalCL extends javax.swing.JFrame {
         jScrollPane1.setOpaque(false);
 
         panelArtistas.setBackground(new java.awt.Color(204, 204, 255));
-        panelArtistas.setOpaque(false);
         panelArtistas.setPreferredSize(new java.awt.Dimension(1000, 824));
 
         HSbtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/1.png"))); // NOI18N
