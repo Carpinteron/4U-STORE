@@ -15,7 +15,7 @@ public class CarritoFR extends javax.swing.JFrame {
     private PrincipalCL clientefr;
     String precio;
     static int anterior = 1;
-
+//Main
     public CarritoFR(String user, String cedula, PrincipalCL clientefr) {
         setIconImage(new ImageIcon(getClass().getResource("ICons/4Uicon.png")).getImage());
         this.user = user;
