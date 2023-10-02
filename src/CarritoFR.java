@@ -12,6 +12,7 @@ private String user, cedula;
          setIconImage(new ImageIcon(getClass().getResource("ICons/4Uicon.png")).getImage());
         this.user=user;
         this.cedula = cedula;
+        this.clientefr=clientefr;
         setUndecorated(true);
         setBackground(new Color(0,0,0,0));
         initComponents();
@@ -25,8 +26,6 @@ private String user, cedula;
         }
     }
     
-
-
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -165,7 +164,9 @@ private String user, cedula;
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        PrincipalAD.ListaEnlazada Carrito = clientefr.Carrito;
+        
+
+PrincipalAD.ListaEnlazada Carrito = clientefr.Carrito;
         PrincipalAD.ListaEnlazada Names = clientefr.Names;
         PrincipalAD.ListaEnlazada Cantidad = clientefr.Cantidad;
         Scanner sc = new Scanner(System.in);
