@@ -3,10 +3,11 @@ import java.awt.Color;
 import javax.swing.ImageIcon;
 
 public class ProductoFR extends javax.swing.JFrame {
-private String user;
-    public ProductoFR(String name) {
+private String user, cedula;
+    public ProductoFR(String user, String cedula) {
          setIconImage(new ImageIcon(getClass().getResource("ICons/4Uicon.png")).getImage());
-        this.user=name;
+        this.user=user;
+        this.cedula = cedula;
         setUndecorated(true);
         setBackground(new Color(0, 0, 0, 0));
         setLocationRelativeTo(null);
@@ -106,7 +107,7 @@ private String user;
     }//GEN-LAST:event_BtnExitActionPerformed
 
     private void BtnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSalirActionPerformed
-        perfilesFR menu = new perfilesFR(user);
+        perfilesFR menu = new perfilesFR(user, cedula);
         menu.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_BtnSalirActionPerformed
@@ -138,7 +139,7 @@ private String user;
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ProductoFR(null).setVisible(true);
+//                new ProductoFR(null).setVisible(true);
             }
         });
     }

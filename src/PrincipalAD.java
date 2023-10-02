@@ -21,13 +21,14 @@ import javax.swing.table.DefaultTableModel;
 
 public class PrincipalAD extends javax.swing.JFrame {
 
-    String admi;
+    String user, cedula;
   
 
-    public PrincipalAD(String name) {
+    public PrincipalAD(String user, String cedula) {
         setIconImage(new ImageIcon(getClass().getResource("ICons/4Uicon.png")).getImage());
         setUndecorated(true);
-        this.admi = name;
+        this.user = user;
+        this.cedula=cedula;
         setBackground(new Color(0, 0, 0, 0));
         initComponents();
         setLocationRelativeTo(null);
@@ -38,7 +39,7 @@ public class PrincipalAD extends javax.swing.JFrame {
         Scanner sc = new Scanner(System.in);
         LeerNormal(sc, "Inventario", TablaINVENTARIO);
         sc.close();
-        userLABEL.setText(admi);
+        userLABEL.setText(user);
         //No visible
         Constraseña.setVisible(true);
         Pantalla.setVisible(false);
@@ -48,7 +49,23 @@ public class PrincipalAD extends javax.swing.JFrame {
         PanelEliminar.setVisible(false);
       //  CopiarArchivoAlISTA(sc, "Inventario");
         RegistroPanel.setVisible(false);
-       
+        String[] cUsuarios;
+        try {
+            BufferedReader br = new BufferedReader(new FileReader("CedulasAdmins.txt"));
+            String linea;
+            while ((linea = br.readLine()) != null) {
+                cUsuarios = linea.split("\\| ");
+                if(cedula.equals(cUsuarios[1])){
+                userLABEL.setText(cUsuarios[0]);
+                }
+            }
+
+            br.close();
+        } catch (IOException ex) {
+            System.out.println("Error al leer el archivo.");
+            ex.printStackTrace();
+        }
+        user=userLABEL.getText();
     }
 
     @SuppressWarnings("unchecked")
@@ -190,7 +207,9 @@ public class PrincipalAD extends javax.swing.JFrame {
             }
         });
         Constraseña.add(ojo, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 210, -1, 30));
-        Constraseña.add(AvisoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 250, 290, 25));
+
+        AvisoLabel.setFont(new java.awt.Font("Sylfaen", 0, 14)); // NOI18N
+        Constraseña.add(AvisoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, 290, 25));
         Constraseña.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 150, 120, 20));
 
         userLABEL.setFont(new java.awt.Font("Sylfaen", 1, 14)); // NOI18N
@@ -1695,7 +1714,7 @@ public class PrincipalAD extends javax.swing.JFrame {
 
 
     private void BtnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSalirActionPerformed
-        perfilesFR menu = new perfilesFR(admi);
+        perfilesFR menu = new perfilesFR(user, cedula);
         menu.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_BtnSalirActionPerformed
@@ -1723,10 +1742,9 @@ public class PrincipalAD extends javax.swing.JFrame {
     private void BtnVerifyUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVerifyUserActionPerformed
 
         Scanner sc = new Scanner(System.in);
-        String U = admi;
-        //userfield.getText();
+        String U = userLABEL.getText();
         String P = PassField.getText();
-        boolean Correct = Verify(sc, "Usuarios", U, P);
+        boolean Correct = Verify(sc, "CedulasAdmins", U, P);
         if (Correct == true) {
             Pantalla.setVisible(true);
             Constraseña.setVisible(false);
@@ -1734,11 +1752,7 @@ public class PrincipalAD extends javax.swing.JFrame {
         } else {
             AvisoLabel.setText("Contraseña o Usuario incorrecto");
         }
-        //////////////////
-        Pantalla.setVisible(true);
-        Constraseña.setVisible(false);
-        exitBTN.setVisible(true);
-        //////////////////
+
     }//GEN-LAST:event_BtnVerifyUserActionPerformed
 
     private void fieldDescripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldDescripcionActionPerformed
@@ -1750,7 +1764,7 @@ public class PrincipalAD extends javax.swing.JFrame {
     }//GEN-LAST:event_fieldCantActionPerformed
 
     private void BtnSalir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSalir1ActionPerformed
-        perfilesFR menu = new perfilesFR(admi);
+        perfilesFR menu = new perfilesFR(user, cedula);
         menu.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_BtnSalir1ActionPerformed
@@ -1960,22 +1974,51 @@ public class PrincipalAD extends javax.swing.JFrame {
                 String passw = null;
                 boolean stop = false;
 
-                while ((line = br.readLine()) != null & stop == false) {
-                    String temp[] = line.split(";");
-                    if (temp[0].equalsIgnoreCase(U)) {
+//                while ((line = br.readLine()) != null & stop == false) {
+//                    String temp[] = line.split(";");
+//                    if (temp[0].equalsIgnoreCase(U)) {
+//                        stop = true;
+//                        passw = temp[1];
+//                    }
+//                }
+//                br.close();
+//                hay = true;
+//                if (stop == true) {
+//                    if (passw != null & passw.equalsIgnoreCase(P)) {
+//                        return true;
+//                    } else {
+//                        return false;
+//                    }
+//                } else {
+//                    return false;
+//                }
+//
+//            } catch (IOException ex) {
+//                System.out.println("No se encontro archivo");
+//                hay = false;
+//                file_name = sc.nextLine(); // Archivo
+//            }
+//        }
+//        return false;
+//    }
+                     while ((line = br.readLine()) != null && stop == false) {
+                    String temp[] = line.split("\\| ");
+                    System.out.println("U:"+U+"|||||P:"+P);
+                    System.out.println(temp[0]+"|||||||"+temp[2]);
+                    if (temp[0].equalsIgnoreCase(U) && temp[2].equals(P)) {
+                        System.out.println(U+"|||||||"+P);
+                        System.out.println(temp[0]+"|||||||"+temp[1]);
                         stop = true;
-                        passw = temp[1];
+                        hay = true;
+                    }else{
+                         stop = true;
+                        hay = false;
                     }
                 }
-                br.close();
-                hay = true;
-                if (stop == true) {
-                    if (passw != null & passw.equalsIgnoreCase(P)) {
-                        return true;
-                    } else {
-                        return false;
-                    }
-                } else {
+                System.out.println("HAY"+hay);
+                if(hay){
+                    return true;
+                }else{
                     return false;
                 }
 
@@ -2023,7 +2066,7 @@ public class PrincipalAD extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PrincipalAD(null).setVisible(true);
+//                new PrincipalAD(null).setVisible(true);
 
             }
         });

@@ -4,10 +4,11 @@ import javax.swing.ImageIcon;
 
 
 public class perfilesFR extends javax.swing.JFrame {
-    private String user;
-    public perfilesFR(String name) {
+    private String user, cedula;
+    public perfilesFR(String user, String cedula) {
          setIconImage(new ImageIcon(getClass().getResource("ICons/4Uicon.png")).getImage());
-        this.user = name;
+        this.user = user;
+        this.cedula = cedula;
         setUndecorated(true);
         setBackground(new Color(0,0,0,0));
         initComponents();
@@ -142,13 +143,13 @@ public class perfilesFR extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void panelRound3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelRound3MouseClicked
-        PrincipalAD AD = new PrincipalAD(user);
+        PrincipalAD AD = new PrincipalAD(user, cedula);
         AD.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_panelRound3MouseClicked
 
     private void panelRound2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelRound2MouseClicked
-        PrincipalCL CL = new PrincipalCL(user);
+        PrincipalCL CL = new PrincipalCL(user, cedula);
         CL.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_panelRound2MouseClicked
@@ -187,7 +188,7 @@ public class perfilesFR extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new perfilesFR(null).setVisible(true);
+//                new perfilesFR(null).setVisible(true);
             }
         });
     }

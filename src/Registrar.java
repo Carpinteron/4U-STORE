@@ -26,7 +26,6 @@ public class Registrar extends javax.swing.JFrame {
     private void initComponents() {
 
         panelRound2 = new custom.PanelRound();
-        Login = new javax.swing.JButton();
         fcedula = new javax.swing.JTextField();
         fnombre = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
@@ -39,15 +38,6 @@ public class Registrar extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         panelRound2.setBackground(new java.awt.Color(153, 102, 255));
-
-        Login.setFont(new java.awt.Font("Sylfaen", 0, 14)); // NOI18N
-        Login.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICons/iconlogin.png"))); // NOI18N
-        Login.setContentAreaFilled(false);
-        Login.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                LoginActionPerformed(evt);
-            }
-        });
 
         fcedula.setBackground(new java.awt.Color(209, 163, 255));
         fcedula.setFont(new java.awt.Font("Sylfaen", 0, 14)); // NOI18N
@@ -134,7 +124,7 @@ public class Registrar extends javax.swing.JFrame {
                                 .addGroup(panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(fnombre)
                                     .addComponent(fcedula, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(Login)))
+                                .addGap(54, 54, 54)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -160,8 +150,6 @@ public class Registrar extends javax.swing.JFrame {
                         .addGap(0, 28, Short.MAX_VALUE))
                     .addGroup(panelRound2Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(Login, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel4)
                         .addContainerGap())))
         );
@@ -179,52 +167,6 @@ public class Registrar extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void LoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginActionPerformed
-        user = fnombre.getText();
-        String cedula = fcedula.getText();
-
-        try {
-            BufferedReader br = new BufferedReader(new FileReader("CedulasAdmins.txt"));
-            String linea;
-            while ((linea = br.readLine()) != null && !existe) {
-                cUsuarios = linea.split("\\| ");
-                System.out.println("cccc"+cUsuarios[1]);
-
-                System.out.println(linea);
-                if (cUsuarios[1].equals(cedula)) {
-                    existe = true;
-
-                }
-
-            }
-
-            br.close();
-        } catch (IOException ex) {
-            System.out.println("Error al leer el archivo.");
-            ex.printStackTrace();
-        }
-        //            while (pos < cedAdmin.length && existe == false) {
-            //                System.out.println(cedAdmin[pos]);
-            //                if (cedAdmin[pos] == Integer.parseInt(cedula)) {
-                //                    existe = true;
-                //                } else {
-                //                    pos++;
-                //                }
-            //            }
-        System.out.println(existe);
-
-        if (existe == true) { // Admin
-            perfilesFR p = new perfilesFR(user);
-            p.setVisible(true);
-            this.dispose();
-        } else { // Cliente
-            PrincipalCL CL = new PrincipalCL(user);
-            CL.setVisible(true);
-            this.dispose();
-        }
-
-    }//GEN-LAST:event_LoginActionPerformed
 
     private void fcedulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fcedulaActionPerformed
         fcedula.setText(null);
@@ -290,7 +232,6 @@ public class Registrar extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnEXIT;
-    private javax.swing.JButton Login;
     private javax.swing.JTextField fcedula;
     private javax.swing.JTextField fnombre;
     private javax.swing.JLabel jLabel1;

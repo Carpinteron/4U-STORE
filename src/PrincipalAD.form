@@ -136,9 +136,14 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JLabel" name="AvisoLabel">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Sylfaen" size="14" style="0"/>
+            </Property>
+          </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="80" y="250" width="290" height="25"/>
+              <AbsoluteConstraints x="10" y="260" width="290" height="25"/>
             </Constraint>
           </Constraints>
         </Component>

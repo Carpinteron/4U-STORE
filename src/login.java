@@ -20,7 +20,7 @@ public class login extends javax.swing.JFrame {
 
     boolean existe;
     String user;
-
+    String cedula;
     public login() {
         setIconImage(new ImageIcon(getClass().getResource("ICons/4Uicon.png")).getImage());
         setUndecorated(true);
@@ -273,7 +273,7 @@ public class login extends javax.swing.JFrame {
 String[] cUsuarios;
     private void LoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginActionPerformed
         user = fnombre.getText();
-        String cedula = fcedula.getText();
+        cedula = fcedula.getText();
         
         try {
             BufferedReader br = new BufferedReader(new FileReader("CedulasAdmins.txt"));
@@ -306,11 +306,11 @@ String[] cUsuarios;
         System.out.println(existe);
 
         if (existe == true) { // Admin
-            perfilesFR p = new perfilesFR(user);
+            perfilesFR p = new perfilesFR(user, cedula);
             p.setVisible(true);
             this.dispose();
         } else { // Cliente
-            PrincipalCL CL = new PrincipalCL(user);
+            PrincipalCL CL = new PrincipalCL(user, cedula);
             CL.setVisible(true);
             this.dispose();
         }
@@ -335,7 +335,7 @@ String[] cUsuarios;
     }//GEN-LAST:event_fnombreKeyTyped
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        perfilesFR p = new perfilesFR(user);
+        perfilesFR p = new perfilesFR(user, cedula);
         p.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed

@@ -5,10 +5,11 @@ import java.awt.Color;
 import javax.swing.ImageIcon;
 
 public class CarritoFR extends javax.swing.JFrame {
-private String user;
-    public CarritoFR(String name) {
+private String user, cedula;
+    public CarritoFR(String user, String cedula) {
          setIconImage(new ImageIcon(getClass().getResource("ICons/4Uicon.png")).getImage());
-        this.user=name;
+        this.user=user;
+        this.cedula = cedula;
         setUndecorated(true);
         setBackground(new Color(0,0,0,0));
         initComponents();
@@ -145,13 +146,13 @@ private String user;
     }//GEN-LAST:event_BtnEXITActionPerformed
 
     private void BtnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSalirActionPerformed
-        perfilesFR menu=new perfilesFR(user);
+        perfilesFR menu=new perfilesFR(user, cedula);
         menu.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_BtnSalirActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        PrincipalCL cl=new PrincipalCL(user);
+        PrincipalCL cl=new PrincipalCL(user, cedula);
         cl.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -183,7 +184,7 @@ private String user;
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CarritoFR(null).setVisible(true);
+//                new CarritoFR(null).setVisible(true);
             }
         });
     }
