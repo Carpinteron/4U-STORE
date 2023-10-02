@@ -1,5 +1,9 @@
 
+
 import java.awt.Color;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -67,10 +71,11 @@ public class PrincipalCL extends javax.swing.JFrame {
         panelDELproducto = new javax.swing.JPanel();
         labelArtist = new javax.swing.JLabel();
         labelTipoProduct = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jcSeleccionProducto = new javax.swing.JComboBox<>();
         ImagenProducto = new javax.swing.JLabel();
         AddAlCarritoBTN = new javax.swing.JButton();
         UnidadesDelProducto = new javax.swing.JTextField();
+        labelD = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         panelArtistas = new javax.swing.JPanel();
         HSbtn = new javax.swing.JButton();
@@ -221,18 +226,18 @@ public class PrincipalCL extends javax.swing.JFrame {
         labelTipoProduct.setText("jLabel5");
         panelDELproducto.add(labelTipoProduct, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 320, 24));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        jcSeleccionProducto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jcSeleccionProducto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                jcSeleccionProductoActionPerformed(evt);
             }
         });
-        panelDELproducto.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 185, -1));
+        panelDELproducto.add(jcSeleccionProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 280, -1));
 
         ImagenProducto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICons/camiseta-200.png"))); // NOI18N
-        panelDELproducto.add(ImagenProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 30, 180, 240));
+        panelDELproducto.add(ImagenProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 30, 180, 240));
 
-        AddAlCarritoBTN.setText("jButton4");
+        AddAlCarritoBTN.setText("Agregar al carrito");
         AddAlCarritoBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AddAlCarritoBTNActionPerformed(evt);
@@ -247,6 +252,9 @@ public class PrincipalCL extends javax.swing.JFrame {
             }
         });
         panelDELproducto.add(UnidadesDelProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 360, 140, 40));
+
+        labelD.setText("Seleccione el producto");
+        panelDELproducto.add(labelD, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, -1, -1));
 
         panelRound1.add(panelDELproducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, 1060, 580));
 
@@ -461,46 +469,57 @@ public class PrincipalCL extends javax.swing.JFrame {
     }//GEN-LAST:event_BTNproductosActionPerformed
 
     private void btnGORRASActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGORRASActionPerformed
-        product="Gorras";
+        product="Gorra";
+        labelD.setText("Seleccione el tipo de gorra:");
         BotonesProductoPanel();
+        cargardatosalcombo();
     }//GEN-LAST:event_btnGORRASActionPerformed
 
     private void btnVINILOSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVINILOSActionPerformed
-        product="Vinilos";
+        product="Vinilo";
+        labelD.setText("Seleccione el álbum:");
         BotonesProductoPanel();
+        cargardatosalcombo();
     }//GEN-LAST:event_btnVINILOSActionPerformed
 
     private void btnCamisetasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCamisetasActionPerformed
-        product="Camisetas";
+        product="Camiseta";
+        labelD.setText("Seleccione la talla:");
         BotonesProductoPanel();
+        cargardatosalcombo();
     }//GEN-LAST:event_btnCamisetasActionPerformed
 
     private void btnCDSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCDSActionPerformed
         product="CD";
+        labelD.setText("Seleccione el álbum:");
         BotonesProductoPanel();
+        cargardatosalcombo();
     }//GEN-LAST:event_btnCDSActionPerformed
 
     private void btnLLaverosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLLaverosActionPerformed
-        product="Llaveros";
+        product="Llavero";
+        labelD.setText("Seleccione el tipo:");
         BotonesProductoPanel();
+        cargardatosalcombo();
     }//GEN-LAST:event_btnLLaverosActionPerformed
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-         cargardatosalcombo();
+    private void jcSeleccionProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcSeleccionProductoActionPerformed
+         
        
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }//GEN-LAST:event_jcSeleccionProductoActionPerformed
 
     private void AddAlCarritoBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddAlCarritoBTNActionPerformed
+        String NombreProducto = (jcSeleccionProducto.getSelectedItem() != null) ? jcSeleccionProducto.getSelectedItem().toString() : "";
         Scanner sc=new Scanner(System.in);
         if(UnidadesDelProducto.getText()==null |UnidadesDelProducto.getText()==""|UnidadesDelProducto.getText()=="0" ){
            //aviso
        }else{
          int uni=Integer.parseInt(UnidadesDelProducto.getText());
            for (int i = 1; i <= uni; i++) {
-               Carrito.agregarAlFinal("Camiseta S;"+SelectedArtist);
+               Carrito.agregarAlFinal(product+" "+NombreProducto+";"+SelectedArtist);
            }
          Carrito.mostrarLista();
-         int pos=Names.buscarPosicionporDato("Camiseta S;"+SelectedArtist);
+         int pos=Names.buscarPosicionporDato(product+" "+NombreProducto+";"+SelectedArtist);
          int res=Integer.parseInt(Cantidad.buscarPorPosicion(pos))-uni;
          Cantidad.modificarDatoEnPosicion(pos,Integer.toString(res) );
          Cantidad.mostrarLista();
@@ -546,7 +565,7 @@ public class PrincipalCL extends javax.swing.JFrame {
 
     private void LousiBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LousiBTNActionPerformed
 
-        SelectedArtist = "Louis Tomilson";
+        SelectedArtist = "Louis Tomlinson";
         BotonesArtistasPanel();
     }//GEN-LAST:event_LousiBTNActionPerformed
 
@@ -608,55 +627,8 @@ public class PrincipalCL extends javax.swing.JFrame {
         
     }
  
-    public void cargardatosalcombo(){
-         switch (product) {
-                case "Camisetas":
-                    //labelD.setText("Talla");
-                    DefaultComboBoxModel<String> comboBoxModel = new DefaultComboBoxModel<>();
-                    comboBoxModel.addElement("Seleccionar talla");
-                    comboBoxModel.addElement("XS");
-                    comboBoxModel.addElement("S");
-                    comboBoxModel.addElement("M");
-                    comboBoxModel.addElement("L");
-                    comboBoxModel.addElement("XL");
-                    jComboBox1.setModel(comboBoxModel);
-                    break;
-                case "CD":
-                    //labelD.setText("Álbum");
-                    DefaultComboBoxModel<String> comboBoxModel2 = new DefaultComboBoxModel<>();
-                    comboBoxModel2.addElement("Seleccionar álbum");
-                    ALBUMES_ARTISTAS.get(SelectedArtist).forEach(comboBoxModel2::addElement);
-                    jComboBox1.setModel(comboBoxModel2);
-                    break;
-                case "Vinilos":
-                   // labelD.setText("Álbum");
-                    DefaultComboBoxModel<String> comboBoxModel3 = new DefaultComboBoxModel<>();
-                    comboBoxModel3.addElement("Seleccionar álbum");
-                    ALBUMES_ARTISTAS.get(SelectedArtist).forEach(comboBoxModel3::addElement);
-                    jComboBox1.setModel(comboBoxModel3);
-                    break;
-                case "Gorras":
-                    //labelD.setText("Tipo");
-                    DefaultComboBoxModel<String> comboBoxModel4 = new DefaultComboBoxModel<>();
-                    comboBoxModel4.addElement("Seleccionar tipo de gorra");
-                    comboBoxModel4.addElement("Béisbol");
-                    comboBoxModel4.addElement("Plana/Snapback");
-                    comboBoxModel4.addElement("Trucker");
-                    jComboBox1.setModel(comboBoxModel4);
-                    break;
-
-                case "Llaveros":
-                  //  labelD.setText("Tipo");
-                    DefaultComboBoxModel<String> comboBoxModel5 = new DefaultComboBoxModel<>();
-                    comboBoxModel5.addElement("Seleccionar tipo");
-                    comboBoxModel5.addElement("1");
-                    comboBoxModel5.addElement("2");
-                    comboBoxModel5.addElement("3");
-                    jComboBox1.setModel(comboBoxModel5);
-                    break;
-
-            }
-    }
+    
+        
     private static final Map<String, List<String>> ALBUMES_ARTISTAS = new HashMap<>();
 
     static {
@@ -673,6 +645,85 @@ public class PrincipalCL extends javax.swing.JFrame {
         ALBUMES_ARTISTAS.put("TXT", new ArrayList<>(List.of("The Dream Chapter: STAR", "Still Dreaming", "The Chaos Chapter: FREEZE", "Sweet")));
         ALBUMES_ARTISTAS.put("Imagine Dragons", new ArrayList<>(List.of("Night Visions", "Smoke + Mirrors", "Evolve", "Origins", "Mercury")));
     }
+    DefaultComboBoxModel<String> model2 = new DefaultComboBoxModel<>();
+
+    // Método para cargar elementos iniciales desde el archivo
+    public void cargardatosalcombo() {
+        String categoria = product;
+        System.out.println("Este es el producto: "+product);
+        String artista = SelectedArtist;
+        System.out.println("Este es el artista: "+artista);
+        List<String> albumesPE = ALBUMES_ARTISTAS.get(artista);
+
+        
+        if (albumesPE == null) {
+            // El artista no existe en el mapa.
+            // Maneja este caso aquí.
+            System.out.println("entre aqui ve");
+            return;
+        } else {
+            model2.removeAllElements(); // Limpia el modelo antes de cargar los elementos desde el archivo
+            boolean hayElementos = false; // Bandera para verificar si se encontraron elementos
+            try ( BufferedReader BR = new BufferedReader(new FileReader("inventario.txt"))) {
+                String line;
+                while ((line = BR.readLine()) != null) {
+                    String[] campos = line.split(";");
+                    if (campos.length > 3) { // Asegúrate de que haya suficientes campos
+                        String nombreProducto = campos[0];
+                        String CategoriaArch = campos[2];
+                        String ArtistaArch = campos[3];
+                        if (CategoriaArch.equalsIgnoreCase(categoria) && ArtistaArch.equalsIgnoreCase(artista)) {
+                            if (!existeEnComboBox2(eliminarPrimeraPalabra(nombreProducto))) {
+                                model2.addElement(eliminarPrimeraPalabra(nombreProducto));
+                                hayElementos = true; // Se encontraron elementos
+                                System.out.println("Encontre elementossss");
+                            }
+                        }
+
+                    }
+                }
+                if (!hayElementos) {
+                    jcSeleccionProducto.setEnabled(false); // Deshabilita el JComboBox
+                    UnidadesDelProducto.setEnabled(false);
+                    AddAlCarritoBTN.setEnabled(false);
+                } else {
+                    jcSeleccionProducto.setEnabled(true); // habilita el JComboBox
+                    UnidadesDelProducto.setEnabled(true);
+                    AddAlCarritoBTN.setEnabled(true);
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            jcSeleccionProducto.setModel(model2); // Asigna el modelo al JComboBox
+
+        }
+
+    }
+
+    // Método para verificar si un elemento ya existe en el JComboBox
+    private boolean existeEnComboBox2(String elemento) {
+        for (int i = 0; i < model2.getSize(); i++) {
+            if (elemento.equalsIgnoreCase(model2.getElementAt(i))) {
+                return true;
+            }
+        }
+        return false;
+    }
+     public static String eliminarPrimeraPalabra(String cadena) {
+        // Buscar la posición del primer espacio en blanco
+        int indicePrimerEspacio = cadena.indexOf(" ");
+        
+        // Verificar si se encontró un espacio en blanco
+        if (indicePrimerEspacio != -1) {
+            // Usar substring para eliminar la primera palabra
+            return cadena.substring(indicePrimerEspacio + 1);
+        } else {
+            // Si no se encuentra un espacio en blanco, la cadena es una sola palabra
+            return cadena;
+        }
+    }
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -732,7 +783,6 @@ public class PrincipalCL extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -741,7 +791,9 @@ public class PrincipalCL extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable jTable2;
+    private javax.swing.JComboBox<String> jcSeleccionProducto;
     private javax.swing.JLabel labelArtist;
+    private javax.swing.JLabel labelD;
     private javax.swing.JLabel labelTipoProduct;
     private custom.PanelRound menu;
     private javax.swing.JPanel panelArtistas;
