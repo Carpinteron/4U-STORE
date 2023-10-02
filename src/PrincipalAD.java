@@ -1,6 +1,7 @@
 
 import java.awt.Color;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -22,13 +23,12 @@ import javax.swing.table.DefaultTableModel;
 public class PrincipalAD extends javax.swing.JFrame {
 
     String user, cedula;
-  
 
     public PrincipalAD(String user, String cedula) {
         setIconImage(new ImageIcon(getClass().getResource("ICons/4Uicon.png")).getImage());
         setUndecorated(true);
         this.user = user;
-        this.cedula=cedula;
+        this.cedula = cedula;
         setBackground(new Color(0, 0, 0, 0));
         initComponents();
         setLocationRelativeTo(null);
@@ -47,16 +47,16 @@ public class PrincipalAD extends javax.swing.JFrame {
         PanelAgregar.setVisible(false);
         PanelAgregarPE.setVisible(false);
         PanelEliminar.setVisible(false);
-      //  CopiarArchivoAlISTA(sc, "Inventario");
+        //  CopiarArchivoAlISTA(sc, "Inventario");
         RegistroPanel.setVisible(false);
         String[] cUsuarios;
         try {
             BufferedReader br = new BufferedReader(new FileReader("CedulasAdmins.txt"));
             String linea;
             while ((linea = br.readLine()) != null) {
-                cUsuarios = linea.split("\\| ");
-                if(cedula.equals(cUsuarios[1])){
-                userLABEL.setText(cUsuarios[0]);
+                cUsuarios = linea.split("| ");
+                if (cedula.equals(cUsuarios[1])) {
+                    userLABEL.setText(cUsuarios[0]);
                 }
             }
 
@@ -65,7 +65,7 @@ public class PrincipalAD extends javax.swing.JFrame {
             System.out.println("Error al leer el archivo.");
             ex.printStackTrace();
         }
-        user=userLABEL.getText();
+        user = userLABEL.getText();
     }
 
     @SuppressWarnings("unchecked")
@@ -1937,9 +1937,11 @@ public class PrincipalAD extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       
-        AñadirUsuarios("Usuarios","CedulasAdmins");
-       
+
+
+
+        AñadirUsuarios("Usuarios", "CedulasAdmins");
+        RegistroPanel.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -1958,9 +1960,9 @@ public class PrincipalAD extends javax.swing.JFrame {
             name = nombreadmi.getText();
             registro.println(name + ";" + pass);
 
-             String c = cedulaAdmi.getText();
-             int ced = Integer.parseInt(c);
-             registro2.println(name+"| "+ced+"| "+pass);
+            String c = cedulaAdmi.getText();
+            int ced = Integer.parseInt(c);
+            registro2.println(name + "| " + ced + "| " + pass);
             registro.close();
             registro2.close();
             System.out.println("Datos agregados exitosamente al archivo " + file_name);
@@ -2010,24 +2012,24 @@ public class PrincipalAD extends javax.swing.JFrame {
 //        }
 //        return false;
 //    }
-                     while ((line = br.readLine()) != null && stop == false) {
+                while ((line = br.readLine()) != null && stop == false) {
                     String temp[] = line.split("\\| ");
-                    System.out.println("U:"+U+"|||||P:"+P);
-                    System.out.println(temp[0]+"|||||||"+temp[2]);
+                    System.out.println("U:" + U + "|||||P:" + P);
+                    System.out.println(temp[0] + "|||||||" + temp[2]);
                     if (temp[0].equalsIgnoreCase(U) && temp[2].equals(P)) {
-                        System.out.println(U+"|||||||"+P);
-                        System.out.println(temp[0]+"|||||||"+temp[1]);
+                        System.out.println(U + "|||||||" + P);
+                        System.out.println(temp[0] + "|||||||" + temp[1]);
                         stop = true;
                         hay = true;
-                    }else{
-                         stop = false;
+                    } else {
+                        stop = false;
                         hay = false;
                     }
                 }
-                System.out.println("HAY"+hay);
-                if(hay){
+                System.out.println("HAY" + hay);
+                if (hay) {
                     return true;
-                }else{
+                } else {
                     return false;
                 }
 
@@ -2130,12 +2132,67 @@ public class PrincipalAD extends javax.swing.JFrame {
             }
             System.out.println("null");
         }
+
+        public int buscarPosicionporDato(String dato) {
+            Nodo nodoActual = head;
+            int indice = 0;
+
+            while (nodoActual != null) {
+                if (nodoActual.dato.equals(dato)) {
+                    return indice; // Se encontró el dato en esta posición
+                }
+                nodoActual = nodoActual.siguiente;
+                indice++;
+            }
+
+            return -1; // El dato no se encontró en la lista
+        }
+
+        public boolean modificarDatoEnPosicion(int posicion, String nuevoDato) {
+            if (posicion < 0) {
+                return false; // Posición inválida
+            }
+
+            Nodo nodoActual = head;
+            int indice = 0;
+
+            while (nodoActual != null) {
+                if (indice == posicion) {
+                    nodoActual.dato = nuevoDato; // Modifica el dato del nodo en la posición deseada
+                    return true; // Nodo encontrado y modificado
+                }
+                nodoActual = nodoActual.siguiente;
+                indice++;
+            }
+
+            return false; // La posición está más allá del final de la lista
+        }
+
+        public String buscarPorPosicion(int posicion) {
+            if (posicion < 0) {
+                return null; // Posición inválida
+            }
+
+            Nodo nodoActual = head;
+            int indice = 0;
+
+            while (nodoActual != null) {
+                if (indice == posicion) {
+                    return nodoActual.dato; // Encontramos el nodo en la posición deseada
+                }
+                nodoActual = nodoActual.siguiente;
+                indice++;
+            }
+
+            return null; // La posición está más allá del final de la lista
+        }
+
     }
     ListaEnlazada listInventarioTempCANT = new ListaEnlazada();
     ListaEnlazada listInventarioTempNAMES = new ListaEnlazada();
 
-    public static void CopiarArchivoAlISTA(Scanner sc, String file_name, ListaEnlazada names,ListaEnlazada cant) {
-        
+    public static void CopiarArchivoAlISTA(Scanner sc, String file_name, ListaEnlazada names, ListaEnlazada cant) {
+
         boolean hay = false;
         while (hay == false) {
             try {
@@ -2160,44 +2217,91 @@ public class PrincipalAD extends javax.swing.JFrame {
         }
     }
 
-     public static void CopiarlISTAaArchivo(Scanner sc, String file_name, ListaEnlazada names,ListaEnlazada cant) {
-          try {
-            BufferedReader br = new BufferedReader(new FileReader(file_name + ".txt"));
-            FileWriter outFile = new FileWriter(file_name + ".txt", true);
-            PrintWriter registro = new PrintWriter(outFile);
+    public static void CopiarlISTAaArchivo(Scanner sc, String file_name, ListaEnlazada names, ListaEnlazada cant) {
+        try {
             
-            String line=null;
-             Nodo nodoActual = names.head;
-            while (nodoActual != null) {
-                String temp[] = nodoActual.dato.split(";");
-                String producto,artista;
-                producto=temp[0];
-                artista=temp[1];
-                
-                
-                
-                //System.out.print(nodoActual.dato + " -> ");
-                nodoActual = nodoActual.siguiente;
-            }
-//             while ((line = br.readLine()) != null) {
-//                    String temp[] = line.split(";");
-//                    cant.agregarAlFinal(temp[1]); //Cantidad en el inventario pero esta en String
-//                    names.agregarAlFinal(temp[0] + ";" + temp[3]);
-//                }
-//            pass = Contraseñaadmi.getText();
-//            name = nombreadmi.getText();
-//            registro.println(name + ";" + pass);
+            
+         File inputFile = new File(file_name + ".txt");
+        File tempFile = new File("temp.txt");
 
-            
-            registro.close();
-         
-            System.out.println("Datos agregados exitosamente al archivo " + file_name);
-            
+        BufferedReader reader = new BufferedReader(new FileReader(inputFile));
+        BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
+
+        String lineToRemove;
+
+        Nodo nodoActualNames = names.head;
+        Nodo nodoActualCant = cant.head;
+
+        while (nodoActualNames != null && nodoActualCant != null) {
+            String c = nodoActualCant.dato;
+            String temp[] = nodoActualNames.dato.split(";");
+            String producto = temp[0];
+            String artista = temp[1];
+
+            while ((lineToRemove = reader.readLine()) != null) {
+                String temp2[] = lineToRemove.split(";");
+                if (temp2[0].equals(producto) && temp2[3].equals(artista)) {
+                    lineToRemove = temp2[0] + ";" + c + ";" + temp2[2] + ";" + temp2[3] + ";" + temp2[4];
+                }
+                writer.write(lineToRemove + System.getProperty("line.separator"));
+            }
+
+            // Avanza a los siguientes nodos
+            nodoActualNames = nodoActualNames.siguiente;
+            nodoActualCant = nodoActualCant.siguiente;
+        }
+
+        writer.close();
+        reader.close();
+
+        // Borra el archivo original y renombra el archivo temporal
+        if (inputFile.delete()) {
+            if (!tempFile.renameTo(inputFile)) {
+                System.out.println("Error al renombrar el archivo temporal");
+            }
+        } else {
+            System.out.println("Error al eliminar el archivo original");
+        }
+
+        System.out.println("Datos actualizados exitosamente en el archivo " + file_name);
+ 
+//            FileWriter outFile = new FileWriter(file_name + ".txt", true); // Abre el archivo en modo "append"
+//            PrintWriter registro = new PrintWriter(outFile);
+//
+//            Nodo nodoActualNames = names.head;
+//            Nodo nodoActualCant = cant.head;
+//
+//            while (nodoActualNames != null) {
+//                String c = nodoActualCant.dato;
+//                String temp[] = nodoActualNames.dato.split(";");
+//                String producto = temp[0];
+//                String artista = temp[1];
+//
+//                BufferedReader br = new BufferedReader(new FileReader(file_name + ".txt"));
+//                String line = null;
+//
+//                while ((line = br.readLine()) != null) {
+//                    String temp2[] = line.split(";");
+//                    if (temp2[0].equals(producto) && temp2[3].equals(artista) && !temp2[1].equals(c)) {
+//                        registro.println(temp2[0] + ";" + c + ";" + temp2[2] + ";" + temp2[3] + ";" + temp2[4]);
+//                    }
+//                }
+//                br.close();
+//
+//                // Avanza a los siguientes nodos
+//                nodoActualNames = nodoActualNames.siguiente;
+//                nodoActualCant = nodoActualCant.siguiente;
+//            }
+//            registro.close();
+//
+//            System.out.println("Datos agregados exitosamente al archivo " + file_name);
+
         } catch (IOException ex) {
             System.out.println("Error al agregar datos al archivo " + file_name);
-           ex.printStackTrace();
+            ex.printStackTrace();
         }
-     }
+    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel AvisoLabel;

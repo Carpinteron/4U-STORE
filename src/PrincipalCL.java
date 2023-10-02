@@ -33,6 +33,7 @@ public class PrincipalCL extends javax.swing.JFrame {
         
         PrincipalAD.CopiarArchivoAlISTA(sc, "Inventario",Names,Cantidad);
     }
+    PrincipalAD.ListaEnlazada Carrito=new PrincipalAD.ListaEnlazada();
      PrincipalAD.ListaEnlazada Cantidad=new PrincipalAD.ListaEnlazada();
     PrincipalAD.ListaEnlazada Names=new PrincipalAD.ListaEnlazada();
     public String Frameanterior;
@@ -68,6 +69,8 @@ public class PrincipalCL extends javax.swing.JFrame {
         labelTipoProduct = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
         ImagenProducto = new javax.swing.JLabel();
+        AddAlCarritoBTN = new javax.swing.JButton();
+        UnidadesDelProducto = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         panelArtistas = new javax.swing.JPanel();
         HSbtn = new javax.swing.JButton();
@@ -229,6 +232,22 @@ public class PrincipalCL extends javax.swing.JFrame {
         ImagenProducto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICons/camiseta-200.png"))); // NOI18N
         panelDELproducto.add(ImagenProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 30, 180, 240));
 
+        AddAlCarritoBTN.setText("jButton4");
+        AddAlCarritoBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AddAlCarritoBTNActionPerformed(evt);
+            }
+        });
+        panelDELproducto.add(AddAlCarritoBTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 440, 180, 60));
+
+        UnidadesDelProducto.setText("1");
+        UnidadesDelProducto.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                UnidadesDelProductoMouseClicked(evt);
+            }
+        });
+        panelDELproducto.add(UnidadesDelProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 360, 140, 40));
+
         panelRound1.add(panelDELproducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, 1060, 580));
 
         jScrollPane1.setBorder(null);
@@ -236,95 +255,139 @@ public class PrincipalCL extends javax.swing.JFrame {
         jScrollPane1.setOpaque(false);
 
         panelArtistas.setPreferredSize(new java.awt.Dimension(1000, 824));
-        panelArtistas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        HSbtn.setText("Harry Styles");
+        HSbtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/1.png"))); // NOI18N
         HSbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 HSbtnActionPerformed(evt);
             }
         });
-        panelArtistas.add(HSbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(17, 12, 217, 234));
 
-        SabrinaBTN.setText("Sabrina Carpenter");
+        SabrinaBTN.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/2.png"))); // NOI18N
         SabrinaBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SabrinaBTNActionPerformed(evt);
             }
         });
-        panelArtistas.add(SabrinaBTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(284, 12, 222, 235));
 
-        BTRbtn.setText("Big Time Rush");
+        BTRbtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/4.png"))); // NOI18N
         BTRbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BTRbtnActionPerformed(evt);
             }
         });
-        panelArtistas.add(BTRbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(849, 12, 215, 235));
 
-        ConanBTN.setText("Conan Gray");
+        ConanBTN.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/3.png"))); // NOI18N
         ConanBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ConanBTNActionPerformed(evt);
             }
         });
-        panelArtistas.add(ConanBTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(566, 12, 228, 235));
 
-        ImagineDragonsBTN.setText("Imagine Dragons");
+        ImagineDragonsBTN.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/8.png"))); // NOI18N
         ImagineDragonsBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ImagineDragonsBTNActionPerformed(evt);
             }
         });
-        panelArtistas.add(ImagineDragonsBTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(849, 284, 215, 235));
 
-        LousiBTN.setText("Louis Tomilson");
+        LousiBTN.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/6.png"))); // NOI18N
         LousiBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 LousiBTNActionPerformed(evt);
             }
         });
-        panelArtistas.add(LousiBTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(284, 284, 222, 235));
 
-        SkzBTN.setText("Stray Kids");
+        SkzBTN.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/5.png"))); // NOI18N
         SkzBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SkzBTNActionPerformed(evt);
             }
         });
-        panelArtistas.add(SkzBTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(17, 284, 217, 235));
 
-        txtBTN.setText("TXT");
+        txtBTN.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/11.png"))); // NOI18N
         txtBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtBTNActionPerformed(evt);
             }
         });
-        panelArtistas.add(txtBTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 560, 228, 235));
 
-        BillieBTN.setText("Billie Eilish");
+        BillieBTN.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/9.png"))); // NOI18N
         BillieBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BillieBTNActionPerformed(evt);
             }
         });
-        panelArtistas.add(BillieBTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(17, 556, 217, 235));
 
-        BTN5sos.setText("5 Seconds Of Summer");
+        BTN5sos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/10.png"))); // NOI18N
         BTN5sos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BTN5sosActionPerformed(evt);
             }
         });
-        panelArtistas.add(BTN5sos, new org.netbeans.lib.awtextra.AbsoluteConstraints(284, 556, 222, 235));
 
-        TaylorBTN.setText("Taylor Swift");
+        TaylorBTN.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/7.png"))); // NOI18N
         TaylorBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TaylorBTNActionPerformed(evt);
             }
         });
-        panelArtistas.add(TaylorBTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(566, 284, 228, 235));
+
+        javax.swing.GroupLayout panelArtistasLayout = new javax.swing.GroupLayout(panelArtistas);
+        panelArtistas.setLayout(panelArtistasLayout);
+        panelArtistasLayout.setHorizontalGroup(
+            panelArtistasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelArtistasLayout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addGroup(panelArtistasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelArtistasLayout.createSequentialGroup()
+                        .addComponent(HSbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(50, 50, 50)
+                        .addComponent(SabrinaBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(65, 65, 65)
+                        .addComponent(ConanBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(66, 66, 66)
+                        .addComponent(BTRbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelArtistasLayout.createSequentialGroup()
+                        .addGroup(panelArtistasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelArtistasLayout.createSequentialGroup()
+                                .addComponent(SkzBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(50, 50, 50)
+                                .addComponent(LousiBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(panelArtistasLayout.createSequentialGroup()
+                                .addComponent(BillieBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(50, 50, 50)
+                                .addComponent(BTN5sos, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(65, 65, 65)
+                        .addGroup(panelArtistasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(panelArtistasLayout.createSequentialGroup()
+                                .addComponent(TaylorBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(66, 66, 66)
+                                .addComponent(ImagineDragonsBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+        );
+        panelArtistasLayout.setVerticalGroup(
+            panelArtistasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelArtistasLayout.createSequentialGroup()
+                .addGap(12, 12, 12)
+                .addGroup(panelArtistasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(HSbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(SabrinaBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ConanBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BTRbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(38, 38, 38)
+                .addGroup(panelArtistasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(SkzBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(LousiBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TaylorBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ImagineDragonsBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(37, 37, 37)
+                .addGroup(panelArtistasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(BillieBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BTN5sos, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+        );
 
         jScrollPane1.setViewportView(panelArtistas);
 
@@ -370,62 +433,6 @@ public class PrincipalCL extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void BTRbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTRbtnActionPerformed
-
-        SelectedArtist = "Big Time Rush";
-        BotonesArtistasPanel();
-    }//GEN-LAST:event_BTRbtnActionPerformed
-
-    private void ConanBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConanBTNActionPerformed
-
-        SelectedArtist = "Conan Gray";
-        BotonesArtistasPanel();
-//        Cantidad.agregarAlFinal(user);
-//        Cantidad.mostrarLista();
-    }//GEN-LAST:event_ConanBTNActionPerformed
-
-    private void ImagineDragonsBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ImagineDragonsBTNActionPerformed
-
-        SelectedArtist = "Imagine Dragons";
-        BotonesArtistasPanel();
-    }//GEN-LAST:event_ImagineDragonsBTNActionPerformed
-
-    private void LousiBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LousiBTNActionPerformed
-
-        SelectedArtist = "Louis Tomilson";
-        BotonesArtistasPanel();
-    }//GEN-LAST:event_LousiBTNActionPerformed
-
-    private void SkzBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SkzBTNActionPerformed
-
-        SelectedArtist = "Stray Kids";
-        BotonesArtistasPanel();
-    }//GEN-LAST:event_SkzBTNActionPerformed
-
-    private void txtBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBTNActionPerformed
-
-        SelectedArtist = "TXT";
-        BotonesArtistasPanel();
-    }//GEN-LAST:event_txtBTNActionPerformed
-
-    private void BillieBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BillieBTNActionPerformed
-
-        SelectedArtist = "Billie Eilish";
-        BotonesArtistasPanel();
-    }//GEN-LAST:event_BillieBTNActionPerformed
-
-    private void BTN5sosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN5sosActionPerformed
-
-        SelectedArtist = "5SOS";
-        BotonesArtistasPanel();
-    }//GEN-LAST:event_BTN5sosActionPerformed
-
-    private void HSbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HSbtnActionPerformed
-        SelectedArtist = "Harry Styles";
-        BotonesArtistasPanel();
-
-    }//GEN-LAST:event_HSbtnActionPerformed
-
     private void BTNartistasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNartistasActionPerformed
         if (actualPanel == panelproductoss | actualPanel == panelDELproducto) {
             panelproductoss.setVisible(false);
@@ -452,17 +459,6 @@ public class PrincipalCL extends javax.swing.JFrame {
             
         }
     }//GEN-LAST:event_BTNproductosActionPerformed
-
-    private void SabrinaBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SabrinaBTNActionPerformed
-        SelectedArtist = "Sabrina Carpenter";
-        BotonesArtistasPanel();
-    }//GEN-LAST:event_SabrinaBTNActionPerformed
-
-    private void TaylorBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TaylorBTNActionPerformed
-
-        SelectedArtist = "Taylor Swift";
-        BotonesArtistasPanel();
-    }//GEN-LAST:event_TaylorBTNActionPerformed
 
     private void btnGORRASActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGORRASActionPerformed
         product="Gorras";
@@ -493,6 +489,94 @@ public class PrincipalCL extends javax.swing.JFrame {
          cargardatosalcombo();
        
     }//GEN-LAST:event_jComboBox1ActionPerformed
+
+    private void AddAlCarritoBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddAlCarritoBTNActionPerformed
+        Scanner sc=new Scanner(System.in);
+        if(UnidadesDelProducto.getText()==null |UnidadesDelProducto.getText()==""|UnidadesDelProducto.getText()=="0" ){
+           //aviso
+       }else{
+         int uni=Integer.parseInt(UnidadesDelProducto.getText());
+           for (int i = 1; i <= uni; i++) {
+               Carrito.agregarAlFinal("Camiseta S;"+SelectedArtist);
+           }
+         Carrito.mostrarLista();
+         int pos=Names.buscarPosicionporDato("Camiseta S;"+SelectedArtist);
+         int res=Integer.parseInt(Cantidad.buscarPorPosicion(pos))-uni;
+         Cantidad.modificarDatoEnPosicion(pos,Integer.toString(res) );
+         Cantidad.mostrarLista();
+         
+         //ESTO NO VA
+         PrincipalAD.CopiarlISTAaArchivo( sc, "Inventario", Names, Cantidad);
+       }
+    }//GEN-LAST:event_AddAlCarritoBTNActionPerformed
+
+    private void UnidadesDelProductoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UnidadesDelProductoMouseClicked
+        UnidadesDelProducto.setText("");
+    }//GEN-LAST:event_UnidadesDelProductoMouseClicked
+
+    private void TaylorBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TaylorBTNActionPerformed
+
+        SelectedArtist = "Taylor Swift";
+        BotonesArtistasPanel();
+    }//GEN-LAST:event_TaylorBTNActionPerformed
+
+    private void BTN5sosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN5sosActionPerformed
+
+        SelectedArtist = "5SOS";
+        BotonesArtistasPanel();
+    }//GEN-LAST:event_BTN5sosActionPerformed
+
+    private void BillieBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BillieBTNActionPerformed
+
+        SelectedArtist = "Billie Eilish";
+        BotonesArtistasPanel();
+    }//GEN-LAST:event_BillieBTNActionPerformed
+
+    private void txtBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBTNActionPerformed
+
+        SelectedArtist = "TXT";
+        BotonesArtistasPanel();
+    }//GEN-LAST:event_txtBTNActionPerformed
+
+    private void SkzBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SkzBTNActionPerformed
+
+        SelectedArtist = "Stray Kids";
+        BotonesArtistasPanel();
+    }//GEN-LAST:event_SkzBTNActionPerformed
+
+    private void LousiBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LousiBTNActionPerformed
+
+        SelectedArtist = "Louis Tomilson";
+        BotonesArtistasPanel();
+    }//GEN-LAST:event_LousiBTNActionPerformed
+
+    private void ImagineDragonsBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ImagineDragonsBTNActionPerformed
+
+        SelectedArtist = "Imagine Dragons";
+        BotonesArtistasPanel();
+    }//GEN-LAST:event_ImagineDragonsBTNActionPerformed
+
+    private void ConanBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConanBTNActionPerformed
+
+        SelectedArtist = "Conan Gray";
+        BotonesArtistasPanel();
+    }//GEN-LAST:event_ConanBTNActionPerformed
+
+    private void BTRbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTRbtnActionPerformed
+
+        SelectedArtist = "Big Time Rush";
+        BotonesArtistasPanel();
+    }//GEN-LAST:event_BTRbtnActionPerformed
+
+    private void SabrinaBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SabrinaBTNActionPerformed
+        SelectedArtist = "Sabrina Carpenter";
+        BotonesArtistasPanel();
+    }//GEN-LAST:event_SabrinaBTNActionPerformed
+
+    private void HSbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HSbtnActionPerformed
+        SelectedArtist = "Harry Styles";
+        BotonesArtistasPanel();
+    }//GEN-LAST:event_HSbtnActionPerformed
 
     public void BotonesArtistasPanel() {
         panelproductoss.setVisible(true);
@@ -622,6 +706,7 @@ public class PrincipalCL extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton AddAlCarritoBTN;
     private javax.swing.JButton BTN5sos;
     private javax.swing.JButton BTNartistas;
     private javax.swing.JButton BTNelproducto;
@@ -638,6 +723,7 @@ public class PrincipalCL extends javax.swing.JFrame {
     private javax.swing.JButton SkzBTN;
     private javax.swing.JButton TaylorBTN;
     private javax.swing.JLabel TituloArtista;
+    private javax.swing.JTextField UnidadesDelProducto;
     private javax.swing.JButton btnCDS;
     private javax.swing.JButton btnCamisetas;
     private javax.swing.JButton btnGORRAS;
