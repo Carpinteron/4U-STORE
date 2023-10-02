@@ -2257,6 +2257,18 @@ graficafondo.setVisible(true);
             return -1; // El dato no se encontró en la lista
         }
 
+        public int contarRepeticiones(String elemento) {
+            int contador = 0;
+            Nodo actual = head;
+            while (actual != null) {
+                if (actual.dato.equals(elemento)) {
+                    contador++;
+                }
+                actual = actual.siguiente;
+            }
+            return contador;
+        }
+
         public boolean modificarDatoEnPosicion(int posicion, String nuevoDato) {
             if (posicion < 0) {
                 return false; // Posición inválida

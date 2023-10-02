@@ -2,12 +2,16 @@
 
 
 import java.awt.Color;
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.util.Scanner;
 import javax.swing.ImageIcon;
 
 public class CarritoFR extends javax.swing.JFrame {
 private String user, cedula;
  private PrincipalCL clientefr;
+
+ String precio;
     public CarritoFR(String user, String cedula,PrincipalCL clientefr) {
          setIconImage(new ImageIcon(getClass().getResource("ICons/4Uicon.png")).getImage());
         this.user=user;
@@ -17,6 +21,7 @@ private String user, cedula;
         setBackground(new Color(0,0,0,0));
         initComponents();
         setLocationRelativeTo(null);
+        calcularTotal();
         
         //VERIFICACION ignorar
         if (this.clientefr == null) {
@@ -155,6 +160,64 @@ private String user, cedula;
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public String buscarprecio(String n,Scanner sc, String file){
+        String temp[]=n.split(";");
+        String prod=temp[0];//nombre del producto
+        String art=temp[1];//Artista
+        boolean hay = false;
+        String res="-2";
+        while (!hay) {
+            try{
+                BufferedReader read = new BufferedReader(new FileReader(file + ".txt"));
+                String line ; //definición de line
+                boolean Encontrado = false;
+                while ((line = read.readLine()) != null && Encontrado == false) {
+                    String[] campos = line.split(";");
+                    String artistaActual = campos[3], prodActual=campos[0];
+                    if (artistaActual.equalsIgnoreCase(art)&& prodActual.equals(prod)) {
+                        Encontrado = true;
+                        System.out.println(campos[4]);
+                        res=campos[4];
+                    }
+                }
+                if (Encontrado == false) {
+                    System.out.println("No se encontro el nombre del semillero");
+                    res="-1";
+                }
+                 read.close();
+                hay=true;
+                
+            } catch (Exception e) {
+                System.out.println( "No se encontro el archivo");
+            }
+
+        }
+        return res;
+
+    }
+    public void calcularTotal(){
+        Scanner sc=new Scanner(System.in);
+        PrincipalAD.ListaEnlazada Carrito = clientefr.Carrito;
+        PrincipalAD.ListaEnlazada Names = clientefr.Names;
+       
+        PrincipalAD.Nodo act=Names.head;
+        double total=0;
+        
+        while(act!=null){
+            String nombre=act.dato;
+            int cant=Carrito.contarRepeticiones(nombre);
+            if(cant!=0){
+                String precioS=buscarprecio(nombre,sc,"Inventario");
+                if(!precioS.equals("-1")){
+                    double p =Double.parseDouble(precioS);
+                    total+=p*cant;
+                }
+            }
+            
+            act=act.siguiente;
+        }
+        PrecioTot.setText(String.valueOf(total));
+    }
     private void BtnEXITActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEXITActionPerformed
         System.exit(0);
     }//GEN-LAST:event_BtnEXITActionPerformed
