@@ -1,27 +1,29 @@
 
-
-
 import java.awt.Color;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.Scanner;
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 
 public class CarritoFR extends javax.swing.JFrame {
-private String user, cedula;
- private PrincipalCL clientefr;
- String precio;
-    public CarritoFR(String user, String cedula,PrincipalCL clientefr) {
-         setIconImage(new ImageIcon(getClass().getResource("ICons/4Uicon.png")).getImage());
-        this.user=user;
+
+    private String user, cedula;
+    private PrincipalCL clientefr;
+    String precio;
+     static int anterior=1;
+
+    public CarritoFR(String user, String cedula, PrincipalCL clientefr) {
+        setIconImage(new ImageIcon(getClass().getResource("ICons/4Uicon.png")).getImage());
+        this.user = user;
         this.cedula = cedula;
-        this.clientefr=clientefr;
+        this.clientefr = clientefr;
         setUndecorated(true);
-        setBackground(new Color(0,0,0,0));
+        setBackground(new Color(0, 0, 0, 0));
         initComponents();
         setLocationRelativeTo(null);
         calcularTotal();
-        
+
         //VERIFICACION ignorar
         if (this.clientefr == null) {
             System.out.println("this.clientefr es null");
@@ -29,7 +31,7 @@ private String user, cedula;
             System.out.println("this.clientefr no es null");
         }
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -43,6 +45,7 @@ private String user, cedula;
         jLabel2 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         PrecioTot = new javax.swing.JLabel();
+        mensajito = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setSize(new java.awt.Dimension(1200, 100));
@@ -123,6 +126,8 @@ private String user, cedula;
 
         PrecioTot.setText("jLabel1");
 
+        mensajito.setText("jLabel1");
+
         javax.swing.GroupLayout panelRound1Layout = new javax.swing.GroupLayout(panelRound1);
         panelRound1.setLayout(panelRound1Layout);
         panelRound1Layout.setHorizontalGroup(
@@ -135,11 +140,14 @@ private String user, cedula;
                         .addComponent(BtnEXIT)
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRound1Layout.createSequentialGroup()
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(120, 120, 120))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRound1Layout.createSequentialGroup()
                         .addComponent(PrecioTot, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(215, 215, 215))))
+                        .addGap(215, 215, 215))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRound1Layout.createSequentialGroup()
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(174, 174, 174))
+                    .addGroup(panelRound1Layout.createSequentialGroup()
+                        .addComponent(mensajito, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
         );
         panelRound1Layout.setVerticalGroup(
             panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -148,9 +156,11 @@ private String user, cedula;
                 .addComponent(BtnEXIT)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(PrecioTot, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(138, 138, 138)
+                .addGap(92, 92, 92)
+                .addComponent(mensajito, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(62, 62, 62)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(194, 194, 194))
+                .addGap(148, 148, 148))
             .addComponent(panelRound2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
@@ -159,61 +169,74 @@ private String user, cedula;
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    public String buscarprecio(String n,Scanner sc, String file){
-        String temp[]=n.split(";");
-        String prod=temp[0];//nombre del producto
-        String art=temp[1];//Artista
+    public String buscarprecio(String n, Scanner sc, String file) {
+        String temp[] = n.split(";");
+        String prod = temp[0];//nombre del producto
+        String art = temp[1];//Artista
         boolean hay = false;
-        String res="-2";
+        String res = "-2";
         while (!hay) {
-            try{
+            try {
                 BufferedReader read = new BufferedReader(new FileReader(file + ".txt"));
-                String line ; //definición de line
+                String line; //definición de line
                 boolean Encontrado = false;
                 while ((line = read.readLine()) != null && Encontrado == false) {
                     String[] campos = line.split(";");
-                    String artistaActual = campos[3], prodActual=campos[0];
-                    if (artistaActual.equalsIgnoreCase(art)&& prodActual.equals(prod)) {
+                    String artistaActual = campos[3], prodActual = campos[0];
+                    if (artistaActual.equalsIgnoreCase(art) && prodActual.equals(prod)) {
                         Encontrado = true;
                         System.out.println(campos[4]);
-                        res=campos[4];
+                        res = campos[4];
                     }
                 }
                 if (Encontrado == false) {
                     System.out.println("No se encontro el nombre del semillero");
-                    res="-1";
+                    res = "-1";
                 }
-                 read.close();
-                hay=true;
-                
+                read.close();
+                hay = true;
+
             } catch (Exception e) {
-                System.out.println( "No se encontro el archivo");
+                System.out.println("No se encontro el archivo");
             }
 
         }
         return res;
 
     }
-    public void calcularTotal(){
-        Scanner sc=new Scanner(System.in);
+
+    public static PrincipalAD.ListaEnlazada copiarLista(PrincipalAD.ListaEnlazada listaOriginal) {
+        PrincipalAD.ListaEnlazada CarritocOPY = new PrincipalAD.ListaEnlazada();
+
+        PrincipalAD.Nodo nodoActual = listaOriginal.head;
+        while (nodoActual != null) {
+            CarritocOPY.insertar(nodoActual.dato); // Inserta el valor del nodo en la lista de destino
+            nodoActual = nodoActual.siguiente; // Mueve al siguiente nodo en la lista original
+        }
+
+        return CarritocOPY;
+    }
+
+    public void calcularTotal() {
+        Scanner sc = new Scanner(System.in);
         PrincipalAD.ListaEnlazada Carrito = clientefr.Carrito;
         PrincipalAD.ListaEnlazada Names = clientefr.Names;
-       
-        PrincipalAD.Nodo act=Names.head;
-        double total=0;
-        
-        while(act!=null){
-            String nombre=act.dato;
-            int cant=Carrito.contarRepeticiones(nombre);
-            if(cant!=0){
-                String precioS=buscarprecio(nombre,sc,"Inventario");
-                if(!precioS.equals("-1")){
-                    double p =Double.parseDouble(precioS);
-                    total+=p*cant;
+        copiarLista(Carrito);
+        PrincipalAD.Nodo act = Names.head;
+        double total = 0;
+
+        while (act != null) {
+            String nombre = act.dato;
+            int cant = Carrito.contarRepeticiones(nombre);
+            if (cant != 0) {
+                String precioS = buscarprecio(nombre, sc, "Inventario");
+                if (!precioS.equals("-1")) {
+                    double p = Double.parseDouble(precioS);
+                    total += p * cant;
                 }
             }
-            
-            act=act.siguiente;
+
+            act = act.siguiente;
         }
         PrecioTot.setText(String.valueOf(total));
     }
@@ -222,21 +245,22 @@ private String user, cedula;
     }//GEN-LAST:event_BtnEXITActionPerformed
 
     private void BtnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSalirActionPerformed
-        perfilesFR menu=new perfilesFR(user, cedula);
+        perfilesFR menu = new perfilesFR(user, cedula);
         menu.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_BtnSalirActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        PrincipalCL cl=new PrincipalCL(user, cedula);
+        PrincipalCL cl = new PrincipalCL(user, cedula);
         cl.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        
 
-PrincipalAD.ListaEnlazada Carrito = clientefr.Carrito;
+        mensajito.setText("Gracias por la compra");
+
+        PrincipalAD.ListaEnlazada Carrito = clientefr.Carrito;
         PrincipalAD.ListaEnlazada Names = clientefr.Names;
         PrincipalAD.ListaEnlazada Cantidad = clientefr.Cantidad;
         Scanner sc = new Scanner(System.in);
@@ -283,6 +307,7 @@ PrincipalAD.ListaEnlazada Carrito = clientefr.Carrito;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel mensajito;
     private custom.PanelRound panelRound1;
     private custom.PanelRound panelRound2;
     // End of variables declaration//GEN-END:variables

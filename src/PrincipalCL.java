@@ -75,6 +75,13 @@ public class PrincipalCL extends javax.swing.JFrame {
 // Aplicar la fuente en negrita al encabezado
         header.setFont(font);
     }
+    
+//    public static void listacar(){
+//        if (CarritoFR.anterior ==1) {
+//            PrincipalAD.ListaEnlazada Carrito2 = carritofr.Carrito;
+//            CarritoFR.copiarLista(CarritoFR.Carrito);
+//        }
+//    }
     PrincipalAD.ListaEnlazada Carrito = new PrincipalAD.ListaEnlazada();
     PrincipalAD.ListaEnlazada Cantidad = new PrincipalAD.ListaEnlazada();
     PrincipalAD.ListaEnlazada Names = new PrincipalAD.ListaEnlazada();

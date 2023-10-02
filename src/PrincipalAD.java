@@ -2122,6 +2122,23 @@ public class PrincipalAD extends javax.swing.JFrame {
             return false; // La posición está más allá del final de la lista
         }
 
+        public void insertar(String dato) {
+            Nodo nuevoNodo = new Nodo(dato);
+
+            if (head == null) {
+                // Si la lista está vacía, el nuevo nodo se convierte en la cabeza
+                head = nuevoNodo;
+            } else {
+                // Si la lista no está vacía, recorremos la lista hasta el último nodo
+                // y luego enlazamos el último nodo con el nuevo nodo
+                Nodo actual = head;
+                while (actual.siguiente != null) {
+                    actual = actual.siguiente;
+                }
+                actual.siguiente = nuevoNodo;
+            }
+        }
+
         public String buscarPorPosicion(int posicion) {
             if (posicion < 0) {
                 return null; // Posición inválida
