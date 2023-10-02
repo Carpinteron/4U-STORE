@@ -33,6 +33,7 @@ public class PrincipalCL extends javax.swing.JFrame {
         
         PrincipalAD.CopiarArchivoAlISTA(sc, "Inventario",Names,Cantidad);
     }
+    PrincipalAD.ListaEnlazada Carrito=new PrincipalAD.ListaEnlazada();
      PrincipalAD.ListaEnlazada Cantidad=new PrincipalAD.ListaEnlazada();
     PrincipalAD.ListaEnlazada Names=new PrincipalAD.ListaEnlazada();
     public String Frameanterior;
@@ -68,6 +69,8 @@ public class PrincipalCL extends javax.swing.JFrame {
         labelTipoProduct = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
         ImagenProducto = new javax.swing.JLabel();
+        AddAlCarritoBTN = new javax.swing.JButton();
+        UnidadesDelProducto = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         panelArtistas = new javax.swing.JPanel();
         HSbtn = new javax.swing.JButton();
@@ -229,6 +232,22 @@ public class PrincipalCL extends javax.swing.JFrame {
         ImagenProducto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICons/camiseta-200.png"))); // NOI18N
         panelDELproducto.add(ImagenProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 30, 180, 240));
 
+        AddAlCarritoBTN.setText("jButton4");
+        AddAlCarritoBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AddAlCarritoBTNActionPerformed(evt);
+            }
+        });
+        panelDELproducto.add(AddAlCarritoBTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 440, 180, 60));
+
+        UnidadesDelProducto.setText("1");
+        UnidadesDelProducto.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                UnidadesDelProductoMouseClicked(evt);
+            }
+        });
+        panelDELproducto.add(UnidadesDelProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 360, 140, 40));
+
         panelRound1.add(panelDELproducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, 1060, 580));
 
         jScrollPane1.setBorder(null);
@@ -380,8 +399,7 @@ public class PrincipalCL extends javax.swing.JFrame {
 
         SelectedArtist = "Conan Gray";
         BotonesArtistasPanel();
-//        Cantidad.agregarAlFinal(user);
-//        Cantidad.mostrarLista();
+       
     }//GEN-LAST:event_ConanBTNActionPerformed
 
     private void ImagineDragonsBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ImagineDragonsBTNActionPerformed
@@ -493,6 +511,30 @@ public class PrincipalCL extends javax.swing.JFrame {
          cargardatosalcombo();
        
     }//GEN-LAST:event_jComboBox1ActionPerformed
+
+    private void AddAlCarritoBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddAlCarritoBTNActionPerformed
+        Scanner sc=new Scanner(System.in);
+        if(UnidadesDelProducto.getText()==null |UnidadesDelProducto.getText()==""|UnidadesDelProducto.getText()=="0" ){
+           //aviso
+       }else{
+         int uni=Integer.parseInt(UnidadesDelProducto.getText());
+           for (int i = 1; i <= uni; i++) {
+               Carrito.agregarAlFinal("Camiseta S;"+SelectedArtist);
+           }
+         Carrito.mostrarLista();
+         int pos=Names.buscarPosicionporDato("Camiseta S;"+SelectedArtist);
+         int res=Integer.parseInt(Cantidad.buscarPorPosicion(pos))-uni;
+         Cantidad.modificarDatoEnPosicion(pos,Integer.toString(res) );
+         Cantidad.mostrarLista();
+         
+         //ESTO NO VA
+         PrincipalAD.CopiarlISTAaArchivo( sc, "Invetario", Names, Cantidad);
+       }
+    }//GEN-LAST:event_AddAlCarritoBTNActionPerformed
+
+    private void UnidadesDelProductoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UnidadesDelProductoMouseClicked
+        UnidadesDelProducto.setText("");
+    }//GEN-LAST:event_UnidadesDelProductoMouseClicked
 
     public void BotonesArtistasPanel() {
         panelproductoss.setVisible(true);
@@ -622,6 +664,7 @@ public class PrincipalCL extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton AddAlCarritoBTN;
     private javax.swing.JButton BTN5sos;
     private javax.swing.JButton BTNartistas;
     private javax.swing.JButton BTNelproducto;
@@ -638,6 +681,7 @@ public class PrincipalCL extends javax.swing.JFrame {
     private javax.swing.JButton SkzBTN;
     private javax.swing.JButton TaylorBTN;
     private javax.swing.JLabel TituloArtista;
+    private javax.swing.JTextField UnidadesDelProducto;
     private javax.swing.JButton btnCDS;
     private javax.swing.JButton btnCamisetas;
     private javax.swing.JButton btnGORRAS;
