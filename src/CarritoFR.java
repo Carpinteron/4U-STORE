@@ -1,11 +1,13 @@
 
 import java.awt.Color;
+import java.awt.Font;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.Scanner;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
 
 public class CarritoFR extends javax.swing.JFrame {
 
@@ -25,6 +27,15 @@ public class CarritoFR extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         calcularTotal();
         mostrarInformacionEnTabla();
+           // Obtener el encabezado de la tabla
+        JTableHeader header = Tablita.getTableHeader();
+
+// Crear una fuente en negrita
+        Font font = new Font("Berlin Sans FB Demi", Font.BOLD, 14);
+
+// Aplicar la fuente en negrita al encabezado
+        header.setFont(font);
+
         //VERIFICACION ignorar
         if (this.clientefr == null) {
             System.out.println("this.clientefr es null");
@@ -143,6 +154,8 @@ public class CarritoFR extends javax.swing.JFrame {
         mensajito.setForeground(new java.awt.Color(153, 0, 153));
         mensajito.setText("jLabel1");
 
+        Tablita.setBackground(new java.awt.Color(243, 239, 239));
+        Tablita.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 12)); // NOI18N
         Tablita.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
