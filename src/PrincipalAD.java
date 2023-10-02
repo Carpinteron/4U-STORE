@@ -1,6 +1,7 @@
 
 import java.awt.Color;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -2214,36 +2215,82 @@ public class PrincipalAD extends javax.swing.JFrame {
 
     public static void CopiarlISTAaArchivo(Scanner sc, String file_name, ListaEnlazada names, ListaEnlazada cant) {
         try {
-            FileWriter outFile = new FileWriter(file_name + ".txt", true); // Abre el archivo en modo "append"
-            PrintWriter registro = new PrintWriter(outFile);
+            
+            
+         File inputFile = new File(file_name + ".txt");
+        File tempFile = new File("temp.txt");
 
-            Nodo nodoActualNames = names.head;
-            Nodo nodoActualCant = cant.head;
+        BufferedReader reader = new BufferedReader(new FileReader(inputFile));
+        BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
 
-            while (nodoActualNames != null) {
-                String c = nodoActualCant.dato;
-                String temp[] = nodoActualNames.dato.split(";");
-                String producto = temp[0];
-                String artista = temp[1];
+        String lineToRemove;
 
-                BufferedReader br = new BufferedReader(new FileReader(file_name + ".txt"));
-                String line = null;
+        Nodo nodoActualNames = names.head;
+        Nodo nodoActualCant = cant.head;
 
-                while ((line = br.readLine()) != null) {
-                    String temp2[] = line.split(";");
-                    if (temp2[0].equals(producto) && temp2[3].equals(artista) && !temp2[1].equals(c)) {
-                        registro.println(temp2[0] + ";" + c + ";" + temp2[2] + ";" + temp2[3] + ";" + temp2[4]);
-                    }
+        while (nodoActualNames != null && nodoActualCant != null) {
+            String c = nodoActualCant.dato;
+            String temp[] = nodoActualNames.dato.split(";");
+            String producto = temp[0];
+            String artista = temp[1];
+
+            while ((lineToRemove = reader.readLine()) != null) {
+                String temp2[] = lineToRemove.split(";");
+                if (temp2[0].equals(producto) && temp2[3].equals(artista)) {
+                    lineToRemove = temp2[0] + ";" + c + ";" + temp2[2] + ";" + temp2[3] + ";" + temp2[4];
                 }
-                br.close();
-
-                // Avanza a los siguientes nodos
-                nodoActualNames = nodoActualNames.siguiente;
-                nodoActualCant = nodoActualCant.siguiente;
+                writer.write(lineToRemove + System.getProperty("line.separator"));
             }
-            registro.close();
 
-            System.out.println("Datos agregados exitosamente al archivo " + file_name);
+            // Avanza a los siguientes nodos
+            nodoActualNames = nodoActualNames.siguiente;
+            nodoActualCant = nodoActualCant.siguiente;
+        }
+
+        writer.close();
+        reader.close();
+
+        // Borra el archivo original y renombra el archivo temporal
+        if (inputFile.delete()) {
+            if (!tempFile.renameTo(inputFile)) {
+                System.out.println("Error al renombrar el archivo temporal");
+            }
+        } else {
+            System.out.println("Error al eliminar el archivo original");
+        }
+
+        System.out.println("Datos actualizados exitosamente en el archivo " + file_name);
+ 
+//            FileWriter outFile = new FileWriter(file_name + ".txt", true); // Abre el archivo en modo "append"
+//            PrintWriter registro = new PrintWriter(outFile);
+//
+//            Nodo nodoActualNames = names.head;
+//            Nodo nodoActualCant = cant.head;
+//
+//            while (nodoActualNames != null) {
+//                String c = nodoActualCant.dato;
+//                String temp[] = nodoActualNames.dato.split(";");
+//                String producto = temp[0];
+//                String artista = temp[1];
+//
+//                BufferedReader br = new BufferedReader(new FileReader(file_name + ".txt"));
+//                String line = null;
+//
+//                while ((line = br.readLine()) != null) {
+//                    String temp2[] = line.split(";");
+//                    if (temp2[0].equals(producto) && temp2[3].equals(artista) && !temp2[1].equals(c)) {
+//                        registro.println(temp2[0] + ";" + c + ";" + temp2[2] + ";" + temp2[3] + ";" + temp2[4]);
+//                    }
+//                }
+//                br.close();
+//
+//                // Avanza a los siguientes nodos
+//                nodoActualNames = nodoActualNames.siguiente;
+//                nodoActualCant = nodoActualCant.siguiente;
+//            }
+//            registro.close();
+//
+//            System.out.println("Datos agregados exitosamente al archivo " + file_name);
 
         } catch (IOException ex) {
             System.out.println("Error al agregar datos al archivo " + file_name);
