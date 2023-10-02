@@ -48,17 +48,17 @@ public class PrincipalAD extends javax.swing.JFrame {
         PanelAgregarPE.setVisible(false);
         PanelEliminar.setVisible(false);
         //  CopiarArchivoAlISTA(sc, "Inventario");
-  
+
         String[] cUsuarios;
         try {
             BufferedReader br = new BufferedReader(new FileReader("CedulasAdmins.txt"));
             String linea;
             while ((linea = br.readLine()) != null) {
                 cUsuarios = linea.split("\\| ");
-                System.out.println("NOMBRE: "+cUsuarios[0]);
+                System.out.println("NOMBRE: " + cUsuarios[0]);
                 if (cedula.equals(cUsuarios[1])) {
                     userLABEL.setText(cUsuarios[0]);
-                    System.out.println("NOMBRE: "+cUsuarios[0]);
+                    System.out.println("NOMBRE: " + cUsuarios[0]);
                 }
             }
 
@@ -1887,9 +1887,9 @@ public class PrincipalAD extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        Registrar registro = new Registrar(user,cedula);
+        Registrar registro = new Registrar(user, cedula);
         registro.setVisible(true);
-     
+
     }//GEN-LAST:event_jButton3ActionPerformed
 //    public void AñadirUsuarios(String file_name, String file_ced) {
 //        try {
@@ -2090,6 +2090,18 @@ public class PrincipalAD extends javax.swing.JFrame {
             return -1; // El dato no se encontró en la lista
         }
 
+        public int contarRepeticiones(String elemento) {
+            int contador = 0;
+            Nodo actual = head;
+            while (actual != null) {
+                if (actual.dato.equals(elemento)) {
+                    contador++;
+                }
+                actual = actual.siguiente;
+            }
+            return contador;
+        }
+
         public boolean modificarDatoEnPosicion(int posicion, String nuevoDato) {
             if (posicion < 0) {
                 return false; // Posición inválida
@@ -2187,7 +2199,7 @@ public class PrincipalAD extends javax.swing.JFrame {
                 String nombreArtista = campos[3]; // Nombre del artista
                 String Precio = campos[4]; // Precio Producto
 
-                if (nodoActualNames != null & nodoActualCant!=null) {
+                if (nodoActualNames != null & nodoActualCant != null) {
                     String cantidadNueva = nodoActualCant.dato;
                     String temp[] = nodoActualNames.dato.split(";");
                     String producto = temp[0];
@@ -2204,10 +2216,10 @@ public class PrincipalAD extends javax.swing.JFrame {
                     nodoActualNames = nodoActualNames.siguiente;
                     nodoActualCant = nodoActualCant.siguiente;
 
-                }else{
+                } else {
                     pw.println(line);
                 }
-                
+
             }
             br.close();
             pw.close();
