@@ -8,7 +8,6 @@ import javax.swing.ImageIcon;
 public class CarritoFR extends javax.swing.JFrame {
 private String user, cedula;
  private PrincipalCL clientefr;
- String 
     public CarritoFR(String user, String cedula,PrincipalCL clientefr) {
          setIconImage(new ImageIcon(getClass().getResource("ICons/4Uicon.png")).getImage());
         this.user=user;

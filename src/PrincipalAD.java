@@ -1,5 +1,7 @@
 
+import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -7,6 +9,8 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -14,11 +18,20 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
+import javax.swing.Box;
+import javax.swing.BoxLayout;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.axis.NumberAxis;
+import org.jfree.chart.plot.CategoryPlot;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.data.category.DefaultCategoryDataset;
 
 public class PrincipalAD extends javax.swing.JFrame {
 
@@ -41,24 +54,26 @@ public class PrincipalAD extends javax.swing.JFrame {
         sc.close();
         userLABEL.setText(user);
         //No visible
-        Constraseña.setVisible(true);
+        Contraseña.setVisible(true);
         Pantalla.setVisible(false);
         exitBTN.setVisible(false);
         PanelAgregar.setVisible(false);
         PanelAgregarPE.setVisible(false);
         PanelEliminar.setVisible(false);
+        graficaspanel.setVisible(false);
+        graficafondo.setVisible(false);
         //  CopiarArchivoAlISTA(sc, "Inventario");
-  
+
         String[] cUsuarios;
         try {
             BufferedReader br = new BufferedReader(new FileReader("CedulasAdmins.txt"));
             String linea;
             while ((linea = br.readLine()) != null) {
                 cUsuarios = linea.split("\\| ");
-                System.out.println("NOMBRE: "+cUsuarios[0]);
+                System.out.println("NOMBRE: " + cUsuarios[0]);
                 if (cedula.equals(cUsuarios[1])) {
                     userLABEL.setText(cUsuarios[0]);
-                    System.out.println("NOMBRE: "+cUsuarios[0]);
+                    System.out.println("NOMBRE: " + cUsuarios[0]);
                 }
             }
 
@@ -74,7 +89,7 @@ public class PrincipalAD extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        Constraseña = new custom.PanelRound();
+        Contraseña = new custom.PanelRound();
         jLabel6 = new javax.swing.JLabel();
         BtnVerifyUser = new javax.swing.JButton();
         PassField = new javax.swing.JPasswordField();
@@ -88,6 +103,9 @@ public class PrincipalAD extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         Pantalla = new custom.PanelRound();
+        graficaspanel = new custom.PanelRound();
+        graficafondo = new custom.PanelRound();
+        BtnEXIT3 = new javax.swing.JButton();
         panelRound2 = new custom.PanelRound();
         BtnGrafics = new javax.swing.JButton();
         BtnSalir = new javax.swing.JButton();
@@ -154,19 +172,24 @@ public class PrincipalAD extends javax.swing.JFrame {
         error1Eli = new javax.swing.JLabel();
         error2Eli = new javax.swing.JLabel();
         error3Eli = new javax.swing.JLabel();
+        graficas = new custom.PanelRound();
+        BtnEXIT1 = new javax.swing.JButton();
+        valid = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
         setSize(new java.awt.Dimension(1200, 700));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Constraseña.setBackground(new java.awt.Color(153, 153, 255));
-        Constraseña.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        Contraseña.setBackground(new java.awt.Color(153, 153, 255));
+        Contraseña.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel6.setFont(new java.awt.Font("Sylfaen", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Verifique Contraseña De Administrador");
-        Constraseña.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 170, -1, -1));
+        Contraseña.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 170, -1, -1));
 
         BtnVerifyUser.setBackground(new java.awt.Color(38, 0, 75));
         BtnVerifyUser.setFont(new java.awt.Font("Sylfaen", 1, 14)); // NOI18N
@@ -178,7 +201,7 @@ public class PrincipalAD extends javax.swing.JFrame {
                 BtnVerifyUserActionPerformed(evt);
             }
         });
-        Constraseña.add(BtnVerifyUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 270, 70, 40));
+        Contraseña.add(BtnVerifyUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 270, 70, 40));
 
         PassField.setBackground(new java.awt.Color(209, 163, 255));
         PassField.setFont(new java.awt.Font("Sylfaen", 0, 14)); // NOI18N
@@ -194,7 +217,7 @@ public class PrincipalAD extends javax.swing.JFrame {
                 PassFieldActionPerformed(evt);
             }
         });
-        Constraseña.add(PassField, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 210, 160, 30));
+        Contraseña.add(PassField, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 210, 160, 30));
 
         ojo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICons/ojoabierto.png"))); // NOI18N
         ojo.setContentAreaFilled(false);
@@ -203,16 +226,16 @@ public class PrincipalAD extends javax.swing.JFrame {
                 ojoActionPerformed(evt);
             }
         });
-        Constraseña.add(ojo, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 210, -1, 30));
+        Contraseña.add(ojo, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 210, -1, 30));
 
         AvisoLabel.setFont(new java.awt.Font("Sylfaen", 0, 14)); // NOI18N
-        Constraseña.add(AvisoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, 290, 25));
-        Constraseña.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 150, 120, 20));
+        Contraseña.add(AvisoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, 290, 25));
+        Contraseña.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 150, 120, 20));
 
         userLABEL.setFont(new java.awt.Font("Sylfaen", 1, 14)); // NOI18N
         userLABEL.setForeground(new java.awt.Color(0, 0, 0));
         userLABEL.setText("User");
-        Constraseña.add(userLABEL, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 100, 140, 30));
+        Contraseña.add(userLABEL, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 100, 140, 30));
 
         BtnSalir1.setBackground(new java.awt.Color(38, 0, 75));
         BtnSalir1.setFont(new java.awt.Font("Sylfaen", 1, 14)); // NOI18N
@@ -224,7 +247,7 @@ public class PrincipalAD extends javax.swing.JFrame {
                 BtnSalir1ActionPerformed(evt);
             }
         });
-        Constraseña.add(BtnSalir1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 334, 50, 30));
+        Contraseña.add(BtnSalir1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 334, 50, 30));
 
         BtnEXIT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICons/cerrrar35.png"))); // NOI18N
         BtnEXIT.setBorder(null);
@@ -235,13 +258,13 @@ public class PrincipalAD extends javax.swing.JFrame {
                 BtnEXITActionPerformed(evt);
             }
         });
-        Constraseña.add(BtnEXIT, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 10, -1, -1));
+        Contraseña.add(BtnEXIT, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 10, -1, -1));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICons/adminimg.png"))); // NOI18N
-        Constraseña.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, -1, -1));
+        Contraseña.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, -1, -1));
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICons/Logo 4U_1.png"))); // NOI18N
-        Constraseña.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 290, -1, -1));
+        Contraseña.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 290, -1, -1));
 
         jButton2.setText("SKIP");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -249,11 +272,33 @@ public class PrincipalAD extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        Constraseña.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 260, -1, -1));
+        Contraseña.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 260, -1, -1));
 
-        getContentPane().add(Constraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 160, 560, 370));
+        getContentPane().add(Contraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 160, 560, 370));
 
         Pantalla.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        graficaspanel.setBackground(new java.awt.Color(153, 153, 255));
+        graficaspanel.setOpaque(true);
+        graficaspanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        Pantalla.add(graficaspanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 610, 380));
+
+        graficafondo.setBackground(new java.awt.Color(153, 153, 255));
+        graficafondo.setOpaque(true);
+        graficafondo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        BtnEXIT3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICons/cerrrar35.png"))); // NOI18N
+        BtnEXIT3.setBorder(null);
+        BtnEXIT3.setBorderPainted(false);
+        BtnEXIT3.setContentAreaFilled(false);
+        BtnEXIT3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnEXIT3ActionPerformed(evt);
+            }
+        });
+        graficafondo.add(BtnEXIT3, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 10, 30, -1));
+
+        Pantalla.add(graficafondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 680, 430));
 
         panelRound2.setBackground(new java.awt.Color(153, 153, 255));
 
@@ -293,11 +338,10 @@ public class PrincipalAD extends javax.swing.JFrame {
                 .addGroup(panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(BtnInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7)
-                    .addGroup(panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(BtnGrafics))
-                        .addComponent(BtnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jButton3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(BtnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(BtnGrafics, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelRound2Layout.setVerticalGroup(
@@ -305,9 +349,9 @@ public class PrincipalAD extends javax.swing.JFrame {
             .addGroup(panelRound2Layout.createSequentialGroup()
                 .addGap(12, 12, 12)
                 .addComponent(jLabel7)
-                .addGap(36, 36, 36)
-                .addComponent(BtnGrafics)
-                .addGap(178, 178, 178)
+                .addGap(31, 31, 31)
+                .addComponent(BtnGrafics, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(170, 170, 170)
                 .addComponent(jButton3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 200, Short.MAX_VALUE)
                 .addComponent(BtnInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -660,6 +704,64 @@ public class PrincipalAD extends javax.swing.JFrame {
         panelRound3.add(error3Eli, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 220, 290, 40));
 
         PanelEliminar.add(panelRound3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 950, 440));
+
+        graficas.setBackground(new java.awt.Color(153, 102, 255));
+
+        BtnEXIT1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICons/cerrrar35.png"))); // NOI18N
+        BtnEXIT1.setBorder(null);
+        BtnEXIT1.setBorderPainted(false);
+        BtnEXIT1.setContentAreaFilled(false);
+        BtnEXIT1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnEXIT1ActionPerformed(evt);
+            }
+        });
+
+        valid.setFont(new java.awt.Font("Sylfaen", 0, 14)); // NOI18N
+        valid.setForeground(new java.awt.Color(0, 0, 0));
+
+        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICons/Logo 4U_1.png"))); // NOI18N
+
+        jLabel18.setFont(new java.awt.Font("Perpetua Titling MT", 1, 18)); // NOI18N
+        jLabel18.setForeground(new java.awt.Color(38, 0, 75));
+        jLabel18.setText("GRÁFICAS");
+
+        javax.swing.GroupLayout graficasLayout = new javax.swing.GroupLayout(graficas);
+        graficas.setLayout(graficasLayout);
+        graficasLayout.setHorizontalGroup(
+            graficasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(graficasLayout.createSequentialGroup()
+                .addGap(46, 46, 46)
+                .addGroup(graficasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(valid, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(graficasLayout.createSequentialGroup()
+                        .addComponent(jLabel18)
+                        .addGap(0, 230, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(graficasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel17)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, graficasLayout.createSequentialGroup()
+                        .addComponent(BtnEXIT1)
+                        .addGap(8, 8, 8)))
+                .addContainerGap())
+        );
+        graficasLayout.setVerticalGroup(
+            graficasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(graficasLayout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addComponent(BtnEXIT1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 181, Short.MAX_VALUE)
+                .addComponent(jLabel17)
+                .addContainerGap())
+            .addGroup(graficasLayout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(152, 152, 152)
+                .addComponent(valid, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
+        PanelEliminar.add(graficas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         Pantalla.add(PanelEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, 950, 430));
 
@@ -1462,7 +1564,7 @@ public class PrincipalAD extends javax.swing.JFrame {
 
             model.removeAllElements(); // Limpia el modelo antes de cargar los elementos desde el archivo
             boolean hayElementos = false; // Bandera para verificar si se encontraron elementos
-            try ( BufferedReader BR = new BufferedReader(new FileReader("inventario.txt"))) {
+            try (BufferedReader BR = new BufferedReader(new FileReader("inventario.txt"))) {
                 String line;
                 while ((line = BR.readLine()) != null) {
                     String[] campos = line.split(";");
@@ -1521,7 +1623,7 @@ public class PrincipalAD extends javax.swing.JFrame {
             jcSubcategoriaEli.setEnabled(true);
             model2.removeAllElements(); // Limpia el modelo antes de cargar los elementos desde el archivo
             boolean hayElementos = false; // Bandera para verificar si se encontraron elementos
-            try ( BufferedReader BR = new BufferedReader(new FileReader("inventario.txt"))) {
+            try (BufferedReader BR = new BufferedReader(new FileReader("inventario.txt"))) {
                 String line;
                 while ((line = BR.readLine()) != null) {
                     String[] campos = line.split(";");
@@ -1672,7 +1774,62 @@ public class PrincipalAD extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnSalirActionPerformed
 
     private void BtnGraficsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnGraficsActionPerformed
-        //SE VISUALIZA PANEL ENCIMA NO QUIERO HACER OTRO FRAME
+
+
+// Hacer visible el panel de gráficos
+graficafondo.setVisible(true);
+    graficaspanel.setVisible(true);
+  
+
+    DefaultCategoryDataset datosGraficoBarras = new DefaultCategoryDataset();
+
+    // Leer el archivo de texto
+    try {
+        FileReader lectorArchivo = new FileReader("Inventario.txt");
+        BufferedReader lectorBuffer = new BufferedReader(lectorArchivo);
+
+        String linea;
+
+        while ((linea = lectorBuffer.readLine()) != null) {
+            String[] datos = linea.split(";");
+            String nombreProducto = datos[0].trim();
+            int cantidad = Integer.parseInt(datos[1].trim());
+            String categoria = datos[2].trim();
+
+            // Agregar los datos al conjunto de datos del gráfico
+            datosGraficoBarras.addValue(cantidad, categoria, nombreProducto);
+        }
+
+        lectorBuffer.close();
+
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
+
+    JFreeChart graficoBarras = ChartFactory.createBarChart3D(
+        "Disponibilidad por Producto y Categoría", // Título del gráfico
+        "Producto", // Etiqueta del eje X
+        "Cantidad", // Etiqueta del eje Y
+        datosGraficoBarras, // Conjunto de datos
+        PlotOrientation.VERTICAL,
+        true, // Incluir leyenda
+        true, // Incluir consejos (tooltips)
+        false // Incluir URLs
+    );
+
+    CategoryPlot tramaGraficoBarras = graficoBarras.getCategoryPlot();
+    NumberAxis ejeY = (NumberAxis) tramaGraficoBarras.getRangeAxis();
+    NumberFormat formato = new DecimalFormat("#,###");
+    ejeY.setNumberFormatOverride(formato);
+
+    ChartPanel panelGrafico = new ChartPanel(graficoBarras);
+    panelGrafico.setMouseWheelEnabled(true);
+    panelGrafico.setPreferredSize(new Dimension(400, 400));
+
+    graficaspanel.setLayout(new BorderLayout());
+    graficaspanel.add(panelGrafico, BorderLayout.CENTER);
+    validate();
+    repaint();
     }//GEN-LAST:event_BtnGraficsActionPerformed
 
     private void ojoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ojoActionPerformed
@@ -1699,7 +1856,7 @@ public class PrincipalAD extends javax.swing.JFrame {
         boolean Correct = Verify(sc, "CedulasAdmins", U, P);
         if (Correct == true) {
             Pantalla.setVisible(true);
-            Constraseña.setVisible(false);
+            Contraseña.setVisible(false);
             exitBTN.setVisible(true);
         } else {
             AvisoLabel.setText("Contraseña o Usuario incorrecto");
@@ -1882,15 +2039,25 @@ public class PrincipalAD extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         Pantalla.setVisible(true);
-        Constraseña.setVisible(false);
+        Contraseña.setVisible(false);
         exitBTN.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        Registrar registro = new Registrar(user,cedula);
+        Registrar registro = new Registrar(user, cedula);
         registro.setVisible(true);
-     
+
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void BtnEXIT1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEXIT1ActionPerformed
+
+        this.dispose();
+    }//GEN-LAST:event_BtnEXIT1ActionPerformed
+
+    private void BtnEXIT3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEXIT3ActionPerformed
+       graficaspanel.setVisible(false);
+       graficafondo.setVisible(false);
+    }//GEN-LAST:event_BtnEXIT3ActionPerformed
 //    public void AñadirUsuarios(String file_name, String file_ced) {
 //        try {
 //            FileWriter outFile = new FileWriter(file_name + ".txt", true);
@@ -2187,7 +2354,7 @@ public class PrincipalAD extends javax.swing.JFrame {
                 String nombreArtista = campos[3]; // Nombre del artista
                 String Precio = campos[4]; // Precio Producto
 
-                if (nodoActualNames != null & nodoActualCant!=null) {
+                if (nodoActualNames != null & nodoActualCant != null) {
                     String cantidadNueva = nodoActualCant.dato;
                     String temp[] = nodoActualNames.dato.split(";");
                     String producto = temp[0];
@@ -2204,10 +2371,10 @@ public class PrincipalAD extends javax.swing.JFrame {
                     nodoActualNames = nodoActualNames.siguiente;
                     nodoActualCant = nodoActualCant.siguiente;
 
-                }else{
+                } else {
                     pw.println(line);
                 }
-                
+
             }
             br.close();
             pw.close();
@@ -2237,12 +2404,14 @@ public class PrincipalAD extends javax.swing.JFrame {
     private javax.swing.JButton BTNcerrarEliminar;
     private javax.swing.JButton BotonEliminar;
     private javax.swing.JButton BtnEXIT;
+    private javax.swing.JButton BtnEXIT1;
+    private javax.swing.JButton BtnEXIT3;
     private javax.swing.JButton BtnGrafics;
     private javax.swing.JButton BtnInfo;
     private javax.swing.JButton BtnSalir;
     private javax.swing.JButton BtnSalir1;
     private javax.swing.JButton BtnVerifyUser;
-    private custom.PanelRound Constraseña;
+    private custom.PanelRound Contraseña;
     private javax.swing.JPanel PanelAgregar;
     private javax.swing.JPanel PanelAgregarPE;
     private javax.swing.JPanel PanelEliminar;
@@ -2270,6 +2439,9 @@ public class PrincipalAD extends javax.swing.JFrame {
     private javax.swing.JTextField fieldCantPE;
     private javax.swing.JTextField fieldDescripcion;
     private javax.swing.JTextField fieldPrecio;
+    private custom.PanelRound graficafondo;
+    private custom.PanelRound graficas;
+    private custom.PanelRound graficaspanel;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
@@ -2277,6 +2449,8 @@ public class PrincipalAD extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -2305,5 +2479,6 @@ public class PrincipalAD extends javax.swing.JFrame {
     private custom.PanelRound panelRound2;
     private custom.PanelRound panelRound3;
     private javax.swing.JLabel userLABEL;
+    private javax.swing.JLabel valid;
     // End of variables declaration//GEN-END:variables
 }
