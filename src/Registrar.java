@@ -329,7 +329,7 @@ public class Registrar extends javax.swing.JFrame {
                    
                     
                     valid.setText("Usuario registrado con éxito.");
-                    System.out.println("----" + datos);
+                    
                     FW.close();
                 } catch (IOException ex) {
                     System.out.println("Error al escribir en el archivo.");

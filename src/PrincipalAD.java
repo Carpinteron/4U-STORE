@@ -48,7 +48,7 @@ public class PrincipalAD extends javax.swing.JFrame {
         PanelAgregarPE.setVisible(false);
         PanelEliminar.setVisible(false);
         //  CopiarArchivoAlISTA(sc, "Inventario");
-        RegistroPanel.setVisible(false);
+  
         String[] cUsuarios;
         try {
             BufferedReader br = new BufferedReader(new FileReader("CedulasAdmins.txt"));
@@ -87,11 +87,6 @@ public class PrincipalAD extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
-        RegistroPanel = new javax.swing.JPanel();
-        nombreadmi = new javax.swing.JTextField();
-        cedulaAdmi = new javax.swing.JTextField();
-        Contraseñaadmi = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
         Pantalla = new custom.PanelRound();
         panelRound2 = new custom.PanelRound();
         BtnGrafics = new javax.swing.JButton();
@@ -258,59 +253,12 @@ public class PrincipalAD extends javax.swing.JFrame {
 
         getContentPane().add(Constraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 160, 560, 370));
 
-        RegistroPanel.setOpaque(false);
-
-        nombreadmi.setText("jTextField1");
-
-        cedulaAdmi.setText("jTextField2");
-
-        Contraseñaadmi.setText("jTextField3");
-
-        jButton1.setText("jButton1");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout RegistroPanelLayout = new javax.swing.GroupLayout(RegistroPanel);
-        RegistroPanel.setLayout(RegistroPanelLayout);
-        RegistroPanelLayout.setHorizontalGroup(
-            RegistroPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(RegistroPanelLayout.createSequentialGroup()
-                .addGroup(RegistroPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(RegistroPanelLayout.createSequentialGroup()
-                        .addGap(67, 67, 67)
-                        .addGroup(RegistroPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(Contraseñaadmi, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)
-                            .addComponent(cedulaAdmi)
-                            .addComponent(nombreadmi)))
-                    .addGroup(RegistroPanelLayout.createSequentialGroup()
-                        .addGap(139, 139, 139)
-                        .addComponent(jButton1)))
-                .addContainerGap(520, Short.MAX_VALUE))
-        );
-        RegistroPanelLayout.setVerticalGroup(
-            RegistroPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(RegistroPanelLayout.createSequentialGroup()
-                .addGap(44, 44, 44)
-                .addComponent(nombreadmi, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
-                .addComponent(cedulaAdmi, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38)
-                .addComponent(Contraseñaadmi, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton1)
-                .addContainerGap(31, Short.MAX_VALUE))
-        );
-
-        getContentPane().add(RegistroPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 370, 830, 310));
-
         Pantalla.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panelRound2.setBackground(new java.awt.Color(153, 153, 255));
 
-        BtnGrafics.setText("Grafic");
+        BtnGrafics.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICons/graficas.png"))); // NOI18N
+        BtnGrafics.setContentAreaFilled(false);
         BtnGrafics.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnGraficsActionPerformed(evt);
@@ -326,7 +274,8 @@ public class PrincipalAD extends javax.swing.JFrame {
 
         BtnInfo.setText("Info");
 
-        jButton3.setText("Registrarse");
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICons/reg.png"))); // NOI18N
+        jButton3.setContentAreaFilled(false);
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -343,11 +292,12 @@ public class PrincipalAD extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(BtnInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BtnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jButton3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                        .addComponent(BtnGrafics, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel7))
+                    .addComponent(jLabel7)
+                    .addGroup(panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(BtnGrafics))
+                        .addComponent(BtnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelRound2Layout.setVerticalGroup(
@@ -355,11 +305,11 @@ public class PrincipalAD extends javax.swing.JFrame {
             .addGroup(panelRound2Layout.createSequentialGroup()
                 .addGap(12, 12, 12)
                 .addComponent(jLabel7)
-                .addGap(18, 18, 18)
-                .addComponent(BtnGrafics, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(175, 175, 175)
+                .addGap(36, 36, 36)
+                .addComponent(BtnGrafics)
+                .addGap(178, 178, 178)
                 .addComponent(jButton3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 224, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 200, Short.MAX_VALUE)
                 .addComponent(BtnInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29)
                 .addComponent(BtnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -368,6 +318,7 @@ public class PrincipalAD extends javax.swing.JFrame {
 
         Pantalla.add(panelRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 80, 700));
 
+        TablaINVENTARIO.setFont(new java.awt.Font("Sylfaen", 0, 13)); // NOI18N
         TablaINVENTARIO.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
@@ -1644,7 +1595,6 @@ public class PrincipalAD extends javax.swing.JFrame {
         btnactualizar.setVisible(false);
         botonPE.setVisible(false);
         botonEP.setVisible(false);
-        RegistroPanel.setVisible(false);
         CargarDatosJcombo();
     }//GEN-LAST:event_BTNAgregar1ActionPerformed
 
@@ -1784,7 +1734,6 @@ public class PrincipalAD extends javax.swing.JFrame {
         btnactualizar.setVisible(false);
         botonPE.setVisible(false);
         botonEP.setVisible(false);
-        RegistroPanel.setVisible(false);
         CargarDatosJcombo2();
     }//GEN-LAST:event_botonPEActionPerformed
 
@@ -1920,7 +1869,6 @@ public class PrincipalAD extends javax.swing.JFrame {
         btnactualizar.setVisible(false);
         botonPE.setVisible(false);
         botonEP.setVisible(false);
-        RegistroPanel.setVisible(false);
         CargarDatosJcombo3();
     }//GEN-LAST:event_botonEPActionPerformed
 
@@ -1938,44 +1886,36 @@ public class PrincipalAD extends javax.swing.JFrame {
         exitBTN.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-
-
-
-        AñadirUsuarios("Usuarios", "CedulasAdmins");
-        RegistroPanel.setVisible(false);
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         Registrar registro = new Registrar(user,cedula);
         registro.setVisible(true);
      
     }//GEN-LAST:event_jButton3ActionPerformed
-    public void AñadirUsuarios(String file_name, String file_ced) {
-        try {
-            FileWriter outFile = new FileWriter(file_name + ".txt", true);
-            PrintWriter registro = new PrintWriter(outFile);
-            FileWriter outFile2 = new FileWriter(file_ced + ".txt", true);
-            PrintWriter registro2 = new PrintWriter(outFile2);
-            String name, pass;
-            pass = Contraseñaadmi.getText();
-            name = nombreadmi.getText();
-            registro.println(name + ";" + pass);
-
-            String c = cedulaAdmi.getText();
-            int ced = Integer.parseInt(c);
-            registro2.println(name + "| " + ced + "| " + pass);
-            registro.close();
-            registro2.close();
-            System.out.println("Datos agregados exitosamente al archivo " + file_name);
-            System.out.println("Datos agregados exitosamente al archivo " + file_ced);
-
-        } catch (IOException ex) {
-            System.out.println("Error al agregar datos al archivo " + file_name);
-            System.out.println("Error al agregar datos al archivo " + file_ced);
-            ex.printStackTrace();
-        }
-    }
+//    public void AñadirUsuarios(String file_name, String file_ced) {
+//        try {
+//            FileWriter outFile = new FileWriter(file_name + ".txt", true);
+//            PrintWriter registro = new PrintWriter(outFile);
+//            FileWriter outFile2 = new FileWriter(file_ced + ".txt", true);
+//            PrintWriter registro2 = new PrintWriter(outFile2);
+//            String name, pass;
+//            pass = Contraseñaadmi.getText();
+//            name = nombreadmi.getText();
+//            registro.println(name + ";" + pass);
+//
+//            String c = cedulaAdmi.getText();
+//            int ced = Integer.parseInt(c);
+//            registro2.println(name + "| " + ced + "| " + pass);
+//            registro.close();
+//            registro2.close();
+//            System.out.println("Datos agregados exitosamente al archivo " + file_name);
+//            System.out.println("Datos agregados exitosamente al archivo " + file_ced);
+//
+//        } catch (IOException ex) {
+//            System.out.println("Error al agregar datos al archivo " + file_name);
+//            System.out.println("Error al agregar datos al archivo " + file_ced);
+//            ex.printStackTrace();
+//        }
+//    }
 //VERIFICACION DE USUARIOSSSS
 
     public static boolean Verify(Scanner sc, String file_name, String U, String P) {
@@ -2303,18 +2243,15 @@ public class PrincipalAD extends javax.swing.JFrame {
     private javax.swing.JButton BtnSalir1;
     private javax.swing.JButton BtnVerifyUser;
     private custom.PanelRound Constraseña;
-    private javax.swing.JTextField Contraseñaadmi;
     private javax.swing.JPanel PanelAgregar;
     private javax.swing.JPanel PanelAgregarPE;
     private javax.swing.JPanel PanelEliminar;
     private custom.PanelRound Pantalla;
     private javax.swing.JPasswordField PassField;
-    private javax.swing.JPanel RegistroPanel;
     private javax.swing.JTable TablaINVENTARIO;
     private javax.swing.JButton botonEP;
     private javax.swing.JButton botonPE;
     private javax.swing.JButton btnactualizar;
-    private javax.swing.JTextField cedulaAdmi;
     private javax.swing.JLabel error1;
     private javax.swing.JLabel error1Eli;
     private javax.swing.JLabel error1PE;
@@ -2333,7 +2270,6 @@ public class PrincipalAD extends javax.swing.JFrame {
     private javax.swing.JTextField fieldCantPE;
     private javax.swing.JTextField fieldDescripcion;
     private javax.swing.JTextField fieldPrecio;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
@@ -2364,7 +2300,6 @@ public class PrincipalAD extends javax.swing.JFrame {
     private javax.swing.JLabel labelD;
     private javax.swing.JLabel labelDEli;
     private javax.swing.JLabel labelDPE;
-    private javax.swing.JTextField nombreadmi;
     private javax.swing.JButton ojo;
     private custom.PanelRound panelRound1;
     private custom.PanelRound panelRound2;
