@@ -290,7 +290,7 @@ public class PrincipalCL extends javax.swing.JFrame {
 
         labelArtist.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 48)); // NOI18N
         labelArtist.setText("ARTISTA");
-        panelDELproducto.add(labelArtist, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 28, 335, 55));
+        panelDELproducto.add(labelArtist, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 28, 890, 55));
 
         labelTipoProduct.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 14)); // NOI18N
         labelTipoProduct.setText("jLabel5");
@@ -306,7 +306,7 @@ public class PrincipalCL extends javax.swing.JFrame {
         panelDELproducto.add(jcSeleccionProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 280, -1));
 
         ImagenProducto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICons/camiseta-200.png"))); // NOI18N
-        panelDELproducto.add(ImagenProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 30, 270, 240));
+        panelDELproducto.add(ImagenProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 280, 270, 240));
 
         AddAlCarritoBTN.setBackground(new java.awt.Color(153, 51, 255));
         AddAlCarritoBTN.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Agregar al Carrito.png"))); // NOI18N
