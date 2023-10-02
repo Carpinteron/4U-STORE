@@ -528,7 +528,7 @@ public class PrincipalCL extends javax.swing.JFrame {
          Cantidad.mostrarLista();
          
          //ESTO NO VA
-         PrincipalAD.CopiarlISTAaArchivo( sc, "Invetario", Names, Cantidad);
+         PrincipalAD.CopiarlISTAaArchivo( sc, "Inventario", Names, Cantidad);
        }
     }//GEN-LAST:event_AddAlCarritoBTNActionPerformed
 
