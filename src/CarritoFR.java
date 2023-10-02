@@ -5,13 +5,14 @@ import java.io.FileReader;
 import java.util.Scanner;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.table.DefaultTableModel;
 
 public class CarritoFR extends javax.swing.JFrame {
 
     private String user, cedula;
     private PrincipalCL clientefr;
     String precio;
-     static int anterior=1;
+    static int anterior = 1;
 
     public CarritoFR(String user, String cedula, PrincipalCL clientefr) {
         setIconImage(new ImageIcon(getClass().getResource("ICons/4Uicon.png")).getImage());
@@ -23,7 +24,7 @@ public class CarritoFR extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         calcularTotal();
-
+        mostrarInformacionEnTabla();
         //VERIFICACION ignorar
         if (this.clientefr == null) {
             System.out.println("this.clientefr es null");
@@ -47,7 +48,7 @@ public class CarritoFR extends javax.swing.JFrame {
         PrecioTot = new javax.swing.JLabel();
         mensajito = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        Tablita = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -142,7 +143,7 @@ public class CarritoFR extends javax.swing.JFrame {
         mensajito.setForeground(new java.awt.Color(153, 0, 153));
         mensajito.setText("jLabel1");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        Tablita.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -150,10 +151,10 @@ public class CarritoFR extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Producto", "Artista", "Cantidad", "Precio Unitario"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(Tablita);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI Historic", 2, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(51, 0, 51));
@@ -166,14 +167,14 @@ public class CarritoFR extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRound1Layout.createSequentialGroup()
                 .addComponent(panelRound2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(52, 52, 52)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 492, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 533, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelRound1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(BtnEXIT)
                         .addContainerGap())
                     .addGroup(panelRound1Layout.createSequentialGroup()
-                        .addGap(72, 72, 72)
+                        .addGap(31, 31, 31)
                         .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panelRound1Layout.createSequentialGroup()
                                 .addGap(6, 6, 6)
@@ -181,7 +182,7 @@ public class CarritoFR extends javax.swing.JFrame {
                             .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 448, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 52, Short.MAX_VALUE))
                     .addGroup(panelRound1Layout.createSequentialGroup()
-                        .addGap(85, 85, 85)
+                        .addGap(44, 44, 44)
                         .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(PrecioTot, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -285,6 +286,41 @@ public class CarritoFR extends javax.swing.JFrame {
         }
         PrecioTot.setText(String.valueOf(total));
     }
+
+// ...
+    public void mostrarInformacionEnTabla() {
+        DefaultTableModel modeloTabla = new DefaultTableModel();
+        Scanner sc = new Scanner(System.in);
+        DefaultTableModel model = (DefaultTableModel) Tablita.getModel();
+        model.setRowCount(0);
+
+        PrincipalAD.ListaEnlazada Carrito = clientefr.Carrito;
+        PrincipalAD.ListaEnlazada Names = clientefr.Names;
+        copiarLista(Carrito);
+        PrincipalAD.Nodo act = Names.head;
+
+        while (act != null) {
+            String nombre = act.dato;
+            String temp[] = nombre.split(";");
+            String prod = temp[0];//nombre del producto
+            String art = temp[1];//Artista
+            int cant = Carrito.contarRepeticiones(nombre);
+            if (cant != 0) {
+                String precioS = buscarprecio(nombre, sc, "Inventario");
+                if (!precioS.equals("-1")) {
+                    double p = Double.parseDouble(precioS);
+                    int precioEntero = (int) p;
+
+                    // Agrega una fila a la tabla con los datos
+                    model.addRow(new Object[]{prod, art, cant, precioEntero});
+                }
+            }
+
+            act = act.siguiente;
+        }
+
+    }
+
     private void BtnEXITActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEXITActionPerformed
         System.exit(0);
     }//GEN-LAST:event_BtnEXITActionPerformed
@@ -349,12 +385,12 @@ public class CarritoFR extends javax.swing.JFrame {
     private javax.swing.JButton BtnEXIT;
     private javax.swing.JButton BtnSalir;
     private javax.swing.JLabel PrecioTot;
+    private javax.swing.JTable Tablita;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JLabel mensajito;
     private custom.PanelRound panelRound1;
     private custom.PanelRound panelRound2;
