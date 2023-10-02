@@ -54,9 +54,11 @@ public class PrincipalAD extends javax.swing.JFrame {
             BufferedReader br = new BufferedReader(new FileReader("CedulasAdmins.txt"));
             String linea;
             while ((linea = br.readLine()) != null) {
-                cUsuarios = linea.split("| ");
+                cUsuarios = linea.split("\\| ");
+                System.out.println("NOMBRE: "+cUsuarios[0]);
                 if (cedula.equals(cUsuarios[1])) {
                     userLABEL.setText(cUsuarios[0]);
+                    System.out.println("NOMBRE: "+cUsuarios[0]);
                 }
             }
 
@@ -1938,12 +1940,16 @@ public class PrincipalAD extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
+
+
         AñadirUsuarios("Usuarios", "CedulasAdmins");
         RegistroPanel.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        RegistroPanel.setVisible(true);
+        Registrar registro = new Registrar(user,cedula);
+        registro.setVisible(true);
+     
     }//GEN-LAST:event_jButton3ActionPerformed
     public void AñadirUsuarios(String file_name, String file_ced) {
         try {
