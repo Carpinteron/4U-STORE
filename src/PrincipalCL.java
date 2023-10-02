@@ -1,6 +1,7 @@
 
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedReader;
@@ -19,6 +20,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
 
 public class PrincipalCL extends javax.swing.JFrame {
 
@@ -63,6 +65,15 @@ public class PrincipalCL extends javax.swing.JFrame {
                 sc.close();
             }
         });
+        //Para la tabla EMPLEADOS
+        // Obtener el encabezado de la tabla
+        JTableHeader header = TablaArtista.getTableHeader();
+
+// Crear una fuente en negrita
+        Font font = new Font("Berlin Sans FB Demi", Font.BOLD, 14);
+
+// Aplicar la fuente en negrita al encabezado
+        header.setFont(font);
     }
     PrincipalAD.ListaEnlazada Carrito=new PrincipalAD.ListaEnlazada();
      PrincipalAD.ListaEnlazada Cantidad=new PrincipalAD.ListaEnlazada();
@@ -124,6 +135,7 @@ public class PrincipalCL extends javax.swing.JFrame {
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        panelRound1.setBackground(new java.awt.Color(204, 204, 255));
         panelRound1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICons/cerrrar35.png"))); // NOI18N
@@ -140,6 +152,9 @@ public class PrincipalCL extends javax.swing.JFrame {
         menu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         menu.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 32, 64, 75));
 
+        jButton2.setBackground(new java.awt.Color(102, 0, 204));
+        jButton2.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 12)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("Carrito");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -148,6 +163,9 @@ public class PrincipalCL extends javax.swing.JFrame {
         });
         menu.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 260, -1, 45));
 
+        BtnSalir.setBackground(new java.awt.Color(102, 0, 204));
+        BtnSalir.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 12)); // NOI18N
+        BtnSalir.setForeground(new java.awt.Color(255, 255, 255));
         BtnSalir.setText("OUT");
         BtnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -156,6 +174,9 @@ public class PrincipalCL extends javax.swing.JFrame {
         });
         menu.add(BtnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 604, -1, -1));
 
+        jButton3.setBackground(new java.awt.Color(102, 0, 204));
+        jButton3.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 12)); // NOI18N
+        jButton3.setForeground(new java.awt.Color(255, 255, 255));
         jButton3.setText("Explore");
         menu.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 189, -1, 33));
 
@@ -164,14 +185,16 @@ public class PrincipalCL extends javax.swing.JFrame {
 
         panelRound1.add(menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
+        panelproductoss.setOpaque(false);
         panelproductoss.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        TituloArtista.setFont(new java.awt.Font("Tekton Pro", 0, 36)); // NOI18N
+        TituloArtista.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 48)); // NOI18N
         TituloArtista.setText("Nombre del Artista");
         panelproductoss.add(TituloArtista, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 20, 475, 66));
 
-        jLabel2.setText("¿Que producto desea explorar? ");
-        panelproductoss.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 100, 180, 24));
+        jLabel2.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 17)); // NOI18N
+        jLabel2.setText("¿Qué producto desea explorar? ");
+        panelproductoss.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 90, -1, 24));
 
         btnCamisetas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/5G.png"))); // NOI18N
         btnCamisetas.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(204, 153, 255), null, null));
@@ -218,6 +241,8 @@ public class PrincipalCL extends javax.swing.JFrame {
         });
         panelproductoss.add(btnCDS, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 230, 190, 70));
 
+        TablaArtista.setBackground(new java.awt.Color(243, 239, 239));
+        TablaArtista.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 14)); // NOI18N
         TablaArtista.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -241,9 +266,11 @@ public class PrincipalCL extends javax.swing.JFrame {
 
         panelproductoss.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 127, 810, 450));
 
+        BotonPrecio.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 14)); // NOI18N
         BotonPrecio.setText("Ordenar por precio");
         panelproductoss.add(BotonPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, -1, -1));
 
+        BotonNo.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 14)); // NOI18N
         BotonNo.setText("Sin ordenar");
         panelproductoss.add(BotonNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 90, -1, -1));
 
@@ -251,20 +278,22 @@ public class PrincipalCL extends javax.swing.JFrame {
 
         panelDELproducto.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        labelArtist.setFont(new java.awt.Font("Tekton Pro", 0, 36)); // NOI18N
+        labelArtist.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 48)); // NOI18N
         labelArtist.setText("ARTISTA");
         panelDELproducto.add(labelArtist, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 28, 335, 55));
 
+        labelTipoProduct.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 14)); // NOI18N
         labelTipoProduct.setText("jLabel5");
-        panelDELproducto.add(labelTipoProduct, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 320, 24));
+        panelDELproducto.add(labelTipoProduct, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 320, 24));
 
+        jcSeleccionProducto.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         jcSeleccionProducto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jcSeleccionProducto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jcSeleccionProductoActionPerformed(evt);
             }
         });
-        panelDELproducto.add(jcSeleccionProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 280, -1));
+        panelDELproducto.add(jcSeleccionProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 280, -1));
 
         ImagenProducto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICons/camiseta-200.png"))); // NOI18N
         panelDELproducto.add(ImagenProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 30, 180, 240));
@@ -285,15 +314,19 @@ public class PrincipalCL extends javax.swing.JFrame {
         });
         panelDELproducto.add(UnidadesDelProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 360, 140, 40));
 
+        labelD.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 14)); // NOI18N
         labelD.setText("Seleccione el producto");
-        panelDELproducto.add(labelD, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, -1, -1));
+        panelDELproducto.add(labelD, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, -1, -1));
 
         panelRound1.add(panelDELproducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, 1060, 580));
 
+        jScrollPane1.setBackground(new java.awt.Color(204, 204, 255));
         jScrollPane1.setBorder(null);
         jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane1.setOpaque(false);
 
+        panelArtistas.setBackground(new java.awt.Color(204, 204, 255));
+        panelArtistas.setOpaque(false);
         panelArtistas.setPreferredSize(new java.awt.Dimension(1000, 824));
 
         HSbtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/1.png"))); // NOI18N
@@ -433,6 +466,9 @@ public class PrincipalCL extends javax.swing.JFrame {
 
         panelRound1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(98, 56, 1098, 564));
 
+        BTNartistas.setBackground(new java.awt.Color(171, 116, 227));
+        BTNartistas.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 12)); // NOI18N
+        BTNartistas.setForeground(new java.awt.Color(255, 255, 255));
         BTNartistas.setText("ARTISTAS");
         BTNartistas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -441,6 +477,9 @@ public class PrincipalCL extends javax.swing.JFrame {
         });
         panelRound1.add(BTNartistas, new org.netbeans.lib.awtextra.AbsoluteConstraints(117, 6, -1, -1));
 
+        BTNproductos.setBackground(new java.awt.Color(171, 116, 227));
+        BTNproductos.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 12)); // NOI18N
+        BTNproductos.setForeground(new java.awt.Color(255, 255, 255));
         BTNproductos.setText("PRODUCTOS");
         BTNproductos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -449,6 +488,9 @@ public class PrincipalCL extends javax.swing.JFrame {
         });
         panelRound1.add(BTNproductos, new org.netbeans.lib.awtextra.AbsoluteConstraints(215, 6, -1, -1));
 
+        BTNelproducto.setBackground(new java.awt.Color(171, 116, 227));
+        BTNelproducto.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 12)); // NOI18N
+        BTNelproducto.setForeground(new java.awt.Color(255, 255, 255));
         BTNelproducto.setText("VISTAZO DEL PRODUCTO");
         panelRound1.add(BTNelproducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(331, 6, -1, -1));
 
