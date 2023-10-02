@@ -247,8 +247,9 @@ public class PrincipalAD extends javax.swing.JFrame {
         BtnSalir1.setBackground(new java.awt.Color(38, 0, 75));
         BtnSalir1.setFont(new java.awt.Font("Sylfaen", 1, 14)); // NOI18N
         BtnSalir1.setForeground(new java.awt.Color(209, 163, 255));
-        BtnSalir1.setText("OUT");
-        BtnSalir1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(209, 163, 255), 2, true));
+        BtnSalir1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICons/regreso.png"))); // NOI18N
+        BtnSalir1.setBorder(null);
+        BtnSalir1.setContentAreaFilled(false);
         BtnSalir1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnSalir1ActionPerformed(evt);
