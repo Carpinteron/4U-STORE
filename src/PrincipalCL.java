@@ -12,10 +12,11 @@ import javax.swing.JPanel;
 public class PrincipalCL extends javax.swing.JFrame {
 
     private String user, cedula;
-
+    
     public PrincipalCL(String user, String cedula) {
         setIconImage(new ImageIcon(getClass().getResource("ICons/4Uicon.png")).getImage());
         this.user = user;
+     //   CarritoFR framecarro=new CarritoFR(this);
         this.cedula = cedula;
         setUndecorated(true);
         setBackground(new Color(0, 0, 0, 0));
@@ -505,8 +506,8 @@ public class PrincipalCL extends javax.swing.JFrame {
          Cantidad.modificarDatoEnPosicion(pos,Integer.toString(res) );
          Cantidad.mostrarLista();
          
-         //ESTO NO VA
-         PrincipalAD.CopiarlISTAaArchivo( sc, "Inventario", Names, Cantidad);
+        
+        
        }
     }//GEN-LAST:event_AddAlCarritoBTNActionPerformed
 
