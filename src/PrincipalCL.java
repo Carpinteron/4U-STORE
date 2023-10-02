@@ -198,8 +198,9 @@ public class PrincipalCL extends javax.swing.JFrame {
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICons/Logo 4U_1.png"))); // NOI18N
         menu.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
 
-        panelRound1.add(menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 600));
+        panelRound1.add(menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 630));
 
+        panelproductoss.setBackground(new java.awt.Color(204, 204, 255));
         panelproductoss.setOpaque(false);
         panelproductoss.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -291,6 +292,7 @@ public class PrincipalCL extends javax.swing.JFrame {
 
         panelRound1.add(panelproductoss, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 40, 1070, 590));
 
+        panelDELproducto.setBackground(new java.awt.Color(204, 204, 255));
         panelDELproducto.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         labelArtist.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 48)); // NOI18N
