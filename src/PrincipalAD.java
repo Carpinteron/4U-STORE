@@ -54,9 +54,11 @@ public class PrincipalAD extends javax.swing.JFrame {
             BufferedReader br = new BufferedReader(new FileReader("CedulasAdmins.txt"));
             String linea;
             while ((linea = br.readLine()) != null) {
-                cUsuarios = linea.split("| ");
+                cUsuarios = linea.split("\\| ");
+                System.out.println("NOMBRE: "+cUsuarios[0]);
                 if (cedula.equals(cUsuarios[1])) {
                     userLABEL.setText(cUsuarios[0]);
+                    System.out.println("NOMBRE: "+cUsuarios[0]);
                 }
             }
 
