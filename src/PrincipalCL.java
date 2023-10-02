@@ -437,7 +437,7 @@ public class PrincipalCL extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnSalirActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        CarritoFR carrito = new CarritoFR(user, cedula);
+        CarritoFR carrito = new CarritoFR(user, cedula,this);
         carrito.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -525,8 +525,6 @@ public class PrincipalCL extends javax.swing.JFrame {
          Cantidad.modificarDatoEnPosicion(pos,Integer.toString(res) );
          Cantidad.mostrarLista();
          
-        
-        
        }
     }//GEN-LAST:event_AddAlCarritoBTNActionPerformed
 
