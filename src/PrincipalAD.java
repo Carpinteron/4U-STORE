@@ -2018,7 +2018,7 @@ public class PrincipalAD extends javax.swing.JFrame {
                         stop = true;
                         hay = true;
                     }else{
-                         stop = true;
+                         stop = false;
                         hay = false;
                     }
                 }
