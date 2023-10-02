@@ -1,17 +1,24 @@
 
 
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
+import javax.swing.ButtonGroup;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 public class PrincipalCL extends javax.swing.JFrame {
 
@@ -37,6 +44,25 @@ public class PrincipalCL extends javax.swing.JFrame {
         TituloArtista.setText(SelectedArtist);
         
         PrincipalAD.CopiarArchivoAlISTA(sc, "Inventario",Names,Cantidad);
+        //Opcion de Ordenar por Precio o Tipo (esto cuando seleccione al artista)
+        ButtonGroup buttonGroup = new ButtonGroup();
+        // Agregar los radio buttons al grupo
+        buttonGroup.add(BotonPrecio);
+        buttonGroup.add(BotonNo);
+        BotonPrecio.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                LeerporPreferencia(sc, "Inventario", TablaArtista,SelectedArtist);
+                sc.close();
+            }
+        });
+        BotonNo.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                LeerNormal(sc, "Inventario", TablaArtista,SelectedArtist);
+                sc.close();
+            }
+        });
     }
     PrincipalAD.ListaEnlazada Carrito=new PrincipalAD.ListaEnlazada();
      PrincipalAD.ListaEnlazada Cantidad=new PrincipalAD.ListaEnlazada();
@@ -66,9 +92,9 @@ public class PrincipalCL extends javax.swing.JFrame {
         btnLLaveros = new javax.swing.JButton();
         btnCDS = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
+        TablaArtista = new javax.swing.JTable();
+        BotonPrecio = new javax.swing.JRadioButton();
+        BotonNo = new javax.swing.JRadioButton();
         panelDELproducto = new javax.swing.JPanel();
         labelArtist = new javax.swing.JLabel();
         labelTipoProduct = new javax.swing.JLabel();
@@ -187,7 +213,7 @@ public class PrincipalCL extends javax.swing.JFrame {
         });
         panelproductoss.add(btnCDS, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 230, 190, 70));
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        TablaArtista.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -206,15 +232,15 @@ public class PrincipalCL extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane3.setViewportView(jTable2);
+        jScrollPane3.setViewportView(TablaArtista);
 
         panelproductoss.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 127, 810, 450));
 
-        jRadioButton1.setText("Precio");
-        panelproductoss.add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, -1, -1));
+        BotonPrecio.setText("Ordenar por precio");
+        panelproductoss.add(BotonPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, -1, -1));
 
-        jRadioButton2.setText("Tipo de Producto");
-        panelproductoss.add(jRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 90, -1, -1));
+        BotonNo.setText("Sin ordenar");
+        panelproductoss.add(BotonNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 90, -1, -1));
 
         panelRound1.add(panelproductoss, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 40, 1070, 590));
 
@@ -538,6 +564,7 @@ public class PrincipalCL extends javax.swing.JFrame {
 
         SelectedArtist = "Taylor Swift";
         BotonesArtistasPanel();
+        
     }//GEN-LAST:event_TaylorBTNActionPerformed
 
     private void BTN5sosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN5sosActionPerformed
@@ -608,6 +635,9 @@ public class PrincipalCL extends javax.swing.JFrame {
         actualPanel = panelproductoss;
         jScrollPane1.setVisible(false);
         BTNelproducto.setEnabled(false);
+        Scanner sc = new Scanner(System.in);
+        LeerNormal(sc, "Inventario", TablaArtista,SelectedArtist);
+        sc.close();
     }
 
     public void BotonesProductoPanel() {
@@ -648,7 +678,7 @@ public class PrincipalCL extends javax.swing.JFrame {
     }
     DefaultComboBoxModel<String> model2 = new DefaultComboBoxModel<>();
 
-    // Método para cargar elementos iniciales desde el archivo
+    // Método para cargar productos desde el archivo
     public void cargardatosalcombo() {
         String categoria = product;
         System.out.println("Este es el producto: "+product);
@@ -724,6 +754,80 @@ public class PrincipalCL extends javax.swing.JFrame {
             return cadena;
         }
     }
+     //Para mostrar datos segun Artista
+    public static void LeerNormal(Scanner sc, String file_name, JTable tabla, String nombreArtista) {
+    try {
+        BufferedReader br = new BufferedReader(new FileReader(file_name + ".txt"));
+        String line;
+        List<String[]> Datos = new ArrayList<>(); // Implemento una lista 
+        // Limpia la tabla
+        DefaultTableModel model = (DefaultTableModel) tabla.getModel();
+        model.setRowCount(0);
+        while ((line = br.readLine()) != null) {
+            String[] temp = line.split(";");
+            if (temp[3].equals(nombreArtista)) {
+                String nombreProducto = temp[0]; // Nombre del producto
+                String precio = temp[4]; // Precio
+                String cantidad = temp[1] + " Unidades"; // Cantidad + " Unidades"
+                String tipo = temp[2]; // Tipo
+
+                // Crear un arreglo con los datos en el orden deseado
+                String[] fila = {nombreProducto, precio, cantidad, tipo};
+
+                model.addRow(fila);
+            Datos.add(temp); // Agrego los registros a la lista
+        }
+        }
+
+        br.close();
+    } catch (IOException ex) {
+        System.out.println("Error al leer el archivo: " + ex.getMessage());
+    }
+}
+    //Leer datos de forma ordenada (Segun Producto-Artista o Precio-Artista)
+    public static void LeerporPreferencia(Scanner sc, String file_name, JTable tabla,String nombreArtista) {
+    try {
+        BufferedReader br = new BufferedReader(new FileReader(file_name + ".txt"));
+        String line;
+        List<String[]> Datos = new ArrayList<>(); // Implemento una lista 
+
+        while ((line = br.readLine()) != null) {
+            
+            String[] temp = line.split(";");
+            if (temp[3].equals(nombreArtista)) {
+            String nombreProducto = temp[0]; // Nombre del producto
+            String precio = temp[4]; // Precio
+            String cantidad = temp[1] + " Unidades"; // Cantidad + " Unidades"
+            String tipo = temp[2]; // Tipo
+            // Crear un arreglo con los datos en el orden deseado
+            String[]fila = {nombreProducto, precio, cantidad, tipo};
+            Datos.add(fila); // Agrego los registros a la lista
+        }
+        }
+
+        br.close();
+
+        Collections.sort(Datos, new Comparator<String[]>() {
+                @Override
+                public int compare(String[] o1, String[] o2) {
+                    return o1[1].compareTo(o2[1]); // Compara por precio
+                }
+            });
+
+        
+        // Limpia la tabla
+        DefaultTableModel model = (DefaultTableModel) tabla.getModel();
+        model.setRowCount(0);
+
+        // Agrega los datos a la tabla con el formato deseado
+        for (String[] rowData : Datos) {
+            model.addRow(rowData);
+        }
+    } catch (IOException ex) {
+        System.out.println("Error al leer el archivo: " + ex.getMessage());
+    }
+}
+
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -765,6 +869,8 @@ public class PrincipalCL extends javax.swing.JFrame {
     private javax.swing.JButton BTNproductos;
     private javax.swing.JButton BTRbtn;
     private javax.swing.JButton BillieBTN;
+    private javax.swing.JRadioButton BotonNo;
+    private javax.swing.JRadioButton BotonPrecio;
     private javax.swing.JButton BtnSalir;
     private javax.swing.JButton ConanBTN;
     private javax.swing.JButton HSbtn;
@@ -773,6 +879,7 @@ public class PrincipalCL extends javax.swing.JFrame {
     private javax.swing.JButton LousiBTN;
     private javax.swing.JButton SabrinaBTN;
     private javax.swing.JButton SkzBTN;
+    private javax.swing.JTable TablaArtista;
     private javax.swing.JButton TaylorBTN;
     private javax.swing.JLabel TituloArtista;
     private javax.swing.JTextField UnidadesDelProducto;
@@ -787,11 +894,8 @@ public class PrincipalCL extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTable jTable2;
     private javax.swing.JComboBox<String> jcSeleccionProducto;
     private javax.swing.JLabel labelArtist;
     private javax.swing.JLabel labelD;
