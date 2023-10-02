@@ -1,7 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
+import java.awt.Color;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -9,11 +12,17 @@
  */
 public class Registrar extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Registrar
-     */
-    public Registrar() {
+    String user, cedula;
+
+    public Registrar(String user, String cedula) {
+        this.user = user;
+        this.cedula = cedula;
+        setIconImage(new ImageIcon(getClass().getResource("ICons/4Uicon.png")).getImage());
+        setUndecorated(true);
+        setBackground(new Color(0, 0, 0, 0));
         initComponents();
+        setLocationRelativeTo(null);
+
     }
 
     /**
@@ -29,14 +38,14 @@ public class Registrar extends javax.swing.JFrame {
         BtnVerifyUser = new javax.swing.JButton();
         fcedula = new javax.swing.JTextField();
         fnombre = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         BtnEXIT = new javax.swing.JButton();
         valid = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        PassField = new javax.swing.JPasswordField();
+        fcontraseña = new javax.swing.JPasswordField();
         ojo = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -50,6 +59,11 @@ public class Registrar extends javax.swing.JFrame {
         BtnVerifyUser.setAlignmentY(0.0F);
         BtnVerifyUser.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(209, 163, 255), 2, true));
         BtnVerifyUser.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        BtnVerifyUser.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                BtnVerifyUserMouseReleased(evt);
+            }
+        });
         BtnVerifyUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnVerifyUserActionPerformed(evt);
@@ -88,13 +102,17 @@ public class Registrar extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("Sylfaen", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(38, 0, 75));
+        jLabel1.setText("Ingrese su nombre:");
+
         jLabel2.setFont(new java.awt.Font("Sylfaen", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(38, 0, 75));
         jLabel2.setText("Ingrese su cédula:");
 
-        jLabel1.setFont(new java.awt.Font("Sylfaen", 1, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(38, 0, 75));
-        jLabel1.setText("Ingrese su nombre:");
+        jLabel3.setFont(new java.awt.Font("Sylfaen", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(38, 0, 75));
+        jLabel3.setText("Ingrese una contraseña:");
 
         BtnEXIT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICons/cerrrar35.png"))); // NOI18N
         BtnEXIT.setBorder(null);
@@ -115,22 +133,18 @@ public class Registrar extends javax.swing.JFrame {
         jLabel5.setForeground(new java.awt.Color(38, 0, 75));
         jLabel5.setText("Registrar administrador");
 
-        jLabel3.setFont(new java.awt.Font("Sylfaen", 1, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(38, 0, 75));
-        jLabel3.setText("Ingrese una contraseña:");
-
-        PassField.setBackground(new java.awt.Color(209, 163, 255));
-        PassField.setFont(new java.awt.Font("Sylfaen", 0, 14)); // NOI18N
-        PassField.setForeground(new java.awt.Color(0, 0, 0));
-        PassField.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(38, 0, 75), 3, true));
-        PassField.addMouseListener(new java.awt.event.MouseAdapter() {
+        fcontraseña.setBackground(new java.awt.Color(209, 163, 255));
+        fcontraseña.setFont(new java.awt.Font("Sylfaen", 0, 14)); // NOI18N
+        fcontraseña.setForeground(new java.awt.Color(0, 0, 0));
+        fcontraseña.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(38, 0, 75), 3, true));
+        fcontraseña.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                PassFieldMouseClicked(evt);
+                fcontraseñaMouseClicked(evt);
             }
         });
-        PassField.addActionListener(new java.awt.event.ActionListener() {
+        fcontraseña.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PassFieldActionPerformed(evt);
+                fcontraseñaActionPerformed(evt);
             }
         });
 
@@ -150,33 +164,34 @@ public class Registrar extends javax.swing.JFrame {
                 .addGap(46, 46, 46)
                 .addGroup(panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelRound2Layout.createSequentialGroup()
+                        .addGap(120, 120, 120)
+                        .addComponent(BtnVerifyUser, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(panelRound2Layout.createSequentialGroup()
                         .addGroup(panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panelRound2Layout.createSequentialGroup()
-                                .addComponent(valid, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(BtnVerifyUser, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(valid, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(panelRound2Layout.createSequentialGroup()
                                 .addGroup(panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel1)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel3))
-                                .addGap(18, 18, 18)
-                                .addGroup(panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(fcedula, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
-                                    .addComponent(fnombre, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
-                                    .addComponent(PassField))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(ojo)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)))
-                        .addGroup(panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRound2Layout.createSequentialGroup()
-                                .addComponent(BtnEXIT)
-                                .addGap(8, 8, 8))))
-                    .addGroup(panelRound2Layout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                                    .addGroup(panelRound2Layout.createSequentialGroup()
+                                        .addGroup(panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel1)
+                                            .addComponent(jLabel2)
+                                            .addComponent(jLabel3))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(fcedula, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
+                                            .addComponent(fnombre, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
+                                            .addComponent(fcontraseña))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(ojo))
+                                    .addComponent(jLabel5))
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                .addGroup(panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRound2Layout.createSequentialGroup()
+                        .addComponent(BtnEXIT)
+                        .addGap(8, 8, 8)))
                 .addContainerGap())
         );
         panelRound2Layout.setVerticalGroup(
@@ -184,33 +199,31 @@ public class Registrar extends javax.swing.JFrame {
             .addGroup(panelRound2Layout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addComponent(BtnEXIT)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 181, Short.MAX_VALUE)
+                .addComponent(jLabel4)
+                .addContainerGap())
+            .addGroup(panelRound2Layout.createSequentialGroup()
+                .addGap(33, 33, 33)
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(fnombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(19, 19, 19)
+                .addGroup(panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(fcedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(19, 19, 19)
                 .addGroup(panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelRound2Layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addGroup(panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1)
-                            .addComponent(fnombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(19, 19, 19)
-                        .addGroup(panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2)
-                            .addComponent(fcedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(19, 19, 19)
-                        .addGroup(panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jLabel3)
-                                .addComponent(PassField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(ojo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(24, 24, 24)
-                        .addGroup(panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(valid, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(BtnVerifyUser))
-                        .addGap(0, 20, Short.MAX_VALUE))
-                    .addGroup(panelRound2Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel4)
-                        .addContainerGap())))
+                    .addGroup(panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel3)
+                        .addComponent(fcontraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ojo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(valid, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(BtnVerifyUser)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -251,43 +264,85 @@ public class Registrar extends javax.swing.JFrame {
     }//GEN-LAST:event_fnombreKeyTyped
 
     private void BtnEXITActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEXITActionPerformed
-        System.exit(0);
+
+        this.dispose();
+
     }//GEN-LAST:event_BtnEXITActionPerformed
 
-    private void PassFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PassFieldMouseClicked
+    private void fcontraseñaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fcontraseñaMouseClicked
 
-        PassField.setText(null);
-    }//GEN-LAST:event_PassFieldMouseClicked
+        fcontraseña.setText(null);
+    }//GEN-LAST:event_fcontraseñaMouseClicked
 
-    private void PassFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PassFieldActionPerformed
+    private void fcontraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fcontraseñaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_PassFieldActionPerformed
+    }//GEN-LAST:event_fcontraseñaActionPerformed
 
     private void ojoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ojoActionPerformed
-        char echoChar = PassField.getEchoChar(); // Obtener el carácter de eco actual
+        char echoChar = fcontraseña.getEchoChar(); // Obtener el carácter de eco actual
         if (echoChar != 0) {
-            PassField.setEchoChar((char) 0); // Establecer el carácter de eco a 0 (sin ocultar)
+            fcontraseña.setEchoChar((char) 0); // Establecer el carácter de eco a 0 (sin ocultar)
             ojo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICons/ojocerrado.png")));;
         } else {
-            PassField.setEchoChar('\u2022'); // Establecer el carácter de eco a • (ocultar)
+            fcontraseña.setEchoChar('\u2022'); // Establecer el carácter de eco a • (ocultar)
             ojo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICons/ojoabierto.png")));;
         }
     }//GEN-LAST:event_ojoActionPerformed
 
     private void BtnVerifyUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVerifyUserActionPerformed
+        BtnVerifyUser.requestFocusInWindow();
+        String nombre = fnombre.getText(), ced = fcedula.getText(), contraseña = fcontraseña.getText();
+        boolean registrada = false;
+        String[] cUsuarios;
 
-//        Scanner sc = new Scanner(System.in);
-//        String U = userLABEL.getText();
-//        String P = PassField.getText();
-//        boolean Correct = Verify(sc, "CedulasAdmins", U, P);
-//        if (Correct == true) {
-//            Pantalla.setVisible(true);
-//            Constraseña.setVisible(false);
-//            exitBTN.setVisible(true);
-//        } else {
-//            AvisoLabel.setText("Contraseña o Usuario incorrecto");
-//        }
+        try {
+            BufferedReader BR = new BufferedReader(new FileReader("CedulasAdmins.txt"));
+            String linea;
+            while ((linea = BR.readLine()) != null) {
+                System.out.println("LINEA: " + linea);
+                cUsuarios = linea.split("\\| ");
+                if (ced.equals(cUsuarios[1])) {
+                    registrada = true;
+
+                    break;
+                }
+                System.out.println("ced" + ced);
+                System.out.println("cUsuarios[2]" + cUsuarios[1]);
+            }
+
+            BR.close();
+        } catch (IOException ex) {
+            System.out.println("Error al leer el archivo.");
+            ex.printStackTrace();
+        }
+
+        if (registrada) {
+            valid.setText("Cédula ya registrada.");
+        } else if (!registrada) {
+            if (nombre.isEmpty() || ced.isEmpty() || contraseña.isEmpty()) {
+                valid.setText("Debe llenar todos los campos.");
+            } else { // Guardar nuevo administrador en el archivo
+                try {
+                    String datos = nombre + "| " + ced + "| " + contraseña;
+                    FileWriter FW = new FileWriter("CedulasAdmins.txt", true);
+                    FW.write(datos + "\n");
+                   
+                    
+                    valid.setText("Usuario registrado con éxito.");
+                    
+                    FW.close();
+                } catch (IOException ex) {
+                    System.out.println("Error al escribir en el archivo.");
+                    ex.printStackTrace();
+                }
+            }
+        }
+       
     }//GEN-LAST:event_BtnVerifyUserActionPerformed
+
+    private void BtnVerifyUserMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnVerifyUserMouseReleased
+      
+    }//GEN-LAST:event_BtnVerifyUserMouseReleased
 
     /**
      * @param args the command line arguments
@@ -319,7 +374,7 @@ public class Registrar extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Registrar().setVisible(true);
+//                new Registrar().setVisible(true);
             }
         });
     }
@@ -327,8 +382,8 @@ public class Registrar extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnEXIT;
     private javax.swing.JButton BtnVerifyUser;
-    private javax.swing.JPasswordField PassField;
     private javax.swing.JTextField fcedula;
+    private javax.swing.JPasswordField fcontraseña;
     private javax.swing.JTextField fnombre;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

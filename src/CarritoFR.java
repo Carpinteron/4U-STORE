@@ -81,10 +81,9 @@ private String user, cedula;
                                 .addGap(0, 9, Short.MAX_VALUE)
                                 .addComponent(BtnSalir))
                             .addGroup(panelRound2Layout.createSequentialGroup()
-                                .addComponent(BtnCarrito)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(panelRound2Layout.createSequentialGroup()
-                                .addComponent(jButton1)
+                                .addGroup(panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(BtnCarrito)
+                                    .addComponent(jButton1))
                                 .addGap(0, 0, Short.MAX_VALUE)))))
                 .addContainerGap())
         );

@@ -2,6 +2,7 @@
 
 import java.awt.Color;
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -35,31 +36,77 @@ public class login extends javax.swing.JFrame {
     }
 
     public static void CedulasAdmins(String file_name) {
-        try {
-            FileWriter outFile = new FileWriter(file_name + ".txt", false);
-            PrintWriter registro = new PrintWriter(outFile);
+       
+//        try {
+//            FileWriter outFile = new FileWriter(file_name + ".txt", true);
+//            PrintWriter registro = new PrintWriter(outFile);
+//
+//            //Matriz para crear Archivo Existente 
+//            String[][] usuariosADMIN = {
+//                {"Paula Núñez| 1042245460| 77777"},
+//                {"Natalia Carpintero| 1047037245| 12345"},
+//                {"Isabella Arrieta| 1044610582| 09876"}};
+//
+//            //Agregar datos de la matriz al registro
+//            for (String[] fila : usuariosADMIN) {
+//                String cedula = fila[0];
+//
+//                // Agregar los datos al archivo
+//                registro.println(cedula);
+//            }
+//
+//            registro.close();
+//            System.out.println("Datos agregados exitosamente al archivo " + file_name);
+//
+//        } catch (IOException ex) {
+//            System.out.println("Error al agregar datos al archivo " + file_name);
+//            ex.printStackTrace();
+//        }
+         try {
+    // Archivo existente
+     file_name = "CedulasAdmins.txt";
+    
+    // Registros a agregar
+    String[][] nuevosRegistros = {
+        {"Paula Núñez| 1042245460| 77777"},
+        {"Natalia Carpintero| 1047037245| 12345"},
+        {"Isabella Arrieta| 1044610582| 09876"}
+    };
 
-            //Matriz para crear Archivo Existente 
-            String[][] usuariosADMIN = {
-                {"Paula Núñez| 1042245460| 77777"},
-                {"Natalia Carpintero| 1047037245| 12345"},
-                {"Isabella Arrieta| 1044610582| 09876"}};
-
-            //Agregar datos de la matriz al registro
-            for (String[] fila : usuariosADMIN) {
-                String cedula = fila[0];
-
-                // Agregar los datos al archivo
-                registro.println(cedula);
+    // Verificar si los registros ya existen en el archivo
+    boolean registrosExistentes = false;
+    BufferedReader reader = new BufferedReader(new FileReader(file_name));
+    String linea;
+    while ((linea = reader.readLine()) != null) {
+        for (String[] registro : nuevosRegistros) {
+            if (linea.equals(registro[0])) {
+                registrosExistentes = true;
+                break;
             }
-
-            registro.close();
-            System.out.println("Datos agregados exitosamente al archivo " + file_name);
-
-        } catch (IOException ex) {
-            System.out.println("Error al agregar datos al archivo " + file_name);
-            ex.printStackTrace();
         }
+        if (registrosExistentes) {
+            break;
+        }
+    }
+    reader.close();
+
+    // Agregar los registros al archivo si no existen
+    if (!registrosExistentes) {
+        PrintWriter writer = new PrintWriter(new FileWriter(file_name));
+        for (String[] registro : nuevosRegistros) {
+            String cedula = registro[0];
+            writer.println(cedula);
+        }
+        writer.close();
+        System.out.println("Registros agregados exitosamente al archivo " + file_name);
+    } else {
+        System.out.println("Los registros ya existen en el archivo " + file_name);
+    }
+} catch (IOException ex) {
+    System.out.println("Error al agregar registros al archivo");
+    ex.printStackTrace();
+}
+
     }
 
     @SuppressWarnings("unchecked")

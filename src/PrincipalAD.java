@@ -48,15 +48,17 @@ public class PrincipalAD extends javax.swing.JFrame {
         PanelAgregarPE.setVisible(false);
         PanelEliminar.setVisible(false);
         //  CopiarArchivoAlISTA(sc, "Inventario");
-        RegistroPanel.setVisible(false);
+  
         String[] cUsuarios;
         try {
             BufferedReader br = new BufferedReader(new FileReader("CedulasAdmins.txt"));
             String linea;
             while ((linea = br.readLine()) != null) {
-                cUsuarios = linea.split("| ");
+                cUsuarios = linea.split("\\| ");
+                System.out.println("NOMBRE: "+cUsuarios[0]);
                 if (cedula.equals(cUsuarios[1])) {
                     userLABEL.setText(cUsuarios[0]);
+                    System.out.println("NOMBRE: "+cUsuarios[0]);
                 }
             }
 
@@ -85,11 +87,6 @@ public class PrincipalAD extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
-        RegistroPanel = new javax.swing.JPanel();
-        nombreadmi = new javax.swing.JTextField();
-        cedulaAdmi = new javax.swing.JTextField();
-        Contraseñaadmi = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
         Pantalla = new custom.PanelRound();
         panelRound2 = new custom.PanelRound();
         BtnGrafics = new javax.swing.JButton();
@@ -256,59 +253,12 @@ public class PrincipalAD extends javax.swing.JFrame {
 
         getContentPane().add(Constraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 160, 560, 370));
 
-        RegistroPanel.setOpaque(false);
-
-        nombreadmi.setText("jTextField1");
-
-        cedulaAdmi.setText("jTextField2");
-
-        Contraseñaadmi.setText("jTextField3");
-
-        jButton1.setText("jButton1");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout RegistroPanelLayout = new javax.swing.GroupLayout(RegistroPanel);
-        RegistroPanel.setLayout(RegistroPanelLayout);
-        RegistroPanelLayout.setHorizontalGroup(
-            RegistroPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(RegistroPanelLayout.createSequentialGroup()
-                .addGroup(RegistroPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(RegistroPanelLayout.createSequentialGroup()
-                        .addGap(67, 67, 67)
-                        .addGroup(RegistroPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(Contraseñaadmi, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)
-                            .addComponent(cedulaAdmi)
-                            .addComponent(nombreadmi)))
-                    .addGroup(RegistroPanelLayout.createSequentialGroup()
-                        .addGap(139, 139, 139)
-                        .addComponent(jButton1)))
-                .addContainerGap(520, Short.MAX_VALUE))
-        );
-        RegistroPanelLayout.setVerticalGroup(
-            RegistroPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(RegistroPanelLayout.createSequentialGroup()
-                .addGap(44, 44, 44)
-                .addComponent(nombreadmi, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
-                .addComponent(cedulaAdmi, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38)
-                .addComponent(Contraseñaadmi, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton1)
-                .addContainerGap(31, Short.MAX_VALUE))
-        );
-
-        getContentPane().add(RegistroPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 370, 830, 310));
-
         Pantalla.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panelRound2.setBackground(new java.awt.Color(153, 153, 255));
 
-        BtnGrafics.setText("Grafic");
+        BtnGrafics.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICons/graficas.png"))); // NOI18N
+        BtnGrafics.setContentAreaFilled(false);
         BtnGrafics.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnGraficsActionPerformed(evt);
@@ -324,7 +274,8 @@ public class PrincipalAD extends javax.swing.JFrame {
 
         BtnInfo.setText("Info");
 
-        jButton3.setText("Registrarse");
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICons/reg.png"))); // NOI18N
+        jButton3.setContentAreaFilled(false);
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -341,11 +292,12 @@ public class PrincipalAD extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(BtnInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BtnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jButton3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                        .addComponent(BtnGrafics, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel7))
+                    .addComponent(jLabel7)
+                    .addGroup(panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(BtnGrafics))
+                        .addComponent(BtnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelRound2Layout.setVerticalGroup(
@@ -353,11 +305,11 @@ public class PrincipalAD extends javax.swing.JFrame {
             .addGroup(panelRound2Layout.createSequentialGroup()
                 .addGap(12, 12, 12)
                 .addComponent(jLabel7)
-                .addGap(18, 18, 18)
-                .addComponent(BtnGrafics, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(175, 175, 175)
+                .addGap(36, 36, 36)
+                .addComponent(BtnGrafics)
+                .addGap(178, 178, 178)
                 .addComponent(jButton3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 224, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 200, Short.MAX_VALUE)
                 .addComponent(BtnInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29)
                 .addComponent(BtnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -366,6 +318,7 @@ public class PrincipalAD extends javax.swing.JFrame {
 
         Pantalla.add(panelRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 80, 700));
 
+        TablaINVENTARIO.setFont(new java.awt.Font("Sylfaen", 0, 13)); // NOI18N
         TablaINVENTARIO.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
@@ -1642,7 +1595,6 @@ public class PrincipalAD extends javax.swing.JFrame {
         btnactualizar.setVisible(false);
         botonPE.setVisible(false);
         botonEP.setVisible(false);
-        RegistroPanel.setVisible(false);
         CargarDatosJcombo();
     }//GEN-LAST:event_BTNAgregar1ActionPerformed
 
@@ -1782,7 +1734,6 @@ public class PrincipalAD extends javax.swing.JFrame {
         btnactualizar.setVisible(false);
         botonPE.setVisible(false);
         botonEP.setVisible(false);
-        RegistroPanel.setVisible(false);
         CargarDatosJcombo2();
     }//GEN-LAST:event_botonPEActionPerformed
 
@@ -1918,7 +1869,6 @@ public class PrincipalAD extends javax.swing.JFrame {
         btnactualizar.setVisible(false);
         botonPE.setVisible(false);
         botonEP.setVisible(false);
-        RegistroPanel.setVisible(false);
         CargarDatosJcombo3();
     }//GEN-LAST:event_botonEPActionPerformed
 
@@ -1936,40 +1886,36 @@ public class PrincipalAD extends javax.swing.JFrame {
         exitBTN.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-
-        AñadirUsuarios("Usuarios", "CedulasAdmins");
-        RegistroPanel.setVisible(false);
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        RegistroPanel.setVisible(true);
+        Registrar registro = new Registrar(user,cedula);
+        registro.setVisible(true);
+     
     }//GEN-LAST:event_jButton3ActionPerformed
-    public void AñadirUsuarios(String file_name, String file_ced) {
-        try {
-            FileWriter outFile = new FileWriter(file_name + ".txt", true);
-            PrintWriter registro = new PrintWriter(outFile);
-            FileWriter outFile2 = new FileWriter(file_ced + ".txt", true);
-            PrintWriter registro2 = new PrintWriter(outFile2);
-            String name, pass;
-            pass = Contraseñaadmi.getText();
-            name = nombreadmi.getText();
-            registro.println(name + ";" + pass);
-
-            String c = cedulaAdmi.getText();
-            int ced = Integer.parseInt(c);
-            registro2.println(name + "| " + ced + "| " + pass);
-            registro.close();
-            registro2.close();
-            System.out.println("Datos agregados exitosamente al archivo " + file_name);
-            System.out.println("Datos agregados exitosamente al archivo " + file_ced);
-
-        } catch (IOException ex) {
-            System.out.println("Error al agregar datos al archivo " + file_name);
-            System.out.println("Error al agregar datos al archivo " + file_ced);
-            ex.printStackTrace();
-        }
-    }
+//    public void AñadirUsuarios(String file_name, String file_ced) {
+//        try {
+//            FileWriter outFile = new FileWriter(file_name + ".txt", true);
+//            PrintWriter registro = new PrintWriter(outFile);
+//            FileWriter outFile2 = new FileWriter(file_ced + ".txt", true);
+//            PrintWriter registro2 = new PrintWriter(outFile2);
+//            String name, pass;
+//            pass = Contraseñaadmi.getText();
+//            name = nombreadmi.getText();
+//            registro.println(name + ";" + pass);
+//
+//            String c = cedulaAdmi.getText();
+//            int ced = Integer.parseInt(c);
+//            registro2.println(name + "| " + ced + "| " + pass);
+//            registro.close();
+//            registro2.close();
+//            System.out.println("Datos agregados exitosamente al archivo " + file_name);
+//            System.out.println("Datos agregados exitosamente al archivo " + file_ced);
+//
+//        } catch (IOException ex) {
+//            System.out.println("Error al agregar datos al archivo " + file_name);
+//            System.out.println("Error al agregar datos al archivo " + file_ced);
+//            ex.printStackTrace();
+//        }
+//    }
 //VERIFICACION DE USUARIOSSSS
 
     public static boolean Verify(Scanner sc, String file_name, String U, String P) {
@@ -2214,91 +2160,70 @@ public class PrincipalAD extends javax.swing.JFrame {
     }
 
     public static void CopiarlISTAaArchivo(Scanner sc, String file_name, ListaEnlazada names, ListaEnlazada cant) {
+
         try {
-            
-            
-         File inputFile = new File(file_name + ".txt");
-        File tempFile = new File("temp.txt");
+//            FileWriter outFile = new FileWriter("Temporal.txt"); // Abre el archivo de salida en modo escritura
+//            PrintWriter registro = new PrintWriter(outFile);
 
-        BufferedReader reader = new BufferedReader(new FileReader(inputFile));
-        BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
-
-        String lineToRemove;
-
-        Nodo nodoActualNames = names.head;
-        Nodo nodoActualCant = cant.head;
-
-        while (nodoActualNames != null && nodoActualCant != null) {
-            String c = nodoActualCant.dato;
-            String temp[] = nodoActualNames.dato.split(";");
-            String producto = temp[0];
-            String artista = temp[1];
-
-            while ((lineToRemove = reader.readLine()) != null) {
-                String temp2[] = lineToRemove.split(";");
-                if (temp2[0].equals(producto) && temp2[3].equals(artista)) {
-                    lineToRemove = temp2[0] + ";" + c + ";" + temp2[2] + ";" + temp2[3] + ";" + temp2[4];
-                }
-                writer.write(lineToRemove + System.getProperty("line.separator"));
-            }
-
-            // Avanza a los siguientes nodos
-            nodoActualNames = nodoActualNames.siguiente;
-            nodoActualCant = nodoActualCant.siguiente;
-        }
-
-        writer.close();
-        reader.close();
-
-        // Borra el archivo original y renombra el archivo temporal
-        if (inputFile.delete()) {
-            if (!tempFile.renameTo(inputFile)) {
-                System.out.println("Error al renombrar el archivo temporal");
-            }
-        } else {
-            System.out.println("Error al eliminar el archivo original");
-        }
-
-        System.out.println("Datos actualizados exitosamente en el archivo " + file_name);
- 
 //            FileWriter outFile = new FileWriter(file_name + ".txt", true); // Abre el archivo en modo "append"
 //            PrintWriter registro = new PrintWriter(outFile);
 //
-//            Nodo nodoActualNames = names.head;
-//            Nodo nodoActualCant = cant.head;
-//
-//            while (nodoActualNames != null) {
-//                String c = nodoActualCant.dato;
-//                String temp[] = nodoActualNames.dato.split(";");
-//                String producto = temp[0];
-//                String artista = temp[1];
-//
-//                BufferedReader br = new BufferedReader(new FileReader(file_name + ".txt"));
-//                String line = null;
-//
-//                while ((line = br.readLine()) != null) {
-//                    String temp2[] = line.split(";");
-//                    if (temp2[0].equals(producto) && temp2[3].equals(artista) && !temp2[1].equals(c)) {
-//                        registro.println(temp2[0] + ";" + c + ";" + temp2[2] + ";" + temp2[3] + ";" + temp2[4]);
-//                    }
-//                }
-//                br.close();
-//
-//                // Avanza a los siguientes nodos
-//                nodoActualNames = nodoActualNames.siguiente;
-//                nodoActualCant = nodoActualCant.siguiente;
-//            }
-//            registro.close();
-//
-//            System.out.println("Datos agregados exitosamente al archivo " + file_name);
+            Nodo nodoActualNames = names.head;
+            Nodo nodoActualCant = cant.head;
 
+            File archivoOriginal = new File(file_name + ".txt");
+            File archivoTemporal = new File(file_name + "_temp.txt");
+
+            BufferedReader br = new BufferedReader(new FileReader(archivoOriginal));
+            PrintWriter pw = new PrintWriter(new FileWriter(archivoTemporal));
+
+            String line;
+
+            while ((line = br.readLine()) != null) {
+                String[] campos = line.split(";");
+                String nombreProducto = campos[0]; // Nombre del producto
+                String cantidadActual = campos[1]; // Cantidad actual
+                String Categoria = campos[2]; // Nombre de la categoria
+                String nombreArtista = campos[3]; // Nombre del artista
+                String Precio = campos[4]; // Precio Producto
+
+                if (nodoActualNames != null & nodoActualCant!=null) {
+                    String cantidadNueva = nodoActualCant.dato;
+                    String temp[] = nodoActualNames.dato.split(";");
+                    String producto = temp[0];
+                    String artista = temp[1];
+                    if (nombreProducto.equals(producto) && nombreArtista.equals(artista) && !cantidadActual.equals(cantidadNueva)) {
+                        cantidadActual = cantidadNueva;
+                        System.out.println("kjfwnfkj");
+                    }
+                    String nuevaLinea = nombreProducto + ";" + cantidadActual + ";" + Categoria + ";" + nombreArtista + ";" + Precio;
+
+                    // System.out.println("no");
+                    pw.println(nuevaLinea);
+                    // Avanza a los siguientes nodos
+                    nodoActualNames = nodoActualNames.siguiente;
+                    nodoActualCant = nodoActualCant.siguiente;
+
+                }else{
+                    pw.println(line);
+                }
+                
+            }
+            br.close();
+            pw.close();
+// Elimina el archivo original y renombra el archivo temporal
+            if (archivoOriginal.delete()) {
+                if (!archivoTemporal.renameTo(archivoOriginal)) {
+                    System.out.println("Error al renombrar el archivo temporal.");
+                }
+            } else {
+                System.out.println("Error al eliminar el archivo original.");
+            }
         } catch (IOException ex) {
             System.out.println("Error al agregar datos al archivo " + file_name);
             ex.printStackTrace();
         }
     }
-
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel AvisoLabel;
     private javax.swing.JButton BTNAgregar1;
@@ -2318,18 +2243,15 @@ public class PrincipalAD extends javax.swing.JFrame {
     private javax.swing.JButton BtnSalir1;
     private javax.swing.JButton BtnVerifyUser;
     private custom.PanelRound Constraseña;
-    private javax.swing.JTextField Contraseñaadmi;
     private javax.swing.JPanel PanelAgregar;
     private javax.swing.JPanel PanelAgregarPE;
     private javax.swing.JPanel PanelEliminar;
     private custom.PanelRound Pantalla;
     private javax.swing.JPasswordField PassField;
-    private javax.swing.JPanel RegistroPanel;
     private javax.swing.JTable TablaINVENTARIO;
     private javax.swing.JButton botonEP;
     private javax.swing.JButton botonPE;
     private javax.swing.JButton btnactualizar;
-    private javax.swing.JTextField cedulaAdmi;
     private javax.swing.JLabel error1;
     private javax.swing.JLabel error1Eli;
     private javax.swing.JLabel error1PE;
@@ -2348,7 +2270,6 @@ public class PrincipalAD extends javax.swing.JFrame {
     private javax.swing.JTextField fieldCantPE;
     private javax.swing.JTextField fieldDescripcion;
     private javax.swing.JTextField fieldPrecio;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
@@ -2379,7 +2300,6 @@ public class PrincipalAD extends javax.swing.JFrame {
     private javax.swing.JLabel labelD;
     private javax.swing.JLabel labelDEli;
     private javax.swing.JLabel labelDPE;
-    private javax.swing.JTextField nombreadmi;
     private javax.swing.JButton ojo;
     private custom.PanelRound panelRound1;
     private custom.PanelRound panelRound2;
