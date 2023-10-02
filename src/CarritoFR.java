@@ -193,7 +193,7 @@ public class CarritoFR extends javax.swing.JFrame {
                                 .addGap(6, 6, 6)
                                 .addComponent(mensajito, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 448, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 76, Short.MAX_VALUE))
+                        .addGap(0, 52, Short.MAX_VALUE))
                     .addGroup(panelRound1Layout.createSequentialGroup()
                         .addGap(44, 44, 44)
                         .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
