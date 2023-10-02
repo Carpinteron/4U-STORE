@@ -46,10 +46,15 @@ public class CarritoFR extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         PrecioTot = new javax.swing.JLabel();
         mensajito = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setSize(new java.awt.Dimension(1200, 100));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        panelRound1.setBackground(new java.awt.Color(204, 204, 255));
 
         BtnEXIT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICons/cerrrar35.png"))); // NOI18N
         BtnEXIT.setBorder(null);
@@ -118,16 +123,37 @@ public class CarritoFR extends javax.swing.JFrame {
                 .addGap(23, 23, 23))
         );
 
-        jButton2.setText("Pagae");
+        jButton2.setText("Pagar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
 
+        PrecioTot.setFont(new java.awt.Font("Segoe UI Black", 0, 36)); // NOI18N
+        PrecioTot.setForeground(new java.awt.Color(102, 0, 102));
         PrecioTot.setText("jLabel1");
 
+        mensajito.setFont(new java.awt.Font("Segoe UI Black", 2, 18)); // NOI18N
+        mensajito.setForeground(new java.awt.Color(153, 0, 153));
         mensajito.setText("jLabel1");
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI Historic", 2, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(51, 0, 51));
+        jLabel1.setText("Precio Total A Pagar:");
 
         javax.swing.GroupLayout panelRound1Layout = new javax.swing.GroupLayout(panelRound1);
         panelRound1.setLayout(panelRound1Layout);
@@ -135,34 +161,48 @@ public class CarritoFR extends javax.swing.JFrame {
             panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRound1Layout.createSequentialGroup()
                 .addComponent(panelRound2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 677, Short.MAX_VALUE)
+                .addGap(52, 52, 52)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 492, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRound1Layout.createSequentialGroup()
+                    .addGroup(panelRound1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(BtnEXIT)
                         .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRound1Layout.createSequentialGroup()
-                        .addComponent(PrecioTot, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(215, 215, 215))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRound1Layout.createSequentialGroup()
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(174, 174, 174))
                     .addGroup(panelRound1Layout.createSequentialGroup()
-                        .addComponent(mensajito, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
+                        .addGap(72, 72, 72)
+                        .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelRound1Layout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(mensajito, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 448, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 76, Short.MAX_VALUE))
+                    .addGroup(panelRound1Layout.createSequentialGroup()
+                        .addGap(85, 85, 85)
+                        .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(PrecioTot, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         panelRound1Layout.setVerticalGroup(
             panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelRound1Layout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(BtnEXIT)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 192, Short.MAX_VALUE)
-                .addComponent(PrecioTot, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(92, 92, 92)
-                .addComponent(mensajito, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(62, 62, 62)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(148, 148, 148))
             .addComponent(panelRound2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(panelRound1Layout.createSequentialGroup()
+                .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelRound1Layout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addComponent(BtnEXIT)
+                        .addGap(188, 188, 188)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(44, 44, 44)
+                        .addComponent(PrecioTot, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(78, 78, 78)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(mensajito, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelRound1Layout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 606, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(68, Short.MAX_VALUE))
         );
 
         getContentPane().add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -307,7 +347,10 @@ public class CarritoFR extends javax.swing.JFrame {
     private javax.swing.JLabel PrecioTot;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JLabel mensajito;
     private custom.PanelRound panelRound1;
     private custom.PanelRound panelRound2;

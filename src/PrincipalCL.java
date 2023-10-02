@@ -955,7 +955,9 @@ public class PrincipalCL extends javax.swing.JFrame {
                     error.setText("(!) La cantidad debe ser mayor a 0");
                     error.setVisible(true);
                     return false;
-                } else if (cantidad < cantidadesDisponibles.get(elementos.indexOf(NombreProducto)) || cantidad > cantidadesDisponibles.get(elementos.indexOf(NombreProducto))) {
+
+                } else if (cantidad > cantidadesDisponibles.get(elementos.indexOf(NombreProducto))) {
+
                     error.setText("(!) Cantidad Inválida. Verifique disponibilidad");
                     error.setVisible(true);
                     return false;
