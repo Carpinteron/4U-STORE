@@ -125,7 +125,6 @@ public class login extends javax.swing.JFrame {
         valid = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -203,13 +202,6 @@ public class login extends javax.swing.JFrame {
         jLabel5.setForeground(new java.awt.Color(38, 0, 75));
         jLabel5.setText("LOGIN");
 
-        jButton1.setText("SKIP");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout panelRound2Layout = new javax.swing.GroupLayout(panelRound2);
         panelRound2.setLayout(panelRound2Layout);
         panelRound2Layout.setHorizontalGroup(
@@ -224,8 +216,7 @@ public class login extends javax.swing.JFrame {
                             .addComponent(jLabel4)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRound2Layout.createSequentialGroup()
                                 .addComponent(BtnEXIT)
-                                .addGap(8, 8, 8)))
-                        .addContainerGap())
+                                .addGap(8, 8, 8))))
                     .addGroup(panelRound2Layout.createSequentialGroup()
                         .addGroup(panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -241,14 +232,10 @@ public class login extends javax.swing.JFrame {
                             .addGroup(panelRound2Layout.createSequentialGroup()
                                 .addGap(157, 157, 157)
                                 .addComponent(jLabel5)))
-                        .addGroup(panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panelRound2Layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(Login))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRound2Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
-                                .addComponent(jButton1)
-                                .addGap(51, 51, 51))))))
+                        .addGap(18, 18, 18)
+                        .addComponent(Login)
+                        .addGap(0, 73, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         panelRound2Layout.setVerticalGroup(
             panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -272,8 +259,6 @@ public class login extends javax.swing.JFrame {
                 .addGap(14, 14, 14)
                 .addComponent(BtnEXIT)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(18, 18, 18)
                 .addComponent(Login, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4)
@@ -381,12 +366,6 @@ String[] cUsuarios;
         }
     }//GEN-LAST:event_fnombreKeyTyped
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        perfilesFR p = new perfilesFR(user, cedula);
-        p.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -427,7 +406,6 @@ String[] cUsuarios;
     private javax.swing.JButton Login;
     private javax.swing.JTextField fcedula;
     private javax.swing.JTextField fnombre;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

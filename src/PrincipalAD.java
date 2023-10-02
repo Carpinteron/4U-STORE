@@ -2,6 +2,7 @@
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -25,6 +26,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
@@ -83,6 +85,12 @@ public class PrincipalAD extends javax.swing.JFrame {
             ex.printStackTrace();
         }
         user = userLABEL.getText();
+        Color foregroundColor = Color.decode("#26004b"); // Color de fuente
+        Color backgroundColor = Color.decode("#A09CFC"); // Color de fondo
+        JTableHeader header = TablaINVENTARIO.getTableHeader();
+        header.setBackground(backgroundColor); // Cambiar el color de fondo
+        header.setForeground(foregroundColor); // Cambiar el color de fuente
+        header.setFont(new Font("Sylfaen", Font.BOLD, 14));
     }
 
     @SuppressWarnings("unchecked")
@@ -101,7 +109,6 @@ public class PrincipalAD extends javax.swing.JFrame {
         BtnEXIT = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
         Pantalla = new custom.PanelRound();
         graficaspanel = new custom.PanelRound();
         graficafondo = new custom.PanelRound();
@@ -266,16 +273,9 @@ public class PrincipalAD extends javax.swing.JFrame {
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICons/Logo 4U_1.png"))); // NOI18N
         Contraseña.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 290, -1, -1));
 
-        jButton2.setText("SKIP");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        Contraseña.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 260, -1, -1));
-
         getContentPane().add(Contraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 160, 560, 370));
 
+        Pantalla.setBackground(new java.awt.Color(208, 204, 252));
         Pantalla.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         graficaspanel.setBackground(new java.awt.Color(153, 153, 255));
@@ -362,6 +362,8 @@ public class PrincipalAD extends javax.swing.JFrame {
 
         Pantalla.add(panelRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 80, 700));
 
+        TablaINVENTARIO.setAutoCreateRowSorter(true);
+        TablaINVENTARIO.setBackground(new java.awt.Color(208, 204, 252));
         TablaINVENTARIO.setFont(new java.awt.Font("Sylfaen", 0, 13)); // NOI18N
         TablaINVENTARIO.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -378,7 +380,11 @@ public class PrincipalAD extends javax.swing.JFrame {
 
         Pantalla.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(124, 146, 950, 420));
 
+        BTNAgregar1.setBackground(new java.awt.Color(160, 156, 252));
+        BTNAgregar1.setFont(new java.awt.Font("Sylfaen", 1, 14)); // NOI18N
+        BTNAgregar1.setForeground(new java.awt.Color(38, 0, 75));
         BTNAgregar1.setText("Agregar Nuevo Producto");
+        BTNAgregar1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(38, 0, 75), 3, true));
         BTNAgregar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BTNAgregar1ActionPerformed(evt);
@@ -512,7 +518,11 @@ public class PrincipalAD extends javax.swing.JFrame {
         });
         Pantalla.add(exitBTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(1160, 0, -1, 40));
 
+        botonPE.setBackground(new java.awt.Color(160, 156, 252));
+        botonPE.setFont(new java.awt.Font("Sylfaen", 1, 14)); // NOI18N
+        botonPE.setForeground(new java.awt.Color(38, 0, 75));
         botonPE.setText("Agregar producto Existente");
+        botonPE.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(38, 0, 75), 3, true));
         botonPE.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonPEActionPerformed(evt);
@@ -520,7 +530,11 @@ public class PrincipalAD extends javax.swing.JFrame {
         });
         Pantalla.add(botonPE, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 70, -1, -1));
 
+        botonEP.setBackground(new java.awt.Color(160, 156, 252));
+        botonEP.setFont(new java.awt.Font("Sylfaen", 1, 14)); // NOI18N
+        botonEP.setForeground(new java.awt.Color(38, 0, 75));
         botonEP.setText("Eliminar Producto");
+        botonEP.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(38, 0, 75), 3, true));
         botonEP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonEPActionPerformed(evt);
@@ -528,7 +542,16 @@ public class PrincipalAD extends javax.swing.JFrame {
         });
         Pantalla.add(botonEP, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 70, -1, -1));
 
+        btnactualizar.setBackground(new java.awt.Color(160, 156, 252));
+        btnactualizar.setFont(new java.awt.Font("Sylfaen", 1, 14)); // NOI18N
+        btnactualizar.setForeground(new java.awt.Color(38, 0, 75));
         btnactualizar.setText("Actualizar Inventario de acuerdo a ventas");
+        btnactualizar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(38, 0, 75), 3, true));
+        btnactualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnactualizarActionPerformed(evt);
+            }
+        });
         Pantalla.add(btnactualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 90, -1, -1));
 
         PanelAgregarPE.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -1775,61 +1798,59 @@ public class PrincipalAD extends javax.swing.JFrame {
 
     private void BtnGraficsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnGraficsActionPerformed
 
+// Hacer visible páneles
+        graficafondo.setVisible(true);
+        graficaspanel.setVisible(true);
 
-// Hacer visible el panel de gráficos
-graficafondo.setVisible(true);
-    graficaspanel.setVisible(true);
-  
+        DefaultCategoryDataset datosGraficoBarras = new DefaultCategoryDataset();
 
-    DefaultCategoryDataset datosGraficoBarras = new DefaultCategoryDataset();
+        // Leer el archivo de inventario
+        try {
+            FileReader FR = new FileReader("Inventario.txt");
+            BufferedReader BR = new BufferedReader(FR);
 
-    // Leer el archivo de texto
-    try {
-        FileReader lectorArchivo = new FileReader("Inventario.txt");
-        BufferedReader lectorBuffer = new BufferedReader(lectorArchivo);
+            String linea;
 
-        String linea;
+            while ((linea = BR.readLine()) != null) {
+                String[] datos = linea.split(";");
+                String nombreProducto = datos[0].trim();
+                int cantidad = Integer.parseInt(datos[1].trim());
+                String categoria = datos[2].trim();
 
-        while ((linea = lectorBuffer.readLine()) != null) {
-            String[] datos = linea.split(";");
-            String nombreProducto = datos[0].trim();
-            int cantidad = Integer.parseInt(datos[1].trim());
-            String categoria = datos[2].trim();
+                // Agregar los datos al conjunto de datos dela gráfica
+                datosGraficoBarras.addValue(cantidad, categoria, nombreProducto);
+            }
 
-            // Agregar los datos al conjunto de datos del gráfico
-            datosGraficoBarras.addValue(cantidad, categoria, nombreProducto);
+            BR.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
         }
 
-        lectorBuffer.close();
+        JFreeChart graficoBarras = ChartFactory.createBarChart3D(
+                "Disponibilidad por Producto y Categoría", // Título del gráfico
+                "Producto", // Etiqueta del eje X
+                "Cantidad", // Etiqueta del eje Y
+                datosGraficoBarras, // Conjunto de datos
+                PlotOrientation.VERTICAL,
+                true, // Incluir leyenda
+                true, // Incluir tooltips
+                false // Incluir URLs
+        );
 
-    } catch (IOException e) {
-        e.printStackTrace();
-    }
+        CategoryPlot tramaGraficoBarras = graficoBarras.getCategoryPlot();
+        NumberAxis ejeY = (NumberAxis) tramaGraficoBarras.getRangeAxis();
+        NumberFormat formato = new DecimalFormat("#,###");
+        ejeY.setNumberFormatOverride(formato);
 
-    JFreeChart graficoBarras = ChartFactory.createBarChart3D(
-        "Disponibilidad por Producto y Categoría", // Título del gráfico
-        "Producto", // Etiqueta del eje X
-        "Cantidad", // Etiqueta del eje Y
-        datosGraficoBarras, // Conjunto de datos
-        PlotOrientation.VERTICAL,
-        true, // Incluir leyenda
-        true, // Incluir consejos (tooltips)
-        false // Incluir URLs
-    );
+        ChartPanel panelGrafico = new ChartPanel(graficoBarras);
+        panelGrafico.setMouseWheelEnabled(true);
+        panelGrafico.setPreferredSize(new Dimension(600, 400));
 
-    CategoryPlot tramaGraficoBarras = graficoBarras.getCategoryPlot();
-    NumberAxis ejeY = (NumberAxis) tramaGraficoBarras.getRangeAxis();
-    NumberFormat formato = new DecimalFormat("#,###");
-    ejeY.setNumberFormatOverride(formato);
-
-    ChartPanel panelGrafico = new ChartPanel(graficoBarras);
-    panelGrafico.setMouseWheelEnabled(true);
-    panelGrafico.setPreferredSize(new Dimension(600, 400));
-
-    graficaspanel.setLayout(new BorderLayout());
-    graficaspanel.add(panelGrafico, BorderLayout.CENTER);
-    validate();
-    repaint();
+        graficaspanel.setLayout(new BorderLayout());
+        graficaspanel.add(panelGrafico, BorderLayout.CENTER);
+        validate();
+        repaint();
     }//GEN-LAST:event_BtnGraficsActionPerformed
 
     private void ojoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ojoActionPerformed
@@ -2037,12 +2058,6 @@ graficafondo.setVisible(true);
         // TODO add your handling code here:
     }//GEN-LAST:event_PassFieldActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        Pantalla.setVisible(true);
-        Contraseña.setVisible(false);
-        exitBTN.setVisible(true);
-    }//GEN-LAST:event_jButton2ActionPerformed
-
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         Registrar registro = new Registrar(user, cedula);
         registro.setVisible(true);
@@ -2055,9 +2070,13 @@ graficafondo.setVisible(true);
     }//GEN-LAST:event_BtnEXIT1ActionPerformed
 
     private void BtnEXIT3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEXIT3ActionPerformed
-       graficaspanel.setVisible(false);
-       graficafondo.setVisible(false);
+        graficaspanel.setVisible(false);
+        graficafondo.setVisible(false);
     }//GEN-LAST:event_BtnEXIT3ActionPerformed
+
+    private void btnactualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnactualizarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnactualizarActionPerformed
 //    public void AñadirUsuarios(String file_name, String file_ced) {
 //        try {
 //            FileWriter outFile = new FileWriter(file_name + ".txt", true);
@@ -2471,7 +2490,6 @@ graficafondo.setVisible(true);
     custom.PanelRound graficafondo;
     private custom.PanelRound graficas;
     private custom.PanelRound graficaspanel;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
