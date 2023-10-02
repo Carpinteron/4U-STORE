@@ -13,6 +13,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.concurrent.ThreadLocalRandom;
 import javax.swing.ButtonGroup;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
@@ -74,8 +75,9 @@ public class PrincipalCL extends javax.swing.JFrame {
 
 // Aplicar la fuente en negrita al encabezado
         header.setFont(font);
+
     }
-    
+
 //    public static void listacar(){
 //        if (CarritoFR.anterior ==1) {
 //            PrincipalAD.ListaEnlazada Carrito2 = carritofr.Carrito;
@@ -309,7 +311,7 @@ public class PrincipalCL extends javax.swing.JFrame {
         panelDELproducto.add(jcSeleccionProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 280, -1));
 
         ImagenProducto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICons/camiseta-200.png"))); // NOI18N
-        panelDELproducto.add(ImagenProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 280, 270, 240));
+        panelDELproducto.add(ImagenProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 80, 270, 240));
 
         AddAlCarritoBTN.setBackground(new java.awt.Color(153, 51, 255));
         AddAlCarritoBTN.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Agregar al Carrito.png"))); // NOI18N
@@ -576,6 +578,8 @@ public class PrincipalCL extends javax.swing.JFrame {
         labelD.setText("Seleccione el tipo de gorra:");
         BotonesProductoPanel();
         cargardatosalcombo();
+        String NombreProducto = (jcSeleccionProducto.getSelectedItem() != null) ? jcSeleccionProducto.getSelectedItem().toString() : "";
+        agregarImagen(NombreProducto);
     }//GEN-LAST:event_btnGORRASActionPerformed
 
     private void btnVINILOSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVINILOSActionPerformed
@@ -583,6 +587,8 @@ public class PrincipalCL extends javax.swing.JFrame {
         labelD.setText("Seleccione el álbum:");
         BotonesProductoPanel();
         cargardatosalcombo();
+        String NombreProducto = (jcSeleccionProducto.getSelectedItem() != null) ? jcSeleccionProducto.getSelectedItem().toString() : "";
+        agregarImagen(NombreProducto);
     }//GEN-LAST:event_btnVINILOSActionPerformed
 
     private void btnCamisetasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCamisetasActionPerformed
@@ -590,6 +596,8 @@ public class PrincipalCL extends javax.swing.JFrame {
         labelD.setText("Seleccione la talla:");
         BotonesProductoPanel();
         cargardatosalcombo();
+        String NombreProducto = (jcSeleccionProducto.getSelectedItem() != null) ? jcSeleccionProducto.getSelectedItem().toString() : "";
+        agregarImagen(NombreProducto);
     }//GEN-LAST:event_btnCamisetasActionPerformed
 
     private void btnCDSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCDSActionPerformed
@@ -597,6 +605,8 @@ public class PrincipalCL extends javax.swing.JFrame {
         labelD.setText("Seleccione el álbum:");
         BotonesProductoPanel();
         cargardatosalcombo();
+        String NombreProducto = (jcSeleccionProducto.getSelectedItem() != null) ? jcSeleccionProducto.getSelectedItem().toString() : "";
+        agregarImagen(NombreProducto);
     }//GEN-LAST:event_btnCDSActionPerformed
 
     private void btnLLaverosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLLaverosActionPerformed
@@ -604,18 +614,33 @@ public class PrincipalCL extends javax.swing.JFrame {
         labelD.setText("Seleccione el tipo:");
         BotonesProductoPanel();
         cargardatosalcombo();
+        String NombreProducto = (jcSeleccionProducto.getSelectedItem() != null) ? jcSeleccionProducto.getSelectedItem().toString() : "";
+        agregarImagen(NombreProducto);
     }//GEN-LAST:event_btnLLaverosActionPerformed
 
     private void jcSeleccionProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcSeleccionProductoActionPerformed
         String NombreProducto = (jcSeleccionProducto.getSelectedItem() != null) ? jcSeleccionProducto.getSelectedItem().toString() : "";
+
+        int indiceSeleccionado = jcSeleccionProducto.getSelectedIndex();
+        if (indiceSeleccionado != -1) { // Verifica si se ha seleccionado un elemento
+            String valorSeleccionado = (String) jcSeleccionProducto.getItemAt(indiceSeleccionado);
+            // Ahora 'valorSeleccionado' contiene el valor del elemento seleccionado en el JComboBox
+            agregarImagen(valorSeleccionado);
+
+        } else {
+            // Maneja el caso en el que no se ha seleccionado ningún elemento
+            System.out.println("Ningún elemento seleccionado.");
+        }
+
         actualizarCantidadDisponible(NombreProducto);
+
 
     }//GEN-LAST:event_jcSeleccionProductoActionPerformed
 
     private void AddAlCarritoBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddAlCarritoBTNActionPerformed
         String NombreProducto = (jcSeleccionProducto.getSelectedItem() != null) ? jcSeleccionProducto.getSelectedItem().toString() : "";
         Scanner sc = new Scanner(System.in);
-        if(VerificarCantidad()){
+        if (VerificarCantidad()) {
             int uni = Integer.parseInt(UnidadesDelProducto.getText());
             for (int i = 1; i <= uni; i++) {
                 Carrito.agregarAlFinal(product + " " + NombreProducto + ";" + SelectedArtist);
@@ -626,7 +651,7 @@ public class PrincipalCL extends javax.swing.JFrame {
             Cantidad.modificarDatoEnPosicion(pos, Integer.toString(res));
             Cantidad.mostrarLista();
             JOptionPane.showMessageDialog(null, "Producto Agregado al Carrito.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
-        } 
+        }
     }//GEN-LAST:event_AddAlCarritoBTNActionPerformed
 
     private void UnidadesDelProductoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UnidadesDelProductoMouseClicked
@@ -730,6 +755,75 @@ public class PrincipalCL extends javax.swing.JFrame {
         labelTipoProduct.setText(product);
         cargardatosalcombo();
 
+    }
+    private static Map<String, List<String>> IMAGENES_ARTISTAS = new HashMap<>();
+
+    static {
+
+        IMAGENES_ARTISTAS.put("Conan Gray", new ArrayList<>(List.of("CC")));
+        IMAGENES_ARTISTAS.put("Harry Styles", new ArrayList<>(List.of("HC")));
+        IMAGENES_ARTISTAS.put("Sabrina Carpenter", new ArrayList<>(List.of("SC")));
+        IMAGENES_ARTISTAS.put("Taylor Swift", new ArrayList<>(List.of("TC")));
+        IMAGENES_ARTISTAS.put("Billie Eilish", new ArrayList<>(List.of("BC")));
+        IMAGENES_ARTISTAS.put("Louis Tomlinson", new ArrayList<>(List.of("LC")));
+        IMAGENES_ARTISTAS.put("5SOS", new ArrayList<>(List.of("5C")));
+        IMAGENES_ARTISTAS.put("Stray Kids", new ArrayList<>(List.of("StC")));
+        IMAGENES_ARTISTAS.put("Big Time Rush", new ArrayList<>(List.of("BC")));
+        IMAGENES_ARTISTAS.put("TXT", new ArrayList<>(List.of("TxC")));
+        IMAGENES_ARTISTAS.put("Imagine Dragons", new ArrayList<>(List.of("IC")));
+    }
+    private static Map<String, List<String>> IMAGENES_GORRAS = new HashMap<>();
+
+    static {
+
+        IMAGENES_GORRAS.put("Béisbol", new ArrayList<>(List.of("Gorra beisbolera")));
+        IMAGENES_GORRAS.put("Plana/Snapback", new ArrayList<>(List.of("Gorra plana")));
+        IMAGENES_GORRAS.put("Trucker", new ArrayList<>(List.of("Gorra Trucker")));
+
+    }
+    private static Map<String, List<String>> IMAGENES_LLAVEROS = new HashMap<>();
+
+    static {
+
+        IMAGENES_LLAVEROS.put("1", new ArrayList<>(List.of("Llavero Tipo 1")));
+        IMAGENES_LLAVEROS.put("2", new ArrayList<>(List.of("Llavero Tipo 2")));
+        IMAGENES_LLAVEROS.put("3", new ArrayList<>(List.of("Llavero Tipo 3")));
+
+    }
+
+    public void agregarImagen(String NombreProducto) {
+
+        List<String> albumes = ALBUMES_ARTISTAS.get(SelectedArtist);
+
+        switch (product) {
+            case "Camiseta":
+                ImageIcon imagenArtista = new ImageIcon(getClass().getResource("/Imagenes/" + IMAGENES_ARTISTAS.get(SelectedArtist).get(0) + ".png"));
+                ImagenProducto.setIcon(imagenArtista);
+                break;
+            case "CD":
+                ImageIcon imagenalbum = new ImageIcon(getClass().getResource("/Imagenes/" + NombreProducto + ".png"));
+                ImagenProducto.setIcon(imagenalbum);
+
+                break;
+            case "Vinilo":
+                ImageIcon imagenalbum2 = new ImageIcon(getClass().getResource("/Imagenes/" + NombreProducto + ".png"));
+                ImagenProducto.setIcon(imagenalbum2);
+
+                break;
+            case "Gorra":
+                ImageIcon imagenGorra = new ImageIcon(getClass().getResource("/Imagenes/" + IMAGENES_GORRAS.get(NombreProducto).get(0) + ".png"));
+                ImagenProducto.setIcon(imagenGorra);
+
+                break;
+
+            case "Llavero":
+                String numeroAleatorio2 = String.valueOf(ThreadLocalRandom.current().nextInt(1, 4));
+                ImageIcon imagenLlavero = new ImageIcon(getClass().getResource("/Imagenes/" + IMAGENES_LLAVEROS.get(numeroAleatorio2).get(0) + ".png"));
+                ImagenProducto.setIcon(imagenLlavero);
+
+                break;
+
+        }
     }
 
     private static final Map<String, List<String>> ALBUMES_ARTISTAS = new HashMap<>();
@@ -861,7 +955,7 @@ public class PrincipalCL extends javax.swing.JFrame {
                     error.setText("(!) La cantidad debe ser mayor a 0");
                     error.setVisible(true);
                     return false;
-                } else if (cantidad < cantidadesDisponibles.get(elementos.indexOf(NombreProducto))||cantidad > cantidadesDisponibles.get(elementos.indexOf(NombreProducto))) {
+                } else if (cantidad < cantidadesDisponibles.get(elementos.indexOf(NombreProducto)) || cantidad > cantidadesDisponibles.get(elementos.indexOf(NombreProducto))) {
                     error.setText("(!) Cantidad Inválida. Verifique disponibilidad");
                     error.setVisible(true);
                     return false;
