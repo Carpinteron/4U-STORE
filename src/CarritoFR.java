@@ -63,7 +63,8 @@ public class CarritoFR extends javax.swing.JFrame {
 
         panelRound2.setBackground(new java.awt.Color(153, 102, 255));
 
-        BtnSalir.setText("OUT");
+        BtnSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICons/regreso.png"))); // NOI18N
+        BtnSalir.setContentAreaFilled(false);
         BtnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnSalirActionPerformed(evt);
@@ -77,7 +78,8 @@ public class CarritoFR extends javax.swing.JFrame {
             }
         });
 
-        BtnCarrito.setText("Carrito");
+        BtnCarrito.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICons/carrito.png"))); // NOI18N
+        BtnCarrito.setContentAreaFilled(false);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICons/Logo 4U_1.png"))); // NOI18N
 
@@ -93,14 +95,13 @@ public class CarritoFR extends javax.swing.JFrame {
                     .addGroup(panelRound2Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton1)
                             .addGroup(panelRound2Layout.createSequentialGroup()
-                                .addGap(0, 9, Short.MAX_VALUE)
-                                .addComponent(BtnSalir))
-                            .addGroup(panelRound2Layout.createSequentialGroup()
-                                .addGroup(panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(BtnCarrito)
-                                    .addComponent(jButton1))
-                                .addGap(0, 0, Short.MAX_VALUE)))))
+                                .addGap(16, 16, 16)
+                                .addGroup(panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(BtnSalir)
+                                    .addComponent(BtnCarrito))))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         panelRound2Layout.setVerticalGroup(
@@ -110,11 +111,11 @@ public class CarritoFR extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addGap(86, 86, 86)
                 .addComponent(jButton1)
-                .addGap(18, 18, 18)
+                .addGap(48, 48, 48)
                 .addComponent(BtnCarrito)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 343, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(BtnSalir)
-                .addGap(41, 41, 41))
+                .addGap(23, 23, 23))
         );
 
         jButton2.setText("Pagae");
@@ -134,7 +135,7 @@ public class CarritoFR extends javax.swing.JFrame {
             panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRound1Layout.createSequentialGroup()
                 .addComponent(panelRound2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 540, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 677, Short.MAX_VALUE)
                 .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRound1Layout.createSequentialGroup()
                         .addComponent(BtnEXIT)
@@ -154,7 +155,7 @@ public class CarritoFR extends javax.swing.JFrame {
             .addGroup(panelRound1Layout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addComponent(BtnEXIT)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 192, Short.MAX_VALUE)
                 .addComponent(PrecioTot, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(92, 92, 92)
                 .addComponent(mensajito, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)

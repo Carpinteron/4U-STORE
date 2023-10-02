@@ -165,24 +165,27 @@ public class PrincipalCL extends javax.swing.JFrame {
         jButton2.setBackground(new java.awt.Color(102, 0, 204));
         jButton2.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 12)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Carrito");
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICons/carrito.png"))); // NOI18N
+        jButton2.setContentAreaFilled(false);
+        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
-        menu.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 260, -1, 45));
+        menu.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, -1, 45));
 
         BtnSalir.setBackground(new java.awt.Color(102, 0, 204));
         BtnSalir.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 12)); // NOI18N
         BtnSalir.setForeground(new java.awt.Color(255, 255, 255));
-        BtnSalir.setText("OUT");
+        BtnSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICons/regreso.png"))); // NOI18N
+        BtnSalir.setContentAreaFilled(false);
         BtnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnSalirActionPerformed(evt);
             }
         });
-        menu.add(BtnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 604, -1, -1));
+        menu.add(BtnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 550, -1, -1));
 
         jButton3.setBackground(new java.awt.Color(102, 0, 204));
         jButton3.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 12)); // NOI18N
@@ -193,7 +196,7 @@ public class PrincipalCL extends javax.swing.JFrame {
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICons/Logo 4U_1.png"))); // NOI18N
         menu.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
 
-        panelRound1.add(menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        panelRound1.add(menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 600));
 
         panelproductoss.setOpaque(false);
         panelproductoss.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -530,8 +533,8 @@ public class PrincipalCL extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void BtnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSalirActionPerformed
-        perfilesFR menu = new perfilesFR(user, cedula);
-        menu.setVisible(true);
+        login ln = new login();
+        ln.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_BtnSalirActionPerformed
 

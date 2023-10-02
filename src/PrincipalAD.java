@@ -1824,7 +1824,7 @@ graficafondo.setVisible(true);
 
     ChartPanel panelGrafico = new ChartPanel(graficoBarras);
     panelGrafico.setMouseWheelEnabled(true);
-    panelGrafico.setPreferredSize(new Dimension(400, 400));
+    panelGrafico.setPreferredSize(new Dimension(600, 400));
 
     graficaspanel.setLayout(new BorderLayout());
     graficaspanel.add(panelGrafico, BorderLayout.CENTER);
@@ -2468,7 +2468,7 @@ graficafondo.setVisible(true);
     private javax.swing.JTextField fieldCantPE;
     private javax.swing.JTextField fieldDescripcion;
     private javax.swing.JTextField fieldPrecio;
-    private custom.PanelRound graficafondo;
+    custom.PanelRound graficafondo;
     private custom.PanelRound graficas;
     private custom.PanelRound graficaspanel;
     private javax.swing.JButton jButton2;
