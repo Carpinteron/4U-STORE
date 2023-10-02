@@ -1,5 +1,4 @@
 
-
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -17,6 +16,7 @@ import java.util.Scanner;
 import javax.swing.ButtonGroup;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -25,16 +25,16 @@ import javax.swing.table.JTableHeader;
 public class PrincipalCL extends javax.swing.JFrame {
 
     private String user, cedula;
-    
+
     public PrincipalCL(String user, String cedula) {
         setIconImage(new ImageIcon(getClass().getResource("ICons/4Uicon.png")).getImage());
         this.user = user;
-     //   CarritoFR framecarro=new CarritoFR(this);
+        //   CarritoFR framecarro=new CarritoFR(this);
         this.cedula = cedula;
         setUndecorated(true);
         setBackground(new Color(0, 0, 0, 0));
         initComponents();
-        Scanner sc =new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
         setLocationRelativeTo(null);
         panelproductoss.setVisible(false);
         panelDELproducto.setVisible(false);
@@ -44,8 +44,8 @@ public class PrincipalCL extends javax.swing.JFrame {
         //si selecciona un artista, el botonartistas se habilita por si el usuario se quiere regrsar, y se resal el boton de los productos del artista
         BTNelproducto.setEnabled(false);
         TituloArtista.setText(SelectedArtist);
-        
-        PrincipalAD.CopiarArchivoAlISTA(sc, "Inventario",Names,Cantidad);
+
+        PrincipalAD.CopiarArchivoAlISTA(sc, "Inventario", Names, Cantidad);
         //Opcion de Ordenar por Precio o Tipo (esto cuando seleccione al artista)
         ButtonGroup buttonGroup = new ButtonGroup();
         // Agregar los radio buttons al grupo
@@ -54,14 +54,14 @@ public class PrincipalCL extends javax.swing.JFrame {
         BotonPrecio.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                LeerporPreferencia(sc, "Inventario", TablaArtista,SelectedArtist);
+                LeerporPreferencia(sc, "Inventario", TablaArtista, SelectedArtist);
                 sc.close();
             }
         });
         BotonNo.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                LeerNormal(sc, "Inventario", TablaArtista,SelectedArtist);
+                LeerNormal(sc, "Inventario", TablaArtista, SelectedArtist);
                 sc.close();
             }
         });
@@ -75,12 +75,12 @@ public class PrincipalCL extends javax.swing.JFrame {
 // Aplicar la fuente en negrita al encabezado
         header.setFont(font);
     }
-    PrincipalAD.ListaEnlazada Carrito=new PrincipalAD.ListaEnlazada();
-     PrincipalAD.ListaEnlazada Cantidad=new PrincipalAD.ListaEnlazada();
-    PrincipalAD.ListaEnlazada Names=new PrincipalAD.ListaEnlazada();
+    PrincipalAD.ListaEnlazada Carrito = new PrincipalAD.ListaEnlazada();
+    PrincipalAD.ListaEnlazada Cantidad = new PrincipalAD.ListaEnlazada();
+    PrincipalAD.ListaEnlazada Names = new PrincipalAD.ListaEnlazada();
     public String Frameanterior;
     public JPanel actualPanel;
-    public String SelectedArtist,product;
+    public String SelectedArtist, product;
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -114,6 +114,9 @@ public class PrincipalCL extends javax.swing.JFrame {
         AddAlCarritoBTN = new javax.swing.JButton();
         UnidadesDelProducto = new javax.swing.JTextField();
         labelD = new javax.swing.JLabel();
+        error = new javax.swing.JLabel();
+        labelcantidad = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         panelArtistas = new javax.swing.JPanel();
         HSbtn = new javax.swing.JButton();
@@ -296,27 +299,43 @@ public class PrincipalCL extends javax.swing.JFrame {
         panelDELproducto.add(jcSeleccionProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 280, -1));
 
         ImagenProducto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICons/camiseta-200.png"))); // NOI18N
-        panelDELproducto.add(ImagenProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 30, 180, 240));
+        panelDELproducto.add(ImagenProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 30, 270, 240));
 
-        AddAlCarritoBTN.setText("Agregar al carrito");
+        AddAlCarritoBTN.setBackground(new java.awt.Color(153, 51, 255));
+        AddAlCarritoBTN.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Agregar al Carrito.png"))); // NOI18N
+        AddAlCarritoBTN.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(204, 153, 255), null, null));
         AddAlCarritoBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AddAlCarritoBTNActionPerformed(evt);
             }
         });
-        panelDELproducto.add(AddAlCarritoBTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 440, 180, 60));
+        panelDELproducto.add(AddAlCarritoBTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 410, 400, 70));
 
+        UnidadesDelProducto.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         UnidadesDelProducto.setText("1");
         UnidadesDelProducto.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 UnidadesDelProductoMouseClicked(evt);
             }
         });
-        panelDELproducto.add(UnidadesDelProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 360, 140, 40));
+        panelDELproducto.add(UnidadesDelProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 330, 140, 40));
 
         labelD.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 14)); // NOI18N
         labelD.setText("Seleccione el producto");
         panelDELproducto.add(labelD, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, -1, -1));
+
+        error.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 14)); // NOI18N
+        error.setForeground(new java.awt.Color(255, 0, 0));
+        error.setText("(!) Cantidad Inválida. Verifique disponibilidad");
+        panelDELproducto.add(error, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 380, -1, -1));
+
+        labelcantidad.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 14)); // NOI18N
+        labelcantidad.setText("Cantidades Disponibles:");
+        panelDELproducto.add(labelcantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, -1, -1));
+
+        jLabel7.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 18)); // NOI18N
+        jLabel7.setText("Ingrese unidades a comprar:");
+        panelDELproducto.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 340, -1, -1));
 
         panelRound1.add(panelDELproducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, 1060, 580));
 
@@ -510,7 +529,7 @@ public class PrincipalCL extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnSalirActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        CarritoFR carrito = new CarritoFR(user, cedula,this);
+        CarritoFR carrito = new CarritoFR(user, cedula, this);
         carrito.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -538,67 +557,66 @@ public class PrincipalCL extends javax.swing.JFrame {
             BTNartistas.setEnabled(true);
             jScrollPane1.setVisible(false);
             BTNelproducto.setEnabled(false);
-            
+
         }
     }//GEN-LAST:event_BTNproductosActionPerformed
 
     private void btnGORRASActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGORRASActionPerformed
-        product="Gorra";
+        product = "Gorra";
         labelD.setText("Seleccione el tipo de gorra:");
         BotonesProductoPanel();
         cargardatosalcombo();
     }//GEN-LAST:event_btnGORRASActionPerformed
 
     private void btnVINILOSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVINILOSActionPerformed
-        product="Vinilo";
+        product = "Vinilo";
         labelD.setText("Seleccione el álbum:");
         BotonesProductoPanel();
         cargardatosalcombo();
     }//GEN-LAST:event_btnVINILOSActionPerformed
 
     private void btnCamisetasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCamisetasActionPerformed
-        product="Camiseta";
+        product = "Camiseta";
         labelD.setText("Seleccione la talla:");
         BotonesProductoPanel();
         cargardatosalcombo();
     }//GEN-LAST:event_btnCamisetasActionPerformed
 
     private void btnCDSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCDSActionPerformed
-        product="CD";
+        product = "CD";
         labelD.setText("Seleccione el álbum:");
         BotonesProductoPanel();
         cargardatosalcombo();
     }//GEN-LAST:event_btnCDSActionPerformed
 
     private void btnLLaverosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLLaverosActionPerformed
-        product="Llavero";
+        product = "Llavero";
         labelD.setText("Seleccione el tipo:");
         BotonesProductoPanel();
         cargardatosalcombo();
     }//GEN-LAST:event_btnLLaverosActionPerformed
 
     private void jcSeleccionProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcSeleccionProductoActionPerformed
-         
-       
+        String NombreProducto = (jcSeleccionProducto.getSelectedItem() != null) ? jcSeleccionProducto.getSelectedItem().toString() : "";
+        actualizarCantidadDisponible(NombreProducto);
+
     }//GEN-LAST:event_jcSeleccionProductoActionPerformed
 
     private void AddAlCarritoBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddAlCarritoBTNActionPerformed
         String NombreProducto = (jcSeleccionProducto.getSelectedItem() != null) ? jcSeleccionProducto.getSelectedItem().toString() : "";
-        Scanner sc=new Scanner(System.in);
-        if(UnidadesDelProducto.getText()==null |UnidadesDelProducto.getText()==""|UnidadesDelProducto.getText()=="0" ){
-           //aviso
-       }else{
-         int uni=Integer.parseInt(UnidadesDelProducto.getText());
-           for (int i = 1; i <= uni; i++) {
-               Carrito.agregarAlFinal(product+" "+NombreProducto+";"+SelectedArtist);
-           }
-         Carrito.mostrarLista();
-         int pos=Names.buscarPosicionporDato(product+" "+NombreProducto+";"+SelectedArtist);
-         int res=Integer.parseInt(Cantidad.buscarPorPosicion(pos))-uni;
-         Cantidad.modificarDatoEnPosicion(pos,Integer.toString(res) );
-         Cantidad.mostrarLista();
-         
-       }
+        Scanner sc = new Scanner(System.in);
+        if(VerificarCantidad()){
+            int uni = Integer.parseInt(UnidadesDelProducto.getText());
+            for (int i = 1; i <= uni; i++) {
+                Carrito.agregarAlFinal(product + " " + NombreProducto + ";" + SelectedArtist);
+            }
+            Carrito.mostrarLista();
+            int pos = Names.buscarPosicionporDato(product + " " + NombreProducto + ";" + SelectedArtist);
+            int res = Integer.parseInt(Cantidad.buscarPorPosicion(pos)) - uni;
+            Cantidad.modificarDatoEnPosicion(pos, Integer.toString(res));
+            Cantidad.mostrarLista();
+            JOptionPane.showMessageDialog(null, "Producto Agregado al Carrito.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+        } 
     }//GEN-LAST:event_AddAlCarritoBTNActionPerformed
 
     private void UnidadesDelProductoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UnidadesDelProductoMouseClicked
@@ -609,7 +627,7 @@ public class PrincipalCL extends javax.swing.JFrame {
 
         SelectedArtist = "Taylor Swift";
         BotonesArtistasPanel();
-        
+
     }//GEN-LAST:event_TaylorBTNActionPerformed
 
     private void BTN5sosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN5sosActionPerformed
@@ -681,12 +699,13 @@ public class PrincipalCL extends javax.swing.JFrame {
         jScrollPane1.setVisible(false);
         BTNelproducto.setEnabled(false);
         Scanner sc = new Scanner(System.in);
-        LeerNormal(sc, "Inventario", TablaArtista,SelectedArtist);
+        LeerNormal(sc, "Inventario", TablaArtista, SelectedArtist);
         sc.close();
     }
 
     public void BotonesProductoPanel() {
         panelDELproducto.setVisible(true);
+        error.setVisible(false);
         panelDELproducto.setEnabled(true);
         panelproductoss.setVisible(false);
         panelproductoss.setEnabled(false);
@@ -700,11 +719,9 @@ public class PrincipalCL extends javax.swing.JFrame {
         labelArtist.setText(SelectedArtist);
         labelTipoProduct.setText(product);
         cargardatosalcombo();
-        
+
     }
- 
-    
-        
+
     private static final Map<String, List<String>> ALBUMES_ARTISTAS = new HashMap<>();
 
     static {
@@ -722,16 +739,18 @@ public class PrincipalCL extends javax.swing.JFrame {
         ALBUMES_ARTISTAS.put("Imagine Dragons", new ArrayList<>(List.of("Night Visions", "Smoke + Mirrors", "Evolve", "Origins", "Mercury")));
     }
     DefaultComboBoxModel<String> model2 = new DefaultComboBoxModel<>();
+    // Declarar listas para almacenar elementos y sus cantidades disponibles
+    private List<String> elementos = new ArrayList<>();
+    private List<Integer> cantidadesDisponibles = new ArrayList<>();
 
     // Método para cargar productos desde el archivo
     public void cargardatosalcombo() {
         String categoria = product;
-        System.out.println("Este es el producto: "+product);
+        System.out.println("Este es el producto: " + product);
         String artista = SelectedArtist;
-        System.out.println("Este es el artista: "+artista);
+        System.out.println("Este es el artista: " + artista);
         List<String> albumesPE = ALBUMES_ARTISTAS.get(artista);
 
-        
         if (albumesPE == null) {
             // El artista no existe en el mapa.
             // Maneja este caso aquí.
@@ -740,7 +759,7 @@ public class PrincipalCL extends javax.swing.JFrame {
         } else {
             model2.removeAllElements(); // Limpia el modelo antes de cargar los elementos desde el archivo
             boolean hayElementos = false; // Bandera para verificar si se encontraron elementos
-            try ( BufferedReader BR = new BufferedReader(new FileReader("inventario.txt"))) {
+            try (BufferedReader BR = new BufferedReader(new FileReader("inventario.txt"))) {
                 String line;
                 while ((line = BR.readLine()) != null) {
                     String[] campos = line.split(";");
@@ -748,9 +767,12 @@ public class PrincipalCL extends javax.swing.JFrame {
                         String nombreProducto = campos[0];
                         String CategoriaArch = campos[2];
                         String ArtistaArch = campos[3];
+                        int cantidadDisponible = Integer.parseInt(campos[1]); // Obtén la cantidad disponible desde el archivo
                         if (CategoriaArch.equalsIgnoreCase(categoria) && ArtistaArch.equalsIgnoreCase(artista)) {
                             if (!existeEnComboBox2(eliminarPrimeraPalabra(nombreProducto))) {
                                 model2.addElement(eliminarPrimeraPalabra(nombreProducto));
+                                elementos.add(eliminarPrimeraPalabra(nombreProducto)); // Agregar el elemento a la lista
+                                cantidadesDisponibles.add(cantidadDisponible); // Agregar la cantidad disponible a la lista
                                 hayElementos = true; // Se encontraron elementos
                                 System.out.println("Encontre elementossss");
                             }
@@ -786,10 +808,11 @@ public class PrincipalCL extends javax.swing.JFrame {
         }
         return false;
     }
-     public static String eliminarPrimeraPalabra(String cadena) {
+
+    public static String eliminarPrimeraPalabra(String cadena) {
         // Buscar la posición del primer espacio en blanco
         int indicePrimerEspacio = cadena.indexOf(" ");
-        
+
         // Verificar si se encontró un espacio en blanco
         if (indicePrimerEspacio != -1) {
             // Usar substring para eliminar la primera palabra
@@ -799,80 +822,124 @@ public class PrincipalCL extends javax.swing.JFrame {
             return cadena;
         }
     }
-     //Para mostrar datos segun Artista
-    public static void LeerNormal(Scanner sc, String file_name, JTable tabla, String nombreArtista) {
-    try {
-        BufferedReader br = new BufferedReader(new FileReader(file_name + ".txt"));
-        String line;
-        List<String[]> Datos = new ArrayList<>(); // Implemento una lista 
-        // Limpia la tabla
-        DefaultTableModel model = (DefaultTableModel) tabla.getModel();
-        model.setRowCount(0);
-        while ((line = br.readLine()) != null) {
-            String[] temp = line.split(";");
-            if (temp[3].equals(nombreArtista)) {
-                String nombreProducto = temp[0]; // Nombre del producto
-                String precio = temp[4]; // Precio
-                String cantidad = temp[1] + " Unidades"; // Cantidad + " Unidades"
-                String tipo = temp[2]; // Tipo
+    // Método para actualizar el JLabel con la cantidad disponible
 
-                // Crear un arreglo con los datos en el orden deseado
-                String[] fila = {nombreProducto, precio, cantidad, tipo};
-
-                model.addRow(fila);
-            Datos.add(temp); // Agrego los registros a la lista
+    public void actualizarCantidadDisponible(String productoSeleccionado) {
+        int index = elementos.indexOf(productoSeleccionado);
+        if (index >= 0) {
+            int cantidad = cantidadesDisponibles.get(index);
+            labelcantidad.setText("Cantidad disponible: " + cantidad);
+        } else {
+            labelcantidad.setText("Cantidad disponible: 0"); // Producto no encontrado en la lista
         }
-        }
-
-        br.close();
-    } catch (IOException ex) {
-        System.out.println("Error al leer el archivo: " + ex.getMessage());
     }
-}
+
+    //Metodo para verificar lo que escribio el usuario en lo de comprar
+    public boolean VerificarCantidad() {
+        String Uni = UnidadesDelProducto.getText();
+        String NombreProducto = (jcSeleccionProducto.getSelectedItem() != null) ? jcSeleccionProducto.getSelectedItem().toString() : "";
+
+//Validacion cantidad 
+        if (Uni.isEmpty()) {
+            error.setText("(!) Campo vacío");
+            error.setVisible(true);
+            return false;
+        } else {
+            try {
+                int cantidad = Integer.parseInt(Uni);
+                if (cantidad <= 0) {
+                    error.setText("(!) La cantidad debe ser mayor a 0");
+                    error.setVisible(true);
+                    return false;
+                } else if (cantidad < cantidadesDisponibles.get(elementos.indexOf(NombreProducto))||cantidad > cantidadesDisponibles.get(elementos.indexOf(NombreProducto))) {
+                    error.setText("(!) Cantidad Inválida. Verifique disponibilidad");
+                    error.setVisible(true);
+                    return false;
+                } else {
+                    error.setVisible(false);
+                }
+            } catch (NumberFormatException e) {
+                error.setText("(!) El valor debe ser un número entero");
+                error.setVisible(true);
+                return false;
+            }
+        }
+        return true;
+    }
+    //Para mostrar datos segun Artista
+
+    public static void LeerNormal(Scanner sc, String file_name, JTable tabla, String nombreArtista) {
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(file_name + ".txt"));
+            String line;
+            List<String[]> Datos = new ArrayList<>(); // Implemento una lista 
+            // Limpia la tabla
+            DefaultTableModel model = (DefaultTableModel) tabla.getModel();
+            model.setRowCount(0);
+            while ((line = br.readLine()) != null) {
+                String[] temp = line.split(";");
+                if (temp[3].equals(nombreArtista)) {
+                    String nombreProducto = temp[0]; // Nombre del producto
+                    String precio = temp[4]; // Precio
+                    String cantidad = temp[1] + " Unidades"; // Cantidad + " Unidades"
+                    String tipo = temp[2]; // Tipo
+
+                    // Crear un arreglo con los datos en el orden deseado
+                    String[] fila = {nombreProducto, precio, cantidad, tipo};
+
+                    model.addRow(fila);
+                    Datos.add(temp); // Agrego los registros a la lista
+                }
+            }
+
+            br.close();
+        } catch (IOException ex) {
+            System.out.println("Error al leer el archivo: " + ex.getMessage());
+        }
+    }
+
     //Leer datos de forma ordenada (Segun Producto-Artista o Precio-Artista)
-    public static void LeerporPreferencia(Scanner sc, String file_name, JTable tabla,String nombreArtista) {
-    try {
-        BufferedReader br = new BufferedReader(new FileReader(file_name + ".txt"));
-        String line;
-        List<String[]> Datos = new ArrayList<>(); // Implemento una lista 
+    public static void LeerporPreferencia(Scanner sc, String file_name, JTable tabla, String nombreArtista) {
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(file_name + ".txt"));
+            String line;
+            List<String[]> Datos = new ArrayList<>(); // Implemento una lista 
 
-        while ((line = br.readLine()) != null) {
-            
-            String[] temp = line.split(";");
-            if (temp[3].equals(nombreArtista)) {
-            String nombreProducto = temp[0]; // Nombre del producto
-            String precio = temp[4]; // Precio
-            String cantidad = temp[1] + " Unidades"; // Cantidad + " Unidades"
-            String tipo = temp[2]; // Tipo
-            // Crear un arreglo con los datos en el orden deseado
-            String[]fila = {nombreProducto, precio, cantidad, tipo};
-            Datos.add(fila); // Agrego los registros a la lista
-        }
-        }
+            while ((line = br.readLine()) != null) {
 
-        br.close();
+                String[] temp = line.split(";");
+                if (temp[3].equals(nombreArtista)) {
+                    String nombreProducto = temp[0]; // Nombre del producto
+                    String precio = temp[4]; // Precio
+                    String cantidad = temp[1] + " Unidades"; // Cantidad + " Unidades"
+                    String tipo = temp[2]; // Tipo
+                    // Crear un arreglo con los datos en el orden deseado
+                    String[] fila = {nombreProducto, precio, cantidad, tipo};
+                    Datos.add(fila); // Agrego los registros a la lista
+                }
+            }
 
-        Collections.sort(Datos, new Comparator<String[]>() {
+            br.close();
+
+            Collections.sort(Datos, new Comparator<String[]>() {
                 @Override
                 public int compare(String[] o1, String[] o2) {
                     return o1[1].compareTo(o2[1]); // Compara por precio
                 }
             });
 
-        
-        // Limpia la tabla
-        DefaultTableModel model = (DefaultTableModel) tabla.getModel();
-        model.setRowCount(0);
+            // Limpia la tabla
+            DefaultTableModel model = (DefaultTableModel) tabla.getModel();
+            model.setRowCount(0);
 
-        // Agrega los datos a la tabla con el formato deseado
-        for (String[] rowData : Datos) {
-            model.addRow(rowData);
+            // Agrega los datos a la tabla con el formato deseado
+            for (String[] rowData : Datos) {
+                model.addRow(rowData);
+            }
+        } catch (IOException ex) {
+            System.out.println("Error al leer el archivo: " + ex.getMessage());
         }
-    } catch (IOException ex) {
-        System.out.println("Error al leer el archivo: " + ex.getMessage());
     }
-}
-
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -933,18 +1000,21 @@ public class PrincipalCL extends javax.swing.JFrame {
     private javax.swing.JButton btnGORRAS;
     private javax.swing.JButton btnLLaveros;
     private javax.swing.JButton btnVINILOS;
+    private javax.swing.JLabel error;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JComboBox<String> jcSeleccionProducto;
     private javax.swing.JLabel labelArtist;
     private javax.swing.JLabel labelD;
     private javax.swing.JLabel labelTipoProduct;
+    private javax.swing.JLabel labelcantidad;
     private custom.PanelRound menu;
     private javax.swing.JPanel panelArtistas;
     private javax.swing.JPanel panelDELproducto;
