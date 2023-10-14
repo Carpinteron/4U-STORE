@@ -179,8 +179,8 @@ Camiseta S;16;Camiseta;Louis Tomlinson;30000
 Camiseta M;14;Camiseta;Louis Tomlinson;30000
 Camiseta L;12;Camiseta;Louis Tomlinson;30000
 Camiseta XL;10;Camiseta;Louis Tomlinson;30000
-CD Walls;19;CD;Louis Tomilson;35000
-CD Faith in the Future;19;CD;Louis Tomilson;35000
+CD Walls;19;CD;Louis Tomlinson;35000
+CD Faith in the Future;19;CD;Louis Tomlinson;35000
 Gorra Béisbol;20;Gorra;Louis Tomlinson;25000
 Gorra Plana/Snapback;20;Gorra;Louis Tomlinson;25000
 Gorra Trucker;20;Gorra;Louis Tomlinson;25000

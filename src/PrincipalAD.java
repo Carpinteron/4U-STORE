@@ -1,4 +1,5 @@
 
+import com.raven.swing.ScrollBar;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -23,8 +24,12 @@ import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 import org.jfree.chart.ChartFactory;
@@ -89,8 +94,15 @@ public class PrincipalAD extends javax.swing.JFrame {
         Color backgroundColor = Color.decode("#A09CFC"); // Color de fondo
         JTableHeader header = TablaINVENTARIO.getTableHeader();
         header.setBackground(backgroundColor); // Cambiar el color de fondo
-        header.setForeground(foregroundColor); // Cambiar el color de fuente
-        header.setFont(new Font("Sylfaen", Font.BOLD, 14));
+        //header.setForeground(foregroundColor); // Cambiar el color de fuente
+        //header.setFont(new Font("Sylfaen", Font.BOLD, 14));
+        //para el diseño de la tabla
+        sptable.setVerticalScrollBar(new ScrollBar());
+        sptable.getVerticalScrollBar().setBackground(Color.WHITE);
+        sptable.getViewport().setBackground(Color.WHITE);
+        JPanel p = new JPanel();
+        p.setBackground(Color.WHITE);
+        sptable.setCorner(JScrollPane.UPPER_RIGHT_CORNER, p);
     }
 
     @SuppressWarnings("unchecked")
@@ -110,6 +122,8 @@ public class PrincipalAD extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         Pantalla = new custom.PanelRound();
+        sptable = new javax.swing.JScrollPane();
+        TablaINVENTARIO = new com.raven.swing.Table();
         graficaspanel = new custom.PanelRound();
         graficafondo = new custom.PanelRound();
         BtnEXIT3 = new javax.swing.JButton();
@@ -118,8 +132,6 @@ public class PrincipalAD extends javax.swing.JFrame {
         BtnSalir = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        TablaINVENTARIO = new javax.swing.JTable();
         BTNAgregar1 = new javax.swing.JButton();
         PanelAgregar = new javax.swing.JPanel();
         jcCategoria = new javax.swing.JComboBox<>();
@@ -193,7 +205,6 @@ public class PrincipalAD extends javax.swing.JFrame {
         Contraseña.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel6.setFont(new java.awt.Font("Sylfaen", 1, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Verifique Contraseña De Administrador");
         Contraseña.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 170, -1, -1));
 
@@ -211,7 +222,6 @@ public class PrincipalAD extends javax.swing.JFrame {
 
         PassField.setBackground(new java.awt.Color(209, 163, 255));
         PassField.setFont(new java.awt.Font("Sylfaen", 0, 14)); // NOI18N
-        PassField.setForeground(new java.awt.Color(0, 0, 0));
         PassField.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(38, 0, 75), 2, true));
         PassField.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -239,7 +249,6 @@ public class PrincipalAD extends javax.swing.JFrame {
         Contraseña.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 150, 120, 20));
 
         userLABEL.setFont(new java.awt.Font("Sylfaen", 1, 14)); // NOI18N
-        userLABEL.setForeground(new java.awt.Color(0, 0, 0));
         userLABEL.setText("User");
         Contraseña.add(userLABEL, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 100, 140, 30));
 
@@ -277,6 +286,18 @@ public class PrincipalAD extends javax.swing.JFrame {
 
         Pantalla.setBackground(new java.awt.Color(208, 204, 252));
         Pantalla.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        TablaINVENTARIO.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Nombre del producto", "Cantidad en stock", "Categoría", "Artista", "Precio unitario de venta"
+            }
+        ));
+        sptable.setViewportView(TablaINVENTARIO);
+
+        Pantalla.add(sptable, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 160, 1020, 490));
 
         graficaspanel.setBackground(new java.awt.Color(153, 153, 255));
         graficaspanel.setOpaque(true);
@@ -358,24 +379,6 @@ public class PrincipalAD extends javax.swing.JFrame {
 
         Pantalla.add(panelRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 80, 700));
 
-        TablaINVENTARIO.setAutoCreateRowSorter(true);
-        TablaINVENTARIO.setBackground(new java.awt.Color(208, 204, 252));
-        TablaINVENTARIO.setFont(new java.awt.Font("Sylfaen", 0, 13)); // NOI18N
-        TablaINVENTARIO.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
-            },
-            new String [] {
-                " Nombre del producto", "Cantidad en stock", "Categoría", "Artista", "Precio unitario de venta"
-            }
-        ));
-        jScrollPane1.setViewportView(TablaINVENTARIO);
-
-        Pantalla.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(124, 146, 950, 420));
-
         BTNAgregar1.setBackground(new java.awt.Color(160, 156, 252));
         BTNAgregar1.setFont(new java.awt.Font("Sylfaen", 1, 14)); // NOI18N
         BTNAgregar1.setForeground(new java.awt.Color(38, 0, 75));
@@ -393,7 +396,6 @@ public class PrincipalAD extends javax.swing.JFrame {
 
         jcCategoria.setBackground(new java.awt.Color(204, 204, 255));
         jcCategoria.setFont(new java.awt.Font("Sylfaen", 0, 12)); // NOI18N
-        jcCategoria.setForeground(new java.awt.Color(0, 0, 0));
         jcCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar categoria", "Camiseta", "Gorra", "CD", "Vinilo", "Llavero" }));
         jcCategoria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -404,7 +406,6 @@ public class PrincipalAD extends javax.swing.JFrame {
 
         jcArtista.setBackground(new java.awt.Color(204, 204, 255));
         jcArtista.setFont(new java.awt.Font("Sylfaen", 0, 12)); // NOI18N
-        jcArtista.setForeground(new java.awt.Color(0, 0, 0));
         jcArtista.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar artista", "Conan Gray", "Harry Styles", "Sabrina Carpenter", "Taylor Swift", "Billie Eilish", "Louis Tomlinson", "5SOS", "Stray Kids", "Big Time Rush", "TXT", "Imagine Dragons" }));
         jcArtista.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -415,7 +416,6 @@ public class PrincipalAD extends javax.swing.JFrame {
 
         jcSubcategoria.setBackground(new java.awt.Color(204, 204, 255));
         jcSubcategoria.setFont(new java.awt.Font("Sylfaen", 0, 12)); // NOI18N
-        jcSubcategoria.setForeground(new java.awt.Color(0, 0, 0));
         jcSubcategoria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jcSubcategoriaActionPerformed(evt);
@@ -425,27 +425,22 @@ public class PrincipalAD extends javax.swing.JFrame {
 
         fieldPrecio.setBackground(new java.awt.Color(204, 204, 255));
         fieldPrecio.setFont(new java.awt.Font("Sylfaen", 0, 12)); // NOI18N
-        fieldPrecio.setForeground(new java.awt.Color(0, 0, 0));
         PanelAgregar.add(fieldPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 310, 275, -1));
 
         jLabel1.setFont(new java.awt.Font("Sylfaen", 0, 12)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Categoría");
         PanelAgregar.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(205, 86, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Sylfaen", 0, 12)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Artista");
         PanelAgregar.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(205, 136, 51, -1));
 
         labelD.setFont(new java.awt.Font("Sylfaen", 0, 12)); // NOI18N
-        labelD.setForeground(new java.awt.Color(0, 0, 0));
         labelD.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         labelD.setText("Talla/Album/Tipo (todo depende de lo anterior)");
         PanelAgregar.add(labelD, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 190, 204, -1));
 
         jLabel5.setFont(new java.awt.Font("Sylfaen", 0, 12)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Precio unitario (COP)");
         PanelAgregar.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 330, 147, -1));
 
@@ -494,13 +489,11 @@ public class PrincipalAD extends javax.swing.JFrame {
         PanelAgregar.add(error3, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 200, 290, 40));
 
         jLabel8.setFont(new java.awt.Font("Sylfaen", 0, 12)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("Descripción producto");
         PanelAgregar.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 230, -1, -1));
 
         fieldDescripcion.setBackground(new java.awt.Color(204, 204, 255));
         fieldDescripcion.setFont(new java.awt.Font("Sylfaen", 0, 12)); // NOI18N
-        fieldDescripcion.setForeground(new java.awt.Color(0, 0, 0));
         fieldDescripcion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 fieldDescripcionActionPerformed(evt);
@@ -514,13 +507,11 @@ public class PrincipalAD extends javax.swing.JFrame {
         PanelAgregar.add(error4, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 250, 180, -1));
 
         labelCantidad.setFont(new java.awt.Font("Sylfaen", 0, 12)); // NOI18N
-        labelCantidad.setForeground(new java.awt.Color(0, 0, 0));
         labelCantidad.setText("Cantidad");
         PanelAgregar.add(labelCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 280, -1, -1));
 
         fieldCant.setBackground(new java.awt.Color(204, 204, 255));
         fieldCant.setFont(new java.awt.Font("Sylfaen", 0, 12)); // NOI18N
-        fieldCant.setForeground(new java.awt.Color(0, 0, 0));
         fieldCant.setText("1");
         fieldCant.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -588,13 +579,11 @@ public class PrincipalAD extends javax.swing.JFrame {
         panelRound1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel10.setFont(new java.awt.Font("Sylfaen", 0, 12)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(0, 0, 0));
         jLabel10.setText("Categoría");
         panelRound1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(205, 86, -1, -1));
 
         jcCategoriaPE.setBackground(new java.awt.Color(204, 204, 255));
         jcCategoriaPE.setFont(new java.awt.Font("Sylfaen", 0, 12)); // NOI18N
-        jcCategoriaPE.setForeground(new java.awt.Color(0, 0, 0));
         jcCategoriaPE.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar categoria", "Camiseta", "Gorra", "CD", "Vinilo", "Llavero" }));
         jcCategoriaPE.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -605,7 +594,6 @@ public class PrincipalAD extends javax.swing.JFrame {
 
         jcArtistaPE.setBackground(new java.awt.Color(204, 204, 255));
         jcArtistaPE.setFont(new java.awt.Font("Sylfaen", 0, 12)); // NOI18N
-        jcArtistaPE.setForeground(new java.awt.Color(0, 0, 0));
         jcArtistaPE.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar artista", "Conan Gray", "Harry Styles", "Sabrina Carpenter", "Taylor Swift", "Billie Eilish", "Louis Tomlinson", "5SOS", "Stray Kids", "Big Time Rush", "TXT", "Imagine Dragons" }));
         jcArtistaPE.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -616,7 +604,6 @@ public class PrincipalAD extends javax.swing.JFrame {
 
         jcSubcategoriaPE.setBackground(new java.awt.Color(204, 204, 255));
         jcSubcategoriaPE.setFont(new java.awt.Font("Sylfaen", 0, 12)); // NOI18N
-        jcSubcategoriaPE.setForeground(new java.awt.Color(0, 0, 0));
         jcSubcategoriaPE.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jcSubcategoriaPEActionPerformed(evt);
@@ -625,12 +612,10 @@ public class PrincipalAD extends javax.swing.JFrame {
         panelRound1.add(jcSubcategoriaPE, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 190, 275, -1));
 
         jLabel11.setFont(new java.awt.Font("Sylfaen", 0, 12)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(0, 0, 0));
         jLabel11.setText("Artista");
         panelRound1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(205, 136, 51, -1));
 
         labelDPE.setFont(new java.awt.Font("Sylfaen", 0, 12)); // NOI18N
-        labelDPE.setForeground(new java.awt.Color(0, 0, 0));
         labelDPE.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         labelDPE.setText("Seleccione el producto ");
         panelRound1.add(labelDPE, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 190, 204, -1));
@@ -675,13 +660,11 @@ public class PrincipalAD extends javax.swing.JFrame {
         panelRound1.add(error3PE, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 200, 290, 40));
 
         labelCantidad1.setFont(new java.awt.Font("Sylfaen", 0, 12)); // NOI18N
-        labelCantidad1.setForeground(new java.awt.Color(0, 0, 0));
         labelCantidad1.setText("Cantidad");
         panelRound1.add(labelCantidad1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 250, -1, -1));
 
         fieldCantPE.setBackground(new java.awt.Color(204, 204, 255));
         fieldCantPE.setFont(new java.awt.Font("Sylfaen", 0, 12)); // NOI18N
-        fieldCantPE.setForeground(new java.awt.Color(0, 0, 0));
         fieldCantPE.setText("1");
         fieldCantPE.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -705,13 +688,11 @@ public class PrincipalAD extends javax.swing.JFrame {
         panelRound3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel12.setFont(new java.awt.Font("Sylfaen", 0, 12)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(0, 0, 0));
         jLabel12.setText("Categoría");
         panelRound3.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(205, 86, -1, -1));
 
         jcCategoriaEli.setBackground(new java.awt.Color(204, 204, 255));
         jcCategoriaEli.setFont(new java.awt.Font("Sylfaen", 0, 12)); // NOI18N
-        jcCategoriaEli.setForeground(new java.awt.Color(0, 0, 0));
         jcCategoriaEli.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar categoria", "Camiseta", "Gorra", "CD", "Vinilo", "Llavero" }));
         jcCategoriaEli.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -722,7 +703,6 @@ public class PrincipalAD extends javax.swing.JFrame {
 
         jcArtistaEli.setBackground(new java.awt.Color(204, 204, 255));
         jcArtistaEli.setFont(new java.awt.Font("Sylfaen", 0, 12)); // NOI18N
-        jcArtistaEli.setForeground(new java.awt.Color(0, 0, 0));
         jcArtistaEli.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar artista", "Conan Gray", "Harry Styles", "Sabrina Carpenter", "Taylor Swift", "Billie Eilish", "Louis Tomlinson", "5SOS", "Stray Kids", "Big Time Rush", "TXT", "Imagine Dragons" }));
         jcArtistaEli.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -733,7 +713,6 @@ public class PrincipalAD extends javax.swing.JFrame {
 
         jcSubcategoriaEli.setBackground(new java.awt.Color(204, 204, 255));
         jcSubcategoriaEli.setFont(new java.awt.Font("Sylfaen", 0, 12)); // NOI18N
-        jcSubcategoriaEli.setForeground(new java.awt.Color(0, 0, 0));
         jcSubcategoriaEli.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jcSubcategoriaEliActionPerformed(evt);
@@ -742,12 +721,10 @@ public class PrincipalAD extends javax.swing.JFrame {
         panelRound3.add(jcSubcategoriaEli, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 210, 275, -1));
 
         jLabel13.setFont(new java.awt.Font("Sylfaen", 0, 12)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(0, 0, 0));
         jLabel13.setText("Artista");
         panelRound3.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 140, 51, -1));
 
         labelDEli.setFont(new java.awt.Font("Sylfaen", 0, 12)); // NOI18N
-        labelDEli.setForeground(new java.awt.Color(0, 0, 0));
         labelDEli.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         labelDEli.setText("Seleccione el producto ");
         panelRound3.add(labelDEli, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 210, 204, -1));
@@ -806,7 +783,6 @@ public class PrincipalAD extends javax.swing.JFrame {
         });
 
         valid.setFont(new java.awt.Font("Sylfaen", 0, 14)); // NOI18N
-        valid.setForeground(new java.awt.Color(0, 0, 0));
 
         jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICons/Logo 4U_1.png"))); // NOI18N
 
@@ -1117,7 +1093,7 @@ public class PrincipalAD extends javax.swing.JFrame {
     }
 
     //Leer datos de forma ordenada (Segun Artista)
-    public static void LeerNormal(Scanner sc, String file_name, JTable tabla) {
+    public void LeerNormal(Scanner sc, String file_name, JTable tabla) {
         try {
             BufferedReader br = new BufferedReader(new FileReader(file_name + ".txt"));
             String line;
@@ -1144,14 +1120,11 @@ public class PrincipalAD extends javax.swing.JFrame {
                 }
             });
 
-            // Limpia la tabla
-            DefaultTableModel model = (DefaultTableModel) tabla.getModel();
-            model.setRowCount(0);
-
             // Agrega los datos ordenados a la tabla
             for (String[] rowData : Datos) {
-                model.addRow(rowData);
+                TablaINVENTARIO.addRow(rowData);
             }
+           
         } catch (IOException ex) {
             System.out.println("Error al leer el archivo: " + ex.getMessage());
         }
@@ -1224,7 +1197,7 @@ public class PrincipalAD extends javax.swing.JFrame {
     }
 
     // Subrutina para actualizar cantidad en el inventario
-    public static void ActualizarInventario(Scanner sc, String file_name, JTable tabla, String ProductoAct, String ArtistaAct, String cantidadAct) {
+    public void ActualizarInventario(Scanner sc, String file_name, JTable tabla, String ProductoAct, String ArtistaAct, String cantidadAct) {
         boolean hay = false;
         while (!hay) {
             try {
@@ -1281,7 +1254,7 @@ public class PrincipalAD extends javax.swing.JFrame {
     }
     // Subrutina para eliminar del inventario
 
-    public static void EliminarProducto(Scanner sc, String file_name, JTable tabla, String ProductoAct) {
+    public void EliminarProducto(Scanner sc, String file_name, JTable tabla, String ProductoAct) {
         boolean hay = false;
         while (!hay) {
             try {
@@ -1652,7 +1625,7 @@ public class PrincipalAD extends javax.swing.JFrame {
 
             model.removeAllElements(); // Limpia el modelo antes de cargar los elementos desde el archivo
             boolean hayElementos = false; // Bandera para verificar si se encontraron elementos
-            try ( BufferedReader BR = new BufferedReader(new FileReader("inventario.txt"))) {
+            try (BufferedReader BR = new BufferedReader(new FileReader("inventario.txt"))) {
                 String line;
                 while ((line = BR.readLine()) != null) {
                     String[] campos = line.split(";");
@@ -1711,7 +1684,7 @@ public class PrincipalAD extends javax.swing.JFrame {
             jcSubcategoriaEli.setEnabled(true);
             model2.removeAllElements(); // Limpia el modelo antes de cargar los elementos desde el archivo
             boolean hayElementos = false; // Bandera para verificar si se encontraron elementos
-            try ( BufferedReader BR = new BufferedReader(new FileReader("inventario.txt"))) {
+            try (BufferedReader BR = new BufferedReader(new FileReader("inventario.txt"))) {
                 String line;
                 while ((line = BR.readLine()) != null) {
                     String[] campos = line.split(";");
@@ -1779,7 +1752,7 @@ public class PrincipalAD extends javax.swing.JFrame {
         error4.setVisible(false);
         error5.setVisible(false);
         error6.setVisible(false);
-        jScrollPane1.setVisible(false);
+        sptable.setVisible(false);
         TablaINVENTARIO.setVisible(false);
         BTNAgregar1.setVisible(false);
         btnactualizar.setVisible(false);
@@ -1790,7 +1763,7 @@ public class PrincipalAD extends javax.swing.JFrame {
 
     private void BTNcerrarAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNcerrarAgregarActionPerformed
         PanelAgregar.setVisible(false);
-        jScrollPane1.setVisible(true);
+        sptable.setVisible(true);
         TablaINVENTARIO.setVisible(true);
         BTNAgregar1.setVisible(true);
         botonPE.setVisible(true);
@@ -1971,7 +1944,7 @@ public class PrincipalAD extends javax.swing.JFrame {
         error3PE.setVisible(false);
         error4PE.setVisible(false);
         PanelAgregarPE.setVisible(true);
-        jScrollPane1.setVisible(false);
+        sptable.setVisible(false);
         TablaINVENTARIO.setVisible(false);
         BTNAgregar1.setVisible(false);
         btnactualizar.setVisible(false);
@@ -1995,7 +1968,7 @@ public class PrincipalAD extends javax.swing.JFrame {
 
     private void BTNcerrarAgregar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNcerrarAgregar1ActionPerformed
         PanelAgregarPE.setVisible(false);
-        jScrollPane1.setVisible(true);
+        sptable.setVisible(true);
         TablaINVENTARIO.setVisible(true);
         BTNAgregar1.setVisible(true);
         botonPE.setVisible(true);
@@ -2059,7 +2032,7 @@ public class PrincipalAD extends javax.swing.JFrame {
 
     private void BTNcerrarEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNcerrarEliminarActionPerformed
         PanelEliminar.setVisible(false);
-        jScrollPane1.setVisible(true);
+        sptable.setVisible(true);
         TablaINVENTARIO.setVisible(true);
         BTNAgregar1.setVisible(true);
         botonPE.setVisible(true);
@@ -2106,7 +2079,7 @@ public class PrincipalAD extends javax.swing.JFrame {
         error2Eli.setVisible(false);
         error3Eli.setVisible(false);
         PanelEliminar.setVisible(true);
-        jScrollPane1.setVisible(false);
+        sptable.setVisible(false);
         TablaINVENTARIO.setVisible(false);
         BTNAgregar1.setVisible(false);
         btnactualizar.setVisible(false);
@@ -2141,7 +2114,7 @@ public class PrincipalAD extends javax.swing.JFrame {
 
     private void btnactualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnactualizarActionPerformed
         Scanner sc = null;
-         LeerNormal(sc, "Inventario", TablaINVENTARIO);
+        LeerNormal(sc, "Inventario", TablaINVENTARIO);
     }//GEN-LAST:event_btnactualizarActionPerformed
 //    public void AñadirUsuarios(String file_name, String file_ced) {
 //        try {
@@ -2555,7 +2528,7 @@ public class PrincipalAD extends javax.swing.JFrame {
     private javax.swing.JPanel PanelEliminar;
     private custom.PanelRound Pantalla;
     private javax.swing.JPasswordField PassField;
-    private javax.swing.JTable TablaINVENTARIO;
+    private com.raven.swing.Table TablaINVENTARIO;
     private javax.swing.JButton botonEP;
     private javax.swing.JButton botonPE;
     private javax.swing.JButton btnactualizar;
@@ -2596,7 +2569,6 @@ public class PrincipalAD extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JComboBox<String> jcArtista;
     private javax.swing.JComboBox<String> jcArtistaEli;
     private javax.swing.JComboBox<String> jcArtistaPE;
@@ -2615,6 +2587,7 @@ public class PrincipalAD extends javax.swing.JFrame {
     private custom.PanelRound panelRound1;
     private custom.PanelRound panelRound2;
     private custom.PanelRound panelRound3;
+    private javax.swing.JScrollPane sptable;
     private javax.swing.JLabel userLABEL;
     private javax.swing.JLabel valid;
     // End of variables declaration//GEN-END:variables
