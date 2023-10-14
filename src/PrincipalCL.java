@@ -791,6 +791,19 @@ public class PrincipalCL extends javax.swing.JFrame {
         IMAGENES_LLAVEROS.put("3", new ArrayList<>(List.of("Llavero Tipo 3")));
 
     }
+    private static  String ValidacionesNombres(String NombreProducto){
+        if (NombreProducto.equalsIgnoreCase("24/Seven")){
+                    return "24Seven";
+                }else if(NombreProducto.equalsIgnoreCase("When We All Fall Asleep, Where Do We Go?")){
+                     return "When We All Fall Asleep, Where Do We Go";
+                }else if(NombreProducto.equalsIgnoreCase("The Dream Chapter: STAR")){
+                     return "The Dream ChapterSTAR";
+                }
+                else if(NombreProducto.equalsIgnoreCase("The Chaos Chapter: FREEZE")){
+                     return "The Chaos Chapter";
+                }
+        return NombreProducto;
+    }
 
     public void agregarImagen(String NombreProducto) {
 
@@ -802,11 +815,13 @@ public class PrincipalCL extends javax.swing.JFrame {
                 ImagenProducto.setIcon(imagenArtista);
                 break;
             case "CD":
+                NombreProducto= ValidacionesNombres(NombreProducto);
                 ImageIcon imagenalbum = new ImageIcon(getClass().getResource("/Imagenes/" + NombreProducto + ".png"));
                 ImagenProducto.setIcon(imagenalbum);
 
                 break;
             case "Vinilo":
+                NombreProducto= ValidacionesNombres(NombreProducto);
                 ImageIcon imagenalbum2 = new ImageIcon(getClass().getResource("/Imagenes/" + NombreProducto + ".png"));
                 ImagenProducto.setIcon(imagenalbum2);
 
@@ -835,12 +850,12 @@ public class PrincipalCL extends javax.swing.JFrame {
         ALBUMES_ARTISTAS.put("Harry Styles", new ArrayList<>(List.of("Harry Styles", "Fine Line", "Harry's House")));
         ALBUMES_ARTISTAS.put("Sabrina Carpenter", new ArrayList<>(List.of("Eyes Wide Open", "Evolution", "Emails I Can't Send")));
         ALBUMES_ARTISTAS.put("Taylor Swift", new ArrayList<>(List.of("Fearless (Taylor's version)", "Speak Now (Taylor's version)", "Red (Taylor's version)", "Lover", "Folklore", "Evermore", "Midnights")));
-        ALBUMES_ARTISTAS.put("Billie Eilish", new ArrayList<>(List.of("When We All Fall Asleep, Where Do We Go?", "Happier Than Ever", "Don't Smile at Me", "Live at Third Man Records")));
+        ALBUMES_ARTISTAS.put("Billie Eilish", new ArrayList<>(List.of("When We All Fall Asleep, Where Do We Go", "Happier Than Ever", "Don't Smile at Me", "Live at Third Man Records")));
         ALBUMES_ARTISTAS.put("Louis Tomlinson", new ArrayList<>(List.of("Walls", "Faith in the Future")));
         ALBUMES_ARTISTAS.put("5SOS", new ArrayList<>(List.of("5 Seconds of Summer", "Sounds Good Feels Good", "Youngblood", "CALM", "5SOS5")));
         ALBUMES_ARTISTAS.put("Stray Kids", new ArrayList<>(List.of("Go Live", "No Easy", "5Stars", "ODDINARY", "Maxident")));
-        ALBUMES_ARTISTAS.put("Big Time Rush", new ArrayList<>(List.of("BTR", "Elevate", "24/Seven", "Another life")));
-        ALBUMES_ARTISTAS.put("TXT", new ArrayList<>(List.of("The Dream Chapter: STAR", "Still Dreaming", "The Chaos Chapter: FREEZE", "Sweet")));
+        ALBUMES_ARTISTAS.put("Big Time Rush", new ArrayList<>(List.of("BTR", "Elevate", "24Seven", "Another life")));
+        ALBUMES_ARTISTAS.put("TXT", new ArrayList<>(List.of("The Dream ChapterSTAR", "Still Dreaming", "The Chaos Chapter", "Sweet")));
         ALBUMES_ARTISTAS.put("Imagine Dragons", new ArrayList<>(List.of("Night Visions", "Smoke + Mirrors", "Evolve", "Origins", "Mercury")));
     }
     DefaultComboBoxModel<String> model2 = new DefaultComboBoxModel<>();
